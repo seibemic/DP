@@ -1,0 +1,5 @@
+dynamický stavový model - velikost obrazku x velikost bboxu z yolo
+omezené class labels (COCO)
+GPU
+nastavit "birth points" z yolo predikce
+možná - nastavit mid point pro SAM z filtru
