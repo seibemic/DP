@@ -3,3 +3,4 @@ omezené class labels (COCO)
 GPU
 nastavit "birth points" z yolo predikce
 možná - nastavit mid point pro SAM z filtru
+statická kamera - dynamická by mohla způsobit potíže pro stavový model
