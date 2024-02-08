@@ -4,3 +4,21 @@ GPU
 nastavit "birth points" z yolo predikce
 možná - nastavit mid point pro SAM z filtru
 statická kamera - dynamická by mohla způsobit potíže pro stavový model
+PREDICT - udělat spawnpointy nebo na každý detected object udělat temporary spawnpoint
+bude potřeba dynamicky stavovy model pro každy object?
+jak navázat konkrétní pd objektu na konkrétní targety ve filtru? pd ke kazdemu z? dulezite jsou no measurements pd
+
+
+Je dáno video jako sekvence framů v RGB. Na framech se objevují objekty, které chci detekovat. Pokud jsou objekty dobře rozpoznatelné, model (např. Yolo) je detekuje a vytvoří bbox. Tento bbox je poslán do modelu pro segmentaci obrazu a objektu je vytvořena maska, která značí, na kterých pixelech se přesně objekt nachází.
+V případě, kdy objekt není detekován i přesto, že se by se fyzicky měl na framu vyskytovat (zhoršené světelné podmínky, objekt se nachází za jiným objektem apod.), je potřeba o objektu stále vědět -> PHD.
+
+Mohou nastat dva případy:
+ 1) Objekt je v aktuálním framu detekován - target dostane nový aktuální bbox a novou aktuální masku.
+ 2) Objekt není detekován - nastane pouze případ missdetekce v PHD
+        - V predictu se přidá predict bboxu (předchozí bbox s posunutím jako u target střední hodnoty).
+        - Input: RGB matice bboxu, RGB matice předchozího bboxu a maska objektu z předchozího framu.
+        - Z tohoto inputu je potřeba odvodit pravděpodobnost detekce
+            - nápad: srovnat poměry RGB matic z předchozího bboxu a RGB matice z masky s poměrem mezi RGB maticí z predicovaného bboxu a masky
+            - příklad: žluté kolečko na modrém pozadí, na framu č. 0 je detekované - průměrná maska kolečka je žlutá, průměrná barva bboxu je "modro-žlutá",
+                       na framu č. 1 je kolečko za černou zdí - průměrná barva predikovaného bboxu, který predikuje, že kolečko je touto zdí, je černá a maska je stále žlutá.
+                       poměr mezi "modro-žlutou" z framu 0 a "černou" z framu 1 by měl dát velký rozdíl, tudíž nízkou Pd. Predikovaná barva by totiž měla být "černo-žlutá"
