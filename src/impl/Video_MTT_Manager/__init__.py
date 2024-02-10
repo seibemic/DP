@@ -103,12 +103,26 @@ class VideoMTT:
         return next_mask * color
 
     def resize_masks(self, masks):
-        if masks[0].shape != self.frameShape:
+        if masks.ndim == 2:
+            if masks[0].shape != self.frameShape:
+                new_masks = np.zeros(shape=(masks.shape[0], self.frameShape[1], self.frameShape[0]), dtype=np.int8)
+                for i, mask in enumerate(masks):
+                    new_masks[i] = cv2.resize(mask, self.frameShape)
+                return new_masks
+            return masks.astype(np.int8)
+
+        elif masks.ndim == 4:
             new_masks = np.zeros(shape=(masks.shape[0], self.frameShape[1], self.frameShape[0]), dtype=np.int8)
-            for i, mask in enumerate(masks):
-                new_masks[i] = cv2.resize(mask, self.frameShape)
-            return new_masks
-        return masks.astype(np.int8)
+            if masks[0][0].T.shape != self.frameShape:
+                masks = masks.transpose(1, 0, 2, 3)
+                for i, mask in enumerate(masks[0]):
+                    new_masks[i] = cv2.resize(mask, self.frameShape)
+                return new_masks
+            else:
+                masks = masks.transpose(1, 0, 2, 3)
+                return masks[0].astype(np.int8)
+        raise Exception("resize masks not supported")
+
 
     def filterClasses(self, cls, xyxy, conf, masks):
         classes_mask = np.isin(cls, self.chosen_class_ids)
@@ -138,61 +152,54 @@ class VideoMTT:
             merged_with_colors = np.bitwise_or(merged_with_colors, curr_mask_with_colors)
         return merged_with_colors.astype(np.uint8)
 
+    def show_frame(self, frame, text):
+        cv2.namedWindow(f"{text}", cv2.WINDOW_NORMAL)
+        cv2.resizeWindow(f"{text}", 1600, 1200)
+        cv2.imshow(f"{text}", frame)
+        cv2.waitKey(0)
 
-    def run(self):
+    def run(self, P):
         self.checkClassMembers()
         videoCap = cv2.VideoCapture(self.m_input_video)
         output_video_boxes = self.get_outputVideoWriter(videoCap, self.m_output_video + "_boxes.mp4")
         output_video_masks = self.get_outputVideoWriter(videoCap, self.m_output_video + "_masks.mp4")
-        # print(self.m_input_video)
         frame_num = 1
 
-        d = 400
-        P = np.array([[d, 0, 0, 0],
-                      [0, d, 0, 0],
-                      [0, 0, d, 0],
-                      [0, 0, 0, d]])
         width, height = self.get_videoDimensions(videoCap)
+        self.frameProcessor.set_frameDimensions((width, height))
         self.m_MTT.set_ImageSize(np.array([width, height]))
         self.m_MTT.add_PerimeterSpawnPoints(w=0.5, cov=P)
+
         while videoCap.isOpened():
             print("frame: ", frame_num)
             print("================================")
-
             ret, frame = videoCap.read()
             if not ret:
                 break
             bboxes, masks = self.frameProcessor.predict(frame)
             frameWithSpawnPoints = self.m_MTT.show_SpawnPoints(frame)
             if len(bboxes) == 0:
-                cv2.namedWindow(f"{frame_num}", cv2.WINDOW_NORMAL)
-                cv2.resizeWindow(f"{frame_num}", 1600, 1200)
-                cv2.imshow(f"{frame_num}", frame)
-                cv2.waitKey(0)
+                self.show_frame(frameWithSpawnPoints,frame_num)
                 frame_num +=1
                 continue
-            # print("masks orig dtype: ", masks.dtype)
+
             frameWithBboxes = self.frameProcessor.visualizeDetectionsBbox(frameWithSpawnPoints,
                                                                           bboxes.xyxy,
                                                                           bboxes.conf,
                                                                           bboxes.cls)
-            z = []
-            z2 = []
-            boxes = []
+            z_bboxes_center = []
+            z_masks_center = []
+
             xyxy, conf, masks = self.filterClasses(bboxes.cls.numpy(), bboxes.xyxy.numpy(), bboxes.conf.numpy(), masks)
             masks = self.resize_masks(masks)
             for i, obj_xyxy in enumerate(xyxy):
                 center_x = obj_xyxy[2] + obj_xyxy[0]
                 center_y = obj_xyxy[3] + obj_xyxy[1]
                 center = np.array([int(center_x / 2), int(center_y / 2)])
-                # print("x,y,x,y: ", obj_xyxy[0], obj_xyxy[1],obj_xyxy[2], obj_xyxy[3])
-                # print("frame: ",frame[int(obj_xyxy[0].numpy()):int(obj_xyxy[2].numpy()),
-                #                      int(obj_xyxy[1].numpy()):int(obj_xyxy[3].numpy()),0])
-                m = np.mean(frame[int(obj_xyxy[1]):int(obj_xyxy[3]),
-                                     int(obj_xyxy[0]):int(obj_xyxy[2]),0])
-                boxes.append(m)
-                # print("mean: ", m)
-                z.append(center)
+                # m = np.mean(frame[int(obj_xyxy[1]):int(obj_xyxy[3]),
+                #                      int(obj_xyxy[0]):int(obj_xyxy[2]),0])
+                # boxes.append(m)
+                z_bboxes_center.append(center)
                 radius = 2
                 color = (0, 128, 255)
                 thickness = -1
@@ -205,18 +212,16 @@ class VideoMTT:
                 radius = 2
                 thickness = -1
                 frameWithBboxes = cv2.circle(frameWithBboxes, center, radius, color, thickness)
-                z2.append(center)
-
+                z_masks_center.append(center)
 
 
 
             self.m_MTT.predict()
 
-            self.m_MTT.update(np.array(z2), conf, xyxy, masks)
+            self.m_MTT.update(np.array(z_masks_center), conf, xyxy, masks, frame)
             self.m_MTT.pruneByMaxWeight(0.1)
-            self.m_MTT.mergeTargets()
+            # self.m_MTT.mergeTargets()
             print("Trackers: ", len(self.m_MTT.trackers))
-            # print(z)
 
             predicted_xyxy = []
             predicted_conf = []
@@ -239,6 +244,7 @@ class VideoMTT:
                     predicted_xyxy.append(target.xyxy)
                     predicted_conf.append(target.conf)
                     predicted_cls.append(1)
+                    prev_masks = []
                     print(f"target {i}:")
                     if target.mask is not None:
                         print(f"    mask mean: ", np.mean(frame[target.mask.nonzero()]))
@@ -246,7 +252,20 @@ class VideoMTT:
                         m = np.mean(frame[int(target.prev_xyxy[1]):int(target.prev_xyxy[3]),
                                     int(target.prev_xyxy[0]):int(target.prev_xyxy[2]), 0])
                         print("     prev bbox mean: ", m)
-
+                    if target.prev_mask is not None:
+                        prev_masks.append(target.prev_mask)
+                    # for prev in prev_masks:
+                    #     print("prev mask: ")
+                    #     msk = prev * 255
+                    #     cv2.imshow(f"prev_{frame_num}", msk)
+                    #     cv2.waitKey(0)
+                    cls = np.zeros(shape=len(prev_masks))
+                    print("prev mask len: ", len(prev_masks))
+                    if len(prev_masks) > 0:
+                        merged_colored_mask = self.merge_masks_colored(prev_masks, cls)
+                        frameWithBboxes = cv2.addWeighted(frameWithBboxes, 0.7, merged_colored_mask, 0.7, 0)
+                    # cv2.imshow(f"prev_{frame_num}", frameWithBboxes)
+                    # cv2.waitKey(0)
                     m = np.mean(frame[int(target.xyxy[1]):int(target.xyxy[3]),
                                 int(target.xyxy[0]):int(target.xyxy[2]), 0])
                     print("     bbox mean: ", m)

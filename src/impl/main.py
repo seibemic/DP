@@ -1,4 +1,5 @@
 import numpy as np
+import torch
 import sys
 sys.path.append("../..")
 # from src.impl.Frame_Processing.YOLO import YOLOHandler
@@ -19,14 +20,20 @@ if __name__ == '__main__':
     H = np.lib.pad(H, ((0, 0), (0, 2)), 'constant', constant_values=(0))
     Ps = 0.95
 
-
     MTT = PHDTracker(F,H,Q,R,Ps)
 
     of = "/home/michal/Documents/FIT/DP/dp/src/data/output/test01"
-    frameProcessor = FrameProcessing(mode=0, device="cpu")
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    frameProcessor = FrameProcessing(mode=1, device=device)
     # yolo = YOLOHandler()
 
     # sam = SAM_handler(device = "cpu")
     input = "/home/michal/Documents/FIT/DP/dp/src/data/input/DSCN0005.MP4"
     vid = VideoMTT(input_video=input, MTT = MTT, frameProcessor=frameProcessor,  chosen_class_ids=[0], output_video=of)
-    vid.run()
+
+    d = 400
+    P = np.array([[d, 0, 0, 0],
+                  [0, d, 0, 0],
+                  [0, 0, d, 0],
+                  [0, 0, 0, d]])
+    vid.run(P)

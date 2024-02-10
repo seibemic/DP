@@ -1,6 +1,8 @@
 import numpy as np
 from scipy.stats import chi2
-
+import cv2
+from PIL import ImageChops, Image
+import matplotlib.pyplot as plt
 class PHD:
     def __init__(self, w, m, P, conf = 0.9, xyxy = None, prev_xyxy=None, mask = None):
         self.prev_m = None
@@ -11,6 +13,7 @@ class PHD:
         self.xyxy = xyxy
         self.prev_xyxy = prev_xyxy
         self.mask = mask
+        self.prev_mask = None
         # self.P_aposterior=self.P_aprior
 
 
@@ -28,7 +31,7 @@ class PHD:
         self.P_apost = self.P.copy()
         self.P = (np.eye(len(self.K)) - self.K @ H) @ self.P
 
-    def update(self, H, conf = 0.9):
+    def update(self, H, pd, frame):
         self.w = (1 - self.conf) * self.w
         # self.w = (1 - 0.3) * self.w
         self.m = self.m
@@ -36,7 +39,80 @@ class PHD:
         self.prev_xyxy = self.xyxy
         if self.xyxy is not None:
             self.xyxy = self.xyxy + np.tile(H @ (self.m - self.prev_m) , 2)
+        if self.mask is not None:
+            self.prev_mask = self.mask.copy()
+            m = H @ (self.m - self.prev_m)
+            dx = m[0]
+            dy = m[1]
+            self.move_binary_mask(dx, dy)
+            print("prev mask sum: ", np.sum(self.prev_mask))
+            print("   first non zero: ", self.first_nonzero_index(self.prev_mask))
+            print("mask sum: ", np.sum(self.mask))
+            print("   first non zero: ", self.first_nonzero_index(self.mask))
+            print("w: ", self.w)
+            self.getPd(frame)
+            self.w = 1
         # self.P_aposterior = self.P_aprior
+
+    def getPd(self, frame):
+        self.getMaskStats(frame)
+    def getMaskStats(self, frame):
+        new_frame = np.ma.array(frame[:, :, 0], mask=np.invert(self.mask))
+        prev_frame = np.ma.array(frame[:, :, 0], mask=np.invert(self.prev_mask))
+        hist_hue_new, hist_saturation_new, hist_value_new = self.get_object_histogram(frame, self.mask)
+        # print(hist_hue, hist_saturation, hist_value)
+        # self.plot_histogram(hist_hue_new[1:], 'Hue Histogram_next')
+        # self.plot_histogram(hist_saturation_new[1:], 'Saturation Histogram_next')
+        # self.plot_histogram(hist_value_new[1:], 'Value Histogram_next')
+        hist_hue_prev, hist_saturation_prev, hist_value_prev = self.get_object_histogram(frame, self.prev_mask)
+        # print(hist_hue, hist_saturation, hist_value)
+        # print(hist_hue_prev[1:].shape, hist_hue_new[1:].shape)
+        # print(hist_hue_prev[1:])
+        # print(hist_hue_prev[1:].flatten())
+        # self.plot_histogram(hist_hue_prev[1:], 'Hue Histogram_prev')
+        # self.plot_histogram(hist_saturation_prev[1:], 'Saturation Histogram_prev')
+        # self.plot_histogram(hist_value_prev[1:], 'Value Histogram_prev')
+        cos_sim_hue = hist_hue_new[1:].flatten() @ hist_hue_prev[1:].flatten() / (
+            np.linalg.norm((hist_hue_new[1:].flatten()) * np.linalg.norm(hist_hue_prev[1:].flatten())))
+
+        cos_sim_sat = hist_saturation_new[1:].flatten() @ hist_saturation_prev[1:].flatten() / (
+            np.linalg.norm((hist_saturation_new[1:].flatten()) * np.linalg.norm(hist_saturation_prev[1:].flatten())))
+
+        cos_sim_val = hist_value_new[1:].flatten() @ hist_value_prev[1:].flatten() / (
+            np.linalg.norm((hist_value_new[1:].flatten()) * np.linalg.norm(hist_value_prev[1:].flatten())))
+        print("hue: ", cos_sim_hue)
+        print("saturation: ", cos_sim_sat)
+        print("value: ", cos_sim_val)
+        # prev_img = Image.fromarray(prev_frame.astype(np.uint8))
+        # new_img = Image.fromarray(new_frame.astype(np.uint8))
+        # diff = ImageChops.difference(prev_img, new_img).histogram()
+        # print(diff)
+        # min
+        # max
+        # mean
+        # hist
+
+    def plot_histogram(self, hist, title):
+        plt.plot(hist)
+        plt.title(title)
+        plt.xlabel('Pixel Value')
+        plt.ylabel('Frequency')
+        plt.show()
+    def get_object_histogram(self, rgb_image, binary_mask):
+        # Apply the binary mask to the RGB image
+        masked_image = cv2.bitwise_and(rgb_image, rgb_image, mask=binary_mask)
+
+        # Convert the image to HSV color space
+        hsv_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2HSV)
+
+        # Calculate the histogram
+        hist_hue = cv2.calcHist([hsv_image], [0], None, [256], [0, 256])
+        hist_saturation = cv2.calcHist([hsv_image], [1], None, [256], [0, 256])
+        hist_value = cv2.calcHist([hsv_image], [2], None, [256], [0, 256])
+
+        return hist_hue, hist_saturation, hist_value
+    def updateWeight(self, pd):
+        self.w = (1 - pd) * self.w
 
     def inGating(self, z, Pg=0.99):
         covInv = np.linalg.inv(self.S)
@@ -44,3 +120,43 @@ class PHD:
         if ((z - self.ny).T @ covInv @ (z - self.ny)) <= gamma:
             return True
         return False
+    def move_mask(self, dx, dy):
+        rows, cols = self.mask.shape
+
+        # Create an empty mask of the same size
+        # moved_mask = np.zeros_like(self.mask)
+
+        # Define the transformation matrix for translation
+        M = np.float32([[1, 0, dx], [0, 1, dy]])
+
+        # Apply the translation to the mask
+        moved_mask = cv2.warpAffine(self.mask, M, (cols, rows))
+        self.mask = moved_mask
+        # return moved_mask
+
+    def move_binary_mask(self, dx, dy):
+        # Ensure dx and dy are integers
+        dx = int(dx)
+        dy = int(dy)
+
+        # Use binary shifting to move the object in x direction
+        if dx > 0:
+            self.mask[:, dx:] = self.mask[:, :-dx]
+            self.mask[:, :dx] = 0
+        elif dx < 0:
+            self.mask[:, :dx] = self.mask[:, -dx:]
+            self.mask[:, dx:] = 0
+
+        # Use binary shifting to move the object in y direction
+        if dy > 0:
+            self.mask[dy:, :] = self.mask[:-dy, :]
+            self.mask[:dy, :] = 0
+        elif dy < 0:
+            self.mask[:dy, :] = self.mask[-dy:, :]
+            self.mask[dy:, :] = 0
+
+    def first_nonzero_index(self, arr):
+        indices = np.nonzero(arr)
+        if indices[0].size == 0:  # Check if the array is entirely zero
+            return None
+        return (indices[0][0], indices[1][0])

@@ -18,16 +18,19 @@ class SAM_handler:
         self.m_sam_checkpoint = "weights/sam_vit_h_4b8939.pth"
         self.m_model_type = "vit_h"
         self.m_device = device
+        print(device)
         self.sam = sam_model_registry[self.m_model_type](checkpoint=self.m_sam_checkpoint)
         self.sam.to(device=self.m_device)
         self.m_predictor = SamPredictor(self.sam)
 
-    def transformBoxes(self, video_dims, detections):
-        transformed_boxes = self.m_predictor.transform.apply_boxes_torch(detections[0].boxes.xyxy,
-                                                                         video_dims)
+    def transformBoxes(self, frameDimensions, detections):
+        transformed_boxes = self.m_predictor.transform.apply_boxes_torch(detections.xyxy,
+                                                                         frameDimensions)
         return transformed_boxes
 
-    def predict(self, frame, transformed_boxes):
+    def predict(self, frame, frameDimensions, detections):
+        print("frame dimensions: ", frameDimensions)
+        transformed_boxes = self.transformBoxes(frameDimensions, detections)
         self.m_predictor.set_image(frame)
         masks, scores, logits = self.m_predictor.predict_torch(
             boxes=transformed_boxes,

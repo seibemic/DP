@@ -4,7 +4,7 @@ from src.impl.Frame_Processing.SAM import SAM_handler
 
 
 class FrameProcessing:
-    def __init__(self, mode=0, device=None):
+    def __init__(self, mode=0, device=None, frameDimensions=None):
         if device is None:
             device = "cuda" if torch.cuda.is_available() else "cpu"
         self.device = device
@@ -16,6 +16,7 @@ class FrameProcessing:
         self.logits = None
         self.colors = None
 
+        self.frameDimensions = frameDimensions
         self.bboxPredictor = None
         self.maskPredictor = None
         self.set_Predictors()
@@ -29,18 +30,27 @@ class FrameProcessing:
             self.maskPredictor = SAM_handler(self.device)
             self.colors = self.bboxPredictor.colors
 
+    def set_frameDimensions(self, frameDimensions):
+        self.frameDimensions = frameDimensions
+
     def predict(self, frame):
         if self.mode == 0:  # yolo, yolo
             detections = self.bboxPredictor.predict(frame)
             self.bboxes = detections[0].boxes.cpu()
             if detections[0].masks:
-                self.masks = detections[0].masks.data.numpy()
+                self.masks = detections[0].masks.cpu().data.numpy()
             else:
                 self.masks = None
         elif self.mode == 1:  # yolo, sam
             detections = self.bboxPredictor.predict(frame)
-            self.bboxes = detections[0].boxes.cpu()
-            self.masks, self.scores, self.logits = self.maskPredictor.predict(frame)
+            self.bboxes = detections[0].boxes
+            self.masks = None
+            print("bboxes len: ", len(detections[0]))
+            if len(detections[0]) > 0:
+                self.masks, self.scores, self.logits = self.maskPredictor.predict(frame, self.frameDimensions, self.bboxes)
+                self.bboxes = detections[0].boxes.cpu()
+                # self.masks = self.masks.cpu()
+                return self.bboxes, self.masks
         return self.bboxes, self.masks
 
     def get_bboxes(self):

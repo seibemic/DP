@@ -15,7 +15,7 @@ class PHDTracker(TargetTracker):
         for sp in self.spawnPoints:
             w = sp.w
             m = sp.m
-            m= list(m)
+            m = list(m)
             m.append(0)
             m.append(0)
             m = np.array(m)
@@ -34,7 +34,7 @@ class PHDTracker(TargetTracker):
         self.predictBirthTargets()
         self.predictExistingTargets()
 
-    def update(self, z, pd, xyxy, masks,lambd=0.00001):
+    def update(self, z, pd, xyxy, masks, frame, lambd=0.00001):
         Jk = len(self.trackers)
         self.updateComponents()
         # print("z len: ", len(z))
@@ -57,7 +57,7 @@ class PHDTracker(TargetTracker):
                 self.trackers[start_index + j].w = self.trackers[start_index + j].w / (lambd + phds_sum)
 
         for j in range(Jk):
-            self.trackers[j].update(self.H, pd)
+            self.trackers[j].update(self.H, pd=0.9, frame=frame)
 
     def pruneByMaxWeight(self, w):
         filters_to_stay = []
@@ -105,7 +105,7 @@ class PHDTracker(TargetTracker):
                                                            (m_mix - filters_to_stay[t_id].m).T))
             xyxy_mix = np.zeros(shape=(4))
             conf_mix = 0
-            max_shape = (0,0)
+            max_shape = (0, 0)
             for f in filters_to_stay:
                 if f.mask is not None and f.mask.shape[0] > max_shape[0] and f.mask.shape[1] > max_shape[1]:
                     max_shape = f.mask.shape
@@ -143,7 +143,6 @@ class PHDTracker(TargetTracker):
                 mask_mix = np.clip(mask_mix, 0, 1)
             else:
                 mask_mix = None
-
 
             P_mix /= w_mix
             mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, mask_mix))
