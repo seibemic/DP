@@ -2,7 +2,7 @@ from src.impl.MTT import TargetTracker
 from src.impl.MTT.PHD.PHD import PHD
 from scipy.stats import multivariate_normal as mvn
 import numpy as np
-
+from src.impl.MTT.ObjectStats import ObjectStats
 
 class PHDTracker(TargetTracker):
     def __init__(self, F, H, Q, R, ps):
@@ -39,25 +39,31 @@ class PHDTracker(TargetTracker):
         self.updateComponents()
         # print("z len: ", len(z))
         # print("PHDS: ", Jk)
+        measured = np.zeros(shape=(len(self.trackers)))
         for l, z in enumerate(z):
             phds_sum = 0
             gatings = 0
             start_index = len(self.trackers)
             for j in range(Jk):
                 if self.trackers[j].inGating(z):
+                    measured[j] = 1
                     w = pd[l] * self.trackers[j].w * mvn(self.trackers[j].ny, self.trackers[j].S).pdf(z)
                     m = self.trackers[j].m + self.trackers[j].K @ (z - self.trackers[j].ny)
                     P = self.trackers[j].P
                     phds_sum += w
 
                     prev_xyxy = self.trackers[j].prev_xyxy if self.trackers[j].prev_xyxy is not None else None
-                    self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l]))
+                    objectstats = ObjectStats(frame, masks[l])
+                    self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l], objectstats))
                     gatings += 1
             for j in range(gatings):
                 self.trackers[start_index + j].w = self.trackers[start_index + j].w / (lambd + phds_sum)
 
         for j in range(Jk):
-            self.trackers[j].update(self.H, pd=0.9, frame=frame)
+            if measured[j]:
+                self.trackers[j].update(self.H, pd=1, frame=frame)
+            else:
+                self.trackers[j].update(self.H,pd = 0.1, frame=frame)
 
     def pruneByMaxWeight(self, w):
         filters_to_stay = []

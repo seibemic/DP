@@ -3,8 +3,9 @@ from scipy.stats import chi2
 import cv2
 from PIL import ImageChops, Image
 import matplotlib.pyplot as plt
+from src.impl.MTT.ObjectStats import ObjectStats
 class PHD:
-    def __init__(self, w, m, P, conf = 0.9, xyxy = None, prev_xyxy=None, mask = None):
+    def __init__(self, w, m, P, conf = 0.9, xyxy = None, prev_xyxy=None, mask = None, objectStats=None):
         self.prev_m = None
         self.w = w
         self.m = m
@@ -14,6 +15,7 @@ class PHD:
         self.prev_xyxy = prev_xyxy
         self.mask = mask
         self.prev_mask = None
+        self.objectStats = objectStats
         # self.P_aposterior=self.P_aprior
 
 
@@ -32,7 +34,9 @@ class PHD:
         self.P = (np.eye(len(self.K)) - self.K @ H) @ self.P
 
     def update(self, H, pd, frame):
-        self.w = (1 - self.conf) * self.w
+
+        self.w = (1 - pd) * self.w
+        # self.w = (1 - self.conf) * self.w
         # self.w = (1 - 0.3) * self.w
         self.m = self.m
         self.P = self.P_apost
@@ -41,17 +45,23 @@ class PHD:
             self.xyxy = self.xyxy + np.tile(H @ (self.m - self.prev_m) , 2)
         if self.mask is not None:
             self.prev_mask = self.mask.copy()
-            m = H @ (self.m - self.prev_m)
-            dx = m[0]
-            dy = m[1]
+            # m = H @ (self.m - self.prev_m)
+            # dx = m[0]
+            # dy = m[1]
+            dx = self.m[2]
+            dy = self.m[3]
+            print("dx, dy: ", dx, dy)
             self.move_binary_mask(dx, dy)
             print("prev mask sum: ", np.sum(self.prev_mask))
             print("   first non zero: ", self.first_nonzero_index(self.prev_mask))
             print("mask sum: ", np.sum(self.mask))
             print("   first non zero: ", self.first_nonzero_index(self.mask))
             print("w: ", self.w)
-            self.getPd(frame)
-            self.w = 1
+            self.objectStats.printAll(self.mask)
+            # self.getPd(frame)
+        else:
+            self.w = 0
+            # self.w = 1
         # self.P_aposterior = self.P_aprior
 
     def getPd(self, frame):
@@ -73,7 +83,7 @@ class PHD:
         # self.plot_histogram(hist_saturation_prev[1:], 'Saturation Histogram_prev')
         # self.plot_histogram(hist_value_prev[1:], 'Value Histogram_prev')
         cos_sim_hue = hist_hue_new[1:].flatten() @ hist_hue_prev[1:].flatten() / (
-            np.linalg.norm((hist_hue_new[1:].flatten()) * np.linalg.norm(hist_hue_prev[1:].flatten())))
+            np.linalg.norm(hist_hue_new[1:].flatten()) * np.linalg.norm(hist_hue_prev[1:].flatten()))
 
         cos_sim_sat = hist_saturation_new[1:].flatten() @ hist_saturation_prev[1:].flatten() / (
             np.linalg.norm((hist_saturation_new[1:].flatten()) * np.linalg.norm(hist_saturation_prev[1:].flatten())))
@@ -83,6 +93,36 @@ class PHD:
         print("hue: ", cos_sim_hue)
         print("saturation: ", cos_sim_sat)
         print("value: ", cos_sim_val)
+
+        hue_intersection = np.sum(np.minimum(hist_hue_new[1:].flatten(), hist_hue_prev[1:].flatten()))
+        sat_intersection = np.sum(np.minimum(hist_saturation_new[1:].flatten(), hist_saturation_prev[1:].flatten()))
+        val_intersection = np.sum(np.minimum(hist_value_new[1:].flatten(), hist_value_prev[1:].flatten()))
+        print("hue intersection: ", hue_intersection / np.sum(hist_hue_new[1:].flatten()))
+        print("sat_intersection: ", sat_intersection / np.sum(hist_saturation_new[1:].flatten()))
+        print("val_intersection: ", val_intersection / np.sum(hist_value_new[1:].flatten()))
+
+        hue_corr = cv2.compareHist(hist_hue_new[1:].flatten(), hist_hue_prev[1:].flatten(), cv2.HISTCMP_CORREL)
+        sat_corr = cv2.compareHist(hist_saturation_new[1:].flatten(), hist_saturation_prev[1:].flatten(), cv2.HISTCMP_CORREL)
+        val_corr = cv2.compareHist(hist_value_new[1:].flatten(), hist_value_prev[1:].flatten(), cv2.HISTCMP_CORREL)
+        print("hue_corr: ", hue_corr)
+        print("sat_corr: ", sat_corr)
+        print("val_corr: ", val_corr)
+
+        hue_chi = cv2.compareHist(hist_hue_new[1:].flatten(), hist_hue_prev[1:].flatten(), cv2.HISTCMP_CHISQR)
+        sat_chi = cv2.compareHist(hist_saturation_new[1:].flatten(), hist_saturation_prev[1:].flatten(),
+                                   cv2.HISTCMP_CHISQR)
+        val_chi = cv2.compareHist(hist_value_new[1:].flatten(), hist_value_prev[1:].flatten(), cv2.HISTCMP_CHISQR)
+        print("hue_chi: ", hue_chi/ np.sum(hist_hue_new[1:].flatten()))
+        print("sat_chi: ", sat_chi/ np.sum(hist_saturation_new[1:].flatten()))
+        print("val_chi: ", val_chi/ np.sum(hist_value_new[1:].flatten()))
+
+        hue_bhat = cv2.compareHist(hist_hue_new[1:].flatten(), hist_hue_prev[1:].flatten(), cv2.HISTCMP_BHATTACHARYYA)
+        sat_bhat = cv2.compareHist(hist_saturation_new[1:].flatten(), hist_saturation_prev[1:].flatten(),
+                                  cv2.HISTCMP_BHATTACHARYYA)
+        val_bhat = cv2.compareHist(hist_value_new[1:].flatten(), hist_value_prev[1:].flatten(), cv2.HISTCMP_BHATTACHARYYA)
+        print("hue_bhat: ", hue_bhat)
+        print("sat_bhat: ", sat_bhat)
+        print("val_bhat: ", val_bhat)
         # prev_img = Image.fromarray(prev_frame.astype(np.uint8))
         # new_img = Image.fromarray(new_frame.astype(np.uint8))
         # diff = ImageChops.difference(prev_img, new_img).histogram()

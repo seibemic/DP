@@ -103,7 +103,8 @@ class VideoMTT:
         return next_mask * color
 
     def resize_masks(self, masks):
-        if masks.ndim == 2:
+        print(masks.ndim)
+        if masks.ndim == 3:
             if masks[0].shape != self.frameShape:
                 new_masks = np.zeros(shape=(masks.shape[0], self.frameShape[1], self.frameShape[0]), dtype=np.int8)
                 for i, mask in enumerate(masks):
@@ -227,6 +228,8 @@ class VideoMTT:
             predicted_conf = []
             predicted_cls = []
 
+            prev_masks = []
+            act_masks = []
             for i, target in enumerate(self.m_MTT.trackers):
                 radius = 2
                 color = (0, 0, 255)
@@ -244,10 +247,11 @@ class VideoMTT:
                     predicted_xyxy.append(target.xyxy)
                     predicted_conf.append(target.conf)
                     predicted_cls.append(1)
-                    prev_masks = []
+
                     print(f"target {i}:")
                     if target.mask is not None:
                         print(f"    mask mean: ", np.mean(frame[target.mask.nonzero()]))
+                        act_masks.append(target.mask)
                     if target.prev_xyxy is not None:
                         m = np.mean(frame[int(target.prev_xyxy[1]):int(target.prev_xyxy[3]),
                                     int(target.prev_xyxy[0]):int(target.prev_xyxy[2]), 0])
@@ -259,17 +263,22 @@ class VideoMTT:
                     #     msk = prev * 255
                     #     cv2.imshow(f"prev_{frame_num}", msk)
                     #     cv2.waitKey(0)
-                    cls = np.zeros(shape=len(prev_masks))
+
                     print("prev mask len: ", len(prev_masks))
-                    if len(prev_masks) > 0:
-                        merged_colored_mask = self.merge_masks_colored(prev_masks, cls)
-                        frameWithBboxes = cv2.addWeighted(frameWithBboxes, 0.7, merged_colored_mask, 0.7, 0)
+
                     # cv2.imshow(f"prev_{frame_num}", frameWithBboxes)
                     # cv2.waitKey(0)
                     m = np.mean(frame[int(target.xyxy[1]):int(target.xyxy[3]),
                                 int(target.xyxy[0]):int(target.xyxy[2]), 0])
                     print("     bbox mean: ", m)
-
+            cls = np.zeros(shape=len(prev_masks))
+            if len(prev_masks) > 0:
+                merged_colored_mask = self.merge_masks_colored(prev_masks, cls)
+                frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
+            cls = np.zeros(shape=len(act_masks))
+            if len(act_masks) > 0:
+                merged_colored_mask = self.merge_masks_colored(act_masks, cls)
+                frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
             # print("xyxy: ", xyxy)
             # print("predicted xyxy: ", predicted_xyxy)
             # frameWithBboxes = self.frameProcessor.visualizeDetectionsBbox(frameWithBboxes,
@@ -279,8 +288,8 @@ class VideoMTT:
 
             output_video_boxes.write(frameWithBboxes)
 
-            merged_colored_mask = self.merge_masks_colored(masks, bboxes.cls)
-            frameWithBboxes = cv2.addWeighted(frameWithBboxes, 0.7, merged_colored_mask, 0.7, 0)
+            # merged_colored_mask = self.merge_masks_colored(masks, bboxes.cls)
+            # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
             # if masks is not None:
             #     masks = self.resize_masks(masks)
             #     for mask in masks:

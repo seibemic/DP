@@ -22,3 +22,9 @@ Mohou nastat dva případy:
             - příklad: žluté kolečko na modrém pozadí, na framu č. 0 je detekované - průměrná maska kolečka je žlutá, průměrná barva bboxu je "modro-žlutá",
                        na framu č. 1 je kolečko za černou zdí - průměrná barva predikovaného bboxu, který predikuje, že kolečko je touto zdí, je černá a maska je stále žlutá.
                        poměr mezi "modro-žlutou" z framu 0 a "černou" z framu 1 by měl dát velký rozdíl, tudíž nízkou Pd. Predikovaná barva by totiž měla být "černo-žlutá"
+
+
+missdetekce - vzit posun jako průměr z předchozích N kroků
+            - posunout masku, zachovat prev_masku jako poslední masku, kdy došlo k detekci... masku i frame.. nosit s sebou statistiky a pokud nastane missdetekce, posunout masku, získat z ní statistiky a porovnat s orig. statistikami
+
+lepší vykreslování masky - vlastní title, zobrazit předchozí?
