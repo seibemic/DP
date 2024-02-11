@@ -219,7 +219,7 @@ class VideoMTT:
 
             self.m_MTT.predict()
 
-            self.m_MTT.update(np.array(z_masks_center), conf, xyxy, masks, frame)
+            self.m_MTT.update(np.array(z_masks_center), conf, xyxy, masks, frame, frame_num)
             self.m_MTT.pruneByMaxWeight(0.1)
             # self.m_MTT.mergeTargets()
             print("Trackers: ", len(self.m_MTT.trackers))
@@ -256,15 +256,15 @@ class VideoMTT:
                         m = np.mean(frame[int(target.prev_xyxy[1]):int(target.prev_xyxy[3]),
                                     int(target.prev_xyxy[0]):int(target.prev_xyxy[2]), 0])
                         print("     prev bbox mean: ", m)
-                    if target.prev_mask is not None:
-                        prev_masks.append(target.prev_mask)
+                    if target.objectStats is not None:
+                        prev_masks.append(target.objectStats.mask)
                     # for prev in prev_masks:
                     #     print("prev mask: ")
                     #     msk = prev * 255
                     #     cv2.imshow(f"prev_{frame_num}", msk)
                     #     cv2.waitKey(0)
 
-                    print("prev mask len: ", len(prev_masks))
+
 
                     # cv2.imshow(f"prev_{frame_num}", frameWithBboxes)
                     # cv2.waitKey(0)
@@ -272,6 +272,7 @@ class VideoMTT:
                                 int(target.xyxy[0]):int(target.xyxy[2]), 0])
                     print("     bbox mean: ", m)
             cls = np.zeros(shape=len(prev_masks))
+            print("prev mask len: ", len(prev_masks))
             if len(prev_masks) > 0:
                 merged_colored_mask = self.merge_masks_colored(prev_masks, cls)
                 frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)

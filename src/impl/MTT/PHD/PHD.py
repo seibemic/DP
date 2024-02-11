@@ -33,7 +33,7 @@ class PHD:
         self.P_apost = self.P.copy()
         self.P = (np.eye(len(self.K)) - self.K @ H) @ self.P
 
-    def update(self, H, pd, frame):
+    def update(self, H, pd, frame, frame_num):
 
         self.w = (1 - pd) * self.w
         # self.w = (1 - self.conf) * self.w
@@ -53,11 +53,12 @@ class PHD:
             print("dx, dy: ", dx, dy)
             self.move_binary_mask(dx, dy)
             print("prev mask sum: ", np.sum(self.prev_mask))
-            print("   first non zero: ", self.first_nonzero_index(self.prev_mask))
+            print("   first non zero: ", self.first_nonzero_index(self.objectStats.mask))
             print("mask sum: ", np.sum(self.mask))
             print("   first non zero: ", self.first_nonzero_index(self.mask))
             print("w: ", self.w)
-            self.objectStats.printAll(self.mask)
+            if dx>0:
+                self.objectStats.printAll(self.mask, frame_num)
             # self.getPd(frame)
         else:
             self.w = 0
@@ -194,6 +195,27 @@ class PHD:
         elif dy < 0:
             self.mask[:dy, :] = self.mask[-dy:, :]
             self.mask[dy:, :] = 0
+
+    def move_binary_mask2(self, dx, dy):
+        # Find the indices of the non-zero elements in the binary mask
+        binary_mask = self.mask
+        indices = np.argwhere(binary_mask == 1)
+
+        # Update the indices based on the displacement
+        new_indices = indices + np.array([dy, dx])
+
+        # Create a new binary mask with the moved elements
+        new_binary_mask = np.zeros_like(binary_mask)
+
+        # Ensure that the new indices are within the bounds of the array
+        valid_indices = (new_indices[:, 0] >= 0) & (new_indices[:, 0] < binary_mask.shape[0]) & \
+                        (new_indices[:, 1] >= 0) & (new_indices[:, 1] < binary_mask.shape[1])
+
+        # Update the new binary mask with the valid moved indices
+        new_indices = new_indices[valid_indices]
+        new_binary_mask[new_indices[:, 0], new_indices[:, 1]] = 1
+        self.mask = new_binary_mask
+        # return new_binary_mask
 
     def first_nonzero_index(self, arr):
         indices = np.nonzero(arr)

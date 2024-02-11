@@ -34,7 +34,7 @@ class PHDTracker(TargetTracker):
         self.predictBirthTargets()
         self.predictExistingTargets()
 
-    def update(self, z, pd, xyxy, masks, frame, lambd=0.00001):
+    def update(self, z, pd, xyxy, masks, frame, frame_num,lambd=0.00001):
         Jk = len(self.trackers)
         self.updateComponents()
         # print("z len: ", len(z))
@@ -53,17 +53,18 @@ class PHDTracker(TargetTracker):
                     phds_sum += w
 
                     prev_xyxy = self.trackers[j].prev_xyxy if self.trackers[j].prev_xyxy is not None else None
-                    objectstats = ObjectStats(frame, masks[l])
-                    self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l], objectstats))
+                    objectstats = ObjectStats(frame, masks[l].copy())
+                    # self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
+                    self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
                     gatings += 1
             for j in range(gatings):
                 self.trackers[start_index + j].w = self.trackers[start_index + j].w / (lambd + phds_sum)
 
         for j in range(Jk):
             if measured[j]:
-                self.trackers[j].update(self.H, pd=1, frame=frame)
+                self.trackers[j].update(self.H, pd=1, frame=frame, frame_num=frame_num)
             else:
-                self.trackers[j].update(self.H,pd = 0.1, frame=frame)
+                self.trackers[j].update(self.H,pd = 0.1, frame=frame, frame_num=frame_num)
 
     def pruneByMaxWeight(self, w):
         filters_to_stay = []
