@@ -57,7 +57,7 @@ class PHD:
             print("mask sum: ", np.sum(self.mask))
             print("   first non zero: ", self.first_nonzero_index(self.mask))
             print("w: ", self.w)
-            if dx>0:
+            if dx<0:
                 self.objectStats.printAll(self.mask, frame_num)
             # self.getPd(frame)
         else:

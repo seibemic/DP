@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     of = "/home/michal/Documents/FIT/DP/dp/src/data/output/test01"
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    frameProcessor = FrameProcessing(mode=1
+    frameProcessor = FrameProcessing(mode=0
                                      , device=device)
     # yolo = YOLOHandler()
 

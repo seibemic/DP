@@ -18,18 +18,32 @@ class ObjectStats:
         masked_image = cv2.bitwise_and(rgb_image, rgb_image, mask=binary_mask)
 
         # Convert the image to HSV color space
-        # hsv_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2HSV)
-        hsv_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2RGB)
+        all_spectrums =[]
+        hsv_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2HSV)
+        rgb_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2RGB)
         lab_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2LAB)
+        cv2.COLOR_BGR2
+        all_spectrums.append(hsv_image)
+        all_spectrums.append(lab_image)
+        all_spectrums.append(rgb_image)
         # hsv_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2Lab)
         # hsv_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2BGRA)
         # Calculate the histogram
-        hist_hue = cv2.calcHist([hsv_image], [0], None, [256], [0, 256])
-        hist_saturation = cv2.calcHist([hsv_image], [1], None, [256], [0, 256])
-        hist_value = cv2.calcHist([hsv_image], [2], None, [256], [0, 256])
-        hist_lum = cv2.calcHist([lab_image], [0], None, [256], [0, 256])
+        # print("hsv shape: ", hsv_image.shape)
+        all_arrs =[]
+        for spectrum in all_spectrums:
+            for i in range(spectrum.shape[2]):
+                # print("spectrum shape: ", spectrum.shape)
+                all_arrs.append(cv2.calcHist([spectrum], [i], None, [256], [0, 256])[1:].flatten())
 
-        return np.array([hist_hue[1:].flatten(), hist_saturation[1:].flatten(), hist_value[1:].flatten(), hist_lum[1:].flatten()])
+        all_arrs = np.array(all_arrs)
+        # print("all arrs shape: ", all_arrs.shape)
+        # hist_hue = cv2.calcHist([hsv_image], [0], None, [256], [0, 256])
+        # hist_saturation = cv2.calcHist([hsv_image], [1], None, [256], [0, 256])
+        # hist_value = cv2.calcHist([hsv_image], [2], None, [256], [0, 256])
+        # hist_lum = cv2.calcHist([lab_image], [0], None, [256], [0, 256])
+        return all_arrs
+       # return np.array([hist_hue[1:].flatten(), hist_saturation[1:].flatten(), hist_value[1:].flatten(), hist_lum[1:].flatten()])
 
     # def get_object_histogram_rgb(self, rgb_image, binary_mask):
     #     rgb_image=rgb_image.transpose(2,0,1)
