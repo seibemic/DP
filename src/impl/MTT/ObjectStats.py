@@ -22,17 +22,23 @@ class ObjectStats:
         hsv_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2HSV)
         rgb_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2RGB)
         lab_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2LAB)
-        cv2.COLOR_BGR2
+        hls_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2HLS)
+        xyz_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2XYZ)
         all_spectrums.append(hsv_image)
         all_spectrums.append(lab_image)
         all_spectrums.append(rgb_image)
+        all_spectrums.append(hls_image)
+        all_spectrums.append(xyz_image)
         # hsv_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2Lab)
         # hsv_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2BGRA)
         # Calculate the histogram
         # print("hsv shape: ", hsv_image.shape)
         all_arrs =[]
-        for spectrum in all_spectrums:
+        for j, spectrum in enumerate(all_spectrums):
             for i in range(spectrum.shape[2]):
+                if j == 1:
+                    all_arrs.append(cv2.calcHist([spectrum], [0], None, [256], [0, 256])[1:].flatten())
+                    break
                 # print("spectrum shape: ", spectrum.shape)
                 all_arrs.append(cv2.calcHist([spectrum], [i], None, [256], [0, 256])[1:].flatten())
 

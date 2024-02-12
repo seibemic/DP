@@ -24,3 +24,5 @@ if __name__ == '__main__':
 
     print("Values from arr:", values)
     print("Average value:", average_value)
+
+    print("arr mean: ", np.mean(arr))

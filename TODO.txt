@@ -28,3 +28,5 @@ missdetekce - vzit posun jako průměr z předchozích N kroků
             - posunout masku, zachovat prev_masku jako poslední masku, kdy došlo k detekci... masku i frame.. nosit s sebou statistiky a pokud nastane missdetekce, posunout masku, získat z ní statistiky a porovnat s orig. statistikami
 
 lepší vykreslování masky - vlastní title, zobrazit předchozí?
+Adaptace Q v závislosti na fps
+Nastavit konstantní fps pro každé video

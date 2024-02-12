@@ -55,16 +55,16 @@ class PHDTracker(TargetTracker):
                     prev_xyxy = self.trackers[j].prev_xyxy if self.trackers[j].prev_xyxy is not None else None
                     objectstats = ObjectStats(frame, masks[l].copy())
                     # self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
-                    self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
+                    self.trackers.append(PHD(w, m, P, 0.9, xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
                     gatings += 1
             for j in range(gatings):
                 self.trackers[start_index + j].w = self.trackers[start_index + j].w / (lambd + phds_sum)
 
         for j in range(Jk):
             if measured[j]:
-                self.trackers[j].update(self.H, pd=1, frame=frame, frame_num=frame_num)
+                self.trackers[j].update(self.H, pd=0.9, frame=frame, frame_num=frame_num)
             else:
-                self.trackers[j].update(self.H,pd = 0.1, frame=frame, frame_num=frame_num)
+                self.trackers[j].update(self.H,pd = 0.9, frame=frame, frame_num=frame_num)
 
     def pruneByMaxWeight(self, w):
         filters_to_stay = []
@@ -152,7 +152,7 @@ class PHDTracker(TargetTracker):
                 mask_mix = None
 
             P_mix /= w_mix
-            mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, mask_mix))
+            mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, mask_mix, filters_to_stay[j].objectStats))
             removed = np.delete(filters_to_stay, L)
             filters_to_stay = removed.tolist()
 

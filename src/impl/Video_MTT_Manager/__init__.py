@@ -169,7 +169,7 @@ class VideoMTT:
         width, height = self.get_videoDimensions(videoCap)
         self.frameProcessor.set_frameDimensions((width, height))
         self.m_MTT.set_ImageSize(np.array([width, height]))
-        self.m_MTT.add_PerimeterSpawnPoints(w=0.5, cov=P)
+        self.m_MTT.add_PerimeterSpawnPoints(w=0.1, cov=P)
 
         while videoCap.isOpened():
             print("frame: ", frame_num)
@@ -177,6 +177,9 @@ class VideoMTT:
             ret, frame = videoCap.read()
             if not ret:
                 break
+            if frame_num %2 == 0:
+                frame_num +=1
+                continue
             bboxes, masks = self.frameProcessor.predict(frame)
             frameWithSpawnPoints = self.m_MTT.show_SpawnPoints(frame)
             if len(bboxes) == 0:
@@ -220,8 +223,8 @@ class VideoMTT:
             self.m_MTT.predict()
 
             self.m_MTT.update(np.array(z_masks_center), conf, xyxy, masks, frame, frame_num)
-            self.m_MTT.pruneByMaxWeight(0.1)
-            # self.m_MTT.mergeTargets()
+            self.m_MTT.pruneByMaxWeight(0.01)
+            self.m_MTT.mergeTargets()
             print("Trackers: ", len(self.m_MTT.trackers))
 
             predicted_xyxy = []

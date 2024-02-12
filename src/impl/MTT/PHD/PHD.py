@@ -35,7 +35,7 @@ class PHD:
 
     def update(self, H, pd, frame, frame_num):
 
-        self.w = (1 - pd) * self.w
+        # self.w = (1 - pd) * self.w
         # self.w = (1 - self.conf) * self.w
         # self.w = (1 - 0.3) * self.w
         self.m = self.m
@@ -57,16 +57,24 @@ class PHD:
             print("mask sum: ", np.sum(self.mask))
             print("   first non zero: ", self.first_nonzero_index(self.mask))
             print("w: ", self.w)
-            if dx<0:
-                self.objectStats.printAll(self.mask, frame_num)
+            pd = self.getPd()
+            print("pd: ", pd)
+            # if dx<0:
+            self.objectStats.printAll(self.mask, frame_num)
             # self.getPd(frame)
-        else:
-            self.w = 0
+        # else:
+        #     self.w = 0
             # self.w = 1
         # self.P_aposterior = self.P_aprior
-
-    def getPd(self, frame):
-        self.getMaskStats(frame)
+        self.w = (1 - pd) * self.w
+    def getPd(self):
+        all_vals = []
+        all_vals.append(self.objectStats.get_cosineSimilarity(self.mask))
+        all_vals.append(self.objectStats.get_intersection(self.mask))
+        all_vals.append(self.objectStats.get_correlation(self.mask))
+        all_vals = np.array(all_vals)
+        return np.mean(all_vals)
+        # self.getMaskStats(frame)
     def getMaskStats(self, frame):
         new_frame = np.ma.array(frame[:, :, 0], mask=np.invert(self.mask))
         prev_frame = np.ma.array(frame[:, :, 0], mask=np.invert(self.prev_mask))
