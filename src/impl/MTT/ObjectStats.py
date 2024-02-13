@@ -48,6 +48,7 @@ class ObjectStats:
         # hist_saturation = cv2.calcHist([hsv_image], [1], None, [256], [0, 256])
         # hist_value = cv2.calcHist([hsv_image], [2], None, [256], [0, 256])
         # hist_lum = cv2.calcHist([lab_image], [0], None, [256], [0, 256])
+
         return all_arrs
        # return np.array([hist_hue[1:].flatten(), hist_saturation[1:].flatten(), hist_value[1:].flatten(), hist_lum[1:].flatten()])
 
@@ -96,6 +97,7 @@ class ObjectStats:
         # return hue_cmp, sat_cmp, val_cmp
     def get_intersection(self, mask, print_result=False):
         vals = self.get_object_histogram(self.frame, mask)
+        print(vals)
         inter = np.zeros(shape=(vals.shape[0]))
         for i, val in enumerate(vals):
             inter[i] = np.sum(np.minimum(self.values[i], val)) / np.sum(self.values[i])

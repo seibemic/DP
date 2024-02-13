@@ -104,6 +104,7 @@ class VideoMTT:
 
     def resize_masks(self, masks):
         print(masks.ndim)
+        print("resize masks shape: ", masks.shape)
         if masks.ndim == 3:
             if masks[0].shape != self.frameShape:
                 new_masks = np.zeros(shape=(masks.shape[0], self.frameShape[1], self.frameShape[0]), dtype=np.int8)
@@ -130,8 +131,10 @@ class VideoMTT:
         conf = conf[classes_mask]
         xyxy = xyxy[classes_mask, :]
         masks = masks[classes_mask]
-        return xyxy, conf, masks
+        cls = cls[classes_mask]
+        return xyxy, conf, masks, cls
 
+    # def showMask(self, mask, label=""):
 
     # Merge masks into a single, multi-colored mask
     def merge_masks_colored(self, masks, class_ids):
@@ -177,24 +180,35 @@ class VideoMTT:
             ret, frame = videoCap.read()
             if not ret:
                 break
-            if frame_num %2 == 0:
+            if frame_num %2 == 0 and 1:
                 frame_num +=1
                 continue
             bboxes, masks = self.frameProcessor.predict(frame)
-            frameWithSpawnPoints = self.m_MTT.show_SpawnPoints(frame)
-            if len(bboxes) == 0:
+            # print("bboxes len: ", len(bboxes))
+            # print(bboxes)
+          #  print(masks.shape)
+            if masks is not None:
+                print("masks shape: ", masks.shape)
+            frame_copy = frame.copy()
+            frameWithSpawnPoints = self.m_MTT.show_SpawnPoints(frame_copy)
+            if len(bboxes) == 0 or masks is None or masks.shape[0] == 0:
                 self.show_frame(frameWithSpawnPoints,frame_num)
                 frame_num +=1
                 continue
-
+            xyxy, conf, masks, cls = self.filterClasses(bboxes.cls.numpy(), bboxes.xyxy.numpy(), bboxes.conf.numpy(), masks)
+            if len(xyxy) == 0 or masks is None or masks.shape[0] == 0:
+                self.show_frame(frameWithSpawnPoints,frame_num)
+                frame_num +=1
+                continue
+            frameWithBboxes = frameWithSpawnPoints
             frameWithBboxes = self.frameProcessor.visualizeDetectionsBbox(frameWithSpawnPoints,
-                                                                          bboxes.xyxy,
-                                                                          bboxes.conf,
-                                                                          bboxes.cls)
+                                                                          xyxy,
+                                                                          conf,
+                                                                          cls)
             z_bboxes_center = []
             z_masks_center = []
 
-            xyxy, conf, masks = self.filterClasses(bboxes.cls.numpy(), bboxes.xyxy.numpy(), bboxes.conf.numpy(), masks)
+
             masks = self.resize_masks(masks)
             for i, obj_xyxy in enumerate(xyxy):
                 center_x = obj_xyxy[2] + obj_xyxy[0]
@@ -220,7 +234,7 @@ class VideoMTT:
 
 
 
-            self.m_MTT.predict()
+            self.m_MTT.predict(frame_num)
 
             self.m_MTT.update(np.array(z_masks_center), conf, xyxy, masks, frame, frame_num)
             self.m_MTT.pruneByMaxWeight(0.01)

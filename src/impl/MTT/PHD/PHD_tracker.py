@@ -11,7 +11,7 @@ class PHDTracker(TargetTracker):
         self.U = 4
         self.J_max = 40
 
-    def predictBirthTargets(self):
+    def predictBirthTargets(self, frame_num):
         for sp in self.spawnPoints:
             w = sp.w
             m = sp.m
@@ -20,7 +20,8 @@ class PHDTracker(TargetTracker):
             m.append(0)
             m = np.array(m)
             P = sp.cov
-            self.trackers.append(PHD(w, m, P))
+            pd = sp.w
+            self.trackers.append(PHD(w, m, P, pd, timeStamp=frame_num))
 
     def predictExistingTargets(self):
         for target in self.trackers:
@@ -30,8 +31,8 @@ class PHDTracker(TargetTracker):
         for target in self.trackers:
             target.updateComponents(self.H, self.R)
 
-    def predict(self):
-        self.predictBirthTargets()
+    def predict(self, frame_num):
+        self.predictBirthTargets(frame_num)
         self.predictExistingTargets()
 
     def update(self, z, pd, xyxy, masks, frame, frame_num,lambd=0.00001):
@@ -55,7 +56,7 @@ class PHDTracker(TargetTracker):
                     prev_xyxy = self.trackers[j].prev_xyxy if self.trackers[j].prev_xyxy is not None else None
                     objectstats = ObjectStats(frame, masks[l].copy())
                     # self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
-                    self.trackers.append(PHD(w, m, P, 0.9, xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
+                    self.trackers.append(PHD(w, m, P, 0.9, xyxy[l], prev_xyxy, masks[l].copy(), objectstats, timeStamp=frame_num))
                     gatings += 1
             for j in range(gatings):
                 self.trackers[start_index + j].w = self.trackers[start_index + j].w / (lambd + phds_sum)
@@ -73,7 +74,7 @@ class PHDTracker(TargetTracker):
                 filters_to_stay.append(filter)
         self.trackers = filters_to_stay
 
-    def argMax(self, filtres):
+    def argMaxW(self, filtres):
         maX = 0
         argmaX = 0
         for i, filter in enumerate(filtres):
@@ -81,6 +82,8 @@ class PHDTracker(TargetTracker):
                 maX = filter.w
                 argmaX = i
         return argmaX
+
+
 
     def mergeTargets(self):
         filters_to_stay = []
@@ -90,7 +93,7 @@ class PHDTracker(TargetTracker):
                 filters_to_stay.append(filter)
 
         while len(filters_to_stay) != 0:
-            j = self.argMax(filters_to_stay)
+            j = self.argMaxW(filters_to_stay)
             L = []  # indexes
             for i in range(len(filters_to_stay)):
                 if ((filters_to_stay[i].m - filters_to_stay[j].m).T @
@@ -152,7 +155,16 @@ class PHDTracker(TargetTracker):
                 mask_mix = None
 
             P_mix /= w_mix
-            mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, mask_mix, filters_to_stay[j].objectStats))
+
+            objectStats_index = 0
+            maX = 0
+            for t_id in L:
+                if filters_to_stay[t_id].timeStamp > maX:
+                    maX = filters_to_stay[t_id].timeStamp
+                    objectStats_index = t_id
+
+            mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, mask_mix,
+                                     filters_to_stay[objectStats_index].objectStats))
             removed = np.delete(filters_to_stay, L)
             filters_to_stay = removed.tolist()
 

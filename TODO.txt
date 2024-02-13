@@ -30,3 +30,4 @@ missdetekce - vzit posun jako průměr z předchozích N kroků
 lepší vykreslování masky - vlastní title, zobrazit předchozí?
 Adaptace Q v závislosti na fps
 Nastavit konstantní fps pro každé video
+Nastavovat Q v závislosti na poměru velikosti objektu k framu

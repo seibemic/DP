@@ -5,7 +5,7 @@ from PIL import ImageChops, Image
 import matplotlib.pyplot as plt
 from src.impl.MTT.ObjectStats import ObjectStats
 class PHD:
-    def __init__(self, w, m, P, conf = 0.9, xyxy = None, prev_xyxy=None, mask = None, objectStats=None):
+    def __init__(self, w, m, P, conf = 0.9, xyxy = None, prev_xyxy=None, mask = None, objectStats=None, timeStamp = 0):
         self.prev_m = None
         self.w = w
         self.m = m
@@ -16,6 +16,7 @@ class PHD:
         self.mask = mask
         self.prev_mask = None
         self.objectStats = objectStats
+        self.timeStamp = timeStamp
         # self.P_aposterior=self.P_aprior
 
 
@@ -52,10 +53,10 @@ class PHD:
             dy = self.m[3]
             print("dx, dy: ", dx, dy)
             self.move_binary_mask(dx, dy)
-            print("prev mask sum: ", np.sum(self.prev_mask))
-            print("   first non zero: ", self.first_nonzero_index(self.objectStats.mask))
-            print("mask sum: ", np.sum(self.mask))
-            print("   first non zero: ", self.first_nonzero_index(self.mask))
+            # print("prev mask sum: ", np.sum(self.prev_mask))
+            # print("   first non zero: ", self.first_nonzero_index(self.objectStats.mask))
+            # print("mask sum: ", np.sum(self.mask))
+            # print("   first non zero: ", self.first_nonzero_index(self.mask))
             print("w: ", self.w)
             pd = self.getPd()
             print("pd: ", pd)
