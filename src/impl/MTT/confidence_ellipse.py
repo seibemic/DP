@@ -32,7 +32,7 @@ def confidence_ellipse(loc, cov, ax, n_std=3.0, facecolor='none', **kwargs):
     return ax.add_patch(ellipse)
 
 
-def cv2_confidence_ellipse(center, cov_matrix, image, n_std=3.0, color=(0, 0, 255), thickness=1):
+def cv2_confidence_ellipse(center, cov_matrix, image, n_std=3.0, color=(0, 0, 255), thickness=1, showCenter=True):
     # Extracting the 2x2 covariance matrix
     cov_2x2 = np.float32(cov_matrix[:2, :2])
 
@@ -56,4 +56,9 @@ def cv2_confidence_ellipse(center, cov_matrix, image, n_std=3.0, color=(0, 0, 25
 
     # Draw ellipse using cv2.ellipse
     ellipse = cv2.ellipse(image, center, axes, angle_deg, 0, 360, color, thickness)
+    if showCenter:
+        radius = 2
+        color = (0, 0, 255)
+        thickness = -1
+        ellipse = cv2.circle(ellipse, center, radius, color, thickness)
     return ellipse

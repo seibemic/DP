@@ -15,17 +15,14 @@ class PHDTracker(TargetTracker):
         for sp in self.spawnPoints:
             w = sp.w
             m = sp.m
-            m = list(m)
-            m.append(0)
-            m.append(0)
-            m = np.array(m)
+            m = np.append(m, [0, 0])
             P = sp.cov
             pd = sp.w
             self.trackers.append(PHD(w, m, P, pd, timeStamp=frame_num))
 
     def predictExistingTargets(self):
         for target in self.trackers:
-            target.predict(self.ps, self.F, self.Q)
+            target.predict(self.ps, self.F, self.Q.copy(), self.imageSize)
 
     def updateComponents(self):
         for target in self.trackers:
@@ -41,6 +38,8 @@ class PHDTracker(TargetTracker):
         # print("z len: ", len(z))
         # print("PHDS: ", Jk)
         measured = np.zeros(shape=(len(self.trackers)))
+        for j in range(Jk):
+            self.trackers[j].moveMask_and_getPd()
         for l, z in enumerate(z):
             phds_sum = 0
             gatings = 0
@@ -48,7 +47,8 @@ class PHDTracker(TargetTracker):
             for j in range(Jk):
                 if self.trackers[j].inGating(z):
                     measured[j] = 1
-                    w = pd[l] * self.trackers[j].w * mvn(self.trackers[j].ny, self.trackers[j].S).pdf(z)
+                    pd = self.trackers[j].pd
+                    w = pd * self.trackers[j].w * mvn(self.trackers[j].ny, self.trackers[j].S).pdf(z)
                     m = self.trackers[j].m + self.trackers[j].K @ (z - self.trackers[j].ny)
                     P = self.trackers[j].P
                     phds_sum += w
@@ -56,7 +56,8 @@ class PHDTracker(TargetTracker):
                     prev_xyxy = self.trackers[j].prev_xyxy if self.trackers[j].prev_xyxy is not None else None
                     objectstats = ObjectStats(frame, masks[l].copy())
                     # self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
-                    self.trackers.append(PHD(w, m, P, 0.9, xyxy[l], prev_xyxy, masks[l].copy(), objectstats, timeStamp=frame_num))
+
+                    self.trackers.append(PHD(w, m, P, pd, xyxy[l], prev_xyxy, masks[l].copy(), objectstats, timeStamp=frame_num))
                     gatings += 1
             for j in range(gatings):
                 self.trackers[start_index + j].w = self.trackers[start_index + j].w / (lambd + phds_sum)
@@ -129,7 +130,7 @@ class PHDTracker(TargetTracker):
                 if filters_to_stay[t_id].xyxy is not None:
                     xyxy_mix += filters_to_stay[t_id].xyxy * filters_to_stay[t_id].w
                     xyxy_w_mix += filters_to_stay[t_id].w
-                conf_mix += filters_to_stay[t_id].conf * filters_to_stay[t_id].w
+                conf_mix += filters_to_stay[t_id].pd * filters_to_stay[t_id].w
                 if filters_to_stay[t_id].mask is not None:
                     mask_mix += filters_to_stay[t_id].mask.astype(np.float64) * filters_to_stay[t_id].w
                     mask_w_mix += filters_to_stay[t_id].w
@@ -162,8 +163,10 @@ class PHDTracker(TargetTracker):
                 if filters_to_stay[t_id].timeStamp > maX:
                     maX = filters_to_stay[t_id].timeStamp
                     objectStats_index = t_id
+            # mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, mask_mix,
+            #                          filters_to_stay[objectStats_index].objectStats))
 
-            mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, mask_mix,
+            mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, filters_to_stay[objectStats_index].mask,
                                      filters_to_stay[objectStats_index].objectStats))
             removed = np.delete(filters_to_stay, L)
             filters_to_stay = removed.tolist()

@@ -31,3 +31,11 @@ lepší vykreslování masky - vlastní title, zobrazit předchozí?
 Adaptace Q v závislosti na fps
 Nastavit konstantní fps pro každé video
 Nastavovat Q v závislosti na poměru velikosti objektu k framu
+IsHiddenTag... porovnat barvy framu v bboxu s barvamy bboxu ve směru objektu (sousední bbox - společná hrana). Vzít "prostředí" kolem objektu (1-mask) a porovnat barvy se sousedním posunutým bboxem.
+                Až predikovaná maska dojde na konec tohoto posunutého bboxu, posunout znova
+    MARKOV - S = {
+    je skryt,
+    není skryt,
+    je kaput
+    }
+    přechod do je kaput - možná z predikovaných bboxu a poměru barev zda je stále objekt za překážkou

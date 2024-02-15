@@ -36,7 +36,6 @@ class FrameProcessing:
     def predict(self, frame):
         if self.mode == 0:  # yolo, yolo
             detections = self.bboxPredictor.predict(frame)
-            print(detections)
             self.bboxes = detections[0].boxes.cpu()
             if detections[0].masks:
                 self.masks = detections[0].masks.cpu().data.numpy()
@@ -46,7 +45,6 @@ class FrameProcessing:
             detections = self.bboxPredictor.predict(frame)
             self.bboxes = detections[0].boxes
             self.masks = None
-            print("bboxes len: ", len(detections[0]))
             if len(detections[0]) > 0:
                 self.masks, self.scores, self.logits = self.maskPredictor.predict(frame, self.frameDimensions, self.bboxes)
                 self.bboxes = detections[0].boxes.cpu()

@@ -97,7 +97,6 @@ class ObjectStats:
         # return hue_cmp, sat_cmp, val_cmp
     def get_intersection(self, mask, print_result=False):
         vals = self.get_object_histogram(self.frame, mask)
-        print(vals)
         inter = np.zeros(shape=(vals.shape[0]))
         for i, val in enumerate(vals):
             inter[i] = np.sum(np.minimum(self.values[i], val)) / np.sum(self.values[i])
