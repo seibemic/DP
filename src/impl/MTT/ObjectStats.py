@@ -6,11 +6,14 @@ from scipy.stats import chisquare, chi2_contingency
 
 
 class ObjectStats:
-    def __init__(self, frame, mask):
+    def __init__(self, frame, mask, xyxy):
         self.frame = frame
         self.mask = mask
+        self.xyxy = xyxy
         # self.hue, self.saturation, self.value = self.get_object_histogram(frame, mask)
-        self.values = self.get_object_histogram(frame, mask)
+        self.maskValues = self.get_object_histogram(frame, mask)
+        inverseMask = self.get_InverseMaskWithinBbox()
+        self.inverseMaskValues = self.get_object_histogram(frame, inverseMask)
 
 
     def get_object_histogram(self, rgb_image, binary_mask):
@@ -80,7 +83,7 @@ class ObjectStats:
         # print("values shape: ", self.values.shape)
         # print("values[0] shape: ", self.values[0].shape)
         for i, val in enumerate(vals):
-            cos_sim[i] = self.values[i] @ val / (np.linalg.norm(self.values[i]) * np.linalg.norm(val))
+            cos_sim[i] = self.maskValues[i] @ val / (np.linalg.norm(self.maskValues[i]) * np.linalg.norm(val))
         if print_result:
             print("cosine similarity:")
             print(cos_sim)
@@ -99,7 +102,7 @@ class ObjectStats:
         vals = self.get_object_histogram(self.frame, mask)
         inter = np.zeros(shape=(vals.shape[0]))
         for i, val in enumerate(vals):
-            inter[i] = np.sum(np.minimum(self.values[i], val)) / np.sum(self.values[i])
+            inter[i] = np.sum(np.minimum(self.maskValues[i], val)) / np.sum(self.maskValues[i])
         if print_result:
             print("intersection:")
             print(inter)
@@ -119,7 +122,7 @@ class ObjectStats:
         vals = self.get_object_histogram(self.frame, mask)
         corr = np.zeros(shape=(vals.shape[0]))
         for i, val in enumerate(vals):
-            corr[i] = np.abs(cv2.compareHist(self.values[i], val, cv2.HISTCMP_CORREL))
+            corr[i] = np.abs(cv2.compareHist(self.maskValues[i], val, cv2.HISTCMP_CORREL))
         if print_result:
             print("correlation:")
             print(corr)
@@ -143,7 +146,7 @@ class ObjectStats:
         vals = self.get_object_histogram(self.frame, mask)
         chi = np.zeros(shape=(vals.shape[0]))
         for i, val in enumerate(vals):
-            chi[i] = np.abs(cv2.compareHist(self.values[i], val, cv2.HISTCMP_CHISQR))
+            chi[i] = np.abs(cv2.compareHist(self.maskValues[i], val, cv2.HISTCMP_CHISQR))
         if print_result:
             print("chi:")
             print(chi)
@@ -187,7 +190,7 @@ class ObjectStats:
         vals = self.get_object_histogram(self.frame, mask)
         bhat = np.zeros(shape=(vals.shape[0]))
         for i, val in enumerate(vals):
-            bhat[i] = np.abs(cv2.compareHist(self.values[i], val, cv2.HISTCMP_BHATTACHARYYA))
+            bhat[i] = np.abs(cv2.compareHist(self.maskValues[i], val, cv2.HISTCMP_BHATTACHARYYA))
         if print_result:
             print("bhat:")
             print(bhat)
@@ -206,7 +209,7 @@ class ObjectStats:
         vals = self.get_object_histogram(self.frame, mask)
         hell = np.zeros(shape=(vals.shape[0]))
         for i, val in enumerate(vals):
-            hell[i] = np.abs(cv2.compareHist(self.values[i], val, cv2.HISTCMP_HELLINGER))
+            hell[i] = np.abs(cv2.compareHist(self.maskValues[i], val, cv2.HISTCMP_HELLINGER))
         if print_result:
             print("hell:")
             print(hell)
@@ -225,7 +228,7 @@ class ObjectStats:
         vals = self.get_object_histogram(self.frame, mask)
         chi_alt = np.zeros(shape=(vals.shape[0]))
         for i, val in enumerate(vals):
-            chi_alt[i] = np.abs(cv2.compareHist(self.values[i], val, cv2.HISTCMP_CHISQR_ALT))
+            chi_alt[i] = np.abs(cv2.compareHist(self.maskValues[i], val, cv2.HISTCMP_CHISQR_ALT))
         if print_result:
             print("chi_alt:")
             print(chi_alt)
@@ -245,7 +248,7 @@ class ObjectStats:
         vals = self.get_object_histogram(self.frame, mask)
         kldiv = np.zeros(shape=(vals.shape[0]))
         for i, val in enumerate(vals):
-            kldiv[i] = np.abs(cv2.compareHist(self.values[i], val, cv2.HISTCMP_KL_DIV))
+            kldiv[i] = np.abs(cv2.compareHist(self.maskValues[i], val, cv2.HISTCMP_KL_DIV))
         if print_result:
             print("kldiv:")
             print(kldiv)
@@ -290,6 +293,23 @@ class ObjectStats:
         self.get_chi_alt(mask, True)
         self.get_KLdiv(mask, True)
 
+    def get_InverseMaskWithinBbox(self):
+        # Create a blank mask of the same shape as the input binary mask
+        inverse_mask = np.zeros_like(self.mask)
+
+        # Get the coordinates of the bounding box
+        x, y, w, h = self.xyxy
+
+        # Create a rectangle in the inverse mask within the bounding box
+        inverse_mask[y:y + h, x:x + w] = 1
+
+        # Subtract the object mask from the inverse mask
+        inverse_mask -= self.mask
+
+        # Clip values to ensure that the mask only contains 0 or 1
+        inverse_mask = np.clip(inverse_mask, 0, 1)
+
+        return inverse_mask
     def plot_histogram(self, hist, title, frame_num):
         plt.plot(hist)
         plt.title(title+str(frame_num))

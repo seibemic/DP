@@ -55,18 +55,28 @@ class PHDTracker(TargetTracker):
 
                     prev_xyxy = self.trackers[j].prev_xyxy if self.trackers[j].prev_xyxy is not None else None
                     objectstats = ObjectStats(frame, masks[l].copy())
-                    # self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
 
+                    all_vals = []
+                    all_vals.append(objectstats.get_cosineSimilarity(self.trackers[j].mask))
+                    all_vals.append(objectstats.get_intersection(self.trackers[j].mask))
+                    all_vals.append(objectstats.get_correlation(self.trackers[j].mask))
+                    all_vals = np.array(all_vals)
+                    pd = np.mean(all_vals)
+                    # self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
+                    # pd = 0.9
+                    print("detection pd: ", pd, " m: ", m)
                     self.trackers.append(PHD(w, m, P, pd, xyxy[l], prev_xyxy, masks[l].copy(), objectstats, timeStamp=frame_num))
                     gatings += 1
             for j in range(gatings):
                 self.trackers[start_index + j].w = self.trackers[start_index + j].w / (lambd + phds_sum)
 
         for j in range(Jk):
+            # self.trackers[j].moveMask_and_getPd()
             if measured[j]:
                 self.trackers[j].update(self.H, pd=0.9, frame=frame, frame_num=frame_num)
             else:
-                self.trackers[j].update(self.H,pd = 0.9, frame=frame, frame_num=frame_num)
+                self.trackers[j].update(self.H,pd = None, frame=frame, frame_num=frame_num)
+
 
     def pruneByMaxWeight(self, w):
         filters_to_stay = []
@@ -163,11 +173,17 @@ class PHDTracker(TargetTracker):
                 if filters_to_stay[t_id].timeStamp > maX:
                     maX = filters_to_stay[t_id].timeStamp
                     objectStats_index = t_id
+            print("L: ", len(L))
+            print("timestamp: ", maX)
             # mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, mask_mix,
             #                          filters_to_stay[objectStats_index].objectStats))
 
             mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, filters_to_stay[objectStats_index].mask,
-                                     filters_to_stay[objectStats_index].objectStats))
+                                     filters_to_stay[objectStats_index].objectStats, maX))
+
+            # mixed_filters.append(
+            #     PHD(w_mix, m_mix, P_mix, filters_to_stay[objectStats_index].pd, xyxy_mix, prev_xyxy_mix, filters_to_stay[objectStats_index].mask,
+            #                                  filters_to_stay[objectStats_index].objectStats))
             removed = np.delete(filters_to_stay, L)
             filters_to_stay = removed.tolist()
 

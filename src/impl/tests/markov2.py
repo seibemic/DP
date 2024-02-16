@@ -30,9 +30,6 @@ if __name__ == "__main__":
     low_values_2 = np.random.uniform(0.2, 0.3, 5)
 
     high_values_3 = np.random.uniform(0.9, 1, 45)
-
-
-
     # Concatenate the arrays to create random_a_values
     Pd = np.concatenate([high_values_1, low_values_1, high_values_2,low_values_2, high_values_3])
 
@@ -50,7 +47,7 @@ if __name__ == "__main__":
     def stochastic_matrix(t):
         return np.array([[Pd[t], 1 - Pd[t]        , 0    ],
                          [Pd[t], 1 - Pd[t] - Pk[t], Pk[t]],
-                         [0, 1 - Pk[t], Pk[t]]
+                         [Pd[t], 1 - Pd[t] - Pk[t], Pk[t]]
                          ])
 
 
@@ -59,7 +56,7 @@ if __name__ == "__main__":
 
     # Perform matrix exponentiation for each time step
     result_matrix = np.identity(3)  # Identity matrix to start
-
+    print("identity: ", np.identity(3))
     for t in range(k):
         result_matrix = result_matrix.dot(stochastic_matrix(t))
         if t > 39 and t< 60:

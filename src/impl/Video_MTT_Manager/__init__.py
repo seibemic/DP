@@ -59,7 +59,10 @@ class VideoMTT:
             warnings.warn("GPU is not available, setting device to cpu.")
             self.device = "cpu"
             return
-        self.device = "cpu"
+        elif device != "cpu" and torch.cuda.is_available():
+            self.device = device
+        elif device == "cpu":
+            self.device = "cpu"
         return
 
     def checkClassMembers(self):
@@ -264,8 +267,9 @@ class VideoMTT:
 
             self.MTT.predict(frame_num)
             self.MTT.update(z_masks_centers, conf, xyxy, masks, frame, frame_num)
-            self.MTT.pruneByMaxWeight(0.05)
-            self.MTT.mergeTargets()
+            # self.MTT.pruneByMaxWeight(0.05)
+            if frame_num < 20 or 1:
+                self.MTT.mergeTargets()
             print("Trackers: ", len(self.MTT.trackers))
 
             predicted_xyxy = []
@@ -293,6 +297,7 @@ class VideoMTT:
                     print("     prev bbox mean: ", m)
                 if target.objectStats is not None:
                     prev_masks.append(target.objectStats.mask)
+                print("     w: ", target.w)
                     # for prev in prev_masks:
                     #     print("prev mask: ")
                     #     msk = prev * 255
@@ -303,20 +308,20 @@ class VideoMTT:
 
                     # cv2.imshow(f"prev_{frame_num}", frameWithBboxes)
                     # cv2.waitKey(0)
-                    m = np.mean(frame[int(target.xyxy[1]):int(target.xyxy[3]),
-                                int(target.xyxy[0]):int(target.xyxy[2]), 0])
-                    print("     bbox mean: ", m)
+                    # m = np.mean(frame[int(target.xyxy[1]):int(target.xyxy[3]),
+                    #             int(target.xyxy[0]):int(target.xyxy[2]), 0])
+                    # print("     bbox mean: ", m)
 
             frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, predicted_pd)
             cls = np.zeros(shape=len(prev_masks))
             print("prev mask len: ", len(prev_masks))
             if len(prev_masks) > 0:
-                frameWithBboxes = self.showAllMasks(prev_masks, frameWithBboxes, (0,255,255))
+                frameWithBboxes = self.showAllMasks(prev_masks, frameWithBboxes, (128, 0, 0))
                 # merged_colored_mask = self.merge_masks_colored(prev_masks, cls)
                 # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
             cls = np.zeros(shape=len(act_masks))
             if len(act_masks) > 0:
-                frameWithBboxes = self.showAllMasks(act_masks, frameWithBboxes)
+                frameWithBboxes = self.showAllMasks(act_masks, frameWithBboxes, color=(0, 0, 128))
                 # merged_colored_mask = self.merge_masks_colored(act_masks, cls)
                 # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
 

@@ -48,19 +48,25 @@ class PHD:
             print("dx, dy: ", dx, dy)
             self.move_binary_mask(dx, dy)
             self.pd = self.getPd()
-            print("pd: ", self.pd)
+            # print("pd: ", self.pd)
         else:
             self.pd = defaultPd
+    def moveBbox(self, t=1):
+        self.xyxy = self.xyxy + t * np.array([self.m[2], self.m[3], self.m[2], self.m[3]])
     def update(self, H, pd, frame, frame_num):
 
         # self.w = (1 - pd) * self.w
         # self.w = (1 - self.conf) * self.w
         # self.w = (1 - 0.3) * self.w
+        # if pd is not None:
+        # self.pd = pd
+        if (frame_num - self.timeStamp) % 4 == 0:
+            self.moveBbox(4)
         self.m = self.m
         self.P = self.P_apost
-        self.prev_xyxy = self.xyxy
-        if self.xyxy is not None:
-            self.xyxy = self.xyxy + np.tile(H @ (self.m - self.prev_m) , 2)
+        # self.prev_xyxy = self.xyxy
+        # if self.xyxy is not None:
+        #     self.xyxy = self.xyxy + np.tile(H @ (self.m - self.prev_m) , 2)
         # if self.mask is not None:
         #     self.prev_mask = self.mask.copy()
         #     # m = H @ (self.m - self.prev_m)
@@ -94,7 +100,13 @@ class PHD:
         return np.mean(all_vals)
         # self.getMaskStats(frame)
 
-
+    def getPk(self):
+        all_vals = []
+        all_vals.append(self.objectStats.get_cosineSimilarity(self.mask))
+        all_vals.append(self.objectStats.get_intersection(self.mask))
+        all_vals.append(self.objectStats.get_correlation(self.mask))
+        all_vals = np.array(all_vals)
+        return np.mean(all_vals)
     def inGating(self, z, Pg=0.99):
         covInv = np.linalg.inv(self.S)
         gamma = chi2.ppf(Pg, df=2)

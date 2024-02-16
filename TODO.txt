@@ -39,3 +39,6 @@ IsHiddenTag... porovnat barvy framu v bboxu s barvamy bboxu ve směru objektu (s
     je kaput
     }
     přechod do je kaput - možná z predikovaných bboxu a poměru barev zda je stále objekt za překážkou
+
+
+Missdetekce - možná vzít místo masky z poslední detekce nejlepší (max(mask.sum?)) masku z posledních N framů
