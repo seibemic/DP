@@ -60,8 +60,15 @@ class PHD:
         # self.w = (1 - 0.3) * self.w
         # if pd is not None:
         # self.pd = pd
-        if (frame_num - self.timeStamp) % 4 == 0:
-            self.moveBbox(4)
+        t = 2
+        if self.objectStats is not None:
+            print("frame num: ", frame_num," ts: ", self.objectStats.timestamp)
+        if self.xyxy is not None and self.objectStats is not None and (frame_num - self.objectStats.timestamp) % t == 1:
+            self.moveBbox(t)
+        pk = 0
+        if self.objectStats is not None and self.xyxy is not None:
+            pk = self.getPk(self.xyxy, frame)
+        print("pk: ", pk)
         self.m = self.m
         self.P = self.P_apost
         # self.prev_xyxy = self.xyxy
@@ -92,21 +99,27 @@ class PHD:
         # self.P_aposterior = self.P_aprior
         self.w = (1 - self.pd) * self.w
     def getPd(self):
-        all_vals = []
-        all_vals.append(self.objectStats.get_cosineSimilarity(self.mask))
-        all_vals.append(self.objectStats.get_intersection(self.mask))
-        all_vals.append(self.objectStats.get_correlation(self.mask))
-        all_vals = np.array(all_vals)
-        return np.mean(all_vals)
+        return self.objectStats.get_StatsMean(self.mask, "mask")
         # self.getMaskStats(frame)
 
-    def getPk(self):
+    def getPk(self,xyxy,frame):
+        mask = self.objectStats.get_xyxyMask(xyxy)
+
+
+        xyxy1 = self.objectStats.get_xyxyMask(xyxy)
+        hist1 = self.objectStats.get_object_histogram(frame, xyxy1, all_spectrums=False)
+        xyxy2 = self.objectStats.get_xyxyMask(self.objectStats.xyxy)
+        hist2 = self.objectStats.get_object_histogram(frame, xyxy2, all_spectrums=False)
+        cos_sim = np.zeros(shape=(hist1.shape[0]))
+        for i, val in enumerate(hist1):
+            cos_sim[i] = hist2[i] @ val / (np.linalg.norm(hist2[i]) * np.linalg.norm(val))
         all_vals = []
-        all_vals.append(self.objectStats.get_cosineSimilarity(self.mask))
-        all_vals.append(self.objectStats.get_intersection(self.mask))
-        all_vals.append(self.objectStats.get_correlation(self.mask))
-        all_vals = np.array(all_vals)
-        return np.mean(all_vals)
+        all_vals.append(cos_sim)
+        PK = np.mean(all_vals)
+        print("PK: ", PK)
+
+        print("xyxy: ", xyxy)
+        return self.objectStats.get_StatsMean(mask, "xyxy")
     def inGating(self, z, Pg=0.99):
         covInv = np.linalg.inv(self.S)
         gamma = chi2.ppf(Pg, df=2)

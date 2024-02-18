@@ -52,16 +52,16 @@ class PHDTracker(TargetTracker):
                     m = self.trackers[j].m + self.trackers[j].K @ (z - self.trackers[j].ny)
                     P = self.trackers[j].P
                     phds_sum += w
-
                     prev_xyxy = self.trackers[j].prev_xyxy if self.trackers[j].prev_xyxy is not None else None
-                    objectstats = ObjectStats(frame, masks[l].copy())
+                    objectstats = ObjectStats(frame, masks[l].copy(), xyxy[l], frame_num)
 
-                    all_vals = []
-                    all_vals.append(objectstats.get_cosineSimilarity(self.trackers[j].mask))
-                    all_vals.append(objectstats.get_intersection(self.trackers[j].mask))
-                    all_vals.append(objectstats.get_correlation(self.trackers[j].mask))
-                    all_vals = np.array(all_vals)
-                    pd = np.mean(all_vals)
+                    # all_vals = []
+                    # all_vals.append(objectstats.get_cosineSimilarity(self.trackers[j].mask))
+                    # all_vals.append(objectstats.get_intersection(self.trackers[j].mask))
+                    # all_vals.append(objectstats.get_correlation(self.trackers[j].mask))
+                    # all_vals = np.array(all_vals)
+                    # pd = np.mean(all_vals)
+                    pd = objectstats.get_StatsMean(self.trackers[j].mask, "mask")
                     # self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
                     # pd = 0.9
                     print("detection pd: ", pd, " m: ", m)
@@ -170,11 +170,11 @@ class PHDTracker(TargetTracker):
             objectStats_index = 0
             maX = 0
             for t_id in L:
-                if filters_to_stay[t_id].timeStamp > maX:
-                    maX = filters_to_stay[t_id].timeStamp
+                if filters_to_stay[t_id].objectStats is not None and filters_to_stay[t_id].objectStats.timestamp > maX:
+                    maX = filters_to_stay[t_id].objectStats.timestamp
                     objectStats_index = t_id
-            print("L: ", len(L))
-            print("timestamp: ", maX)
+            # print("L: ", len(L))
+            # print("timestamp: ", maX)
             # mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, mask_mix,
             #                          filters_to_stay[objectStats_index].objectStats))
 

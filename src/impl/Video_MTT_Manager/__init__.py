@@ -160,20 +160,20 @@ class VideoMTT:
         frame = cv2.addWeighted(frame, 1, masks, 0.2, 0)
         return frame
 
-    def showBboxWithLabel(self, xyxy, frame, label=""):
-        color = (0, 0, 0)
+    def showBboxWithLabel(self, xyxy, frame, label="", color=(0, 0, 0)):
         x1, y1, x2, y2 = int(xyxy[0]), int(xyxy[1]), int(xyxy[2]), int(xyxy[3])
+        print("xyxy: ", xyxy)
         frame = cv2.rectangle(frame, (x1, y1), (x2, y2), self.get_color(color), 2)
         frame = cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, color, 2)
         return frame
 
-    def showAllBboxesWithLabels(self, xyxy, frame, labels=None):
+    def showAllBboxesWithLabels(self, xyxy, frame, labels=None, color = (0, 0, 0)):
         if labels is not None and len(labels) != len(xyxy):
             raise Exception("xyxy length and labels length must be the same")
         if labels is None:
             labels = [""] * len(xyxy)
         for xyxy_, label in zip(xyxy, labels):
-            frame = self.showBboxWithLabel(xyxy_, frame, label)
+            frame = self.showBboxWithLabel(xyxy_, frame, label, color)
         return frame
 
     # Merge masks into a single, multi-colored mask
@@ -246,7 +246,7 @@ class VideoMTT:
             if frame is None:
                 continue
             bboxes, masks = self.frameProcessor.predict(frame)
-
+            frame[300:800,485:740,:] = 255
             frame_copy = frame.copy()
             frameWithSpawnPoints = self.MTT.show_SpawnPoints(frame_copy)
             if len(bboxes) == 0 or masks is None or masks.shape[0] == 0:
@@ -262,16 +262,19 @@ class VideoMTT:
             masks = self.resize_masks(masks)
             frameWithBboxes, z_bboxes_centers = self.get_bboxCenters(xyxy, frameWithSpawnPoints, True)
             frameWithBboxes, z_masks_centers = self.get_masksCenters(masks, frameWithBboxes, True)
-            frameWithBboxes = self.showAllBboxesWithLabels(xyxy, frameWithBboxes)
+            # frameWithBboxes = self.showAllBboxesWithLabels(xyxy, frameWithBboxes)
 
 
             self.MTT.predict(frame_num)
+            print("masks len: ", len(masks))
+            print("xyxy len: ", len(xyxy))
             self.MTT.update(z_masks_centers, conf, xyxy, masks, frame, frame_num)
             # self.MTT.pruneByMaxWeight(0.05)
             if frame_num < 20 or 1:
                 self.MTT.mergeTargets()
             print("Trackers: ", len(self.MTT.trackers))
 
+            prev_xyxy = []
             predicted_xyxy = []
             predicted_pd = []
             predicted_cls = []
@@ -282,6 +285,8 @@ class VideoMTT:
                 center = (int(target.m[0]), int(target.m[1]))
                 frameWithBboxes = cv2_confidence_ellipse(center=center, cov_matrix=target.P, image=frameWithBboxes, showCenter=True)
                 # print("target xyxy: ", target.xyxy)
+                if target.objectStats is not None:
+                    prev_xyxy.append(target.objectStats.xyxy)
                 if target.xyxy is not None:
                     predicted_xyxy.append(target.xyxy)
                     predicted_pd.append(target.pd)
@@ -312,7 +317,11 @@ class VideoMTT:
                     #             int(target.xyxy[0]):int(target.xyxy[2]), 0])
                     # print("     bbox mean: ", m)
 
-            frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, predicted_pd)
+            if len(prev_xyxy) > 0:
+                frameWithBboxes = self.showAllBboxesWithLabels(prev_xyxy,frameWithBboxes,None,(255,0,0))
+            if len(predicted_xyxy) > 0:
+                frameWithBboxes = self.showAllBboxesWithLabels(predicted_xyxy, frameWithBboxes, None, (0,0,0))
+                frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, predicted_pd)
             cls = np.zeros(shape=len(prev_masks))
             print("prev mask len: ", len(prev_masks))
             if len(prev_masks) > 0:
