@@ -46,8 +46,8 @@ if __name__ == "__main__":
     # Define the stochastic matrix P(t) for a given time t
     def stochastic_matrix(t):
         return np.array([[Pd[t], 1 - Pd[t]        , 0    ],
-                         [Pd[t], 1 - Pd[t] - Pk[t], Pk[t]],
-                         [Pd[t], 1 - Pd[t] - Pk[t], Pk[t]]
+                         [Pd[t], 1 - Pd[t] -(1-Pk[t]), 1-Pk[t]],
+                         [Pd[t], - Pd[t] + Pk[t], 1-Pk[t]]
                          ])
 
 

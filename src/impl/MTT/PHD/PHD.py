@@ -107,9 +107,9 @@ class PHD:
 
 
         xyxy1 = self.objectStats.get_xyxyMask(xyxy)
-        hist1 = self.objectStats.get_object_histogram(frame, xyxy1, all_spectrums=False)
+        hist1 = self.objectStats.get_object_histogram(frame, xyxy1, all_spectrums=True)
         xyxy2 = self.objectStats.get_xyxyMask(self.objectStats.xyxy)
-        hist2 = self.objectStats.get_object_histogram(frame, xyxy2, all_spectrums=False)
+        hist2 = self.objectStats.get_object_histogram(frame, xyxy2, all_spectrums=True)
         cos_sim = np.zeros(shape=(hist1.shape[0]))
         for i, val in enumerate(hist1):
             cos_sim[i] = hist2[i] @ val / (np.linalg.norm(hist2[i]) * np.linalg.norm(val))

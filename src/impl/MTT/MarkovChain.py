@@ -5,9 +5,9 @@ class MarkovChain:
         self.initial_distribution = initial_distribution
         self.resultMatrix = np.identity(len(self.initial_distribution))
     def transition_matrix(self, pd, pk):
-        return np.array([[pd, 1 - pd,       0],
-                         [pd, 1 - pd - pk, pk],
-                         [pd, 1 - pd - pk, pk]])
+        return np.array([[pd, 1 - pd , 0     ],
+                         [pd, pk - pd, pd - pk],
+                         [pd, pk - pd, pd - pk]])
 
     def get_transitionProbs(self, pd, pk):
         self.resultMatrix = self.resultMatrix @ self.transition_matrix(pd, pk)
