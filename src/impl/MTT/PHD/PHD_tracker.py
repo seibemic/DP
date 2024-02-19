@@ -3,7 +3,8 @@ from src.impl.MTT.PHD.PHD import PHD
 from scipy.stats import multivariate_normal as mvn
 import numpy as np
 from src.impl.MTT.ObjectStats import ObjectStats
-
+from copy import deepcopy
+from src.impl.MTT.MarkovChain import MarkovChain
 class PHDTracker(TargetTracker):
     def __init__(self, F, H, Q, R, ps):
         super().__init__(F, H, Q, R, ps)
@@ -55,17 +56,10 @@ class PHDTracker(TargetTracker):
                     prev_xyxy = self.trackers[j].prev_xyxy if self.trackers[j].prev_xyxy is not None else None
                     objectstats = ObjectStats(frame, masks[l].copy(), xyxy[l], frame_num)
 
-                    # all_vals = []
-                    # all_vals.append(objectstats.get_cosineSimilarity(self.trackers[j].mask))
-                    # all_vals.append(objectstats.get_intersection(self.trackers[j].mask))
-                    # all_vals.append(objectstats.get_correlation(self.trackers[j].mask))
-                    # all_vals = np.array(all_vals)
-                    # pd = np.mean(all_vals)
-                    pd = objectstats.get_StatsMean(self.trackers[j].mask, "mask")
-                    # self.trackers.append(PHD(w, m, P, pd[l], xyxy[l], prev_xyxy, masks[l].copy(), objectstats))
-                    # pd = 0.9
+                    pd = objectstats.get_maskStatsMean(self.trackers[j].mask)
+                    markov = deepcopy(self.trackers[j].markovChain)
                     print("detection pd: ", pd, " m: ", m)
-                    self.trackers.append(PHD(w, m, P, pd, xyxy[l], prev_xyxy, masks[l].copy(), objectstats, timeStamp=frame_num))
+                    self.trackers.append(PHD(w, m, P, pd, xyxy[l], prev_xyxy, masks[l].copy(), objectstats, markov, timeStamp=frame_num))
                     gatings += 1
             for j in range(gatings):
                 self.trackers[start_index + j].w = self.trackers[start_index + j].w / (lambd + phds_sum)
@@ -81,7 +75,7 @@ class PHDTracker(TargetTracker):
     def pruneByMaxWeight(self, w):
         filters_to_stay = []
         for filter in self.trackers:
-            if filter.w > w:
+            if filter.w > w or filter.state != 2:
                 filters_to_stay.append(filter)
         self.trackers = filters_to_stay
 
@@ -164,7 +158,16 @@ class PHDTracker(TargetTracker):
                 mask_mix = np.clip(mask_mix, 0, 1)
             else:
                 mask_mix = None
-
+            result_matrix = np.zeros_like(filters_to_stay[0].markovChain.resultMatrix)
+            for t_id in L:
+                init_distr = filters_to_stay[t_id].markovChain.initial_distribution
+                # print("res mat: ", filters_to_stay[t_id].markovChain.resultMatrix)
+                result_matrix += filters_to_stay[t_id].markovChain.resultMatrix * filters_to_stay[t_id].w
+            # print("L: ", len(L))
+            # print("merge1: ", result_matrix)
+            result_matrix /= w_mix
+            # print("merge2: ", result_matrix)
+            markov = MarkovChain(init_distr, result_matrix)
             P_mix /= w_mix
 
             objectStats_index = 0
@@ -179,7 +182,7 @@ class PHDTracker(TargetTracker):
             #                          filters_to_stay[objectStats_index].objectStats))
 
             mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, filters_to_stay[objectStats_index].mask,
-                                     filters_to_stay[objectStats_index].objectStats, maX))
+                                     filters_to_stay[objectStats_index].objectStats, markov, maX))
 
             # mixed_filters.append(
             #     PHD(w_mix, m_mix, P_mix, filters_to_stay[objectStats_index].pd, xyxy_mix, prev_xyxy_mix, filters_to_stay[objectStats_index].mask,

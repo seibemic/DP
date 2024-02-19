@@ -4,9 +4,9 @@ import cv2
 from PIL import ImageChops, Image
 import matplotlib.pyplot as plt
 from src.impl.MTT.ObjectStats import ObjectStats
-
+from src.impl.MTT.MarkovChain import MarkovChain
 class PHD:
-    def __init__(self, w, m, P, pd = 0.9, xyxy = None, prev_xyxy=None, mask = None, objectStats=None, timeStamp = 0):
+    def __init__(self, w, m, P, pd = 0.9, xyxy = None, prev_xyxy=None, mask = None, objectStats=None, markovChain=None, timeStamp = 0):
         self.prev_m = None
         self.w = w
         self.m = m
@@ -18,6 +18,17 @@ class PHD:
         self.prev_mask = None
         self.objectStats = objectStats
         self.timeStamp = timeStamp
+        self.state = 0
+        if markovChain is None:
+            init_dist = np.array([0,0.1,0.9])
+            self.markovChain = MarkovChain(init_dist)
+            self.state = np.argmax(self.markovChain.get_probs())
+        else:
+            self.markovChain = markovChain
+            pk = 1
+            self.state = np.argmax(self.markovChain.get_transitionProbs(pd, pk))
+
+
         # self.P_aposterior=self.P_aprior
 
 
@@ -68,9 +79,11 @@ class PHD:
         pk = 0
         if self.objectStats is not None and self.xyxy is not None:
             pk = self.getPk(self.xyxy, frame)
-        print("pk: ", pk)
+        # print("pk: ", pk)
         self.m = self.m
         self.P = self.P_apost
+        self.state = np.argmax(self.markovChain.get_transitionProbs(self.pd, pk))
+
         # self.prev_xyxy = self.xyxy
         # if self.xyxy is not None:
         #     self.xyxy = self.xyxy + np.tile(H @ (self.m - self.prev_m) , 2)
@@ -99,27 +112,13 @@ class PHD:
         # self.P_aposterior = self.P_aprior
         self.w = (1 - self.pd) * self.w
     def getPd(self):
-        return self.objectStats.get_StatsMean(self.mask, "mask")
+        return self.objectStats.get_maskStatsMean(self.mask)
         # self.getMaskStats(frame)
 
     def getPk(self,xyxy,frame):
-        mask = self.objectStats.get_xyxyMask(xyxy)
-
-
-        xyxy1 = self.objectStats.get_xyxyMask(xyxy)
-        hist1 = self.objectStats.get_object_histogram(frame, xyxy1, all_spectrums=True)
-        xyxy2 = self.objectStats.get_xyxyMask(self.objectStats.xyxy)
-        hist2 = self.objectStats.get_object_histogram(frame, xyxy2, all_spectrums=True)
-        cos_sim = np.zeros(shape=(hist1.shape[0]))
-        for i, val in enumerate(hist1):
-            cos_sim[i] = hist2[i] @ val / (np.linalg.norm(hist2[i]) * np.linalg.norm(val))
-        all_vals = []
-        all_vals.append(cos_sim)
-        PK = np.mean(all_vals)
+        PK = self.objectStats.get_xyxyStatsMean(frame, xyxy)
         print("PK: ", PK)
-
-        print("xyxy: ", xyxy)
-        return self.objectStats.get_StatsMean(mask, "xyxy")
+        return PK
     def inGating(self, z, Pg=0.99):
         covInv = np.linalg.inv(self.S)
         gamma = chi2.ppf(Pg, df=2)

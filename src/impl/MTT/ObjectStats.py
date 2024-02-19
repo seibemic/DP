@@ -50,7 +50,7 @@ class ObjectStats:
             all_arrs = []
             for j, spectrum in enumerate(spectrums):
                 for i in range(spectrum.shape[2]):
-                    if j == 1:
+                    if j == 3:
                         all_arrs.append(cv2.calcHist([spectrum], [0], None, [256], [0, 256])[1:].flatten())
                         break
                     # print("spectrum shape: ", spectrum.shape)
@@ -59,54 +59,39 @@ class ObjectStats:
             all_arrs = np.array(all_arrs)
             return all_arrs / np.sum(all_arrs)
 
-    def get_cosineSimilarity(self, mask, object, print_result=False):
-
-        if object == "mask":
-            maskValues = self.maskValues
-            vals = self.get_object_histogram(self.frame, mask)
-        elif object == "xyxy":
-            maskValues = self.inverseMaskValues
-            vals = self.get_object_histogram(self.frame, mask, all_spectrums=False)
-        cos_sim = np.zeros(shape=(vals.shape[0]))
-        # print("cos_sim shape: ", cos_sim.shape)
-        # print("values shape: ", self.values.shape)
-        # print("values[0] shape: ", self.values[0].shape)
-        for i, val in enumerate(vals):
-            cos_sim[i] = maskValues[i] @ val / (np.linalg.norm(maskValues[i]) * np.linalg.norm(val))
+    def get_cosineSimilarity(self, hist1, hist2, print_result=False):
+        assert len(hist1) == len(hist2)
+        cos_sim = np.zeros(shape=(hist1.shape[0]))
+        for i, val in enumerate(hist1):
+            cos_sim[i] = hist2[i] @ val / (np.linalg.norm(hist2[i]) * np.linalg.norm(val))
         if print_result:
             print("cosine similarity:")
             print(cos_sim)
         return cos_sim
 
-    def get_intersection(self, mask, object, print_result=False):
-        vals = self.get_object_histogram(self.frame, mask)
-        if object == "mask":
-            maskValues = self.maskValues
-        elif object == "xyxy":
-            maskValues = self.inverseMaskValues
-        inter = np.zeros(shape=(vals.shape[0]))
-        for i, val in enumerate(vals):
-            inter[i] = np.sum(np.minimum(maskValues[i], val)) / np.sum(maskValues[i])
+    def get_intersection(self, hist1, hist2, print_result=False):
+        assert len(hist1) == len(hist2)
+        inter = np.zeros(shape=(hist1.shape[0]))
+        for i, val in enumerate(hist1):
+            inter[i] = np.sum(np.minimum(hist2[i], val)) / np.sum(hist2[i])
+
         if print_result:
             print("intersection:")
             print(inter)
         return inter
 
-    def get_correlation(self, mask, object, print_result=False):
 
-        if object == "mask":
-            maskValues = self.maskValues
-            vals = self.get_object_histogram(self.frame, mask)
-        elif object == "xyxy":
-            maskValues = self.inverseMaskValues
-            vals = self.get_object_histogram(self.frame, mask, all_spectrums=False)
-        corr = np.zeros(shape=(vals.shape[0]))
-        for i, val in enumerate(vals):
-            corr[i] = np.abs(cv2.compareHist(maskValues[i], val, cv2.HISTCMP_CORREL))
+    def get_correlation(self, hist1, hist2, print_result=False):
+        assert len(hist1) == len(hist2)
+        corr = np.zeros(shape=(hist1.shape[0]))
+        for i, val in enumerate(hist1):
+            corr[i] = np.abs(cv2.compareHist(hist2[i], val, cv2.HISTCMP_CORREL))
+
         if print_result:
             print("correlation:")
             print(corr)
         return corr
+
 
     def printAll(self, mask, frame_num=0):
         # hue, sat, val = self.get_object_histogram(self.frame, mask)
@@ -148,19 +133,31 @@ class ObjectStats:
 
         return xyxy_mask
 
-    def get_StatsMean(self, mask, object):
+    def get_maskStatsMean(self, mask):
+        hist1 = self.get_object_histogram(self.frame, mask)
+        hist2 = self.maskValues
         all_vals = []
-        if object == "xyxy":
-            print("xyxy self: ", self.xyxy)
-            all_vals.append(self.get_cosineSimilarity(mask, object, print_result=True))
-            all_vals.append(self.get_correlation(mask, object, print_result=True))
-        else:
-            all_vals.append(self.get_cosineSimilarity(mask, object, print_result=False))
-            all_vals.append(self.get_intersection(mask, object, print_result=False))
-            all_vals.append(self.get_correlation(mask, object, print_result=False))
+        all_vals.append(self.get_cosineSimilarity(hist1, hist2, print_result=False))
+        all_vals.append(self.get_intersection(hist1, hist2, print_result=False))
+        all_vals.append(self.get_correlation(hist1, hist2, print_result=False))
         all_vals = np.array(all_vals)
 
         return np.mean(all_vals)
+
+    def get_xyxyStatsMean(self, frame, xyxy):
+        xyxy1 = self.get_xyxyMask(xyxy)
+        hist1 = self.get_object_histogram(frame, xyxy1, all_spectrums=True)
+        xyxy2 = self.get_xyxyMask(self.xyxy)
+        hist2 = self.get_object_histogram(frame, xyxy2, all_spectrums=True)
+
+        all_vals = []
+        all_vals.append(self.get_cosineSimilarity(hist1, hist2, print_result=False))
+        all_vals.append(self.get_intersection(hist1, hist2, print_result=False))
+        all_vals.append(self.get_correlation(hist1, hist2, print_result=False))
+        all_vals = np.array(all_vals)
+        return np.mean(all_vals)
+
+
     def plot_histogram(self, hist, title, frame_num):
         plt.plot(hist)
         plt.title(title+str(frame_num))
