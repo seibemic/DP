@@ -50,7 +50,7 @@ class ObjectStats:
             all_arrs = []
             for j, spectrum in enumerate(spectrums):
                 for i in range(spectrum.shape[2]):
-                    if j == 1:
+                    if j == 3:
                         all_arrs.append(cv2.calcHist([spectrum], [0], None, [256], [0, 256])[1:].flatten())
                         break
                     # print("spectrum shape: ", spectrum.shape)
@@ -59,256 +59,39 @@ class ObjectStats:
             all_arrs = np.array(all_arrs)
             return all_arrs / np.sum(all_arrs)
 
-
-
-        # hsv_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2Lab)
-        # hsv_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2BGRA)
-        # Calculate the histogram
-        # print("hsv shape: ", hsv_image.shape)
-
-        # print("all arrs shape: ", all_arrs.shape)
-        # hist_hue = cv2.calcHist([hsv_image], [0], None, [256], [0, 256])
-        # hist_saturation = cv2.calcHist([hsv_image], [1], None, [256], [0, 256])
-        # hist_value = cv2.calcHist([hsv_image], [2], None, [256], [0, 256])
-        # hist_lum = cv2.calcHist([lab_image], [0], None, [256], [0, 256])
-
-
-       # return np.array([hist_hue[1:].flatten(), hist_saturation[1:].flatten(), hist_value[1:].flatten(), hist_lum[1:].flatten()])
-
-    # def get_object_histogram_rgb(self, rgb_image, binary_mask):
-    #     rgb_image=rgb_image.transpose(2,0,1)
-    #     red = rgb_image[0]*binary_mask
-    #     green = rgb_image[1] * binary_mask
-    #     blue = rgb_image[2] * binary_mask
-    #
-    #     hist_red = np.histogram(red, bins=256, range=(0, 256))
-    #     hist_green = np.histogram(green, bins=256, range=(0, 256))
-    #     hist_blue = np.histogram(blue, bins=256, range=(0, 256))
-    #     # print("hist_red shape: ", hist_red[0][1:])
-    #     # print("red shape: ", red.shape)
-    #     return hist_red[0][1:], hist_green[0][1:], hist_blue[0][1:]
-    #     # print("rgb shape: ", rgb_image.shape)
-    #     # print("mask shape: ", binary_mask.shape)
-    #     # print("rgb[0]: ", rgb_image[0].shape)
-    #     # expanded_mask = np.expand_dims(binary_mask, axis=-1)
-    #     # print("expanded mask: ", expanded_mask.shape)
-    #     #
-    #     # object_colors_red = rgb_image[expanded_mask]
-    #     # print("obj shape: ",object_colors_red.shape)
-    #     #return object_colors[0], object_colors[1], object_colors[2]
-    def get_cosineSimilarity(self, mask, object, print_result=False):
-
-        if object == "mask":
-            maskValues = self.maskValues
-            vals = self.get_object_histogram(self.frame, mask)
-        elif object == "xyxy":
-            maskValues = self.inverseMaskValues
-            vals = self.get_object_histogram(self.frame, mask, all_spectrums=False)
-        cos_sim = np.zeros(shape=(vals.shape[0]))
-        # print("cos_sim shape: ", cos_sim.shape)
-        # print("values shape: ", self.values.shape)
-        # print("values[0] shape: ", self.values[0].shape)
-        for i, val in enumerate(vals):
-            cos_sim[i] = maskValues[i] @ val / (np.linalg.norm(maskValues[i]) * np.linalg.norm(val))
+    def get_cosineSimilarity(self, hist1, hist2, print_result=False):
+        assert len(hist1) == len(hist2)
+        cos_sim = np.zeros(shape=(hist1.shape[0]))
+        for i, val in enumerate(hist1):
+            cos_sim[i] = hist2[i] @ val / (np.linalg.norm(hist2[i]) * np.linalg.norm(val))
         if print_result:
             print("cosine similarity:")
             print(cos_sim)
         return cos_sim
 
+    def get_intersection(self, hist1, hist2, print_result=False):
+        assert len(hist1) == len(hist2)
+        inter = np.zeros(shape=(hist1.shape[0]))
+        for i, val in enumerate(hist1):
+            inter[i] = np.sum(np.minimum(hist2[i], val)) / np.sum(hist2[i])
 
-        # hue, sat, val = self.get_object_histogram(self.frame, mask)
-        # hue_cmp = self.hue @ hue / (np.linalg.norm(self.hue) * np.linalg.norm(hue))
-        # sat_cmp = self.saturation @ sat / (np.linalg.norm(self.saturation) * np.linalg.norm(sat))
-        # val_cmp = self.value @ val / (np.linalg.norm(self.value) * np.linalg.norm(val))
-        # if print_result:
-        #     print("cosine similarity (hue, sat, val):")
-        #     print(hue_cmp, sat_cmp, val_cmp)
-        # return hue_cmp, sat_cmp, val_cmp
-    def get_intersection(self, mask, object, print_result=False):
-        vals = self.get_object_histogram(self.frame, mask)
-        if object == "mask":
-            maskValues = self.maskValues
-        elif object == "xyxy":
-            maskValues = self.inverseMaskValues
-        inter = np.zeros(shape=(vals.shape[0]))
-        for i, val in enumerate(vals):
-            inter[i] = np.sum(np.minimum(maskValues[i], val)) / np.sum(maskValues[i])
         if print_result:
             print("intersection:")
             print(inter)
         return inter
 
 
-        # hue, sat, val = self.get_object_histogram(self.frame, mask)
-        # hue_cmp = np.sum(np.minimum(self.hue, hue)) / np.sum(self.hue)
-        # sat_cmp = np.sum(np.minimum(self.saturation, sat)) / np.sum(self.saturation)
-        # val_cmp = np.sum(np.minimum(self.value, val)) / np.sum(self.value)
-        # if print_result:
-        #     print("intersection (hue, sat, val):")
-        #     print(hue_cmp, sat_cmp, val_cmp)
-        # return hue_cmp, sat_cmp, val_cmp
+    def get_correlation(self, hist1, hist2, print_result=False):
+        assert len(hist1) == len(hist2)
+        corr = np.zeros(shape=(hist1.shape[0]))
+        for i, val in enumerate(hist1):
+            corr[i] = np.abs(cv2.compareHist(hist2[i], val, cv2.HISTCMP_CORREL))
 
-    def get_correlation(self, mask, object, print_result=False):
-
-        if object == "mask":
-            maskValues = self.maskValues
-            vals = self.get_object_histogram(self.frame, mask)
-        elif object == "xyxy":
-            maskValues = self.inverseMaskValues
-            vals = self.get_object_histogram(self.frame, mask, all_spectrums=False)
-        corr = np.zeros(shape=(vals.shape[0]))
-        for i, val in enumerate(vals):
-            corr[i] = np.abs(cv2.compareHist(maskValues[i], val, cv2.HISTCMP_CORREL))
         if print_result:
             print("correlation:")
             print(corr)
         return corr
 
-
-
-
-        # hue, sat, val = self.get_object_histogram(self.frame, mask)
-        # hue_cmp = np.abs(cv2.compareHist(self.hue, hue, cv2.HISTCMP_CORREL))
-        # sat_cmp = np.abs(cv2.compareHist(self.saturation, sat, cv2.HISTCMP_CORREL))
-        # val_cmp = np.abs(cv2.compareHist(self.value, val, cv2.HISTCMP_CORREL))
-        # if print_result:
-        #     print("correlation (hue, sat, val):")
-        #     print(hue_cmp, sat_cmp, val_cmp)
-        # return hue_cmp, sat_cmp, val_cmp
-
-    # def get_correlation_rgb(self, mask, print_result=False):
-
-    def get_chi(self, mask, print_result=False, frame_num=0):
-        vals = self.get_object_histogram(self.frame, mask)
-        chi = np.zeros(shape=(vals.shape[0]))
-        for i, val in enumerate(vals):
-            chi[i] = np.abs(cv2.compareHist(self.maskValues[i], val, cv2.HISTCMP_CHISQR))
-        if print_result:
-            print("chi:")
-            print(chi)
-        return chi
-
-        # hue, sat, val = self.get_object_histogram(self.frame, mask)
-        # hue_cmp = cv2.compareHist(self.hue, hue, cv2.HISTCMP_CHISQR) / np.sum(self.hue)
-        # sat_cmp = cv2.compareHist(self.saturation, sat, cv2.HISTCMP_CHISQR) / np.sum(self.saturation)
-        # val_cmp = cv2.compareHist(self.value, val, cv2.HISTCMP_CHISQR) / np.sum(self.value)
-
-        # print(np.sum(self.hue/np.sum(self.hue)))
-        # print(np.sum(hue/np.sum(hue)))
-        # hue_chi =chisquare(self.hue/np.sum(self.hue), hue/np.sum(hue), ddof=1).pvalue
-        # sat_chi =chisquare(self.saturation/np.sum(self.saturation), sat/np.sum(sat), ddof=1).pvalue
-        # val_chi =chisquare(self.value/np.sum(self.value), val/np.sum(val), ddof=1).pvalue
-        # normalized_hist1 = self.hue / np.sum(self.hue)
-        # normalized_hist2 = hue / np.sum(hue)
-        # chi2_stat, p_value = chisquare(normalized_hist1, f_exp=normalized_hist2)
-        # epsilon = 1e-10
-        #
-        # observed_data_hue = np.array([self.hue+ epsilon, hue+ epsilon])
-        # chi2_stat, p_value_hue, dof, expected = chi2_contingency(observed_data_hue)
-        #
-        # observed_data_sat= np.array([self.saturation+ epsilon, sat+ epsilon])
-        # chi2_stat, p_value_sat, dof, expected = chi2_contingency(observed_data_sat)
-        #
-        # observed_data_val = np.array([self.value+ epsilon, val+ epsilon])
-        # chi2_stat, p_value_val, dof, expected = chi2_contingency(observed_data_val)
-        # np.save(f"/home/michal/Documents/FIT/DP/dp/src/data/output/npy/self_hue_{frame_num}.npy", self.hue)
-        # np.save(f"/home/michal/Documents/FIT/DP/dp/src/data/output/npy/hue_{frame_num}.npy", hue)
-        #
-        # print(self.hue, hue)
-        # if print_result:
-        #     print("chi square (hue, sat, val):")
-        #     print(hue_cmp, sat_cmp, val_cmp)
-        #     print("chi square pval (hue, sat, val): ")
-        #     print(p_value_hue, p_value_sat,p_value_val)
-        # return hue_cmp, sat_cmp, val_cmp
-
-    def get_bhat(self, mask, print_result=False):
-        vals = self.get_object_histogram(self.frame, mask)
-        bhat = np.zeros(shape=(vals.shape[0]))
-        for i, val in enumerate(vals):
-            bhat[i] = np.abs(cv2.compareHist(self.maskValues[i], val, cv2.HISTCMP_BHATTACHARYYA))
-        if print_result:
-            print("bhat:")
-            print(bhat)
-        return bhat
-
-        # hue, sat, val = self.get_object_histogram(self.frame, mask)
-        # hue_cmp = cv2.compareHist(self.hue, hue, cv2.HISTCMP_BHATTACHARYYA)
-        # sat_cmp = cv2.compareHist(self.saturation, sat, cv2.HISTCMP_BHATTACHARYYA)
-        # val_cmp = cv2.compareHist(self.value, val, cv2.HISTCMP_BHATTACHARYYA)
-        # if print_result:
-        #     print("bhat (hue, sat, val):")
-        #     print(hue_cmp, sat_cmp, val_cmp)
-        # return hue_cmp, sat_cmp, val_cmp
-
-    def get_hellinger(self, mask, print_result=False):
-        vals = self.get_object_histogram(self.frame, mask)
-        hell = np.zeros(shape=(vals.shape[0]))
-        for i, val in enumerate(vals):
-            hell[i] = np.abs(cv2.compareHist(self.maskValues[i], val, cv2.HISTCMP_HELLINGER))
-        if print_result:
-            print("hell:")
-            print(hell)
-        return hell
-
-        # hue, sat, val = self.get_object_histogram(self.frame, mask)
-        # hue_cmp = cv2.compareHist(self.hue, hue, cv2.HISTCMP_HELLINGER)
-        # sat_cmp = cv2.compareHist(self.saturation, sat, cv2.HISTCMP_HELLINGER)
-        # val_cmp = cv2.compareHist(self.value, val, cv2.HISTCMP_HELLINGER)
-        # if print_result:
-        #     print("hellinger (hue, sat, val):")
-        #     print(hue_cmp, sat_cmp, val_cmp)
-        # return hue_cmp, sat_cmp, val_cmp
-
-    def get_chi_alt(self, mask, print_result=False):
-        vals = self.get_object_histogram(self.frame, mask)
-        chi_alt = np.zeros(shape=(vals.shape[0]))
-        for i, val in enumerate(vals):
-            chi_alt[i] = np.abs(cv2.compareHist(self.maskValues[i], val, cv2.HISTCMP_CHISQR_ALT))
-        if print_result:
-            print("chi_alt:")
-            print(chi_alt)
-        return chi_alt
-
-
-        # hue, sat, val = self.get_object_histogram(self.frame, mask)
-        # hue_cmp = cv2.compareHist(self.hue, hue, cv2.HISTCMP_CHISQR_ALT) / np.sum(self.hue)
-        # sat_cmp = cv2.compareHist(self.saturation, sat, cv2.HISTCMP_CHISQR_ALT) / np.sum(self.saturation)
-        # val_cmp = cv2.compareHist(self.value, val, cv2.HISTCMP_CHISQR_ALT) / np.sum(self.value)
-        # if print_result:
-        #     print("chi alt (hue, sat, val):")
-        #     print(hue_cmp, sat_cmp, val_cmp)
-        # return hue_cmp, sat_cmp, val_cmp
-
-    def get_KLdiv(self, mask, print_result=False):
-        vals = self.get_object_histogram(self.frame, mask)
-        kldiv = np.zeros(shape=(vals.shape[0]))
-        for i, val in enumerate(vals):
-            kldiv[i] = np.abs(cv2.compareHist(self.maskValues[i], val, cv2.HISTCMP_KL_DIV))
-        if print_result:
-            print("kldiv:")
-            print(kldiv)
-        return kldiv
-
-        # hue, sat, val = self.get_object_histogram(self.frame, mask)
-        # hue_cmp = cv2.compareHist(self.hue, hue, cv2.HISTCMP_KL_DIV)
-        # sat_cmp = cv2.compareHist(self.saturation, sat, cv2.HISTCMP_KL_DIV)
-        # val_cmp = cv2.compareHist(self.value, val, cv2.HISTCMP_KL_DIV)
-        # if print_result:
-        #     print("KL div (hue, sat, val):")
-        #     print(hue_cmp, sat_cmp, val_cmp)
-        # return hue_cmp, sat_cmp, val_cmp
-
-    def get_KLdiv2(self, mask, print_result=False):
-        hue, sat, val = self.get_object_histogram(self.frame, mask)
-        hue_cmp = kl_div(self.hue, hue)
-        sat_cmp = kl_div(self.saturation, sat)
-        val_cmp = kl_div(self.value, val)
-        if print_result:
-            print("KL div (hue, sat, val):")
-            print(np.sum(hue_cmp), np.sum(sat_cmp), np.sum(val_cmp))
-            print(np.sum(hue_cmp)/len(hue_cmp), np.sum(sat_cmp)/len(sat_cmp), np.sum(val_cmp)/len(val_cmp))
-        return hue_cmp, sat_cmp, val_cmp
 
     def printAll(self, mask, frame_num=0):
         # hue, sat, val = self.get_object_histogram(self.frame, mask)
@@ -323,11 +106,7 @@ class ObjectStats:
         self.get_cosineSimilarity(mask, True)
         self.get_intersection(mask, True)
         self.get_correlation(mask, True)
-        self.get_chi(mask, True, frame_num)
-        self.get_bhat(mask, True)
-        self.get_hellinger(mask, True)
-        self.get_chi_alt(mask, True)
-        self.get_KLdiv(mask, True)
+
 
     def get_InverseMaskWithinBbox(self, xyxy):
         # Create a blank mask of the same shape as the input binary mask
@@ -354,19 +133,31 @@ class ObjectStats:
 
         return xyxy_mask
 
-    def get_StatsMean(self, mask, object):
+    def get_maskStatsMean(self, mask):
+        hist1 = self.get_object_histogram(self.frame, mask)
+        hist2 = self.maskValues
         all_vals = []
-        if object == "xyxy":
-            print("xyxy self: ", self.xyxy)
-            all_vals.append(self.get_cosineSimilarity(mask, object, print_result=True))
-            all_vals.append(self.get_correlation(mask, object, print_result=True))
-        else:
-            all_vals.append(self.get_cosineSimilarity(mask, object, print_result=False))
-            all_vals.append(self.get_intersection(mask, object, print_result=False))
-            all_vals.append(self.get_correlation(mask, object, print_result=False))
+        all_vals.append(self.get_cosineSimilarity(hist1, hist2, print_result=False))
+        all_vals.append(self.get_intersection(hist1, hist2, print_result=False))
+        all_vals.append(self.get_correlation(hist1, hist2, print_result=False))
         all_vals = np.array(all_vals)
 
         return np.mean(all_vals)
+
+    def get_xyxyStatsMean(self, frame, xyxy):
+        xyxy1 = self.get_xyxyMask(xyxy)
+        hist1 = self.get_object_histogram(frame, xyxy1, all_spectrums=True)
+        xyxy2 = self.get_xyxyMask(self.xyxy)
+        hist2 = self.get_object_histogram(frame, xyxy2, all_spectrums=True)
+
+        all_vals = []
+        all_vals.append(self.get_cosineSimilarity(hist1, hist2, print_result=False))
+        all_vals.append(self.get_intersection(hist1, hist2, print_result=False))
+        all_vals.append(self.get_correlation(hist1, hist2, print_result=False))
+        all_vals = np.array(all_vals)
+        return np.mean(all_vals)
+
+
     def plot_histogram(self, hist, title, frame_num):
         plt.plot(hist)
         plt.title(title+str(frame_num))

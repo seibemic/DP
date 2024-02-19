@@ -246,7 +246,7 @@ class VideoMTT:
             if frame is None:
                 continue
             bboxes, masks = self.frameProcessor.predict(frame)
-            frame[300:800,485:740,:] = 255
+            # frame[300:800,485:740,:] = 255
             frame_copy = frame.copy()
             frameWithSpawnPoints = self.MTT.show_SpawnPoints(frame_copy)
             if len(bboxes) == 0 or masks is None or masks.shape[0] == 0:
@@ -269,14 +269,15 @@ class VideoMTT:
             print("masks len: ", len(masks))
             print("xyxy len: ", len(xyxy))
             self.MTT.update(z_masks_centers, conf, xyxy, masks, frame, frame_num)
-            # self.MTT.pruneByMaxWeight(0.05)
-            if frame_num < 20 or 1:
-                self.MTT.mergeTargets()
+            self.MTT.pruneByMaxWeight(0.1)
+            # if frame_num < 20 or 1:
+            self.MTT.mergeTargets()
             print("Trackers: ", len(self.MTT.trackers))
 
             prev_xyxy = []
             predicted_xyxy = []
             predicted_pd = []
+            states = []
             predicted_cls = []
 
             prev_masks = []
@@ -290,6 +291,7 @@ class VideoMTT:
                 if target.xyxy is not None:
                     predicted_xyxy.append(target.xyxy)
                     predicted_pd.append(target.pd)
+                    states.append(np.argmax(target.state))
                     predicted_cls.append(1)
 
                     print(f"target {i}:")
@@ -303,6 +305,7 @@ class VideoMTT:
                 if target.objectStats is not None:
                     prev_masks.append(target.objectStats.mask)
                 print("     w: ", target.w)
+                print("     state: ", target.markovChain.get_probs())
                     # for prev in prev_masks:
                     #     print("prev mask: ")
                     #     msk = prev * 255
@@ -321,7 +324,8 @@ class VideoMTT:
                 frameWithBboxes = self.showAllBboxesWithLabels(prev_xyxy,frameWithBboxes,None,(255,0,0))
             if len(predicted_xyxy) > 0:
                 frameWithBboxes = self.showAllBboxesWithLabels(predicted_xyxy, frameWithBboxes, None, (0,0,0))
-                frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, predicted_pd)
+                # frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, predicted_pd)
+                frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
             cls = np.zeros(shape=len(prev_masks))
             print("prev mask len: ", len(prev_masks))
             if len(prev_masks) > 0:

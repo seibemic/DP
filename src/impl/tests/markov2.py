@@ -46,24 +46,24 @@ if __name__ == "__main__":
     # Define the stochastic matrix P(t) for a given time t
     def stochastic_matrix(t):
         return np.array([[Pd[t], 1 - Pd[t]        , 0    ],
-                         [Pd[t], 1 - Pd[t] - Pk[t], Pk[t]],
-                         [Pd[t], 1 - Pd[t] - Pk[t], Pk[t]]
+                         [Pd[t], 1 - Pd[t] -(1-Pk[t]), 1-Pk[t]],
+                         [Pd[t], 1 - Pd[t] -(1-Pk[t]), 1-Pk[t]]
                          ])
 
 
     # Initial probability distribution at time t
-    initial_distribution = np.array([0.9, 0.1, 0.])  # Example initial distribution
+    initial_distribution = np.array([0, 0.1, 0.9])  # Example initial distribution
 
     # Perform matrix exponentiation for each time step
     result_matrix = np.identity(3)  # Identity matrix to start
     print("identity: ", np.identity(3))
     for t in range(k):
-        result_matrix = result_matrix.dot(stochastic_matrix(t))
+        result_matrix = result_matrix @ (stochastic_matrix(t))
         if t > 39 and t< 60:
             print("t: ", t, " pd: ", Pd[t], " Pk: ", Pk[t])
             print("========================")
             # print(result_matrix)
-            print(initial_distribution.dot(result_matrix))
+            print(initial_distribution @ (result_matrix))
             print()
 
     """
@@ -75,7 +75,7 @@ if __name__ == "__main__":
     přechod do je kaput - možná z predikovaných bboxu a poměru barev zda je stále překážka
     """
     # Calculate the final probability distribution at time t+k
-    final_distribution = initial_distribution.dot(result_matrix)
+    final_distribution = initial_distribution @ (result_matrix)
 
     # Print the result matrix and final distribution
     print("Result Matrix:")
