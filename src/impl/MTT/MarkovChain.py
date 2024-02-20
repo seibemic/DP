@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class MarkovChain:
     def __init__(self, initial_distribution, resultMatrix=None):
         self.initial_distribution = initial_distribution
@@ -8,9 +9,14 @@ class MarkovChain:
         else:
             self.resultMatrix = resultMatrix
     def transition_matrix(self, pd, pk):
+        return np.array([[pd, 1 - pd, 0],
+                         [pd, pk*(1-pd), (1-pk)*(1-pd)],
+                         [pd, pk*(1-pd), (1-pk)*(1-pd)]])
+
+
         return np.array([[pd, 1 - pd           , 0     ],
-                         [pd, 1 - pd - (1 - pk), 1 - pk],
-                         [pd, 1 - pd - (1 - pk), 1 - pk]])
+                         [pd, 1 - pk, pk - pd],
+                         [pd, 1 - (pk +pd), pk]])
 
     def get_transitionProbs(self, pd, pk):
         self.resultMatrix = self.resultMatrix @ self.transition_matrix(pd, pk)

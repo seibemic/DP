@@ -9,5 +9,6 @@ if __name__ == "__main__":
     init = np.array([0,0.1,0.9])
     res = np.identity(3)
     res = res @ transition_matrix(0.9, 0)
-    print (res)
-    print(init @ res)
+    # print (res)
+    # print(init @ res)
+    print(np.identity(3))

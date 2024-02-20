@@ -51,7 +51,7 @@ class PHD:
         self.P_apost = self.P.copy()
         self.P = (np.eye(len(self.K)) - self.K @ H) @ self.P
 
-    def moveMask_and_getPd(self, defaultPd = 0.9):
+    def moveMask_and_getPd(self, defaultPd = 0.1):
         if self.mask is not None:
             self.prev_mask = self.mask.copy()
             dx = self.m[2]
@@ -112,12 +112,14 @@ class PHD:
         # self.P_aposterior = self.P_aprior
         self.w = (1 - self.pd) * self.w
     def getPd(self):
+
         return self.objectStats.get_maskStatsMean(self.mask)
         # self.getMaskStats(frame)
 
     def getPk(self,xyxy,frame):
         PK = self.objectStats.get_xyxyStatsMean(frame, xyxy)
         print("PK: ", PK)
+        print("PD: ", self.pd)
         return PK
     def inGating(self, z, Pg=0.99):
         covInv = np.linalg.inv(self.S)

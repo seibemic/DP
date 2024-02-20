@@ -157,7 +157,7 @@ class VideoMTT:
 
     def showAllMasks(self, masks, frame, color = (0,0,128)):
         masks = self.mergeMasks(masks, color)
-        frame = cv2.addWeighted(frame, 1, masks, 0.2, 0)
+        frame = cv2.addWeighted(frame, 1, masks, 0.3, 0)
         return frame
 
     def showBboxWithLabel(self, xyxy, frame, label="", color=(0, 0, 0)):
@@ -236,7 +236,12 @@ class VideoMTT:
         self.frameProcessor.set_frameDimensions((width, height))
         self.MTT.set_ImageSize(np.array([width, height]))
         self.MTT.add_PerimeterSpawnPoints(w=0.1, cov=P)
-
+        # self.MTT.add_MeshSpawnPoints(w=0.1,cov=P)
+        # P=P/3
+        # self.MTT.add_SpawnPoint(np.array([281,542]), w=0.1, cov=P)
+        # self.MTT.add_SpawnPoint(np.array([371, 542]), w=0.1, cov=P)
+        # self.MTT.add_SpawnPoint(np.array([460, 542]), w=0.1, cov=P)
+        # self.MTT.add_SpawnPoint(np.array([281, 542]), w=0.1, cov=P)
         while videoCap.isOpened():
             print("frame: ", frame_num)
             print("================================")
@@ -245,8 +250,9 @@ class VideoMTT:
                 break
             if frame is None:
                 continue
-            bboxes, masks = self.frameProcessor.predict(frame)
             # frame[300:800,485:740,:] = 255
+            bboxes, masks = self.frameProcessor.predict(frame)
+
             frame_copy = frame.copy()
             frameWithSpawnPoints = self.MTT.show_SpawnPoints(frame_copy)
             if len(bboxes) == 0 or masks is None or masks.shape[0] == 0:
@@ -291,7 +297,7 @@ class VideoMTT:
                 if target.xyxy is not None:
                     predicted_xyxy.append(target.xyxy)
                     predicted_pd.append(target.pd)
-                    states.append(np.argmax(target.state))
+                    states.append((target.state))
                     predicted_cls.append(1)
 
                     print(f"target {i}:")
