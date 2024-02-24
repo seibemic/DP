@@ -162,11 +162,12 @@ class PHDTracker(TargetTracker):
             for t_id in L:
                 init_distr = filters_to_stay[t_id].markovChain.initial_distribution
                 # print("res mat: ", filters_to_stay[t_id].markovChain.resultMatrix)
+                print("merge0: ", filters_to_stay[t_id].markovChain.resultMatrix)
                 result_matrix += filters_to_stay[t_id].markovChain.resultMatrix * filters_to_stay[t_id].w
             # print("L: ", len(L))
-            # print("merge1: ", result_matrix)
+            print("merge1: ", result_matrix)
             result_matrix /= w_mix
-            # print("merge2: ", result_matrix)
+            print("merge2: ", result_matrix)
             markov = MarkovChain(init_distr, result_matrix)
             P_mix /= w_mix
 

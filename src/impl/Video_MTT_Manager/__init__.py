@@ -274,6 +274,11 @@ class VideoMTT:
             self.MTT.predict(frame_num)
             print("masks len: ", len(masks))
             print("xyxy len: ", len(xyxy))
+            # if frame_num > 24:
+            #     z_masks_centers = np.empty_like(z_masks_centers)
+            #     xyxy = np.empty_like(xyxy)
+            #     conf = np.empty_like(conf)
+            #     masks = np.empty_like(masks)
             self.MTT.update(z_masks_centers, conf, xyxy, masks, frame, frame_num)
             self.MTT.pruneByMaxWeight(0.1)
             # if frame_num < 20 or 1:

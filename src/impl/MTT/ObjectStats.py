@@ -57,6 +57,7 @@ class ObjectStats:
                     all_arrs.append(cv2.calcHist([spectrum], [i], None, [256], [0, 256])[1:].flatten())
 
             all_arrs = np.array(all_arrs)
+            print("all arrs: ", all_arrs)
             return all_arrs / np.sum(all_arrs)
 
     def get_cosineSimilarity(self, hist1, hist2, print_result=False):

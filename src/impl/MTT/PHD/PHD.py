@@ -5,6 +5,7 @@ from PIL import ImageChops, Image
 import matplotlib.pyplot as plt
 from src.impl.MTT.ObjectStats import ObjectStats
 from src.impl.MTT.MarkovChain import MarkovChain
+from copy import deepcopy
 class PHD:
     def __init__(self, w, m, P, pd = 0.9, xyxy = None, prev_xyxy=None, mask = None, objectStats=None, markovChain=None, timeStamp = 0):
         self.prev_m = None
@@ -20,13 +21,13 @@ class PHD:
         self.timeStamp = timeStamp
         self.state = 0
         if markovChain is None:
-            init_dist = np.array([0,0.1,0.9])
+            init_dist = np.array([0.3,0.3,0.4])
             self.markovChain = MarkovChain(init_dist)
             self.state = np.argmax(self.markovChain.get_probs())
         else:
-            self.markovChain = markovChain
+            self.markovChain = deepcopy(markovChain)
             pk = 1
-            self.state = np.argmax(self.markovChain.get_transitionProbs(pd, pk))
+            self.state = np.argmax(self.markovChain.get_probs())
 
 
         # self.P_aposterior=self.P_aprior
@@ -51,7 +52,7 @@ class PHD:
         self.P_apost = self.P.copy()
         self.P = (np.eye(len(self.K)) - self.K @ H) @ self.P
 
-    def moveMask_and_getPd(self, defaultPd = 0.1):
+    def moveMask_and_getPd(self, defaultPd = 0.3):
         if self.mask is not None:
             self.prev_mask = self.mask.copy()
             dx = self.m[2]
@@ -76,14 +77,23 @@ class PHD:
             print("frame num: ", frame_num," ts: ", self.objectStats.timestamp)
         if self.xyxy is not None and self.objectStats is not None and (frame_num - self.objectStats.timestamp) % t == 1:
             self.moveBbox(t)
-        pk = 0
+        pk = 1
         if self.objectStats is not None and self.xyxy is not None:
             pk = self.getPk(self.xyxy, frame)
         # print("pk: ", pk)
         self.m = self.m
         self.P = self.P_apost
-        self.state = np.argmax(self.markovChain.get_transitionProbs(self.pd, pk))
-
+        if self.objectStats is not None and self.xyxy is not None:
+            print("m: ", self.m)
+            print("res mat: ", self.markovChain.resultMatrix)
+            print("init: ", self.markovChain.initial_distribution)
+        x = self.markovChain.get_transitionProbs(self.pd, pk)
+        self.state = np.argmax(x)
+        if self.objectStats is not None and self.xyxy is not None:
+            print("res mat_2: ", self.markovChain.resultMatrix)
+            print("init2", self.markovChain.initial_distribution)
+            print("state: ", x)
+            print("final state: ", self.state)
         # self.prev_xyxy = self.xyxy
         # if self.xyxy is not None:
         #     self.xyxy = self.xyxy + np.tile(H @ (self.m - self.prev_m) , 2)
