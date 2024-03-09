@@ -107,6 +107,8 @@ class VideoMTT:
         return next_mask * color
 
     def resize_masks(self, masks):
+        if masks is None or masks.shape[0] == 0:
+            return None
         if masks.ndim == 3:
             if masks[0].shape != self.frameShape:
                 new_masks = np.zeros(shape=(masks.shape[0], self.frameShape[1], self.frameShape[0]), dtype=np.uint8)
@@ -129,6 +131,8 @@ class VideoMTT:
 
 
     def filterClasses(self, cls, xyxy, conf, masks):
+        if masks is None:
+            return xyxy, conf, masks, cls
         classes_mask = np.isin(cls, self.chosen_class_ids)
         conf = conf[classes_mask]
         xyxy = xyxy[classes_mask, :]
@@ -162,7 +166,7 @@ class VideoMTT:
 
     def showBboxWithLabel(self, xyxy, frame, label="", color=(0, 0, 0)):
         x1, y1, x2, y2 = int(xyxy[0]), int(xyxy[1]), int(xyxy[2]), int(xyxy[3])
-        print("xyxy: ", xyxy)
+        # print("xyxy: ", xyxy)
         frame = cv2.rectangle(frame, (x1, y1), (x2, y2), self.get_color(color), 2)
         frame = cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, color, 2)
         return frame
@@ -185,7 +189,7 @@ class VideoMTT:
         cv2.waitKey(0)
 
     def get_bboxCenters(self, xyxy, frame, show=True):
-        bbox_centers = np.zeros(shape=(xyxy.shape[1], 2))
+        bbox_centers = np.zeros(shape=(xyxy.shape[0], 2))
         for i, obj_xyxy in enumerate(xyxy):
             center_x = obj_xyxy[2] + obj_xyxy[0]
             center_y = obj_xyxy[3] + obj_xyxy[1]
@@ -200,6 +204,9 @@ class VideoMTT:
         return frame, bbox_centers
 
     def get_masksCenters(self, masks, frame, show=True):
+        if masks is None:
+            masks_centers= []
+            return frame, np.array(masks_centers)
         masks_centers = np.zeros(shape=(masks.shape[0], 2))
         for i, mask in enumerate(masks):
             y_positions, x_positions = np.nonzero(masks[i])
@@ -235,11 +242,12 @@ class VideoMTT:
         width, height = self.get_videoDimensions(videoCap)
         self.frameProcessor.set_frameDimensions((width, height))
         self.MTT.set_ImageSize(np.array([width, height]))
-        self.MTT.add_PerimeterSpawnPoints(w=0.1, cov=P)
+        # self.MTT.add_PerimeterSpawnPoints(w=0.1, cov=P)
         # self.MTT.add_MeshSpawnPoints(w=0.1,cov=P)
         # P=P/3
-        # self.MTT.add_SpawnPoint(np.array([281,542]), w=0.1, cov=P)
-        # self.MTT.add_SpawnPoint(np.array([371, 542]), w=0.1, cov=P)
+        # self.MTT.add_SpawnPoint(np.array([708,1254]), w=0.1, cov=P)
+        self.MTT.add_SpawnPoint(np.array([617, 1050]), w=0.1, cov=P)
+      #  self.MTT.add_SpawnPoint(np.array([604, 800]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([460, 542]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([281, 542]), w=0.1, cov=P)
         while videoCap.isOpened():
@@ -251,28 +259,34 @@ class VideoMTT:
             if frame is None:
                 continue
             # frame[300:800,485:740,:] = 255
+           # frame = frame[665:1200, 400:900]
             bboxes, masks = self.frameProcessor.predict(frame)
 
             frame_copy = frame.copy()
             frameWithSpawnPoints = self.MTT.show_SpawnPoints(frame_copy)
-            if len(bboxes) == 0 or masks is None or masks.shape[0] == 0:
-                self.show_frame(frameWithSpawnPoints,frame_num)
-                frame_num +=1
-                continue
+            # if len(bboxes) == 0 or masks is None or masks.shape[0] == 0:
+                # masks = np.empty(shape=(0, 0, 0))
+
+               # self.show_frame(frameWithSpawnPoints,frame_num)
+            #    frame_num +=1
+               # continue
             xyxy, conf, masks, cls = self.filterClasses(bboxes.cls.numpy(), bboxes.xyxy.numpy(), bboxes.conf.numpy(), masks)
-            if len(xyxy) == 0 or masks is None or masks.shape[0] == 0:
-                self.show_frame(frameWithSpawnPoints,frame_num)
-                frame_num +=1
-                continue
+            # if len(xyxy) == 0 or masks is None or masks.shape[0] == 0:
+                # masks = np.empty(shape=(0,0,0))
+                # print("no detections")
+                # self.show_frame(frameWithSpawnPoints,frame_num)
+                # frame_num +=1
+                # continue
 
             masks = self.resize_masks(masks)
+
             frameWithBboxes, z_bboxes_centers = self.get_bboxCenters(xyxy, frameWithSpawnPoints, True)
             frameWithBboxes, z_masks_centers = self.get_masksCenters(masks, frameWithBboxes, True)
-            # frameWithBboxes = self.showAllBboxesWithLabels(xyxy, frameWithBboxes)
-
+            frameWithBboxes = self.showAllBboxesWithLabels(xyxy+3, frameWithBboxes, color=(0,0,255))
+            # frameWithBboxes= self.showAllBboxesWithLabels
 
             self.MTT.predict(frame_num)
-            print("masks len: ", len(masks))
+            # print("masks len: ", len(masks))
             print("xyxy len: ", len(xyxy))
             # if frame_num > 24:
             #     z_masks_centers = np.empty_like(z_masks_centers)
@@ -317,6 +331,7 @@ class VideoMTT:
                     prev_masks.append(target.objectStats.mask)
                 print("     w: ", target.w)
                 print("     state: ", target.markovChain.get_probs())
+                print("     m: ", target.m)
                     # for prev in prev_masks:
                     #     print("prev mask: ")
                     #     msk = prev * 255
@@ -330,22 +345,24 @@ class VideoMTT:
                     # m = np.mean(frame[int(target.xyxy[1]):int(target.xyxy[3]),
                     #             int(target.xyxy[0]):int(target.xyxy[2]), 0])
                     # print("     bbox mean: ", m)
-
-            if len(prev_xyxy) > 0:
-                frameWithBboxes = self.showAllBboxesWithLabels(prev_xyxy,frameWithBboxes,None,(255,0,0))
-            if len(predicted_xyxy) > 0:
-                frameWithBboxes = self.showAllBboxesWithLabels(predicted_xyxy, frameWithBboxes, None, (0,0,0))
-                # frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, predicted_pd)
-                frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
-            cls = np.zeros(shape=len(prev_masks))
-            print("prev mask len: ", len(prev_masks))
-            if len(prev_masks) > 0:
-                frameWithBboxes = self.showAllMasks(prev_masks, frameWithBboxes, (128, 0, 0))
-                # merged_colored_mask = self.merge_masks_colored(prev_masks, cls)
-                # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
-            cls = np.zeros(shape=len(act_masks))
-            if len(act_masks) > 0:
-                frameWithBboxes = self.showAllMasks(act_masks, frameWithBboxes, color=(0, 0, 128))
+            frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
+            show = 0
+            if show:
+                if len(prev_xyxy) > 0:
+                    frameWithBboxes = self.showAllBboxesWithLabels(prev_xyxy,frameWithBboxes,None,(255,0,0))
+                if len(predicted_xyxy) > 0:
+                    frameWithBboxes = self.showAllBboxesWithLabels(predicted_xyxy, frameWithBboxes, None, (0,0,0))
+                    # frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, predicted_pd)
+                    frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
+                cls = np.zeros(shape=len(prev_masks))
+                print("prev mask len: ", len(prev_masks))
+                if len(prev_masks) > 0:
+                    frameWithBboxes = self.showAllMasks(prev_masks, frameWithBboxes, (128, 0, 0))
+                    # merged_colored_mask = self.merge_masks_colored(prev_masks, cls)
+                    # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
+                cls = np.zeros(shape=len(act_masks))
+                if len(act_masks) > 0:
+                    frameWithBboxes = self.showAllMasks(act_masks, frameWithBboxes, color=(0, 0, 128))
                 # merged_colored_mask = self.merge_masks_colored(act_masks, cls)
                 # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
 
@@ -358,8 +375,8 @@ class VideoMTT:
             #                                                               predicted_conf,
             #                                                               predicted_cls)
             act_masks = np.array(act_masks, dtype=np.uint8)
-            print("act mask ddtpye: ", act_masks.dtype)
-            print("frame dtpye: ", frameWithBboxes.dtype)
+            # print("act mask ddtpye: ", act_masks.dtype)
+            # print("frame dtpye: ", frameWithBboxes.dtype)
             # if len(prev_masks) > 0 and len(act_masks) > 0:
             #     for xyxy, mask in zip(xyxy, act_masks):
             #         frameWithBboxes = self.showMaskWithLabel(mask, frameWithBboxes, "tmp", xyxy.astype(int))
@@ -399,13 +416,14 @@ class VideoMTT:
             #     merged_colored_mask = self.merge_masks_colored(masks, bboxes.cls)
             #     frameWithBboxes = cv2.addWeighted(frameWithBboxes, 0.7, merged_colored_mask, 0.7, 0)
 
+            if frame_num > 0:
+                cv2.namedWindow(f"{frame_num}", cv2.WINDOW_NORMAL)
+                # Using resizeWindow()
 
-            cv2.namedWindow(f"{frame_num}", cv2.WINDOW_NORMAL)
-            # Using resizeWindow()
-            cv2.resizeWindow(f"{frame_num}", 800, 600)
-
-            cv2.imshow(f"{frame_num}", frameWithBboxes)
-            cv2.waitKey(0)
+                cv2.resizeWindow(f"{frame_num}", 1200, 800)
+                # frameWithBboxes=frameWithBboxes[665:1400, 400:900]
+                cv2.imshow(f"{frame_num}", frameWithBboxes)
+                cv2.waitKey(0)
 
             # frameWithYoloDetections = Image.fromarray(frameWithYoloDetections, "RGB")
             #

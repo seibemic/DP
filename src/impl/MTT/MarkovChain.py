@@ -9,9 +9,11 @@ class MarkovChain:
         else:
             self.resultMatrix = resultMatrix
     def transition_matrix(self, pd, pk):
-        return np.array([[pd, 1 - pd, 0],
-                         [pd, (1-pk**2) * (1 - pd), pk**2 * (1 - pd)],
-                         [pd, (1-pk**2) * (1 - pd), pk**2 * (1 - pd)]])
+        Th = 1.4#3.2
+        Td = 1#3
+        return np.array([[pd**Td, 1 - pd**Td, 0],
+                         [pd, (1-pk**Th) * (1 - pd), pk**Th * (1 - pd)],
+                         [pd, (1-pk**Th) * (1 - pd), pk**Th * (1 - pd)]])
         return np.array([[pd, 1 - pd, 0],
                          [pd, pk*(1-pd), (1-pk)*(1-pd)],
                          [pd, pk*(1-pd), (1-pk)*(1-pd)]])

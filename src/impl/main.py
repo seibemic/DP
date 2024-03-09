@@ -14,7 +14,7 @@ if __name__ == '__main__':
                   [0, 1, 0, dt],
                   [0, 0, 1, 0],
                   [0, 0, 0, 1]])
-    Q = np.diag([1., 1., 1., 1.])
+    Q = np.diag([1., 1., 1., 1.])*0.01
     R = np.diag([5, 5]) * 50
     H = np.diag([1, 1])  # 2x4
     H = np.lib.pad(H, ((0, 0), (0, 2)), 'constant', constant_values=(0))
@@ -29,10 +29,10 @@ if __name__ == '__main__':
     # yolo = YOLOHandler()
 
     # sam = SAM_handler(device = "cpu")
-    input = "/home/michal/Documents/FIT/DP/dp/src/data/input/DSCN0005.MP4"
-    vid = VideoMTT(input_video=input, MTT = MTT, frameProcessor=frameProcessor,  chosen_class_ids=[0], output_video=of)
+    input = "/home/michal/Documents/FIT/DP/dp/src/data/input/VID20240229170959.mp4"
+    vid = VideoMTT(input_video=input, MTT = MTT, frameProcessor=frameProcessor,  chosen_class_ids=[2], output_video=of)
 
-    d = 400
+    d = 800
     P = np.array([[d, 0, 0, 0],
                   [0, d, 0, 0],
                   [0, 0, d, 0],

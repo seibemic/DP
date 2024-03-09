@@ -59,6 +59,16 @@ class PHDTracker(TargetTracker):
                     pd = objectstats.get_maskStatsMean(self.trackers[j].mask)
                     markov = deepcopy(self.trackers[j].markovChain)
                     print("detection pd: ", pd, " m: ", m)
+                    print("markov: ", markov.get_probs())
+                    try:
+                        hist1=objectstats.maskValues
+                        hist2=self.trackers[j].objectStats.maskValues
+                        all_vals = []
+                        all_vals.append(objectstats.get_cosineSimilarity(hist1,hist2))
+                        all_vals = np.array(all_vals)
+                        pd = np.mean(all_vals)
+                    except:
+                        pass
                     self.trackers.append(PHD(w, m, P, pd, xyxy[l], prev_xyxy, masks[l].copy(), objectstats, markov, timeStamp=frame_num))
                     gatings += 1
             for j in range(gatings):
@@ -162,12 +172,13 @@ class PHDTracker(TargetTracker):
             for t_id in L:
                 init_distr = filters_to_stay[t_id].markovChain.initial_distribution
                 # print("res mat: ", filters_to_stay[t_id].markovChain.resultMatrix)
-                print("merge0: ", filters_to_stay[t_id].markovChain.resultMatrix)
+                # print("merge0: ", filters_to_stay[t_id].markovChain.resultMatrix)
                 result_matrix += filters_to_stay[t_id].markovChain.resultMatrix * filters_to_stay[t_id].w
             # print("L: ", len(L))
-            print("merge1: ", result_matrix)
+            # print(m_mix)
+            # print("merge1: ", result_matrix)
             result_matrix /= w_mix
-            print("merge2: ", result_matrix)
+            # print("merge2: ", result_matrix)
             markov = MarkovChain(init_distr, result_matrix)
             P_mix /= w_mix
 
@@ -183,7 +194,7 @@ class PHDTracker(TargetTracker):
             #                          filters_to_stay[objectStats_index].objectStats))
 
             mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, filters_to_stay[objectStats_index].mask,
-                                     filters_to_stay[objectStats_index].objectStats, markov, maX))
+                                     filters_to_stay[objectStats_index].objectStats, markov, maX, fromMerge=True))
 
             # mixed_filters.append(
             #     PHD(w_mix, m_mix, P_mix, filters_to_stay[objectStats_index].pd, xyxy_mix, prev_xyxy_mix, filters_to_stay[objectStats_index].mask,

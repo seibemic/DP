@@ -7,7 +7,7 @@ from src.impl.MTT.ObjectStats import ObjectStats
 from src.impl.MTT.MarkovChain import MarkovChain
 from copy import deepcopy
 class PHD:
-    def __init__(self, w, m, P, pd = 0.9, xyxy = None, prev_xyxy=None, mask = None, objectStats=None, markovChain=None, timeStamp = 0):
+    def __init__(self, w, m, P, pd = 0.9, xyxy = None, prev_xyxy=None, mask = None, objectStats=None, markovChain=None, timeStamp = 0, fromMerge=False):
         self.prev_m = None
         self.w = w
         self.m = m
@@ -21,13 +21,17 @@ class PHD:
         self.timeStamp = timeStamp
         self.state = 0
         if markovChain is None:
-            init_dist = np.array([0.3,0.3,0.4])
+            init_dist = np.array([0.4,0.3,0.3])
             self.markovChain = MarkovChain(init_dist)
             self.state = np.argmax(self.markovChain.get_probs())
         else:
-            self.markovChain = deepcopy(markovChain)
-            pk = 1
-            self.state = np.argmax(self.markovChain.get_probs())
+            if not fromMerge:
+                self.markovChain = deepcopy(markovChain)
+                pk = 1
+                self.state = np.argmax(self.markovChain.get_transitionProbs(self.pd, pk))
+            else:
+                self.markovChain = deepcopy(markovChain)
+                self.state = np.argmax(self.markovChain.get_probs())
 
 
         # self.P_aposterior=self.P_aprior
@@ -63,6 +67,7 @@ class PHD:
             # print("pd: ", self.pd)
         else:
             self.pd = defaultPd
+      #  self.pd = 0.95
     def moveBbox(self, t=1):
         self.xyxy = self.xyxy + t * np.array([self.m[2], self.m[3], self.m[2], self.m[3]])
     def update(self, H, pd, frame, frame_num):
@@ -73,27 +78,29 @@ class PHD:
         # if pd is not None:
         # self.pd = pd
         t = 2
-        if self.objectStats is not None:
-            print("frame num: ", frame_num," ts: ", self.objectStats.timestamp)
+        # if self.objectStats is not None:
+        #     print("frame num: ", frame_num," ts: ", self.objectStats.timestamp)
         if self.xyxy is not None and self.objectStats is not None and (frame_num - self.objectStats.timestamp) % t == 1:
             self.moveBbox(t)
         pk = 1
         if self.objectStats is not None and self.xyxy is not None:
             pk = self.getPk(self.xyxy, frame)
-        # print("pk: ", pk)
+
         self.m = self.m
         self.P = self.P_apost
-        if self.objectStats is not None and self.xyxy is not None:
-            print("m: ", self.m)
-            print("res mat: ", self.markovChain.resultMatrix)
-            print("init: ", self.markovChain.initial_distribution)
+        # if self.objectStats is not None and self.xyxy is not None:
+            # print("m: ", self.m)
+            # print("res mat: ", self.markovChain.resultMatrix)
+            # print("init: ", self.markovChain.initial_distribution)
         x = self.markovChain.get_transitionProbs(self.pd, pk)
+        print("predict: pk: ", pk, "pd: ", self.pd, "w: ", self.w, "m: ", self.m)
+        print("state: ", x)
         self.state = np.argmax(x)
-        if self.objectStats is not None and self.xyxy is not None:
-            print("res mat_2: ", self.markovChain.resultMatrix)
-            print("init2", self.markovChain.initial_distribution)
-            print("state: ", x)
-            print("final state: ", self.state)
+        # if self.objectStats is not None and self.xyxy is not None:
+        #     print("res mat_2: ", self.markovChain.resultMatrix)
+        #     print("init2", self.markovChain.initial_distribution)
+        #     print("state: ", x)
+        #     print("final state: ", self.state)
         # self.prev_xyxy = self.xyxy
         # if self.xyxy is not None:
         #     self.xyxy = self.xyxy + np.tile(H @ (self.m - self.prev_m) , 2)
@@ -128,8 +135,8 @@ class PHD:
 
     def getPk(self,xyxy,frame):
         PK = self.objectStats.get_xyxyStatsMean(frame, xyxy)
-        print("PK: ", PK)
-        print("PD: ", self.pd)
+        # print("PK: ", PK)
+        # print("PD: ", self.pd)
         return PK
     def inGating(self, z, Pg=0.99):
         covInv = np.linalg.inv(self.S)
