@@ -1,0 +1,730 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{bar1995}{book}{}
+      \name{author}{2}{}{%
+        {{hash=ee3cd1febaf910c21ba784456c15ea05}{%
+           family={Bar-Shalom},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=1eaa42793011098bcf62789cc00a6741}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={X.R.},
+           giveni={X\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Yaakov Bar-Shalom}%
+      }
+      \strng{namehash}{9a03c8be476f35122e26ec67a6756b45}
+      \strng{fullhash}{9a03c8be476f35122e26ec67a6756b45}
+      \strng{bibnamehash}{9a03c8be476f35122e26ec67a6756b45}
+      \strng{authorbibnamehash}{9a03c8be476f35122e26ec67a6756b45}
+      \strng{authornamehash}{9a03c8be476f35122e26ec67a6756b45}
+      \strng{authorfullhash}{9a03c8be476f35122e26ec67a6756b45}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780964831209}
+      \field{title}{Multitarget-multisensor Tracking: Principles and Techniques}
+      \field{year}{1995}
+    \endentry
+    \entry{kalmanFilter}{book}{}
+      \name{author}{1}{}{%
+        {{hash=3877b560cb9ed6ae5750951d4ba7f918}{%
+           family={A.},
+           familyi={A\bibinitperiod},
+           given={Becker},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Alex Becker}%
+      }
+      \strng{namehash}{3877b560cb9ed6ae5750951d4ba7f918}
+      \strng{fullhash}{3877b560cb9ed6ae5750951d4ba7f918}
+      \strng{bibnamehash}{3877b560cb9ed6ae5750951d4ba7f918}
+      \strng{authorbibnamehash}{3877b560cb9ed6ae5750951d4ba7f918}
+      \strng{authornamehash}{3877b560cb9ed6ae5750951d4ba7f918}
+      \strng{authorfullhash}{3877b560cb9ed6ae5750951d4ba7f918}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-965-93120-1-6}
+      \field{title}{Kalman Filter from the ground up}
+      \field{year}{2023}
+    \endentry
+    \entry{nonlinearParticleFilter}{article}{}
+      \name{author}{4}{}{%
+        {{hash=92be5acd369ea256256f77693546ddab}{%
+           family={Arulampalam},
+           familyi={A\bibinitperiod},
+           given={M.S.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=26c6aa603a2c4ce496a57aeee2e8f83c}{%
+           family={Maskell},
+           familyi={M\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d0b5c9dbb3f74a586974af6016fccab7}{%
+           family={Gordon},
+           familyi={G\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=77931271ad9b5f23f2180d9e7e5df9b2}{%
+           family={Clapp},
+           familyi={C\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{47ecdaed0871c7416b884d2cf62d3243}
+      \strng{fullhash}{47ecdaed0871c7416b884d2cf62d3243}
+      \strng{bibnamehash}{47ecdaed0871c7416b884d2cf62d3243}
+      \strng{authorbibnamehash}{47ecdaed0871c7416b884d2cf62d3243}
+      \strng{authornamehash}{47ecdaed0871c7416b884d2cf62d3243}
+      \strng{authorfullhash}{47ecdaed0871c7416b884d2cf62d3243}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Signal Processing}
+      \field{number}{2}
+      \field{title}{A tutorial on particle filters for online nonlinear/non-Gaussian Bayesian tracking}
+      \field{volume}{50}
+      \field{year}{2002}
+      \field{pages}{174\bibrangedash 188}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1109/78.978374
+      \endverb
+    \endentry
+    \entry{brekke}{book}{}
+      \name{author}{1}{}{%
+        {{hash=1d9e9b06b9bc3dbc5de2b41b21634177}{%
+           family={E.},
+           familyi={E\bibinitperiod},
+           given={Brekke},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Norwegian University of Science}%
+        {Technology}%
+      }
+      \strng{namehash}{1d9e9b06b9bc3dbc5de2b41b21634177}
+      \strng{fullhash}{1d9e9b06b9bc3dbc5de2b41b21634177}
+      \strng{bibnamehash}{1d9e9b06b9bc3dbc5de2b41b21634177}
+      \strng{authorbibnamehash}{1d9e9b06b9bc3dbc5de2b41b21634177}
+      \strng{authornamehash}{1d9e9b06b9bc3dbc5de2b41b21634177}
+      \strng{authorfullhash}{1d9e9b06b9bc3dbc5de2b41b21634177}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fundamentals of Sensor Fusion}
+      \field{year}{2020}
+    \endentry
+    \entry{mahler}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2a6e9888df8eda3a9493b2e7d4b09a2b}{%
+           family={Mahler},
+           familyi={M\bibinitperiod},
+           given={R.P.S.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{2a6e9888df8eda3a9493b2e7d4b09a2b}
+      \strng{fullhash}{2a6e9888df8eda3a9493b2e7d4b09a2b}
+      \strng{bibnamehash}{2a6e9888df8eda3a9493b2e7d4b09a2b}
+      \strng{authorbibnamehash}{2a6e9888df8eda3a9493b2e7d4b09a2b}
+      \strng{authornamehash}{2a6e9888df8eda3a9493b2e7d4b09a2b}
+      \strng{authorfullhash}{2a6e9888df8eda3a9493b2e7d4b09a2b}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Aerospace and Electronic Systems}
+      \field{number}{4}
+      \field{title}{Multitarget Bayes filtering via first-order multitarget moments}
+      \field{volume}{39}
+      \field{year}{2003}
+      \field{pages}{1152\bibrangedash 1178}
+      \range{pages}{27}
+      \verb{doi}
+      \verb 10.1109/TAES.2003.1261119
+      \endverb
+    \endentry
+    \entry{milan2016}{article}{}
+      \name{author}{5}{}{%
+        {{hash=a2755b6237e8539dcb507043b9ceeb20}{%
+           family={Milan},
+           familyi={M\bibinitperiod},
+           given={Anton},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9d77cb1dfed191a63c5284a2f4456909}{%
+           family={Leal-Taix{é}},
+           familyi={L\bibinithyphendelim T\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod}}}%
+        {{hash=8d82839be6afd59c432fc7cf084f4326}{%
+           family={Reid},
+           familyi={R\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=507b5db9b42e37f1dc7fd50bac7cd869}{%
+           family={Roth},
+           familyi={R\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=205714eb0cc6921c15493da21a574130}{%
+           family={Schindler},
+           familyi={S\bibinitperiod},
+           given={Konrad},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{af2b3ac7cd191b9ad3be9bf8b2390be3}
+      \strng{fullhash}{af2b3ac7cd191b9ad3be9bf8b2390be3}
+      \strng{bibnamehash}{af2b3ac7cd191b9ad3be9bf8b2390be3}
+      \strng{authorbibnamehash}{af2b3ac7cd191b9ad3be9bf8b2390be3}
+      \strng{authornamehash}{af2b3ac7cd191b9ad3be9bf8b2390be3}
+      \strng{authorfullhash}{af2b3ac7cd191b9ad3be9bf8b2390be3}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1603.00831}
+      \field{title}{MOT16: A benchmark for multi-object tracking}
+      \field{year}{2016}
+    \endentry
+    \entry{Hendeby2014Gaussian}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=d9f68458d8c0695f7d14c58d00aff16e}{%
+           family={Hendeby},
+           familyi={H\bibinitperiod},
+           given={Gustaf},
+           giveni={G\bibinitperiod}}}%
+        {{hash=cd93470dc9a34136b388891de7401e19}{%
+           family={Karlsson},
+           familyi={K\bibinitperiod},
+           given={Rickard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{90a46cd888fd69b2b162c5bd80b5a396}
+      \strng{fullhash}{90a46cd888fd69b2b162c5bd80b5a396}
+      \strng{bibnamehash}{90a46cd888fd69b2b162c5bd80b5a396}
+      \strng{authorbibnamehash}{90a46cd888fd69b2b162c5bd80b5a396}
+      \strng{authornamehash}{90a46cd888fd69b2b162c5bd80b5a396}
+      \strng{authorfullhash}{90a46cd888fd69b2b162c5bd80b5a396}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{17th International Conference on Information Fusion (FUSION)}
+      \field{title}{Gaussian mixture PHD filtering with variable probability of detection}
+      \field{year}{2014}
+      \field{pages}{1\bibrangedash 7}
+      \range{pages}{7}
+    \endentry
+    \entry{Mahler2011cphd}{article}{}
+      \name{author}{3}{}{%
+        {{hash=b545bb6453a6f2c6bb2b9b8861b9c000}{%
+           family={Mahler},
+           familyi={M\bibinitperiod},
+           given={Ronald\bibnamedelimb P.\bibnamedelimi S.},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=5da61a1566beea20521b30b86e50fe72}{%
+           family={Vo},
+           familyi={V\bibinitperiod},
+           given={Ba-Tuong},
+           giveni={B\bibinithyphendelim T\bibinitperiod}}}%
+        {{hash=56666126241776b487d266d0e4e38555}{%
+           family={Vo},
+           familyi={V\bibinitperiod},
+           given={Ba-Ngu},
+           giveni={B\bibinithyphendelim N\bibinitperiod}}}%
+      }
+      \strng{namehash}{0c6295d56e2711735e5609c59a16b1e9}
+      \strng{fullhash}{0c6295d56e2711735e5609c59a16b1e9}
+      \strng{bibnamehash}{0c6295d56e2711735e5609c59a16b1e9}
+      \strng{authorbibnamehash}{0c6295d56e2711735e5609c59a16b1e9}
+      \strng{authornamehash}{0c6295d56e2711735e5609c59a16b1e9}
+      \strng{authorfullhash}{0c6295d56e2711735e5609c59a16b1e9}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Signal Processing}
+      \field{number}{8}
+      \field{title}{CPHD Filtering With Unknown Clutter Rate and Detection Profile}
+      \field{volume}{59}
+      \field{year}{2011}
+      \field{pages}{3497\bibrangedash 3513}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1109/TSP.2011.2128316
+      \endverb
+    \endentry
+    \entry{Vo2013Robust}{article}{}
+      \name{author}{4}{}{%
+        {{hash=5da61a1566beea20521b30b86e50fe72}{%
+           family={Vo},
+           familyi={V\bibinitperiod},
+           given={Ba-Tuong},
+           giveni={B\bibinithyphendelim T\bibinitperiod}}}%
+        {{hash=56666126241776b487d266d0e4e38555}{%
+           family={Vo},
+           familyi={V\bibinitperiod},
+           given={Ba-Ngu},
+           giveni={B\bibinithyphendelim N\bibinitperiod}}}%
+        {{hash=e18638dd96b804eb0852bbca53f76b6b}{%
+           family={Hoseinnezhad},
+           familyi={H\bibinitperiod},
+           given={Reza},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b545bb6453a6f2c6bb2b9b8861b9c000}{%
+           family={Mahler},
+           familyi={M\bibinitperiod},
+           given={Ronald\bibnamedelimb P.\bibnamedelimi S.},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{7196202c2dc68b5c19104037a3d6ac8e}
+      \strng{fullhash}{7196202c2dc68b5c19104037a3d6ac8e}
+      \strng{bibnamehash}{7196202c2dc68b5c19104037a3d6ac8e}
+      \strng{authorbibnamehash}{7196202c2dc68b5c19104037a3d6ac8e}
+      \strng{authornamehash}{7196202c2dc68b5c19104037a3d6ac8e}
+      \strng{authorfullhash}{7196202c2dc68b5c19104037a3d6ac8e}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Journal of Selected Topics in Signal Processing}
+      \field{number}{3}
+      \field{title}{Robust Multi-Bernoulli Filtering}
+      \field{volume}{7}
+      \field{year}{2013}
+      \field{pages}{399\bibrangedash 409}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/JSTSP.2013.2252325
+      \endverb
+    \endentry
+    \entry{Kong2021Robust}{article}{}
+      \name{author}{4}{}{%
+        {{hash=f0eec466a3f4963b833f93c56648fff1}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Guchong},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b4b1e0f34024877667cc57e0cef8c0f2}{%
+           family={Kong},
+           familyi={K\bibinitperiod},
+           given={Lingjiang},
+           giveni={L\bibinitperiod}}}%
+        {{hash=9562d4d078c3e4bd368355aa7042e73d}{%
+           family={Yi},
+           familyi={Y\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=0ec7567d9ffdd419dfc69116077749be}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Xiaolong},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{263afe1f4db37d6731d7a4c99dacd00f}
+      \strng{fullhash}{263afe1f4db37d6731d7a4c99dacd00f}
+      \strng{bibnamehash}{263afe1f4db37d6731d7a4c99dacd00f}
+      \strng{authorbibnamehash}{263afe1f4db37d6731d7a4c99dacd00f}
+      \strng{authornamehash}{263afe1f4db37d6731d7a4c99dacd00f}
+      \strng{authorfullhash}{263afe1f4db37d6731d7a4c99dacd00f}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Vehicular Technology}
+      \field{number}{1}
+      \field{title}{Robust Poisson Multi-Bernoulli Mixture Filter With Unknown Detection Probability}
+      \field{volume}{70}
+      \field{year}{2021}
+      \field{pages}{886\bibrangedash 899}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1109/TVT.2020.3047107
+      \endverb
+    \endentry
+    \entry{Li2018PHD}{article}{}
+      \name{author}{5}{}{%
+        {{hash=8fe32efef4d923fa1e8b9f95801c8a5f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Chenming},
+           giveni={C\bibinitperiod}}}%
+        {{hash=656cf82e4df6059ea39688aa03ea5488}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Wenguang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=f4b43361ab22ca527a23fa5988ff07b9}{%
+           family={Kirubarajan},
+           familyi={K\bibinitperiod},
+           given={Thia},
+           giveni={T\bibinitperiod}}}%
+        {{hash=a9c628fc7a71c7fcac8c3c450c03c2de}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Jinping},
+           giveni={J\bibinitperiod}}}%
+        {{hash=bb8843ec3c9133da5055521dbc769ae8}{%
+           family={Lei},
+           familyi={L\bibinitperiod},
+           given={Peng},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{1f4b0f2609555240de16717964eee894}
+      \strng{fullhash}{1f4b0f2609555240de16717964eee894}
+      \strng{bibnamehash}{1f4b0f2609555240de16717964eee894}
+      \strng{authorbibnamehash}{1f4b0f2609555240de16717964eee894}
+      \strng{authornamehash}{1f4b0f2609555240de16717964eee894}
+      \strng{authorfullhash}{1f4b0f2609555240de16717964eee894}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Signal Processing}
+      \field{number}{14}
+      \field{title}{PHD and CPHD Filtering With Unknown Detection Probability}
+      \field{volume}{66}
+      \field{year}{2018}
+      \field{pages}{3784\bibrangedash 3798}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1109/TSP.2018.2835398
+      \endverb
+    \endentry
+    \entry{wei2023BGMPHD}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=8dcf4ed2bc8b55e1e56a887bb19315b5}{%
+           family={Wei},
+           familyi={W\bibinitperiod},
+           given={Jingxin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=036b60c7b546499099483e479b2ebb5a}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Feng},
+           giveni={F\bibinitperiod}}}%
+        {{hash=eab5696159247cbed5a75542fbc91612}{%
+           family={Qi},
+           familyi={Q\bibinitperiod},
+           given={Jiawei},
+           giveni={J\bibinitperiod}}}%
+        {{hash=0ca0be9ea51dc24ed09999ff807c79dd}{%
+           family={Ruan},
+           familyi={R\bibinitperiod},
+           given={Luyao},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{c3136ae70b9d50da5d26c19bb597eff1}
+      \strng{fullhash}{c3136ae70b9d50da5d26c19bb597eff1}
+      \strng{bibnamehash}{c3136ae70b9d50da5d26c19bb597eff1}
+      \strng{authorbibnamehash}{c3136ae70b9d50da5d26c19bb597eff1}
+      \strng{authornamehash}{c3136ae70b9d50da5d26c19bb597eff1}
+      \strng{authorfullhash}{c3136ae70b9d50da5d26c19bb597eff1}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2023 6th International Conference on Information Communication and Signal Processing (ICICSP)}
+      \field{title}{A Modified BGM-PHD Filter with Unknown Detection Probability}
+      \field{year}{2023}
+      \field{pages}{492\bibrangedash 496}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/ICICSP59554.2023.10390615
+      \endverb
+    \endentry
+    \entry{Hanusa2013Track}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=8ad6660eae8a87c351f565857fc06ec0}{%
+           family={Hanusa},
+           familyi={H\bibinitperiod},
+           given={Evan},
+           giveni={E\bibinitperiod}}}%
+        {{hash=decc014d3f8261d6546ecebef3cfc42a}{%
+           family={Krout},
+           familyi={K\bibinitperiod},
+           given={David\bibnamedelima W.},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{92a817addf247aa247d45c5a6a80b115}
+      \strng{fullhash}{92a817addf247aa247d45c5a6a80b115}
+      \strng{bibnamehash}{92a817addf247aa247d45c5a6a80b115}
+      \strng{authorbibnamehash}{92a817addf247aa247d45c5a6a80b115}
+      \strng{authornamehash}{92a817addf247aa247d45c5a6a80b115}
+      \strng{authorfullhash}{92a817addf247aa247d45c5a6a80b115}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2013 Asilomar Conference on Signals, Systems and Computers}
+      \field{title}{Track state augmentation for estimation of probability of detection in multistatic sonar data}
+      \field{year}{2013}
+      \field{pages}{1733\bibrangedash 1737}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/ACSSC.2013.6810598
+      \endverb
+    \endentry
+    \entry{Horn2013Near}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=397768d7ea5278adcd10db1eed9c1707}{%
+           family={Horn},
+           familyi={H\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{397768d7ea5278adcd10db1eed9c1707}
+      \strng{fullhash}{397768d7ea5278adcd10db1eed9c1707}
+      \strng{bibnamehash}{397768d7ea5278adcd10db1eed9c1707}
+      \strng{authorbibnamehash}{397768d7ea5278adcd10db1eed9c1707}
+      \strng{authornamehash}{397768d7ea5278adcd10db1eed9c1707}
+      \strng{authorfullhash}{397768d7ea5278adcd10db1eed9c1707}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 16th International Conference on Information Fusion}
+      \field{title}{Near real time estimation of surveillance gaps}
+      \field{year}{2013}
+      \field{pages}{1871\bibrangedash 1877}
+      \range{pages}{7}
+    \endentry
+    \entry{Wei2022Trajectory}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1d605db24a98e18e7d7a6e613610dcac}{%
+           family={Wei},
+           familyi={W\bibinitperiod},
+           given={Shaoxiu},
+           giveni={S\bibinitperiod}}}%
+        {{hash=600359abb865f294ec039df2609a62f3}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Boxiang},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9562d4d078c3e4bd368355aa7042e73d}{%
+           family={Yi},
+           familyi={Y\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{75d4db6f7a53233b6e97e80b7bbdce9f}
+      \strng{fullhash}{75d4db6f7a53233b6e97e80b7bbdce9f}
+      \strng{bibnamehash}{75d4db6f7a53233b6e97e80b7bbdce9f}
+      \strng{authorbibnamehash}{75d4db6f7a53233b6e97e80b7bbdce9f}
+      \strng{authornamehash}{75d4db6f7a53233b6e97e80b7bbdce9f}
+      \strng{authorfullhash}{75d4db6f7a53233b6e97e80b7bbdce9f}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Vehicular Technology}
+      \field{number}{8}
+      \field{title}{Trajectory PHD and CPHD Filters With Unknown Detection Profile}
+      \field{volume}{71}
+      \field{year}{2022}
+      \field{pages}{8042\bibrangedash 8058}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1109/TVT.2022.3174055
+      \endverb
+    \endentry
+    \entry{yanYolo2023}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=375dbb805c96757dc67fe8f998854875}{%
+           family={Yan},
+           familyi={Y\bibinitperiod},
+           given={Shangqu},
+           giveni={S\bibinitperiod}}}%
+        {{hash=dfe9c95aca64ebbc1d386619750fa532}{%
+           family={Fu},
+           familyi={F\bibinitperiod},
+           given={Yaowen},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=31fc7a3a3178b0b39e1d98f1b65c6da2}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Wenpeng},
+           giveni={W\bibinitperiod}}}%
+        {{hash=b32f61b294f8e4aa5306c6ea6859da26}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=62a95f72bf928a79b9ac9d7490bfe059}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Ruofeng},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ae8685a845d5736d50993a731c2b18b0}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Fatong},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{e1b53df289014de61ce81433e59569c2}
+      \strng{fullhash}{e1b53df289014de61ce81433e59569c2}
+      \strng{bibnamehash}{e1b53df289014de61ce81433e59569c2}
+      \strng{authorbibnamehash}{e1b53df289014de61ce81433e59569c2}
+      \strng{authornamehash}{e1b53df289014de61ce81433e59569c2}
+      \strng{authorfullhash}{e1b53df289014de61ce81433e59569c2}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2023 5th International Conference on Electronic Engineering and Informatics (EEI)}
+      \field{title}{Multi-Target Instance Segmentation and Tracking Using YOLOV8 and BoT-SORT for Video SAR}
+      \field{year}{2023}
+      \field{pages}{506\bibrangedash 510}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/EEI59236.2023.10212903
+      \endverb
+    \endentry
+    \entry{GarciaPMBM2018}{article}{}
+      \name{author}{4}{}{%
+        {{hash=c753c783ad42bd8f733a4d13acb28249}{%
+           family={García-Fernández},
+           familyi={G\bibinithyphendelim F\bibinitperiod},
+           given={Ángel\bibnamedelima F.},
+           giveni={Á\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=0ec53a07aa8c1dfdf9a98691b0db5fad}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={Jason\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=c05133e988a1fdd0824323cac5ca90e4}{%
+           family={Granström},
+           familyi={G\bibinitperiod},
+           given={Karl},
+           giveni={K\bibinitperiod}}}%
+        {{hash=b2715cc508f0dd34c65f2ed72f4e7bb1}{%
+           family={Svensson},
+           familyi={S\bibinitperiod},
+           given={Lennart},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{7d551a34e3f8d89009ff4b720229d09d}
+      \strng{fullhash}{7d551a34e3f8d89009ff4b720229d09d}
+      \strng{bibnamehash}{7d551a34e3f8d89009ff4b720229d09d}
+      \strng{authorbibnamehash}{7d551a34e3f8d89009ff4b720229d09d}
+      \strng{authornamehash}{7d551a34e3f8d89009ff4b720229d09d}
+      \strng{authorfullhash}{7d551a34e3f8d89009ff4b720229d09d}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Aerospace and Electronic Systems}
+      \field{number}{4}
+      \field{title}{Poisson Multi-Bernoulli Mixture Filter: Direct Derivation and Implementation}
+      \field{volume}{54}
+      \field{year}{2018}
+      \field{pages}{1883\bibrangedash 1901}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1109/TAES.2018.2805153
+      \endverb
+    \endentry
+    \entry{VoMaPHD2006}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bb34db010e1640643cab40651cb76e40}{%
+           family={Vo},
+           familyi={V\bibinitperiod},
+           given={B.-N.},
+           giveni={B\bibinithyphendelim N\bibinitperiod}}}%
+        {{hash=28e6cd48705f075b6d3f98e0a6158b55}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={W.-K.},
+           giveni={W\bibinithyphendelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{f730feb30b5f4769fa6bfe709397e914}
+      \strng{fullhash}{f730feb30b5f4769fa6bfe709397e914}
+      \strng{bibnamehash}{f730feb30b5f4769fa6bfe709397e914}
+      \strng{authorbibnamehash}{f730feb30b5f4769fa6bfe709397e914}
+      \strng{authornamehash}{f730feb30b5f4769fa6bfe709397e914}
+      \strng{authorfullhash}{f730feb30b5f4769fa6bfe709397e914}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Signal Processing}
+      \field{number}{11}
+      \field{title}{The Gaussian Mixture Probability Hypothesis Density Filter}
+      \field{volume}{54}
+      \field{year}{2006}
+      \field{pages}{4091\bibrangedash 4104}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1109/TSP.2006.881190
+      \endverb
+    \endentry
+    \entry{BulutEastimation2011}{article}{}
+      \name{author}{3}{}{%
+        {{hash=0ac3bea949fd04394a312841747a995c}{%
+           family={Bulut},
+           familyi={B\bibinitperiod},
+           given={Yalcin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=c832903c0e2db144a79f45782020e1c4}{%
+           family={Vines-Cavanaugh},
+           familyi={V\bibinithyphendelim C\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=91ac68d206cb24f668549aec141d2bc4}{%
+           family={Bernal},
+           familyi={B\bibinitperiod},
+           given={Dionisio},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{d2f827c79a0f0172f6c9648d57d71989}
+      \strng{fullhash}{d2f827c79a0f0172f6c9648d57d71989}
+      \strng{bibnamehash}{d2f827c79a0f0172f6c9648d57d71989}
+      \strng{authorbibnamehash}{d2f827c79a0f0172f6c9648d57d71989}
+      \strng{authornamehash}{d2f827c79a0f0172f6c9648d57d71989}
+      \strng{authorfullhash}{d2f827c79a0f0172f6c9648d57d71989}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-4419-9833-0}
+      \field{journaltitle}{Conference Proceedings of the Society for Experimental Mechanics Series}
+      \field{month}{05}
+      \field{title}{Process and Measurement Noise Estimation for Kalman Filtering}
+      \field{volume}{3}
+      \field{year}{2011}
+      \verb{doi}
+      \verb 10.1007/978-1-4419-9834-7_36
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
