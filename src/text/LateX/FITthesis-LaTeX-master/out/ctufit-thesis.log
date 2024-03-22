@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  20 MAR 2024 03:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  21 MAR 2024 23:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1251,6 +1251,8 @@ fit-thesis.aux
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
 t/Introduction.aux)
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
+t/chapter_00/chapter_00.aux)
+(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
 t/chapter_01/chapter_01.aux)
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
 t/chapter_02/chapter_02.aux)
@@ -1448,7 +1450,7 @@ fit-thesis.bbl)
 Package biblatex Info: Reference section=0 on input line 126.
 Package biblatex Info: Reference segment=0 on input line 126.
 \c@lstlisting=\count475
-<seibemic-assignment.pdf, id=163, 597.23125pt x 844.15375pt>
+<seibemic-assignment.pdf, id=175, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf>
 Package pdftex.def Info: seibemic-assignment.pdf  used on input line 129.
@@ -1457,7 +1459,7 @@ File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf>
 Package pdftex.def Info: seibemic-assignment.pdf  used on input line 129.
 (pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
-<seibemic-assignment.pdf, id=166, page=1, 597.23125pt x 844.15375pt>
+<seibemic-assignment.pdf, id=178, page=1, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
 Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 129
@@ -1488,7 +1490,7 @@ Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 129
 
  <./seibemic-assignment.pdf{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updm
 ap/pdftex.map}>]
-<seibemic-assignment.pdf, id=209, page=2, 597.23125pt x 844.15375pt>
+<seibemic-assignment.pdf, id=221, page=2, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
 Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 129
@@ -1563,35 +1565,35 @@ l.135 \tableofcontents
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
 fit-thesis.toc
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-5.
+7.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-15.
+17.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-15.
+17.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 15.
+(Font)              <10> on input line 17.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 15.
+(Font)              <7> on input line 17.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 15.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+(Font)              <5> on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1600,7 +1602,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.83 ...\numberline {5}Experiments}{20}{chapter.5}
+l.83 ...robability in video data}{22}{section.5.2}
                                                   % [2
 
 ])
@@ -1638,169 +1640,1188 @@ fit-thesis.lol)
 ]
 \openout2 = `text/Introduction.aux'.
 
- (./text/Introduction.tex [1
+ (./text/Introduction.tex) [1
 
 
 
-] [2]) [3]
+]
+\openout2 = `text/chapter_00/chapter_00.aux'.
+
+
+(./text/chapter_00/chapter_00.tex
+Chapter 1.
+[2
+
+
+
+] [3]) [4]
 \openout2 = `text/chapter_01/chapter_01.aux'.
 
-
-(./text/chapter_01/chapter_01.tex
-Chapter 1.
-[4
-
+ (./text/chapter_01/chapter_01.tex
+Chapter 2.
+[5
 
 
-] [5]
+
+] [6]
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
 75.
  (/usr/share/texmf/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [6] [7] [8] [9] [10]
+) [7] [8] [9] [10] [11]
 Overfull \hbox (1.544pt too wide) detected at line 337
 []
  []
 
-[11]
-<./text/chapter_01/imgs/hmm.png, id=451, 501.875pt x 128.48pt>
+[12]
+<./text/chapter_01/imgs/hmm.png, id=471, 501.875pt x 128.48pt>
 File: ./text/chapter_01/imgs/hmm.png Graphic file (type png)
 <use ./text/chapter_01/imgs/hmm.png>
 Package pdftex.def Info: ./text/chapter_01/imgs/hmm.png  used on input line 386
 .
 (pdftex.def)             Requested size: 369.88582pt x 94.69533pt.
- [12 <./text/chapter_01/imgs/hmm.png>] [13] [14]
+ [13 <./text/chapter_01/imgs/hmm.png>] [14] [15]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 573.
-) [15] [16]
+
+./text/chapter_01/chapter_01.tex:595: Missing $ inserted.
+<inserted text> 
+                $
+l.595         \ForAll{z_k $ \in$ Z}
+                                   
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./text/chapter_01/chapter_01.tex:595: Missing $ inserted.
+<inserted text> 
+                $
+l.595         \ForAll{z_k $ \in$ Z}
+                                   
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+) [16] [17]
 \openout2 = `text/chapter_02/chapter_02.aux'.
 
-
-(./text/chapter_02/chapter_02.tex
-Chapter 2.
-) [17
-
-
-
-]
-\openout2 = `text/chapter_03/chapter_03.aux'.
-
- (./text/chapter_03/chapter_03.tex
+ (./text/chapter_02/chapter_02.tex
 Chapter 3.
-) [18
+
+Overfull \hbox (6.85863pt too wide) in paragraph at lines 8--9
+[]\OT1/lmr/m/n/10 Beyond single-target track-ing, radar sys-tems of-ten ne-ces-
+si-tate multi-target track-ing ap-proaches.
+ []
+
+
+LaTeX Warning: Citation 'BarShalomPDA' on page 18 undefined on input line 14.
+
+[18
 
 
 
-]
-\openout2 = `text/chapter_04/chapter_04.aux'.
+] [19]
+./text/chapter_02/chapter_02.tex:54: Missing endcsname inserted.
+<to be read again> 
+                   let 
+l.54   \caption
+               {Several measurements $z_i$ appeared in the validation region...
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
 
- (./text/chapter_04/chapter_04.tex
-Chapter 4.
-) [19
+./text/chapter_02/chapter_02.tex:54: Use of Gin@ii doesn't match its definition
+.
+<argument> ...melet reserved@d = *def reserved@a {
+                                                  def reserved@a *{caption@s...
+l.54   \caption
+               {Several measurements $z_i$ appeared in the validation region...
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
 
+./text/chapter_02/chapter_02.tex:54: Use of Gin@ii doesn't match its definition
+.
+<argument> ... = *def reserved@a {def reserved@a *
+                                                  {caption@startrue caption@...
+l.54   \caption
+               {Several measurements $z_i$ appeared in the validation region...
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
 
+)
+./ctufit-thesis.tex:246: Incomplete iffalse; all text was ignored after line 54
+.
+<inserted text> 
+                fi 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The file ended while I was skipping conditional text.
+This kind of error happens when you say `\if...' and forget
+the matching `\fi'. I've inserted a `\fi'; this might work.
 
-]
-\openout2 = `text/chapter_05/chapter_05.aux'.
+./ctufit-thesis.tex:246: Improper prevdepth.
+newpage ...alse everypar {}fi par ifdim prevdepth 
+                                                  >z@ vskip -ifdim prevdepth...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+You can refer to \spacefactor only in horizontal mode;
+you can refer to \prevdepth only in vertical mode; and
+neither of these is meaningful inside \write. So
+I'm forgetting what you said and using zero instead.
 
- (./text/chapter_05/chapter_05.tex
-Chapter 5.
-) [20
+./ctufit-thesis.tex:246: Missing endcsname inserted.
+<to be read again> 
+                   @elt 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
 
+./ctufit-thesis.tex:246: You can't use `relax' after the.
+<recently read> c@ 
+                   
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+I'm forgetting what you said and using zero instead.
 
+./ctufit-thesis.tex:246: Extra else.
+@include ...w immediate closeout @partaux fi else 
+                                                  deadcycles z@ @nameuse {cp...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+I'm ignoring this; it doesn't match any \if.
 
-]
-\openout2 = `text/appendix.aux'.
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
- (./text/appendix.tex
-Appendix A.
-) [21
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-]
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Package biblatex Warning: Name format 'last-first' deprecated.
-(biblatex)                Please use 'family-given' instead.
-(biblatex)                Using 'family-given' now.
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-261.
-(/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
-File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [22
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-] [23]
-\openout2 = `text/medium.aux'.
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
- (./text/medium.tex)
-[24
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 265.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 265.
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
-fit-thesis.aux
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/Introduction.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/chapter_01/chapter_01.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/chapter_02/chapter_02.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/chapter_03/chapter_03.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/chapter_04/chapter_04.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/chapter_05/chapter_05.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/appendix.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/medium.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 265.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 265.
-Package rerunfilecheck Info: File `ctufit-thesis.out' has not changed.
-(rerunfilecheck)             Checksum: <no file>.
-Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
-\openout1 = `ctufit-thesis.run.xml'.
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 265.
- ) 
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  let @err@                 ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                  @empty def MessageBreak  
+...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                     endgroup 
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...fi fi fi fi fi fi fi calc@next 
+                                                  
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+@calc@post@scan ...c@post@scan else def calc@next 
+                                                  {calc@error #1}fi fi fi fi...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./ctufit-thesis.tex:246: Undefined control sequence.
+GenericError  ...                                 
+                                                    #4  errhelp @err@       ...
+l.246 \include{text/chapter_02/chapter_02}
+                                          
+(That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
- 34703 strings out of 481239
- 625001 string characters out of 5920377
- 1388516 words of memory out of 5000000
- 49138 multiletter control sequences out of 15000+600000
- 605632 words of font info for 62 fonts, out of 8000000 for 9000
+ 34594 strings out of 481239
+ 622090 string characters out of 5920377
+ 1393150 words of memory out of 5000000
+ 49060 multiletter control sequences out of 15000+600000
+ 608263 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,23n,60p,1771b,1945s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/
-dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/sha
-re/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/
-lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf
-/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx1
-2.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx7.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb>
-</usr/share/texmf/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmr5.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/
-fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.p
-fb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (35 pages, 510038 bytes).
-PDF statistics:
- 674 PDF objects out of 1000 (max. 8388607)
- 589 compressed objects within 6 object streams
- 166 named destinations out of 1000 (max. 500000)
- 355 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 60i,23n,60p,1771b,1931s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+./ctufit-thesis.tex:246:  ==> Fatal error occurred, no output PDF file produced
+!

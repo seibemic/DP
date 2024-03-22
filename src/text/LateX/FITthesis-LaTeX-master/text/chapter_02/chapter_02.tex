@@ -1,5 +1,63 @@
 \chapter{Target tracking}
+Target tracking plays a pivotal role in radar systems, where the primary objective is to estimate the trajectory and characteristics of moving objects within a surveillance area. Derived from the foundational principles of the Kalman filter, target tracking algorithms are tailored to the specific requirements and challenges inherent in radar applications.
+
+Radar-based target tracking encounters various complexities, including survivability and the presence of crossing targets. Survivability concerns the algorithm's ability to maintain accurate estimates despite target maneuvers, occlusions, or potential target loss. Furthermore, the phenomenon of crossing targets introduces significant ambiguities and challenges in trajectory estimation and association.
+
+In the realm of single-target tracking, algorithms such as the Probabilistic Data Association (PDA) filter and its derivatives, such as the Joint Probabilistic Data Association (JPDA) filter or the Integrated Probabilistic Data Association (IPDA) filter, are commonly employed. These algorithms provide robust solutions for associating measurements with existing tracks and updating target state estimates in dynamic scenarios.
+
+Beyond single-target tracking, radar systems often necessitate multi-target tracking approaches. These approaches, particularly those based on Random Finite Sets (RFS), offer advanced capabilities for tracking multiple targets simultaneously. RFS-based filters, including the Probability Hypothesis Density (PHD) filter and the Multi-Bernoulli filter, excel in scenarios where the number of targets is uncertain or dynamic.
+
+In this chapter, we delve into the intricacies of radar-based target tracking algorithms, exploring their theoretical foundations, practical implementations, and performance characteristics. By understanding the diverse range of tracking algorithms available and their respective strengths, we can design and deploy effective tracking systems to meet the demands of modern surveillance and reconnaissance applications.
+
+\section{Data association}
+Data association uncertainty arises in remote sensing systems, such as radar, sonar, or electro-optical devices, when
+measurements are obtained from sources that may not necessarily be the target of interest \cite{BarShalomPDA}. This uncertainty
+occurs particularly in situations where the target signal is weak, necessitating a lower detection threshold, which may result in the detection of background signals, sensor noise, or clutter. Additionally, data association uncertainty can occur when multiple targets are present in close proximity. Utilizing spurious measurements in a tracking filter can lead to divergence of the estimation error and, consequently, track loss.
+
+Addressing this challenge involves two primary problems. The first is the selection of appropriate measurements to update the state of the target of interest in the tracking filter, which can be a Kalman filter or an extended Kalman filter (EKF). The second problem involves determining whether the filter needs modification to account for data association uncertainty. The objective is to obtain the minimum mean square error (MMSE) estimate of the target state and associated uncertainty.
+
+The optimal estimator involves the recursive computation of the conditional probability density function (pdf) of the
+state, with detailed conditions provided under which this pdf serves as a sufficient statistic in the presence of
+data association uncertainty.
+  \subsection{Validation region}
+
+In target-tracking scenarios, the process of signal detection provides measurements, from which the appropriate ones for inclusion in the target state estimator are chosen. In radar systems, for instance, the signal reflected from the target of interest is sought within a specific time interval, determined by the expected range of the target when it reflects the transmitted energy. A range gate is established, and detections falling within this gate can be associated with the target of interest. These measurements may include parameters such as range, azimuth, elevation, or direction cosines, and in certain cases, range rate for radar or active sonar; bearing, and potentially frequency, time difference of arrival, and frequency difference for passive sonar; as well as line-of-sight angles or direction cosines for optical sensors. By setting up a multidimensional gate, the signal from the target is detected efficiently, avoiding the need to search for it across the entire measurement space.
+
+However, while a measurement within the gate is a candidate for association with the target, it is not guaranteed to have originated from the target itself. Thus, the establishment of a validation region becomes necessary. The validation region is designed to ensure that the target measurement falls within it with a high probability, known as the gate probability, based on the statistical characterization of the predicted measurement. In the event that more than one detection appears within the gate, association uncertainty arises. This uncertainty entails the need to determine which measurement is truly from the target and should therefore be utilized to update the track, which comprises the state estimate and covariance, or more generally, the sufficient statistic for the target in question. Measurements outside the validation region can be disregarded, as they are too distant from the predicted measurement and are unlikely to have originated from the target of interest. This scenario typically arises when the gate probability is close to unity, and the statistical model used to define the gate is accurate.
 \section{Clutter}
+When it comes to clutter, two scenarios may occur. The first one is a single target in a clutter. This problem of
+tracking a single target in a clutter appears when several measurements appear in the validation region. The
+validated measurements comprise the accurate measurement, if detected within this region, along with spurious
+measurements originating from clutter or false alarms. In air traffic control systems, where cooperative targets are
+involved, each measurement includes a target identifier known as the squawk number. If this identifier is entirely
+reliable, data association uncertainty is eliminated. However, in cases where a potentially hostile target is non
+-cooperative, data association uncertainty becomes a significant challenge.
+
+Figure 1 illustrates a scenario involving multiple validated measurements. The validation region depicted in the
+figure is two-dimensional and takes the form of an ellipse centered at the predicted measurement $\hat{z}$. The
+elliptical shape of the validation region arises from the assumption that the error in the target's predicted
+measurement, known as the innovation, follows a Gaussian distribution. The parameters defining the ellipse are
+determined by the covariance matrix $S$ of the innovation.
+
+All measurements within the validation region have the potential to originate from the target of interest, although
+only one of them is the true measurement. As a result, the possible association events include: $z_1$ originating
+from the target, with $z_2$ and $z_3$ being from clutter; $z_2$ originating from the target, with $z_1$ and $z_3$
+being from clutter; $z_3$ originating from the target, with $z_2$ and $z_1$ being from clutter; or all measurements
+being from clutter. These association events are mutually exclusive and exhaustive, enabling the application of the
+total probability theorem to obtain the state estimate in the presence of data association uncertainty.
+
+Under the assumption of a single target, the spurious measurements are considered random interference. A common model for such false measurements assumes that they are uniformly spatially distributed and independent across time, corresponding to residual clutter. Any constant clutter is assumed to have already been removed.
+
+\begin{figure}[h]
+  \label{fig:singleTargetInClutter}
+  \includegraphics
+  \caption{Several measurements $z_i$ appeared in the validation region of a single target. $\hat{z}$ is a predicted
+  measurement and none or any of the measurement $z_1 - z_3$ may have originated from the target.}
+\end{figure}
+
+
+
+
 \section{Single target tracking}
    \subsection{PDA filter}
 \section{Multi target tracking}
