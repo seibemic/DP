@@ -724,6 +724,214 @@
       \verb 10.1007/978-1-4419-9834-7_36
       \endverb
     \endentry
+    \entry{DedeciusSeq2017}{article}{}
+      \name{author}{2}{}{%
+        {{hash=217678957c569d01044c5ca1dce6ab43}{%
+           family={Dedecius},
+           familyi={D\bibinitperiod},
+           given={Kamil},
+           giveni={K\bibinitperiod}}}%
+        {{hash=a7b1e96cf3fd673d46050d53e9bcc553}{%
+           family={Djurić},
+           familyi={D\bibinitperiod},
+           given={Petar\bibnamedelima M.},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{9343e8f0d685e6905e9fabe9e4a82396}
+      \strng{fullhash}{9343e8f0d685e6905e9fabe9e4a82396}
+      \strng{bibnamehash}{9343e8f0d685e6905e9fabe9e4a82396}
+      \strng{authorbibnamehash}{9343e8f0d685e6905e9fabe9e4a82396}
+      \strng{authornamehash}{9343e8f0d685e6905e9fabe9e4a82396}
+      \strng{authorfullhash}{9343e8f0d685e6905e9fabe9e4a82396}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Signal Processing}
+      \field{number}{7}
+      \field{title}{Sequential Estimation and Diffusion of Information Over Networks: A Bayesian Approach With Exponential Family of Distributions}
+      \field{volume}{65}
+      \field{year}{2017}
+      \field{pages}{1795\bibrangedash 1809}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1109/TSP.2016.2641380
+      \endverb
+      \keyw{Bayes methods;Estimation;Hidden Markov models;Kalman filters;Signal processing algorithms;Stochastic processes;Inference algorithms;Diffusion network;diffusion estimation;adaptation;combination;exponential family}
+    \endentry
+    \entry{BarShalomPDA}{article}{}
+      \name{author}{3}{}{%
+        {{hash=a01ea5a6fd3b000f4e53c2b816b56101}{%
+           family={Bar-Shalom},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={Yaakov},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=61ed0c3c29277c2819ad65ad645d117d}{%
+           family={Daum},
+           familyi={D\bibinitperiod},
+           given={Fred},
+           giveni={F\bibinitperiod}}}%
+        {{hash=94fbdff6992abaa2c12f9eda2b2b4eb0}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Jim},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{50d7a6cf7df92e288571d042eb99ef65}
+      \strng{fullhash}{50d7a6cf7df92e288571d042eb99ef65}
+      \strng{bibnamehash}{50d7a6cf7df92e288571d042eb99ef65}
+      \strng{authorbibnamehash}{50d7a6cf7df92e288571d042eb99ef65}
+      \strng{authornamehash}{50d7a6cf7df92e288571d042eb99ef65}
+      \strng{authorfullhash}{50d7a6cf7df92e288571d042eb99ef65}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Control Systems Magazine}
+      \field{number}{6}
+      \field{title}{The probabilistic data association filter}
+      \field{volume}{29}
+      \field{year}{2009}
+      \field{pages}{82\bibrangedash 100}
+      \range{pages}{19}
+    \endentry
+    \entry{Particle_Khan2005}{article}{}
+      \name{author}{3}{}{%
+        {{hash=87a7eb10c42ed2407b8fd48498d80908}{%
+           family={Khan},
+           familyi={K\bibinitperiod},
+           given={Zia},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=b19bc54fd1d2d6ef10c080ca2c71dc49}{%
+           family={Balch},
+           familyi={B\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=5f763fed7abdfeb09d66e84288fce65f}{%
+           family={Dellaert},
+           familyi={D\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{c37a22cf756b6cebdb0dc9c2ab777a1f}
+      \strng{fullhash}{c37a22cf756b6cebdb0dc9c2ab777a1f}
+      \strng{bibnamehash}{c37a22cf756b6cebdb0dc9c2ab777a1f}
+      \strng{authorbibnamehash}{c37a22cf756b6cebdb0dc9c2ab777a1f}
+      \strng{authornamehash}{c37a22cf756b6cebdb0dc9c2ab777a1f}
+      \strng{authorfullhash}{c37a22cf756b6cebdb0dc9c2ab777a1f}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+      \field{number}{11}
+      \field{title}{MCMC-based particle filtering for tracking a variable number of interacting targets}
+      \field{volume}{27}
+      \field{year}{2005}
+      \field{pages}{1805\bibrangedash 1819}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1109/TPAMI.2005.223
+      \endverb
+    \endentry
+    \entry{Particle_Gustafsson2002}{article}{}
+      \name{author}{7}{}{%
+        {{hash=c77871f54925a9bb922d01d455faa274}{%
+           family={Gustafsson},
+           familyi={G\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=1468b32f784b00212fb1d4483b28d0e9}{%
+           family={Gunnarsson},
+           familyi={G\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=9fb88db3fdd53fad515f03223c7299ae}{%
+           family={Bergman},
+           familyi={B\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=7640b417d029d0cfeb043a8d3f47eee2}{%
+           family={Forssell},
+           familyi={F\bibinitperiod},
+           given={U.},
+           giveni={U\bibinitperiod}}}%
+        {{hash=02db2cbea835506cc2a2fcf623de3ab2}{%
+           family={Jansson},
+           familyi={J\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5e10c5de92dd19c0f8c98e8f7d9b93ea}{%
+           family={Karlsson},
+           familyi={K\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=7f00fd8619a37ffa4fdbfcd5dba0f709}{%
+           family={Nordlund},
+           familyi={N\bibinitperiod},
+           given={P.-J.},
+           giveni={P\bibinithyphendelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{c7975d7c5ea3b9e1d611edce3c8381e0}
+      \strng{fullhash}{c7975d7c5ea3b9e1d611edce3c8381e0}
+      \strng{bibnamehash}{c7975d7c5ea3b9e1d611edce3c8381e0}
+      \strng{authorbibnamehash}{c7975d7c5ea3b9e1d611edce3c8381e0}
+      \strng{authornamehash}{c7975d7c5ea3b9e1d611edce3c8381e0}
+      \strng{authorfullhash}{c7975d7c5ea3b9e1d611edce3c8381e0}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Signal Processing}
+      \field{number}{2}
+      \field{title}{Particle filters for positioning, navigation, and tracking}
+      \field{volume}{50}
+      \field{year}{2002}
+      \field{pages}{425\bibrangedash 437}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/78.978396
+      \endverb
+    \endentry
+    \entry{Particle_Doucet2001}{article}{}
+      \name{author}{3}{}{%
+        {{hash=ce0884de2f3c0a11c0f3cb48d9d7ad86}{%
+           family={Doucet},
+           familyi={D\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f3f40523fe8a776fb4d1e461188d3918}{%
+           family={Gordon},
+           familyi={G\bibinitperiod},
+           given={N.J.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=cdfc1ec84c757df46978edeeaec99cfc}{%
+           family={Krishnamurthy},
+           familyi={K\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{65adeeb30ee18302b0bfd929461f5ea9}
+      \strng{fullhash}{65adeeb30ee18302b0bfd929461f5ea9}
+      \strng{bibnamehash}{65adeeb30ee18302b0bfd929461f5ea9}
+      \strng{authorbibnamehash}{65adeeb30ee18302b0bfd929461f5ea9}
+      \strng{authornamehash}{65adeeb30ee18302b0bfd929461f5ea9}
+      \strng{authorfullhash}{65adeeb30ee18302b0bfd929461f5ea9}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Signal Processing}
+      \field{number}{3}
+      \field{title}{Particle filters for state estimation of jump Markov linear systems}
+      \field{volume}{49}
+      \field{year}{2001}
+      \field{pages}{613\bibrangedash 624}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/78.905890
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

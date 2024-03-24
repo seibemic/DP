@@ -366,15 +366,15 @@ processes, the HMM extends the state-space model by introducing hidden states th
 measurements over time. Markov process of the first order is a model, in which current state depends only on the
 previous state
 \begin{align}
-    p(x_k|x_1,\cdots,x_{k-2},x_{k-1}, z_1, \cdots, z_{k-2}, z_{k-1}) = p(x_k|x_{k-1}) &\quad \text{(transition
+    p(x_k|x_1,\dots,x_{k-2},x_{k-1}, z_1, \dots, z_{k-2}, z_{k-1}) = p(x_k|x_{k-1}) &\quad \text{(transition
     probability)}, \\
-    p(z_k|x_1,\cdots,x_{k-2},x_{k-1}, x_k, z_1, \cdots, z_{k-2}, z_{k-1}) = p(z_k|x_{k}) &\quad \text{(observation
+    p(z_k|x_1,\dots,x_{k-2},x_{k-1}, x_k, z_1, \dots, z_{k-2}, z_{k-1}) = p(z_k|x_{k}) &\quad \text{(observation
     likelihood)}, \\
     p(x_0)& \quad \text{(initial state)}.
 \end{align}
 In models of higher order, the transition probability would be:
 \begin{align}
-    p(x_k|x_{k-1},\cdots,x_{k-n}),
+    p(x_k|x_{k-1},\dots,x_{k-n}),
 \end{align}
 where $n$ is the number of the order.
 
@@ -398,7 +398,7 @@ entails two fundamental steps: prediction and update. During the prediction step
 state $x_k$ based on the preceding state $x_{k-1}$ and the motion model $p(x_k|x_{k-1})$. This prediction step is
 commonly referred to as the Chapman-Kolmogorov equation \cite{DedeciusSeq2017}.
 \begin{theorem}[The Chapman-Kologorov equation prediction step]
-    Given the set of measurements $z_{0:k-1} = {z_0,\cdots, z_{k-1}}$, set of control variables $u_{0:k-1} = {u_0,\cdots, u_{k-1}}$ and current state $x_{k-1}$ and the motion model $p(x_k|x_{k-1})$, the prediction step is as follows:
+    Given the set of measurements $z_{0:k-1} = {z_0,\dots, z_{k-1}}$, set of control variables $u_{0:k-1} = {u_0,\dots, u_{k-1}}$ and current state $x_{k-1}$ and the motion model $p(x_k|x_{k-1})$, the prediction step is as follows:
     \begin{align}
         p(x_k|z_{0:t-1}, u_{0:k}) &= \int p(x_k|x_{k-1}, u_k) p(x_{k-1}|z_{0:k-1}, u_{0:k-1}) dx_{k-1},
         \label{eq:chapman_kolmogorov_predict}
@@ -553,7 +553,7 @@ The posterior parameters are then derived as follows:
 \end{align}
 where
 \begin{align}
-    K_{k} = P_{k}^{-} H^{T}(R + H P_{k}^{-}H^{T})^{-1}
+    K_{k} &= P_{k}^{-} H^{T}(R + H P_{k}^{-}H^{T})^{-1} \label{eq:kalman_gain}
 \end{align}
 is Kalman gain. This form is the optimal Kalman gain, as it minimizes the root mean squared error. In general, the greater the gain, the greater the emphasis of the new measurements. The filter is then more sensitive, but filters noise less easily.
 

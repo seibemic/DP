@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TexmakerSession quickmode="12">
+    <document bookmark3="0" file="/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty" line="0" master="false" bookmark2="0" hasfocus="false" bookmark1="0"/>
+    <document bookmark3="0" file="/home/michal/Documents/FIT/DP/dp/src/text/latex/FITthesis-LaTeX-master/text/text.tex" line="0" master="false" bookmark2="0" hasfocus="false" bookmark1="0"/>
+    <document bookmark3="0" file="/home/michal/Documents/FIT/DP/dp/src/text/latex/FITthesis-LaTeX-master/ctufit-thesis.tex" line="90" master="true" bookmark2="0" hasfocus="true" bookmark1="0"/>
+    <document bookmark3="0" file="/home/michal/Documents/FIT/DP/dp/src/text/latex/FITthesis-LaTeX-master/text/bib-database.bib" line="0" master="false" bookmark2="0" hasfocus="false" bookmark1="0"/>
+    <document bookmark3="0" file="/home/michal/Documents/FIT/DP/dp/src/text/latex/FITthesis-LaTeX-master/text/appendix.tex" line="0" master="false" bookmark2="0" hasfocus="false" bookmark1="0"/>
+    <document bookmark3="0" file="/home/michal/Documents/FIT/DP/dp/src/text/latex/FITthesis-LaTeX-master/ctufit-thesis.cls" line="0" master="false" bookmark2="0" hasfocus="false" bookmark1="0"/>
+</TexmakerSession>

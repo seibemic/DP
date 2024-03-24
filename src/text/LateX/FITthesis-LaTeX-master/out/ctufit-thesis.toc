@@ -1,0 +1,101 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
+\babel@toc {english}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{{Acknowledgments}}{v}{chapter*.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\thectufitdeclarationlabel }{vi}{chapter*.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{{Abstract}}{vii}{chapter*.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Seznam zkratek}{viii}{chapter*.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Introduction}{1}{chapter*.9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Thesis establishment}{2}{chapter.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}Evolution and development}{2}{section.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Applications of multi-target tracking}{2}{section.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.3}Multi target algorithms}{3}{section.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.4}Research interests}{3}{section.1.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.5}Structure}{4}{section.1.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Bayesian inference}{5}{section.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Bayes' rule}{6}{section.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Multivariate Gaussian distribution}{7}{section.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.4}Gaussian mixture}{8}{section.2.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.5}State space model}{9}{section.2.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.5.1}Constant velocity model}{11}{subsection.2.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.5.2}Constant acceleration model}{12}{subsection.2.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.6}Hidden Markov Model}{13}{section.2.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.7}Bayes' filter}{14}{section.2.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.8}Kalman filter}{14}{section.2.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.8.1}Kalman filter inference}{15}{subsection.2.8.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.8.1.1}Kalman filter algorithm}{16}{subsubsection.2.8.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Target tracking}{18}{chapter.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Data association}{18}{section.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.1}Validation region}{19}{subsection.3.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Clutter}{19}{section.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Single target tracking}{21}{section.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.1}PDA filter}{21}{subsection.3.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.1.1}PDAF predict step}{22}{subsubsection.3.3.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.1.2}PDAF measurement validation step}{23}{subsubsection.3.3.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.1.3}PDAF data association step}{23}{subsubsection.3.3.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.1.4}PDAF update step}{23}{subsubsection.3.3.1.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.4}Multi target tracking}{24}{section.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.1}RFS statistics}{24}{subsection.3.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.4.1.1}PHD filter}{24}{subsubsection.3.4.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\numberline {3.4.1.1.1}Gaussian mixture PHD filter recursion}{24}{paragraph.3.4.1.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Object detection and segmentation}{25}{chapter.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}YOLO}{25}{section.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Segment Anything}{25}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Dynamic time and state varying detection probability}{26}{chapter.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Problem definition}{26}{section.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Dynamic detection probability in video data}{26}{section.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{26}{section.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{26}{section.5.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Experiments}{27}{chapter.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Nějaká příloha}{28}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Obsah příloh}{31}{appendix*.14}%
