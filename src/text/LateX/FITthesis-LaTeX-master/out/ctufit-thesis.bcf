@@ -2217,6 +2217,7 @@
     <bcf:citekey order="25">Particle_Gustafsson2002</bcf:citekey>
     <bcf:citekey order="25">Particle_Doucet2001</bcf:citekey>
     <bcf:citekey order="25">nonlinearParticleFilter</bcf:citekey>
+    <bcf:citekey order="26">FISST</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

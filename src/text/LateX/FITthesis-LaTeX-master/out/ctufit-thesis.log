@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.14)  23 MAR 2024 20:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  27 MAR 2024 03:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -64,9 +64,9 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
 Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language22) on input line 105.
+(babel)             (\language44) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language22) on input line 108.
+(babel)             (\language44) on input line 108.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
@@ -1450,7 +1450,7 @@ fit-thesis.bbl)
 Package biblatex Info: Reference section=0 on input line 126.
 Package biblatex Info: Reference segment=0 on input line 126.
 \c@lstlisting=\count475
-<seibemic-assignment.pdf, id=175, 597.23125pt x 844.15375pt>
+<seibemic-assignment.pdf, id=179, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf>
 Package pdftex.def Info: seibemic-assignment.pdf  used on input line 129.
@@ -1459,7 +1459,7 @@ File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf>
 Package pdftex.def Info: seibemic-assignment.pdf  used on input line 129.
 (pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
-<seibemic-assignment.pdf, id=178, page=1, 597.23125pt x 844.15375pt>
+<seibemic-assignment.pdf, id=182, page=1, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
 Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 129
@@ -1488,9 +1488,9 @@ Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 129
  [1
 
 
- <./seibemic-assignment.pdf{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}>
-]
-<seibemic-assignment.pdf, id=221, page=2, 597.23125pt x 844.15375pt>
+ <./seibemic-assignment.pdf{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updm
+ap/pdftex.map}>]
+<seibemic-assignment.pdf, id=225, page=2, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
 Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 129
@@ -1602,7 +1602,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.91 ...robability in video data}{26}{section.5.2}
+l.87 ...ying detection probability}{28}{chapter.5}
                                                   % [2
 
 ])
@@ -1674,7 +1674,7 @@ Overfull \hbox (1.544pt too wide) detected at line 337
  []
 
 [12]
-<./text/chapter_01/imgs/hmm.png, id=480, 501.875pt x 128.48pt>
+<./text/chapter_01/imgs/hmm.png, id=485, 501.875pt x 128.48pt>
 File: ./text/chapter_01/imgs/hmm.png Graphic file (type png)
 <use ./text/chapter_01/imgs/hmm.png>
 Package pdftex.def Info: ./text/chapter_01/imgs/hmm.png  used on input line 386
@@ -1716,7 +1716,7 @@ si-tate multi-target track-ing ap-proaches.
 
 
 ] [19]
-<text/chapter_02/imgs/clutter_singleTarget.png, id=554, 722.7pt x 722.7pt>
+<text/chapter_02/imgs/clutter_singleTarget.png, id=559, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_singleTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_singleTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_singleTarget.png  used on
@@ -1727,7 +1727,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 56.
  [20 <./text/chapter_02/imgs/clutter_singleTarget.png>]
-<text/chapter_02/imgs/clutter_multiTarget.png, id=566, 722.7pt x 722.7pt>
+<text/chapter_02/imgs/clutter_multiTarget.png, id=571, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_multiTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_multiTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_multiTarget.png  used on 
@@ -1742,12 +1742,16 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 LaTeX Font Warning: Command \Large invalid in math mode on input line 153.
 
-[23]) [24]
+[23] [24] [25]
+
+LaTeX Warning: Citation 'FISST' on page 26 undefined on input line 253.
+
+) [26]
 \openout2 = `text/chapter_03/chapter_03.aux'.
 
  (./text/chapter_03/chapter_03.tex
 Chapter 4.
-) [25
+) [27
 
 
 
@@ -1756,7 +1760,7 @@ Chapter 4.
 
  (./text/chapter_04/chapter_04.tex
 Chapter 5.
-) [26
+) [28
 
 
 
@@ -1765,7 +1769,7 @@ Chapter 5.
 
  (./text/chapter_05/chapter_05.tex
 Chapter 6.
-) [27
+) [29
 
 
 
@@ -1774,7 +1778,7 @@ Chapter 6.
 
  (./text/appendix.tex
 Appendix A.
-) [28
+) [30
 
 
 
@@ -1788,15 +1792,15 @@ LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line
 261.
 (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [29
+) [31
 
 
 
-] [30]
+] [32]
 \openout2 = `text/medium.aux'.
 
  (./text/medium.tex)
-[31
+[33
 
 
 ]
@@ -1829,7 +1833,12 @@ Package rerunfilecheck Info: File `ctufit-thesis.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                ctufit-thesis
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 \openout1 = `ctufit-thesis.run.xml'.
@@ -1837,15 +1846,15 @@ Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 265.
  ) 
 Here is how much of TeX's memory you used:
- 34830 strings out of 481239
- 628339 string characters out of 5920377
- 1396567 words of memory out of 5000000
- 49199 multiletter control sequences out of 15000+600000
+ 34840 strings out of 481239
+ 628476 string characters out of 5920377
+ 1395760 words of memory out of 5000000
+ 49201 multiletter control sequences out of 15000+600000
  626055 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,23n,60p,1771b,1931s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,23n,60p,1771b,1945s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/
-dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr
+dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
 /share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/
 lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf
 /fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx1
@@ -1862,15 +1871,16 @@ share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public
 /lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share/te
 xmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 ssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.
-pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+/fonts/type1/public/lm/lmsy5.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.
+pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
 Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (42 pages, 662712 bytes).
+eX-master/out/ctufit-thesis.pdf (44 pages, 677498 bytes).
 PDF statistics:
- 826 PDF objects out of 1000 (max. 8388607)
- 722 compressed objects within 8 object streams
- 210 named destinations out of 1000 (max. 500000)
- 389 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 855 PDF objects out of 1000 (max. 8388607)
+ 748 compressed objects within 8 object streams
+ 218 named destinations out of 1000 (max. 500000)
+ 397 words of extra memory for PDF output out of 10000 (max. 10000000)
 
