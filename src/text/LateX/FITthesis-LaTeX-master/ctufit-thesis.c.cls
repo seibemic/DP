@@ -38,12 +38,12 @@
 \DeclareOption{bw}{\def\@ctufitthesisblackandwhite}
 \DeclareOption{czech}{
     \AtBeginDocument{\selectlanguage{czech}}
-    \PassOptionsToPackage{english,main=czech}{babel}
+    \PassOptionsToPackage{czech,main=czech}{babel}
     \def\@ctufitlang{C}
 }
 \DeclareOption{english}{
     \AtBeginDocument{\selectlanguage{english}}
-    \PassOptionsToPackage{czech,main=english}{babel}
+    \PassOptionsToPackage{english,main=english}{babel}
     \def\@ctufitlang{E}
 }
 \DeclareOption{slovak}{

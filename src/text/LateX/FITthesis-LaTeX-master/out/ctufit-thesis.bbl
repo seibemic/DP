@@ -932,6 +932,110 @@
       \verb 10.1109/78.905890
       \endverb
     \endentry
+    \entry{FISSTgoodman1997}{book}{}
+      \name{author}{3}{}{%
+        {{hash=8a0d810a01a47217725ad04baefbe865}{%
+           family={Goodman},
+           familyi={G\bibinitperiod},
+           given={I.R.},
+           giveni={I\bibinitperiod}}}%
+        {{hash=fd945bca2e092162913f8cb054bfc09f}{%
+           family={Mahler},
+           familyi={M\bibinitperiod},
+           given={R.P.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=9583400a217f3b3b4b306332f50a6fbf}{%
+           family={Nguyen},
+           familyi={N\bibinitperiod},
+           given={H.T.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Netherlands}%
+      }
+      \strng{namehash}{05c66bfa5c754f958d8b238b486d22b9}
+      \strng{fullhash}{05c66bfa5c754f958d8b238b486d22b9}
+      \strng{bibnamehash}{05c66bfa5c754f958d8b238b486d22b9}
+      \strng{authorbibnamehash}{05c66bfa5c754f958d8b238b486d22b9}
+      \strng{authornamehash}{05c66bfa5c754f958d8b238b486d22b9}
+      \strng{authorfullhash}{05c66bfa5c754f958d8b238b486d22b9}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780792346746}
+      \field{series}{Theory and Decision Library B}
+      \field{title}{Mathematics of Data Fusion}
+      \field{year}{1997}
+    \endentry
+    \entry{VoRFS2003}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=56666126241776b487d266d0e4e38555}{%
+           family={Vo},
+           familyi={V\bibinitperiod},
+           given={Ba-Ngu},
+           giveni={B\bibinithyphendelim N\bibinitperiod}}}%
+        {{hash=527e6a66913975262c0b61a2572b6de5}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ce0884de2f3c0a11c0f3cb48d9d7ad86}{%
+           family={Doucet},
+           familyi={D\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
+      \strng{fullhash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
+      \strng{bibnamehash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
+      \strng{authorbibnamehash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
+      \strng{authornamehash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
+      \strng{authorfullhash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2003 Proceedings of the International Conference on Radar (IEEE Cat. No.03EX695)}
+      \field{title}{Random finite sets and sequential Monte Carlo methods in multi-target tracking}
+      \field{year}{2003}
+      \field{pages}{486\bibrangedash 491}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/RADAR.2003.1278790
+      \endverb
+      \keyw{Filters;Sliding mode control;Filtering;Monte Carlo methods;Target tracking;Bayesian methods;Computational complexity;Statistics;Set theory;Casting}
+    \endentry
+    \entry{daley2003}{book}{}
+      \name{author}{2}{}{%
+        {{hash=649cb7bd74bb406783019eae61adf563}{%
+           family={Daley},
+           familyi={D\bibinitperiod},
+           given={D.J.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=04f092c25714d268ea8274af144cddac}{%
+           family={Vere-Jones},
+           familyi={V\bibinithyphendelim J\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{dd0f8d3aa66e3ecd82897c35dac52181}
+      \strng{fullhash}{dd0f8d3aa66e3ecd82897c35dac52181}
+      \strng{bibnamehash}{dd0f8d3aa66e3ecd82897c35dac52181}
+      \strng{authorbibnamehash}{dd0f8d3aa66e3ecd82897c35dac52181}
+      \strng{authornamehash}{dd0f8d3aa66e3ecd82897c35dac52181}
+      \strng{authorfullhash}{dd0f8d3aa66e3ecd82897c35dac52181}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{{An introduction to the theory of point processes}}
+      \field{year}{2003}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

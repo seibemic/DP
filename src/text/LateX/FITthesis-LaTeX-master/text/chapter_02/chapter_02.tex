@@ -243,17 +243,45 @@ receives measurements originated from targets, but also a set $K_k$, which are f
 time $k$, the multi-target measurement set $Z_k$ observed by the sensor is also formulated as a union of measurements
 originated from targets and clutter
 \begin{align}
-    Z_k &= \left[ \bigcup_{x \in X_k} \Theta_k(x) \right] \cup \mathcal{K}_k.
+    Z_k &= \left[ \bigcup_{x \in X_k} \Theta_k(x) \right] \cup \mathcal{K}_k. \label{eq:rfs_measurement_union}
 \end{align}
 The RFSs are assumed to be independent of each other and the actual form of $K_k$ is problem dependent.
 
 
 Finite Set Statistics (FISST) is fundamental within the RFS framework, providing a systematic way to apply RFS theory
 to multitarget tracking. FISST extends Bayesian filtering techniques to multitarget scenarios, enabling rigorous
-estimation of multitarget states in the presence of clutter and data association uncertainties \cite{FISST}.
-
+estimation of multitarget states in the presence of clutter and data association uncertainties. Datailed descriptions, informations and equations can be found in \cite{FISSTgoodman1997}. In this book for sake of interest we can find out that for a function $f=\partialF_{(\dot)}(T)$ the set integral over a subset $S \subset E$ is defined as
+\begin{align}
+    \int_{S}f(X)\partial X &\equiv \sum_{i=0}^{\infty} \frac{1}{i!}\int_{S^i} f({x_1,\dots,x_i})\lambda_K^i(dx_1\dots dx_i),
+\end{align}
+where $\lambda_K(S)$ denote the hyper-volume of S in units of K, which is usually in MTT modeled as RFS Poisson process with uniform rate of $K^{-1}$ with intensity $\lambda = \lambda_K/K$, i. e., \cite{VoRFS2003}
+\begin{align}
+    \mu(\mathcal{T}) &= \sum_{i=0}^{\infty} \frac{\lambda^i(\mathcal{T} \cap E^i)}{i!},
+\end{align}
+where $E$ and $\mathcal{T}$ are closed and bounded sebsets of $R^n$.
 
         \subsection{PHD filter}
+The PHD filter serves as an approximation devised to tackle the computational complexity inherent in the multiple-target Bayes filter. Instead of tracking the complete posterior density of multiple-target states over time, the PHD filter focuses on propagating the posterior intensity, which represents the first-order statistical moment of the posterior multiple-target state \cite{mahler}. This operational strategy draws parallels with the constant gain Kalman filter, which tracks the first moment (mean) of the single-target state \cite{VoMaPHD2006}.
+
+For a Random Finite Set (RFS) $X$ on $\mathcal{X}$ with probability distribution $P$, its first-order moment is a nonnegative function $v$ on $\mathcal{X}$, known as the intensity. This function satisfies the property that for each region $S \subseteq \mathcal{X}$ \cite{daley2003}
+\begin{align}
+    \int |X \cap S | P(dX) &= \int_S v(x)dx
+\end{align}
+
+In essence, the integral of $v$ over any region $S$ yields the expected number of elements of $X$ within $S$. Consequently, the total mass $\hat{N} = \int v(x)dx$ represents the expected number of elements of $X$. The local maxima of the intensity $v$ correspond to points in $\mathcal{X}$ with the highest local concentration of expected number of elements, which can then be utilized to generate estimates for the elements of $X$. The simplest approach involves rounding $\hat{N}$ and selecting the resulting number of highest peaks from the intensity. In the tracking domain, this intensity is also referred to as the probability hypothesis density.
+
+An important subclass of RFSs, known as Poisson RFSs, is characterized entirely by their intensities. An RFS $X$ is considered Poisson if its cardinality distribution $Pr(|X| = n)$ follows a Poisson distribution with mean $\hat{N}$, and for any finite cardinality, the elements $x$ of $X$ are independently and identically distributed according to the probability density $v(\cdot)/N$. In the context of the multiple-target tracking problem, it is common practice to model the clutter RFS [denoted as $K_k$ in (\ref{eq:rfs_measurement_union})] and the birth RFSs ($\Gamma_k $ and $B_{k|k-1}(x_{k-1})$ in (\ref{eq:rfs_state_union})) as Poisson RFSs.
+
+To formulate PHD filter, let first denote multi-target evolution and measurement models with
+\begin{align}
+    \gamma_k(\cdot) \quad & \text{intensity of the births RFS $\Gamma_k$ at time k;} \\
+    \beta_{k|k-1}(\cdot|\zeta) \quad & \text{intensity of the RFS $B_{k|k-1}(\zeta)$ spawned at time $k$ by a target} \notag \\
+                                 \quad &  \text{ with previous state $\zeta$;} \\
+    p_{S,k}(\zeta) \quad & \text{probability that a target still exists at time $k$ given that its } \notag \\
+                    \quad & \text{previous state is $\zeta$;} \\
+    p{D,k}(x) \quad & \text{probability of detection given a state $x$ at time $k$;} \\
+    \kappa_k(\cdot) \quad & \text{intensity of clutter RFS $K_k$ at time $k$}.
+\end{align}
             \paragraph{Gaussian mixture PHD filter recursion}
      %   \subsubsection{CPHD filter} 
      %       \paragraph{CPHD filter recursion}

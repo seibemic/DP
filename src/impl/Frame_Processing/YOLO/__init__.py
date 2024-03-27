@@ -7,7 +7,7 @@ class YOLOHandler:
     def __init__(self, segment = True):
         HOME = os.getcwd()
         if segment:
-            self.m_yolo_model = YOLO(f'{HOME}/weights/yolov8n-seg.pt')
+            self.m_yolo_model = YOLO(f'{HOME}/weights/yolov8l-seg.pt')
         else:
             self.m_yolo_model = YOLO(f'{HOME}/weights/yolov8n.pt')
         self.segment = segment
