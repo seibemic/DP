@@ -1,3 +1,4 @@
+
 \chapter{Target tracking}
 Target tracking plays a pivotal role in radar systems, where the primary objective is to estimate the trajectory and characteristics of moving objects within a surveillance area. Derived from the foundational principles of the Kalman filter, target tracking algorithms are tailored to the specific requirements and challenges inherent in radar applications.
 
@@ -34,7 +35,7 @@ involved, each measurement includes a target identifier known as the squawk numb
 reliable, data association uncertainty is eliminated. However, in cases where a potentially hostile target is non
 -cooperative, data association uncertainty becomes a significant challenge.
 
-Figure \ref{fig:singleTargetInClutter} illustrates a scenario involving multiple validated measurements. The validation region depicted in the
+Figure \eqref{fig:singleTargetInClutter} illustrates a scenario involving multiple validated measurements. The validation region depicted in the
 figure is two-dimensional and takes the form of an ellipse centered at the predicted measurement $\hat{z}$. The
 elliptical shape of the validation region arises from the assumption that the error in the target's predicted
 measurement, known as the innovation, follows a Gaussian distribution. The parameters defining the ellipse are
@@ -104,7 +105,7 @@ The PDAF algorithm comes with many assumptions:
     \item At each time a measurement validation region is set up around the predicted measurement to select the candidate measurements for association to the target of interest.
     \item If the target was detected and the corresponding
     measurement fell into the validation region, then,
-    according to (\ref{eq:pda_A1_eq2}), at most one of the validated measurements can be target originated.
+    according to \eqref{eq:pda_A1_eq2}, at most one of the validated measurements can be target originated.
     \item The remaining measurements are assumed to be due
     to false alarms or clutter and are modeled as inde-
     pendent and identically distributed with uniform spatial distribution, and the number of false alarms or clutter points obeys either a Poisson distri-
@@ -123,7 +124,7 @@ The prediction step of PDA filter from time $k-1$ to $k$ is as in the standard K
     \eta_{k|k-1} &= H_k x_{k|k-1},\\
     P_{k|k-1} &= F_{k-1} P_{k-1|k-1} F_{k-1}^T + Q_{k-1},
 \end{align}
-where $P_{k-1|k-1}$ is from equation (\ref{eq:pda_A3}). The innovation covariance matrix $S_k$ is computed as
+where $P_{k-1|k-1}$ is from equation \eqref{eq:pda_A3}. The innovation covariance matrix $S_k$ is computed as
 \begin{align}
     S_k &= H_{k} P_{k|k-1} H_{k}^T + R_{k}. \label{eq:pda_S}
 \end{align}
@@ -133,7 +134,7 @@ As discussed in Section \ref{sec:validation_region}, the measurements considered
 \begin{align}
     \nu(k,\gamma) &= \bigcup_{z \in Z_k}[(z - \hat{z}_{k|k-1})^T S_k^{-1} (z - \hat{z}_{k|k-1})) \leq \gamma], \label {eq:validation_region}
 \end{align}
-where $Z_k$ are all measurements at time $k$, $\gamma$ is the gate threshold corresponding to the gate probability $p_G$, which is the probability, that the region contains the correct measurement if detected and $S_k$ given in (\ref{eq:pda_S}) is the covariance of the innovation.
+where $Z_k$ are all measurements at time $k$, $\gamma$ is the gate threshold corresponding to the gate probability $p_G$, which is the probability, that the region contains the correct measurement if detected and $S_k$ given in \eqref{eq:pda_S} is the covariance of the innovation.
 
 \subsubsection{PDAF data association step}
 The clutter in target tracking is assumed to be Poisson model with spatial density $\lambda$. In PDAF it yields to the association probability for $z_{i,k}$ being the correct measurement as
@@ -151,11 +152,11 @@ The clutter in target tracking is assumed to be Poisson model with spatial densi
     \label{eq:pda_beta}
     \endgroup
 \end{align}
-where $i=0$ means none is correct, $p_D$ is the detection probability, $p_G$ is the gate probability analogous to (\ref{eq:validation_region}), and
+where $i=0$ means none is correct, $p_D$ is the detection probability, $p_G$ is the gate probability analogous to \eqref{eq:validation_region}, and
 \begin{align}
     \mathcal{L}_{i,k} &= \frac{\mathcal{N}(z_{i,k};\hat{z}_{k|k-1}, S_k) p_D}{\lambda} \label{eq:pda_likelihood}
 \end{align}
-is the likelihood ratio of the measurement $z_{i,k}$ from the validation region. The parameter $\lambda$ (the density of the spation Poisson clutter process) in the denominator of (\ref{eq:pda_likelihood}) models the clutter density of the uniform pdf of the location of false measurement. The Probabilistic Data Association (PDA) algorithm produces association probabilities that are influenced by the position of the respective innovation on the Gaussian exponential of the likelihood ratio (\ref{eq:pda_likelihood}), in comparison to other innovations.
+is the likelihood ratio of the measurement $z_{i,k}$ from the validation region. The parameter $\lambda$ (the density of the spation Poisson clutter process) in the denominator of \eqref{eq:pda_likelihood} models the clutter density of the uniform pdf of the location of false measurement. The Probabilistic Data Association (PDA) algorithm produces association probabilities that are influenced by the position of the respective innovation on the Gaussian exponential of the likelihood ratio \eqref{eq:pda_likelihood}, in comparison to other innovations.
 
 \subsubsection{PDAF update step}
 The update step equation of update step is
@@ -166,11 +167,11 @@ where the combined innovation is
 \begin{align}
     \nu_k &= \sum_{i=1}^{m_k} \beta_{i,k} \nu_{i,k}
 \end{align}
-and the Kalman gain is the same as in (\ref{eq:kalman_gain})
+and the Kalman gain is the same as in \eqref{eq:kalman_gain}
 \begin{align}
     K_k &= P_{k|k-1} H_k^T S_k^{-1}.
 \end{align}
-The covarince matrix associated with the update state (\ref{eq:pda_update_state}) is
+The covarince matrix associated with the update state \eqref{eq:pda_update_state} is
 \begin{align}
     P_{k|k} &= \beta_{0,k} P_{k|k-1} + (1-\beta_{0,k}) P_{k|k}^c + \tilde{P}_k,
 \end{align}
@@ -183,7 +184,7 @@ and the spread of the innovation term is
     \tilde{P}_k &= K_k (\sum_{i=1}^{m_k} \beta_{i.k} \nu_{i,k} \nu_{i,k}^T - \nu_{i,k} \nu_{i,k}^T) K_k^T. \label{eq:pda_covariance_increase}
 \end{align}
 With probability $\beta_{0,k}$ none of the measurement is correct. In such case, there is not update step of the
-state estimation. The prediction covariance $P_{k|k-1}$ in (\ref{eq:pda_update_cov})) has weight $\beta_{0,k}$. There is probability $1-\beta_{0,k}$ that correct measurement appears and the update covariance $P_{k|k}^c$ has weight $1-\beta_{0,k}$. However, there is not certainty, which of the validated measurement $m_k$ is correct, the positive semidefinite matrix increases the covariance. This matrix is the result of the measurement origin uncertainty. Note, that in (\ref{eq:pda_covariance_increase}) the dependende of the estimation is nonlinear. The PDAF is nonlinear estimator, while the estimate update in (\ref{eq:pda_update_state}) appears linear, but the association probabilities $\beta_{i,k}$ depend on the innovation in (\ref{eq:pda_beta}).
+state estimation. The prediction covariance $P_{k|k-1}$ in \eqref{eq:pda_update_cov} has weight $\beta_{0,k}$. There is probability $1-\beta_{0,k}$ that correct measurement appears and the update covariance $P_{k|k}^c$ has weight $1-\beta_{0,k}$. However, there is not certainty, which of the validated measurement $m_k$ is correct, the positive semidefinite matrix increases the covariance. This matrix is the result of the measurement origin uncertainty. Note, that in \eqref{eq:pda_covariance_increase} the dependende of the estimation is nonlinear. The PDAF is nonlinear estimator, while the estimate update in \eqref{eq:pda_update_state} appears linear, but the association probabilities $\beta_{i,k}$ depend on the innovation in \eqref{eq:pda_beta}.
 
 
 
@@ -231,7 +232,7 @@ where
     \item $\Gamma_k$ is RFS of spontaneous births at time $k$,
     \item $B_{k|k-1}(\zeta)$ is RFS of targets spawned at time $k$ from a target with previous state $\zeta$.
 \end{itemize}
-It is also assumed that RFSs in \ref{eq:rfs_state_union} are independent of each other, but the forms of $\Gamma_k$
+It is also assumed that RFSs in \eqref{eq:rfs_state_union} are independent of each other, but the forms of $\Gamma_k$
 and $B_{k|k-1}(\cdot)$ are problem dependent.
 
 The measurement sets $Z_k$ are also random finite sets including detection uncertainty and clutter. A target $x_k \in X_k$ can be either detected with probability $p_{D,k}(x_k)$ or not detected with probability $1-p_{D,k}(x_k)$. Moreover, at time $k$, each state $x_k$ produces an RFS
@@ -273,7 +274,7 @@ In essence, the integral of $v$ over any region $S$ yields the expected number o
 An important subclass of RFSs, known as Poisson RFSs, is characterized entirely by their intensities. An RFS $X$ is
 considered Poisson if its cardinality distribution $Pr(|X| = n)$ follows a Poisson distribution with mean $\hat{N}$,
 and for any finite cardinality, the elements $x$ of $X$ are independently and identically distributed according to
-the probability density $v(\cdot)/N$. In the context of the multiple-target tracking problem, it is common practice to model the clutter RFS [denoted as $K_k$ in (\ref{eq:rfs_measurement_union})] and the birth RFSs [\Gamma_k $ and $B_{k|k-1}(x_{k-1})$ in (\ref{eq:rfs_state_union})] as Poisson RFSs.
+the probability density $v(\cdot)/N$. In the context of the multiple-target tracking problem, it is common practice to model the clutter RFS [denoted as $K_k$ in \eqref{eq:rfs_measurement_union}] and the birth RFSs [$\Gamma_k $ and $B_{k|k-1}(x_{k-1})$ in \eqref{eq:rfs_state_union}] as Poisson RFSs.
 
 To formulate PHD filter, let first denote multi-target evolution and measurement models with
 \begin{align}
@@ -309,15 +310,147 @@ The predicted intensity $\nu_{k|k-1}$ is then updated by the measurement set $Z_
 \end{align}
 where $g_k(\cdot|\cdot)$ is the likelihood function, $p_{D,k}(\cdot)$ is the probability of detection, and $\kappa_k(\cdot)$ is the clutter density.
 
-Equations (\ref{eq:phdPrior}) and (\ref{eq:phdPosterior}) show that the PHD filter avoids the combinatorial
+Equations \eqref{eq:phdPrior} and \eqref{eq:phdPosterior} show that the PHD filter avoids the combinatorial
 ineffectivity awakening from the unknown association of measurements with correct targets. The posterior intensity is
-a function of a single-target state space $\mathcal{X}$, thus the recursion is more computationally effective than (\ref{eq:chapman_kolmogorov_predict}) and (\ref{eq:bayes_update}) that in the case of the PHD filter operates on $\mathcal{F(X)}$. But in general it is not possible to come up with a closed-form solution in the PHD recursion.
+a function of a single-target state space $\mathcal{X}$, thus the recursion is more computationally effective than \eqref{eq:chapman_kolmogorov_predict} and \eqref{eq:bayes_update} that in the case of the PHD filter operates on $\mathcal{F(X)}$. But in general it is not possible to come up with a closed-form solution in the PHD recursion.
+
+        \subsubsection{GM-PHD for linear models}
+In this section we delve into details of multi-target models, i. e., linear Gaussian multi-target models. With PHD recursions \eqref{eq:phdPrior} and \eqref{eq:phdPosterior} it is achievable to get an efficient multi-taget closed form solution for multi-target algorithms. This solution proposed by Vo and Ma in \cite{VoMaPHD2006} requires additional assumptions to the already proposed ones. Not only standard linear Gaussian model for each targets are assumed, but also the linear Gausssian multi-target model includes assumptions on the death, birth and detections.
+\begin{enumerate}[start=4]
+    \item  Each target follows a linear Gaussian dynamical model and the sensor has a linear Gaussian measurement model, i.e., \label{as:phd_4}
+        \begin{align}
+            f_{k|k-1}(x|\zeta) &= \mathcal{N}(x; F_{k-1}\zeta, Q_{k-1}) \\
+            g_k(z|x) &= \mathcal{N}(z;H_kx, R_k),
+        \end{align}
+        where $\mathcal{N}(\cdot;m,P)$ is a Gaussian density with mean $m$ and covariance $P$, $F_{k-1}$ is the state transition matrix, $Q_{k-1}$ is the process noise covariance, $H_k$ is the observation matrix and $R_k$ is the observation noise covariance.
+    \item The survival and detection probabilities are state independent, i. e., \label{as:phd_5}
+        \begin{align}
+            p_{S,k}(x) &= p_{S,k} \\
+            p_{D,k}(x) &= p_{D,k}.
+        \end{align}
+    \item The intesities of the birth and spawn RFSs are Gaussian mixtures of the form \label{as:phd_6}
+        \begin{align}
+            \gamma_k(x) &= \sum_{i=1}^{J_{\gamma,k}}w_{\gamma,k}^{(i)} \mathcal{N}(x; m_{\gamma.k}^{(i)}, P_{\gamma,k}^{(i)}) \label{eq:phd_birth_intensity} \\
+            \beta_{k|k-1}(x|\zeta) &= \sum_{j=1}^J_{\beta,k} w_{\beta,k}^{(j)} \mathcal{N}(x;F_{\beta,k-1}^(j)\zeta + d_{\beta,k-1}^{(j)}, Q_{\beta,k-1}^{(j)}), \label{eq:phd_spawning_intensity}
+        \end{align}
+\end{enumerate}
+where $J_{\gamma,k}, w_{\gamma,k}^{(i)}, m_{\gamma,k}^{(i)}, P_{\gamma,k}^{(i)}, i=1,\dots, J_{\gamma,k}$ are given model parameters that actuate the shape of the birth intensity and $J_{\beta,k}, w_{\beta,k}^{(j)}, F_{\beta,k-1}^{(j)}, d_{\beta,k-1}^{(j)}$ and $Q_{\beta,k-1}^{(j)}, j=1,\dots, J_{\beta,k}$ determine the shape of the spawning intensity of a target with previous state $\zeta$.
+
+Assumptions \ref{as:phd_4} and \ref{as:phd_5} are very common and used in various tracking algorithms \cite{bar1988tracking}, but the closed-form solution allows for state- and time-dependent $p_{S,k}$ and $p_{D,k}$. This convenience is used in the practical part of this thesis.
+
+The means $m_{\gamma,k}^{(i)}$ is assumption \ref{as:phd_6} are the peaks of the spontaneous birth intensity in \eqref{eq:phd_birth_intensity}. These are points with highest concentrations of expected number of spontaneous births and represent place like airports or other places with highest probability targets appear. $P_{\gamma,k}^{(i)}$ is the covariance matrix that regulate the spread of the birth intensity. The weight $w_{\gamma, k}^{(i)}$ gives the expected number number of new targets originating from $m_{\gamma,k}^{(i)}$. Similary in \eqref{eq:phd_spawning_intensity} with addition, that the peak $F_{\beta,k-1}^{(j)}\zeta + d_{\beta,k-1}^{(j)}$ is an affine function of $\zeta$. This spawned target can be pictured as a new target spawned in the neighborhood of another target with previous state $\zeta$. This can be, for example, a smaller ship detached from its mother ship.
 
         \subsubsection{GM-PHD recursion for linear models}
+In this section we delve into Gaussian mixture probability hypothesis density filter recursion for the linear Gaussian multi-target model and its closed-form solution to the \eqref{eq:phdPrior} and \eqref{eq:phdPosterior}. With assumptions \ref{as:phd_4}-\ref{as:phd_6} suppose that the posterior intensity at time $k-1$ is a Gaussian mixture of the form
+\begin{align}
+    \nu_{k-1}(x) &= \sum_{i=1}^{J_{k-1}} w_{k-1}^{(i)} \mathcal{N}(x;, m_{k-1}^{(i)}, P_{k-1}^{(i)}). \label{eq:phd_recursion_posterior}
+\end{align}
+Then, the predicted intensity for time $k$ is also a Gaussian mixture and is given by
+\begin{align}
+    \nu_{k|k-1}(x) &= \nu_{S,k|k-1}(x) + \nu_{\beta, k|k-1}(x) + \gamma_k(x),
+    \label{eq:phd_recursion_predict}
+\end{align}
+where $\gamma_k(x)$ is given in \eqref{eq:phd_birth_intensity}. This yields
+\begin{align}
+    \nu_{S,k|k-1}(x) &= p_{S,k}\sum_{j=1}^{J_{k-1}}w_{k-1}^{(j)} \mathcal{N}(x;m_{S,k|k-1}^{(j)}, P_{S,k|k-1}^{(j)}) \label{eq:recursion_predict_intensity}, \\
+    m_{S,k|k-1}^{(j)} &= F_{k-1}m_{k-1}^{(j)},  \label{eq:recursion_predict_m} \\
+    P_{S,k|k-1}^{(j)} &= Q_{k-1} + F_{k-1}P_{k-1}^{(j)}F_{k-1}^T  \label{eq_recursion_predict_P} \\
+    \nu_{\beta,k|k-1}(x) &= \sum_{j=1}^{J_{k-1}} \sum_{l=1}^{J_{\beta,k}} w_{k-1}^{(j)} w_{\beta,k}^{(l)} \mathcal{N}(x;m_{\beta,k|k-1}^{(j, l)},P_{\beta,k|k-1}^{(j,l)}) \\
+    m_{\beta,k|k-1}^{(j, l)} &= F_{\beta,k-1}^{(l)} m_{k-1}^{(j)} + d_{\beta,k-1}^{(l)} \\
+    P_{\beta,k|k-1}^{(j, l)} &= Q_{\beta,k-1}^{(l)} + F_{\beta,k-1}^{(l)} P_{\beta,k-1}^{(l)} (F_{\beta,k-1}^{(l)})^T.
+\end{align}
+Thus the predicted intensity at the time $k$ is a Gaussian mixture
+\begin{align}
+    \nu_{k|k-1}(x) &= \sum_{i=1}^{J_{k|k-1}}w_{k|k-1}^{(i)} \mathcal{N}(x;m_{k|k-1}^{(i)}, P_{k|k-1}^{(i)}),  \label{eq:recursion_predict_intesity}
+\end{align}
+and the posterior intensity at time $k$ is also Gaussian mixture,
+\begin{align}
+    \nu_{k}(x) &= (1-p_{D,k}) \nu_{k|k-1}(x) + \sum_{z\in Z_k}\nu_{D,k}(x;z), \label{eq:recursion_update_intesity}
+\end{align}
+where
+\begin{align}
+    \nu_{D,k}(x;z) &= \sum_{j=1}^{J_{k|k-1}} w_k^{(j)}(z) \mathcal{N}(x;m_{k|k}^{(j)}(z),P_{k|k}^{(j)}), \label{eq:recursion_update_intesity_detect} \\
+    w_k^{(j)}(z) &= \frac{p_{D,k}^{(j)}(x;z) w_{k|k-1}^{(j)} q_k^{(j)}(z) }{\kappa_k(z) + p_{D,k}^{(j)}(x;z) \sum_{l=1}^{J_{k|k-1}} w_{k|k-1}^{(l)} q_k^{(l)}(z)}, \label{eq:recursion_update_intesity_detect_w} \\
+    m_{k|k}^{(j)}(z) &= m_{k|k-1}^{(j)} + K_k^{(j)}(z-H_k m_{k|k-1}^{(j)}), \label{eq:recursion_update_intesity_detect_m} \\
+    P_{k|k}^{(j)}(z) &= [I - K_k^{(j)} H_k] P_{k|k-1}^{(j)},  \label{eq:recursion_update_intesity_detect_P} \\
+    K_{k}^{(j)}(z) &= P_{k}^{(j)} H_k^T(H_k P_{k|k-1}^{(j)} H_k^T + R_k)^{-1}. \label{eq:recursion_update_intesity_detect_K}
+\end{align}
 
+Formulations \eqref{eq:phd_recursion_posterior}, \eqref{eq:phd_recursion_predict} and \eqref{eq:recursion_predict_intesity}, \eqref{eq:recursion_update_intesity} are the result of applying standard Gaussian properties, i. e., given $F, d, Q, m$ and $P$ of appropriate dimensions and that $Q$ and $P$ are positive definite matrices
+\begin{align}
+    \int \mathcal{N}(x; F\zeta + d, Q) \mathcal{N}(\zeta; m, P) d\zeta &= \mathcal{N}(x; Fm + d, Q + FPF^T)
+\end{align}
+and given $H, R, m$ and $P$ of appropriate dimensions assuming $R$ and $P$ are positive definite matrices
+\begin{align}
+    \mathcal{N}(z; Hx, R) \mathcal{N}(x;m,P) &= q(z)\mathcal{N}(x; \tilde{m}, \tilde{P}),
+\end{align}
+where
+\begin{align}
+    q(z) &= \mathcal{N}(z; Hm, R + HPH^T) \\
+    \tilde{m} &= m + K(z - Hm) \\
+    \tilde{P} &= (I - KH)P \\
+    K &= PH^T(HPH^T + R)^{-1}.
+\end{align}
+
+
+
+        \subsubsection{GM-PHD filter algorithm}
+In this section, the GM-PHD filter pseudo algorithm is provided.
+\begin{algorithm}
+    \caption{Pseudo algorithm for the GM-PHD filter}
+    \begin{algorithmic}[1]
+        \State \textbf{Inputs:} $\{w_{k-1}^{(i)}, m_{k-1}^{(i)},P_{k-1}^{(i)}\}_{i=1}^{J_{k-1}}$, and the measurement set $Z_k$.
+        \State \textbf{Prediction step for birth targets:}
+            \State \quad $i=0.$
+        \quad \For{$j=1, \dots, J_{\gamma,k}$}
+                \State\quad $i:= i+1.$
+                \State $w_{k|k-1}^{(i)} = w_{\gamma,k}^{(i)},$ \quad
+                        $m_{k|k-1}^{(i)} = m_{\gamma,k}^{(i)},$ \quad
+                        $P_{k|k-1}^{(i)} = P_{\gamma,k}^{(i)},$
+                \quad\EndFor
+
+    \end{algorithmic}
+\end{algorithm}
 %   \subsubsection{CPHD filter}
      %       \paragraph{CPHD filter recursion}
      %   \subsubsection{PMBM filer}
      %       \paragraph{PMBM filter recursion}
+\algrenewcommand\algorithmicrequire{\textbf{Launch:}}
+\begin{algorithm}
+       \caption{Pseudo algorithm for the GM-PHD filter}
+       \begin{algorithmic}[1]
+           \Require{abc}
+           \State abcd
+           \State \textbf{Inputs:} $\{w_{k-1}^{(i)}, m_{k-1}^{(i)},P_{k-1}^{(i)}\}_{i=1}^{J_{k-1}}$, and the measurement set $Z_k$.
+           \State \textbf{Prediction step for birth targets:}
 
-          
+          \For{$j=1, \dots, J_{\gamma,k}$}
+              \State $i:= i+1.$
+              \State $w_{k|k-1}^{(i)} = w_{\gamma,k}^{(i)},$ \quad
+                     $m_{k|k-1}^{(i)} = m_{\gamma,k}^{(i)},$ \quad
+                     $P_{k|k-1}^{(i)} = P_{\gamma,k}^{(i)},$
+          \EndFor
+
+       \end{algorithmic}
+\end{algorithm}
+
+\usepackage{algpseudocode,algorithm,algorithmicx}
+\algrenewcommand\algorithmicrequire{\textbf{Launch:}}
+\algrenewcommand\algorithmicensure{\textbf{End Kernel}}
+
+    \begin{algorithm}
+
+        \begin{algorithmic}[1]
+            \Require{stuff 1} % this is OK
+            \For{for}
+                \State{loremIpsum()}
+                \Require{Unindented stuff 2}  % This is what I want to indent to the same level as the previous line
+
+                \State{loremIpsum} % indent also, but I can \qquad
+                \Ensure{} %  This is what I want to indent also
+
+            \EndFor
+            \Ensure{} % this is OK also
+        \end{algorithmic}
+
+    \end{algorithm}

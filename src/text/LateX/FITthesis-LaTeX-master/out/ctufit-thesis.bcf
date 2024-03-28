@@ -2216,6 +2216,8 @@
     <bcf:citekey order="28">mahler</bcf:citekey>
     <bcf:citekey order="29">VoMaPHD2006</bcf:citekey>
     <bcf:citekey order="30">daley2003</bcf:citekey>
+    <bcf:citekey order="31">VoMaPHD2006</bcf:citekey>
+    <bcf:citekey order="32">bar1988tracking</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

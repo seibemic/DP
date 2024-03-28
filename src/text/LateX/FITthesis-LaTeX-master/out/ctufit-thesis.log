@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  28 MAR 2024 04:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.14)  28 MAR 2024 22:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -58,9 +58,9 @@ File: babel.def 2020/02/14 3.40 Babel common definitions
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
 Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language44) on input line 105.
+(babel)             (\language22) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language44) on input line 108.
+(babel)             (\language22) on input line 108.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
@@ -1227,8 +1227,16 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip97
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip98
+\enit@outerparindent=\dimen311
+\enit@toks=\toks49
+\enit@inbox=\box112
+\enit@count@id=\count468
+\enitdp@description=\count469
 )
-\c@theorem=\count468
+\c@theorem=\count470
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -1243,39 +1251,29 @@ t/chapter_00/chapter_00.aux)
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
 t/chapter_01/chapter_01.aux)
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/chapter_02/chapter_02.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/chapter_03/chapter_03.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/chapter_04/chapter_04.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/chapter_05/chapter_05.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/appendix.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/medium.aux))
+t/chapter_02/chapter_02.aux))
 \openout1 = `ctufit-thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-26.
+27.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1315,17 +1313,17 @@ File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count469
-\scratchdimen=\dimen311
-\scratchbox=\box112
-\nofMPsegments=\count470
-\nofMParguments=\count471
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count472
-\MPscratchDim=\dimen312
-\MPnumerator=\count473
-\makeMPintoPDFobject=\count474
-\everyMPtoPDFconversion=\toks50
+\scratchcounter=\count471
+\scratchdimen=\dimen312
+\scratchbox=\box113
+\nofMPsegments=\count472
+\nofMParguments=\count473
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count474
+\MPscratchDim=\dimen313
+\MPnumerator=\count475
+\makeMPintoPDFobject=\count476
+\everyMPtoPDFconversion=\toks51
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1340,10 +1338,10 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \lstlistingname on input line 126.
-LaTeX Info: Redefining \lstlistlistingname on input line 126.
-\AtBeginShipoutBox=\box113
-Package hyperref Info: Link coloring OFF on input line 126.
+LaTeX Info: Redefining \lstlistingname on input line 127.
+LaTeX Info: Redefining \lstlistlistingname on input line 127.
+\AtBeginShipoutBox=\box114
+Package hyperref Info: Link coloring OFF on input line 127.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1354,11 +1352,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count475
+\c@section@level=\count477
 )
-LaTeX Info: Redefining \ref on input line 126.
-LaTeX Info: Redefining \pageref on input line 126.
-LaTeX Info: Redefining \nameref on input line 126.
+LaTeX Info: Redefining \ref on input line 127.
+LaTeX Info: Redefining \pageref on input line 127.
+LaTeX Info: Redefining \nameref on input line 127.
 
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
 fit-thesis.out)
@@ -1393,63 +1391,63 @@ Package biblatex Info: ... file 'ctufit-thesis.bbl' found.
 
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
 fit-thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 126.
-Package biblatex Info: Reference segment=0 on input line 126.
-\c@lstlisting=\count476
-<seibemic-assignment.pdf, id=179, 597.23125pt x 844.15375pt>
+Package biblatex Info: Reference section=0 on input line 127.
+Package biblatex Info: Reference segment=0 on input line 127.
+\c@lstlisting=\count478
+<seibemic-assignment.pdf, id=135, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf>
-Package pdftex.def Info: seibemic-assignment.pdf  used on input line 129.
+Package pdftex.def Info: seibemic-assignment.pdf  used on input line 130.
 (pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf>
-Package pdftex.def Info: seibemic-assignment.pdf  used on input line 129.
+Package pdftex.def Info: seibemic-assignment.pdf  used on input line 130.
 (pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
-<seibemic-assignment.pdf, id=182, page=1, 597.23125pt x 844.15375pt>
+<seibemic-assignment.pdf, id=138, page=1, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
-Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 129
+Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 130
 .
 (pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
-Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 129
+Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 130
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
-Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 129
+Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 130
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
-Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 129
+Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 130
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
-Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 129
+Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 130
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
  [1
 
 
- <./seibemic-assignment.pdf{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updm
-ap/pdftex.map}>]
-<seibemic-assignment.pdf, id=225, page=2, 597.23125pt x 844.15375pt>
+ <./seibemic-assignment.pdf{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}>
+]
+<seibemic-assignment.pdf, id=180, page=2, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
-Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 129
+Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 130
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
-Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 129
+Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 130
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
-Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 129
+Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 130
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
  [2 <./seibemic-assignment.pdf>]
@@ -1489,21 +1487,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.132 
+l.133 
        [1
 
 
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-33.
+34.
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.135 \tableofcontents
+l.136 \tableofcontents
                        % do not remove this command [1
 
 
@@ -1544,18 +1542,18 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) ha
-s been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.89 ...ying detection probability}{29}{chapter.5}
-                                                  % [2
-
-])
+))
 \tf@toc=\write6
 \openout6 = `ctufit-thesis.toc'.
 
- [3]
+pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.141 \listoffigures
+                     % list of figures [2
+
+]
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
 fit-thesis.lof)
 \tf@lof=\write7
@@ -1573,15 +1571,15 @@ fit-thesis.lol)
 \tf@lol=\write9
 \openout9 = `ctufit-thesis.lol'.
 
- [4
+ [3
+
+] [4
 
 ] [5
 
 ] [6
 
 ] [7
-
-] [8
 
 ]
 \openout2 = `text/Introduction.aux'.
@@ -1620,7 +1618,7 @@ Overfull \hbox (1.544pt too wide) detected at line 337
  []
 
 [12]
-<./text/chapter_01/imgs/hmm.png, id=485, 501.875pt x 128.48pt>
+<./text/chapter_01/imgs/hmm.png, id=425, 501.875pt x 128.48pt>
 File: ./text/chapter_01/imgs/hmm.png Graphic file (type png)
 <use ./text/chapter_01/imgs/hmm.png>
 Package pdftex.def Info: ./text/chapter_01/imgs/hmm.png  used on input line 386
@@ -1652,7 +1650,7 @@ you left one out. Proceed, with fingers crossed.
  (./text/chapter_02/chapter_02.tex
 Chapter 3.
 
-Overfull \hbox (6.85863pt too wide) in paragraph at lines 8--9
+Overfull \hbox (6.85863pt too wide) in paragraph at lines 9--10
 []\OT1/lmr/m/n/10 Beyond single-target track-ing, radar sys-tems of-ten ne-ces-
 si-tate multi-target track-ing ap-proaches.
  []
@@ -1662,35 +1660,35 @@ si-tate multi-target track-ing ap-proaches.
 
 
 ] [19]
-<text/chapter_02/imgs/clutter_singleTarget.png, id=559, 722.7pt x 722.7pt>
+<text/chapter_02/imgs/clutter_singleTarget.png, id=500, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_singleTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_singleTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_singleTarget.png  used on
- input line 54.
+ input line 55.
 (pdftex.def)             Requested size: 284.52756pt x 284.53154pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 56.
+(Font)              <9> on input line 57.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 56.
+(Font)              <6> on input line 57.
  [20 <./text/chapter_02/imgs/clutter_singleTarget.png>]
-<text/chapter_02/imgs/clutter_multiTarget.png, id=571, 722.7pt x 722.7pt>
+<text/chapter_02/imgs/clutter_multiTarget.png, id=511, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_multiTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_multiTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_multiTarget.png  used on 
-input line 70.
+input line 71.
 (pdftex.def)             Requested size: 284.52756pt x 284.53154pt.
  [21 <./text/chapter_02/imgs/clutter_multiTarget.png>] [22]
 
-LaTeX Font Warning: Command \Large invalid in math mode on input line 153.
+LaTeX Font Warning: Command \Large invalid in math mode on input line 154.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 153.
+(Font)              <14.4> on input line 154.
 
-LaTeX Font Warning: Command \Large invalid in math mode on input line 153.
+LaTeX Font Warning: Command \Large invalid in math mode on input line 154.
 
 [23] [24] [25]
-./text/chapter_02/chapter_02.tex:253: Undefined control sequence.
-l.253 ...find out that for a function $f=\partialF
+./text/chapter_02/chapter_02.tex:254: Undefined control sequence.
+l.254 ...find out that for a function $f=\partialF
                                                   _{(\dot)}(T)$ the set inte...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1698,20 +1696,53 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./text/chapter_02/chapter_02.tex:276: Missing $ inserted.
-<inserted text> 
-                $
-l.276 ...ement_union})] and the birth RFSs [\Gamma
-                                                  _k $ and $B_{k|k-1}(x_{k-1...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+[26] [27]
+./text/chapter_02/chapter_02.tex:335: Double subscript.
+<argument> ..._{k|k-1}(x|\zeta ) &= \sum _{j=1}^J_
+                                                  {\beta ,k} w_{\beta ,k}^{(...
+l.335         \end{align}
+                         
+I treat `x_1_2' essentially like `x_1{}_2'.
 
-[26]) [27]
+./text/chapter_02/chapter_02.tex:335: Double subscript.
+<argument> ..._{k|k-1}(x|\zeta ) &= \sum _{j=1}^J_
+                                                  {\beta ,k} w_{\beta ,k}^{(...
+l.335         \end{align}
+                         
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+[28] [29]
+
+./text/chapter_02/chapter_02.tex:436: LaTeX Error: Can be used only in preamble
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.436 \usepackage
+                 {algpseudocode,algorithm,algorithmicx}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (30.04576pt too wide) in paragraph at lines 398--439
+\OT1/lmr/m/n/10 In this sec-tion, the GM-PHD fil-ter pseudo al-go-rithm is pro-
+vided.  al-gpseu-docode,algorithm,algorithmicx
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 398--439
+
+ []
+
+) [30]
 \openout2 = `text/chapter_03/chapter_03.aux'.
 
  (./text/chapter_03/chapter_03.tex
 Chapter 4.
-) [28
+) [31
 
 
 
@@ -1720,7 +1751,7 @@ Chapter 4.
 
  (./text/chapter_04/chapter_04.tex
 Chapter 5.
-) [29
+) [32
 
 
 
@@ -1729,7 +1760,7 @@ Chapter 5.
 
  (./text/chapter_05/chapter_05.tex
 Chapter 6.
-) [30
+) [33
 
 
 
@@ -1738,28 +1769,28 @@ Chapter 6.
 
  (./text/appendix.tex
 Appendix A.
-) [31
+) [34
 
 
 
 ]
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-261.
+262.
  (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [32
+) [35
 
 
 
-] [33]
+] [36]
 \openout2 = `text/medium.aux'.
 
- (./text/medium.tex) [34
+ (./text/medium.tex) [37
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 265.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 265.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 266.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 266.
 
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
 fit-thesis.aux
@@ -1781,23 +1812,23 @@ t/chapter_05/chapter_05.aux)
 t/appendix.aux)
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
 t/medium.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 265.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 265.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 266.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 266.
 Package rerunfilecheck Info: File `ctufit-thesis.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 \openout1 = `ctufit-thesis.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 265.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 266.
  ) 
 Here is how much of TeX's memory you used:
- 34742 strings out of 481239
- 627300 string characters out of 5920377
- 1386308 words of memory out of 5000000
- 49098 multiletter control sequences out of 15000+600000
+ 35090 strings out of 481239
+ 632510 string characters out of 5920377
+ 1377888 words of memory out of 5000000
+ 49415 multiletter control sequences out of 15000+600000
  628803 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,23n,60p,1771b,2054s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,23n,60p,1771b,1944s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/
 dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/l
@@ -1823,10 +1854,10 @@ sr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (45 pages, 709396 bytes).
+eX-master/out/ctufit-thesis.pdf (47 pages, 720743 bytes).
 PDF statistics:
- 900 PDF objects out of 1000 (max. 8388607)
- 791 compressed objects within 8 object streams
- 237 named destinations out of 1000 (max. 500000)
- 397 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 925 PDF objects out of 1000 (max. 8388607)
+ 813 compressed objects within 9 object streams
+ 274 named destinations out of 1000 (max. 500000)
+ 309 words of extra memory for PDF output out of 10000 (max. 10000000)
 
