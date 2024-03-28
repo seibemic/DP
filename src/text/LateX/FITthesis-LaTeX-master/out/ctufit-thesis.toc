@@ -76,7 +76,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.2}PHD filter}{26}{subsection.3.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {3.4.2.0.1}Gaussian mixture PHD filter recursion}{27}{paragraph.3.4.2.0.1}%
+\contentsline {subsubsection}{\numberline {3.4.2.1}PHD filter recursion}{27}{subsubsection.3.4.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.4.2.2}GM-PHD recursion for linear models}{27}{subsubsection.3.4.2.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Object detection and segmentation}{28}{chapter.4}%
 \defcounter {refsection}{0}\relax 
