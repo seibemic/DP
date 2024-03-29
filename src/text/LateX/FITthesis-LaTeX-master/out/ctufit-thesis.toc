@@ -82,26 +82,26 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.2.3}GM-PHD recursion for linear models}{28}{subsubsection.3.4.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.4.2.4}GM-PHD filter algorithm}{30}{subsubsection.3.4.2.4}%
+\contentsline {subsubsection}{\numberline {3.4.2.4}Pruning and merging in GM-PHD filter}{30}{subsubsection.3.4.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Object detection and segmentation}{33}{chapter.4}%
+\contentsline {chapter}{\numberline {4}Object detection and segmentation}{34}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}YOLO}{33}{section.4.1}%
+\contentsline {section}{\numberline {4.1}YOLO}{34}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Segment Anything}{33}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Segment Anything}{34}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Dynamic time and state varying detection probability}{34}{chapter.5}%
+\contentsline {chapter}{\numberline {5}Dynamic time and state varying detection probability}{35}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Problem definition}{34}{section.5.1}%
+\contentsline {section}{\numberline {5.1}Problem definition}{35}{section.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Dynamic detection probability in video data}{34}{section.5.2}%
+\contentsline {section}{\numberline {5.2}Dynamic detection probability in video data}{35}{section.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{34}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{35}{section.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{34}{section.5.4}%
+\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{35}{section.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Experiments}{35}{chapter.6}%
+\contentsline {chapter}{\numberline {6}Experiments}{36}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Nějaká příloha}{36}{appendix.A}%
+\contentsline {chapter}{\numberline {A}Nějaká příloha}{37}{appendix.A}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Obsah příloh}{39}{appendix*.14}%
+\contentsline {chapter}{Obsah příloh}{40}{appendix*.14}%

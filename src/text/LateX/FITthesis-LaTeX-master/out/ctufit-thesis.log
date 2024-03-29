@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  29 MAR 2024 04:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.14)  29 MAR 2024 18:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -58,9 +58,9 @@ File: babel.def 2020/02/14 3.40 Babel common definitions
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
 Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language44) on input line 105.
+(babel)             (\language22) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language44) on input line 108.
+(babel)             (\language22) on input line 108.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
@@ -1442,8 +1442,8 @@ Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 130
  [1
 
 
- <./seibemic-assignment.pdf{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updm
-ap/pdftex.map}>]
+ <./seibemic-assignment.pdf{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}>
+]
 <seibemic-assignment.pdf, id=225, page=2, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
@@ -1556,7 +1556,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.93 ...ying detection probability}{34}{chapter.5}
+l.93 ...ying detection probability}{35}{chapter.5}
                                                   % [2
 
 ])
@@ -1707,34 +1707,55 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [26] [27]
-./text/chapter_02/chapter_02.tex:335: Double subscript.
+./text/chapter_02/chapter_02.tex:337: Double subscript.
 <argument> ..._{k|k-1}(x|\zeta ) &= \sum _{j=1}^J_
                                                   {\beta ,k} w_{\beta ,k}^{(...
-l.335         \end{align}
+l.337         \end{align}
                          
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-./text/chapter_02/chapter_02.tex:335: Double subscript.
+./text/chapter_02/chapter_02.tex:337: Double subscript.
 <argument> ..._{k|k-1}(x|\zeta ) &= \sum _{j=1}^J_
                                                   {\beta ,k} w_{\beta ,k}^{(...
-l.335         \end{align}
+l.337         \end{align}
                          
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 [28] [29]
+./text/chapter_02/chapter_02.tex:402: Undefined control sequence.
+l.402 ...ee intensities $\nu_{S,k|k-1}, \nu_{\neta
+                                                  ,k|k-1} \text{ and } \gamm...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./text/chapter_02/chapter_02.tex:402: Undefined control sequence.
+l.402 ... $|Z_k|$ detection cases $\nu_{D,k}(\codt
+                                                  ;z)$ for every $z \in Z_k$...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 
 LaTeX Font Warning: Font shape `OT1/lmr/bx/sc' undefined
-(Font)              using `OT1/lmr/bx/n' instead on input line 408.
+(Font)              using `OT1/lmr/bx/n' instead on input line 422.
 
 
-LaTeX Warning: Float too large for page by 70.87004pt on input line 471.
+LaTeX Warning: Float too large for page by 70.87004pt on input line 486.
 
-) [30] [31] [32]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[30]) [31] [32] [33]
 \openout2 = `text/chapter_03/chapter_03.aux'.
 
  (./text/chapter_03/chapter_03.tex
 Chapter 4.
-) [33
+) [34
 
 
 
@@ -1743,7 +1764,7 @@ Chapter 4.
 
  (./text/chapter_04/chapter_04.tex
 Chapter 5.
-) [34
+) [35
 
 
 
@@ -1752,7 +1773,7 @@ Chapter 5.
 
  (./text/chapter_05/chapter_05.tex
 Chapter 6.
-) [35
+) [36
 
 
 
@@ -1761,7 +1782,7 @@ Chapter 6.
 
  (./text/appendix.tex
 Appendix A.
-) [36
+) [37
 
 
 
@@ -1770,14 +1791,14 @@ LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line
 262.
  (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [37
+) [38
 
 
 
-] [38]
+] [39]
 \openout2 = `text/medium.aux'.
 
- (./text/medium.tex) [39
+ (./text/medium.tex) [40
 
 
 ]
@@ -1818,10 +1839,10 @@ Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 266.
  ) 
 Here is how much of TeX's memory you used:
- 35139 strings out of 481239
- 634121 string characters out of 5920377
- 1399958 words of memory out of 5000000
- 49451 multiletter control sequences out of 15000+600000
+ 35156 strings out of 481239
+ 634425 string characters out of 5920377
+ 1402546 words of memory out of 5000000
+ 49463 multiletter control sequences out of 15000+600000
  628803 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,23n,60p,1771b,2054s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1850,10 +1871,10 @@ sr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (50 pages, 731338 bytes).
+eX-master/out/ctufit-thesis.pdf (51 pages, 736687 bytes).
 PDF statistics:
- 983 PDF objects out of 1000 (max. 8388607)
- 868 compressed objects within 9 object streams
- 277 named destinations out of 1000 (max. 500000)
+ 1011 PDF objects out of 1200 (max. 8388607)
+ 895 compressed objects within 9 object streams
+ 282 named destinations out of 1000 (max. 500000)
  397 words of extra memory for PDF output out of 10000 (max. 10000000)
 
