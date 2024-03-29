@@ -396,61 +396,112 @@ where
 
         \subsubsection{GM-PHD filter algorithm}
 In this section, the GM-PHD filter pseudo algorithm is provided.
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicprocedure{\textit{Function }}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
 \begin{algorithm}
     \caption{Pseudo algorithm for the GM-PHD filter}
     \begin{algorithmic}[1]
-        \State \textbf{Inputs:} $\{w_{k-1}^{(i)}, m_{k-1}^{(i)},P_{k-1}^{(i)}\}_{i=1}^{J_{k-1}}$, and the measurement set $Z_k$.
-        \State \textbf{Prediction step for birth targets:}
-            \State \quad $i=0.$
-        \quad \For{$j=1, \dots, J_{\gamma,k}$}
-                \State\quad $i:= i+1.$
-                \State $w_{k|k-1}^{(i)} = w_{\gamma,k}^{(i)},$ \quad
-                        $m_{k|k-1}^{(i)} = m_{\gamma,k}^{(i)},$ \quad
-                        $P_{k|k-1}^{(i)} = P_{\gamma,k}^{(i)},$
-                \quad\EndFor
+        \Require{$\{w_{k-1}^{(i)}, m_{k-1}^{(i)},P_{k-1}^{(i)}\}_{i=1}^{J_{k-1}}$, and the measurement set $Z_k$.}
+
+        \State
+        \Procedure{\textbf{Prediction step for birth targets:}}{}
+        \For{$j=1, \dots, J_{\gamma,k}$}
+            \State $i:= i+1,$
+            \State $w_{k|k-1}^{(i)} = w_{\gamma,k}^{(i)},$ \quad
+            $m_{k|k-1}^{(i)} = m_{\gamma,k}^{(i)},$ \quad
+            $P_{k|k-1}^{(i)} = P_{\gamma,k}^{(i)},$
+        \EndFor
+
+        \For{$j=1,\dots,J_{\beta,k}$}
+            \For{$l=1,\dots,J_{k-1}$}
+                \State $i:=i+1,$
+                \State $w_{k|k-1}^{(i)} = w_{k-1}^{(l)} w_{\beta,k}^{(j)},$
+                \State $m_{k|k-1}^{(i)} = d_{\beta,k-1}^{(j)} + F_{\beta,k-1}^{(j)} m_{k-1}^{(l)},$
+                \State $P_{k|k-1}^{(i)} = Q_{\beta|k-1}^{(j)} + F_{\beta,k-1}^{(j)} P_{k-1}^{(l)} (F_{\beta,k-1}^{(j)})^T.$
+            \EndFor
+        \EndFor
+        \EndProcedure
+        \State
+
+
+        \Procedure{\textbf{Prediction step for existing targets:}}{}
+        \For{$j=1,\dots, J_{k-1}$}
+            \State $i:=i+1$,
+            \State $w_{k|k-1}^{(i)} = p_{S,k} w_{k-1}^{(j)},$
+            \State $m_{k|k-1}^{(i)} = F_{k-1} m_{k-1}^{(j)},$
+            \State $P_{k|k-1}^{(i)} = Q_{k-1} + F_{k-1} P_{k-1}^{(j)} F_{k-1}^T,$
+        \EndFor
+        \State $J_{k|k-1} = i$
+        \EndProcedure
+
+        \State
+        \Procedure{\textbf{Computation of PHD update components:}}{}
+        \For{$j=1,\dots,J_{k|k-1}$}
+            \State $\eta_{k|k-1}^{(j)} = H_k m_{k|k-1}^{(j)},$ \quad
+             $S_k^{(j)} = R_k + H_k P_{k|k-1}^{(j)} H_k^T,$
+            \State $K_k^{(j)} = P_{k|k-1}^{(j)} H_k^T [S_k^{(j)}]^{-1},$ \quad
+             $P_{k|k}^{(j)} = [I - K_k^{(j)} H_k] P_{k|k-1}^{(j)}.$
+        \EndFor
+        \EndProcedure
+
+        \State
+        \Procedure{\textbf{PHD update step:}}{}
+        \For{$j=1,\dots,J_{k|k-1}$} \Comment{Missdetection}
+            \State $w_k^{(j)} = (1 - p_{D,k}) w_{k|k-1}^{(j)},$ \quad
+             $m_k^{(j)} = m_{k|k-1}^{(j)},$ \quad
+             $P_k^{(j)} = P_{k|k-1}^{(j)}$
+        \EndFor
+        \State $l:=0$
+        \ForAll{$z \in Z_k$} \Comment{Detection}
+            \State $l:=l+1,$
+            \For{$j=1,\dots, J_{k|k-1}$}
+                \State $w_k^{(l J_{k|k-1} + j)} = p_{D,k} w_{k|k-1}^{(j)} \mathcal{N}(z; \eta_{k|k-1}^{(j)},S_k^{(j)}),$
+                \State $m_k^{(l J_{k|k-1} + j)} = m_{k|k-1}^{(j)} + K_k^{(j)} (z - \eta_{k|k-1}^{(j)}),$
+                \State $P_k^{(l J_{k|k-1} + j)} = P_{k|k}^{(j)},$
+            \EndFor
+        \State $w_k^{(l J_{k|k-1} + j)} := \frac{w_k^{(l J_{k|k-1} + j)}}{\kappa_k(z) + \sum_{i=1}^{J_{k|k-1}} w_k^{(
+            l J_{k|k-1} + i)}}, \text{for $j = 1,\dots,J_{k|k-1}$},$
+        \EndFor
+        \State $J_k = l J_{k|k-1} 9 J_{k|k-1}.$
+        \EndProcedure
+
+        \Ensure{$\{ w_k^{(i)}, m_k^{(i)}, P_k^{(i)} \}_{i=1}^{J_k}$.}
+    \end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+    \caption{Pseudo algorithm for pruning in the GM-PHD filter}
+    \begin{algorithmic}[1]
+        \Require{$\{w_{k}^{(i)}, m_{k}^{(i)},P_{k}^{(i)}\}_{i=1}^{J_{k}}$, a truncation threshold T, a merging
+        threshold U and a maximum number of allowed Gaussian terms $J_{max}$. Set $l=0,$ and
+            $I = \{ i=1,\dots, J_k | w_k^{(i)} > T\}$.}
+        \Procedure{\textbf{Merging of targets}}{}
+        \While{$I \neq \emptyset$}
+            \State $l:= l+1$
+            \State $j:= \text{argmax}_{i \in I} w_k{(i)},$
+            \State $L:= \left\{ i \in I | (m_k^{(i)} - m_k^{(j)})^T (P_k{(i)})^{-1} (m_k^{(i)} - m_k^{(j)}) \leq U \right\},$
+            \State $\tilde{w}_k^{(l)} = \sum_{i \in L} w_k^{(i)}$,
+            \State $\tilde{m}_k^{(l)} = \frac{1}{\tilde{w}_k^{(l)}} \sum_{i \in L} w_k{(i)} x_k^{(i)},$
+            \State $\tilde{P}_k^{(l)} = \frac{1}{\tilde{w}_k^{(l)}} \sum_{i \in L} w_k^{(i)} (P_k^{(i)} + (m_k^{(l)} - m _k^{(i)}) (m_k^{(l)} - m _k^{(i)})^T,$
+            \State $I:= I/L.$
+        \EndWhile
+        \EndProcedure
+        \State
+        \State If $l > J_{max}$ then replace $\{ \tilde{w}_k^{(i)}, \tilde{m}_k^{(i)}, \tilde{P}_k^{(i)} \}_{i=1}^l$
+        by those of the $J_max$ Gaussians with largest weights.
+        \State
+        \Ensure{$\{ \tilde{w}_k^{(i)}, \tilde{m}_k^{(i)}, \tilde{P}_k^{(i)} \}_{i=1}^l$ as pruned Gaussian components.}
 
     \end{algorithmic}
 \end{algorithm}
+
+
+
+
 %   \subsubsection{CPHD filter}
      %       \paragraph{CPHD filter recursion}
      %   \subsubsection{PMBM filer}
      %       \paragraph{PMBM filter recursion}
-\algrenewcommand\algorithmicrequire{\textbf{Launch:}}
-\begin{algorithm}
-       \caption{Pseudo algorithm for the GM-PHD filter}
-       \begin{algorithmic}[1]
-           \Require{abc}
-           \State abcd
-           \State \textbf{Inputs:} $\{w_{k-1}^{(i)}, m_{k-1}^{(i)},P_{k-1}^{(i)}\}_{i=1}^{J_{k-1}}$, and the measurement set $Z_k$.
-           \State \textbf{Prediction step for birth targets:}
 
-          \For{$j=1, \dots, J_{\gamma,k}$}
-              \State $i:= i+1.$
-              \State $w_{k|k-1}^{(i)} = w_{\gamma,k}^{(i)},$ \quad
-                     $m_{k|k-1}^{(i)} = m_{\gamma,k}^{(i)},$ \quad
-                     $P_{k|k-1}^{(i)} = P_{\gamma,k}^{(i)},$
-          \EndFor
-
-       \end{algorithmic}
-\end{algorithm}
-
-\usepackage{algpseudocode,algorithm,algorithmicx}
-\algrenewcommand\algorithmicrequire{\textbf{Launch:}}
-\algrenewcommand\algorithmicensure{\textbf{End Kernel}}
-
-    \begin{algorithm}
-
-        \begin{algorithmic}[1]
-            \Require{stuff 1} % this is OK
-            \For{for}
-                \State{loremIpsum()}
-                \Require{Unindented stuff 2}  % This is what I want to indent to the same level as the previous line
-
-                \State{loremIpsum} % indent also, but I can \qquad
-                \Ensure{} %  This is what I want to indent also
-
-            \EndFor
-            \Ensure{} % this is OK also
-        \end{algorithmic}
-
-    \end{algorithm}
