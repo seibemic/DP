@@ -14,13 +14,17 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Demonstration of the course of the hidden Markov process.\relax }}{13}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of plots of multivariate Gaussian distribution.\relax }}{9}{figure.caption.10}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Examples of plots of multivariate Gaussian mixture distribution. There are three components in figures with means $\{[0, 0], [3, 3], [-3, -1]\}$. Note that the density of peaks is very low, because the sum has to be equal $1$.\relax }}{10}{figure.caption.11}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Demonstration of the course of the hidden Markov process.\relax }}{15}{figure.caption.12}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Several measurements $z_i$ appeared in the validation region of a single target. $\hat {z}$ is a predicted measurement and none or any of the measurement $z_1 - z_3$ may have originated from the target.\relax }}{20}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Several measurements $z_i$ appeared in the validation region of a single target. $\hat {z}$ is a predicted measurement and none or any of the measurement $z_1 - z_3$ may have originated from the target.\relax }}{22}{figure.caption.13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Several measurements $z_i$ appeared in the validation region of one of targets $\hat {z_1}$ or $\hat {z_2}$. $\hat {z_1}$ and $\hat {z_2}$ are predicted measurements and none or any of the measurement $z_1 - z_3$ may have originated from the target $\hat {z_1}$ and none or any of the measurement $z_3 - z_4$ may have originated from the target $\hat {z_2}$.\relax }}{21}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Several measurements $z_i$ appeared in the validation region of one of targets $\hat {z_1}$ or $\hat {z_2}$. $\hat {z_1}$ and $\hat {z_2}$ are predicted measurements and none or any of the measurement $z_1 - z_3$ may have originated from the target $\hat {z_1}$ and none or any of the measurement $z_3 - z_4$ may have originated from the target $\hat {z_2}$.\relax }}{23}{figure.caption.14}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
