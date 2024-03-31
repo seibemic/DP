@@ -225,7 +225,7 @@ There are many state space models used in MTT. Before we define two of the most 
 should be noted, that definitions in \eqref{eq:state_space_model_state} and \eqref{eq:state_space_model_observation} are too general, because $f_k$ and $h_k$ could by any functions.
 
 To get a closed-form solution in the Bayesian inference framework, we need
-to choose conjugate distributions for the likelihood and the prior. The Kalman filter (see Section \ref{Kalman} for
+to choose conjugate distributions for the likelihood and the prior. The Kalman filter (see Section \ref{sec:Kalman} for
 more) works for the Gaussian-linear case, where the functions
 $f_t$ and $h_t$ are linear and noisy variables and are distributed as Gaussians with zero mean, i.e., $w_k, v_k  \thicksim \mathcal{N}(0,\Sigma)$. The Gaussian linear
 state space model has the formulation
@@ -263,19 +263,21 @@ The constant velocity model (CVM) is a fundamental component of multi-target tra
 At its core, the constant velocity model embodies the notion of inertia, where a target maintains a constant velocity unless acted upon by external forces. This conceptual simplicity allows for a straightforward representation of target motion, making the constant velocity model a popular choice for MTT applications where targets exhibit relatively uniform and predictable movement behaviors.
 
 Mathematically, the constant velocity model describes the evolution of a target's state vector over time in terms of
-its position and velocity. At each time step $k$, the state vector $\mathbf{x_k}$ comprises the position $[x_{1,k},x_{2,k}]$ and velocity $v$ of the target:
+its position and velocity. At each time step $k$, the state vector $\mathbf{x}_k$ comprises the position $[x_{1,k},x_{
+    2,k}]$ and velocity $v$ of the target
 \begin{align}
-    \mathbf{x_k} &= [x_{1,k}, x_{2,k}, v_{1,k}, v_{2,k}]^T.
+    \mathbf{x}_k &= [x_{1,k}, x_{2,k}, v_{1,k}, v_{2,k}]^T.
 \end{align}
+
 The dynamics of the constant velocity model can be represented using a state transition matrix $F$  and a process
 noise vector $w_k$, where the state transition matrix captures the relationship between the target's state at
-consecutive time steps:
+consecutive time steps
 \begin{align}
-    \mathbf{x_{k+1}} &= \mathbf{F x_k} + \mathbf{w_k}
+    \mathbf{x}_{k+1} &= \mathbf{F x}_k + \mathbf{w}_k.
 \end{align}
-All together, vector $\mathbf{x_k}$, matrices $\mathbf{F}$ and $\mathbf{Q}$, might, for example, look like this:
+All together, vector $\mathbf{x}_k$, matrices $\mathbf{F}$ and $\mathbf{Q}$, might, for example, be represented as
 \begin{align}
-    \mathbf{x_k} &=
+    \mathbf{x}_k &=
         \begin{bmatrix}
             x_{1,k} \\
             x_{2,k} \\
@@ -296,12 +298,13 @@ All together, vector $\mathbf{x_k}$, matrices $\mathbf{F}$ and $\mathbf{Q}$, mig
             \frac{dt^2}{2} & 0 & dt & 0 \\
             0 & \frac{dt^2}{2} & 0 & dt \\
         \end{bmatrix},
+    \label{eq:state_space_model}
 \end{align}
-where $dt$ stands fot delta time, i. e., elapsed time between the last estimatioin and the current one, $q$ is the
+where $dt$ stands for delta time, i.e., elapsed time between the last estimation and the current one, $q$ is the
 motion noise parameter, which represents the uncertainty in the state transition. The measurement model transforms a
 state vector from the state space into the measurement space. Since filters derived from Kalman filter assumes only
 linear models, the measurement model for CVM assumes the same space as in the state vectors. As a result, the
-measurement matrix $\mathbf{H}$ and the noise matrix $\mathbf{R}$ can be formulated as:
+observation matrix $\mathbf{H}$ and the noise matrix $\mathbf{R}$ can be, with respect to \eqref{eq:state_space_model}, formulated
 \begin{align}
     \mathbf{H} &=
     \begin{bmatrix}
@@ -314,15 +317,18 @@ measurement matrix $\mathbf{H}$ and the noise matrix $\mathbf{R}$ can be formula
         0 & 1  \\
     \end{bmatrix},
 \end{align}
-where $r$ is the measurement noise, which determines the variance of the measurement noise.
+where $r$ determines the variance of the measurement noise.
 
 To obtain optimal results given by filters, it is essential to set parameters $r$ and $q$ appropriately. There are
-three main ways to dot it. The first one requires the knowledge of motion noise given by tracked object and the
-knowledge of sensor's error when detecting targets, i. e. the noise measurement. This method is often used in
+three main ways to do it. The first one requires the knowledge of motion noise given by tracked object and the
+knowledge of sensor's error when detecting targets, i.e. the noise measurement. This method is often used in
 simulations and experiments. The second one is simple trial
 and error method with reasonable choices. The last one is using automated methods, like in \cite{BulutEastimation2011}.
 
-In the context of MTT, the constant velocity model serves as a fundamental building block for tracking algorithms, providing a simplified yet effective representation of target motion. By assuming constant velocity, MTT algorithms can predict the future positions of targets based on their current state and velocity, facilitating trajectory estimation and target prediction.
+In the context of MTT, the constant velocity model serves as a fundamental building block for tracking algorithms,
+providing a simplified yet effective representation of a target motion. By assuming the constant velocity, MTT
+algorithms
+can predict the future positions of targets based on their current state and velocity, facilitating trajectory estimation and target prediction.
 
 One common application of the constant velocity model in MTT is in the design of prediction algorithms, where future positions of targets are estimated based on their current state and velocity information. These predictions are essential for anticipating target movements and facilitating data association, enabling MTT algorithms to maintain track continuity and adapt to changes in target behavior over time.
 
@@ -335,15 +341,14 @@ In MTT scenarios, targets often exhibit varying degrees of acceleration due to f
 direction, or environmental influences. Ignoring these accelerative effects can lead to biased trajectory estimates and diminished tracking accuracy. The CAM addresses this limitation by incorporating an additional acceleration component into the state-space model, enabling more faithful representation of target motion dynamics. By accounting for changes in acceleration, the CAM provides MTT algorithms with greater flexibility and adaptability in tracking targets with non-uniform motion profiles.
 
 Mathematically, the Constant Acceleration Model extends the state transition function of the state-space model to
-accommodate changes in acceleration over time. At each time step $k$, the evolution of the target's state vector $x_k$ is governed by a set of dynamic equations that describe the position, velocity, and acceleration of the target:
+accommodate changes in acceleration over time. At each time step $k$, the evolution of the target's state vector $x_k$ is governed by a set of dynamic equations that describe the position, velocity, and acceleration of the target
 \begin{align}
-    \mathbf{x_k} &= [x_{1,k}, x_{2,k}, v_{1,k}, v_{2,k}, a_{1,k}, a_{2,k}]^T,
+    \mathbf{x}_k &= [x_{1,k}, x_{2,k}, v_{1,k}, v_{2,k}, a_{1,k}, a_{2,k}]^T,
 \end{align}
 where, as in CVM, $x_{1,k}$, $x_{2,k}$ is the position of an target in two-dimensional space, $v_{1,k}, v_{2,k}$ is
-the velocity and $a_{1,k}, a_{2,k}$ are the accelerations in both directions. Matrices $F$ and $Q$ can then look like
-this:
+the velocity and $a_{1,k}, a_{2,k}$ are the accelerations in both directions. Matrices $F$ and $Q$ can then be expressed
 \begin{align}
-    \mathbf{x_k} &=
+    \mathbf{x}_k &=
     \begin{bmatrix}
         x_{1,k} \\
         x_{2,k} \\
@@ -371,7 +376,7 @@ this:
         0 & \frac{dt^3}{3} & 0 & \frac{dt^2}{2} & 0 & dt \\
     \end{bmatrix}.
 \end{align}
-The measurement model remains unchanged from the standard state-space model, relating the observed measurements $\mathbf{y_t}$ to the target's true state $\mathbf{x_t}$ through a measurement function $h(\cdot)$ corrupted by measurement noise $v_t$:
+The measurement model remains unchanged from the standard state-space model, relating the observed measurements $\mathbf{z}_k$ to the target's true state $\mathbf{x}_k$ through a measurement function $h(\cdot)$ corrupted by measurement noise $v_t$
 \begin{align}
     \mathbf{H} &=
     \begin{bmatrix}
@@ -386,10 +391,14 @@ The measurement model remains unchanged from the standard state-space model, rel
 \end{align}
 The Constant Acceleration Model offers several practical advantages in MTT applications:
 \begin{itemize}
-    \item Improved Trajectory Estimation: By accounting for changes in acceleration, the CAM enables more accurate and realistic trajectory estimation, particularly for targets exhibiting non-uniform motion patterns or sudden changes in velocity.
-    \item Enhanced Predictive Capability: The inclusion of acceleration dynamics allows MTT algorithms to make more informed predictions about future target states, improving tracking performance and reducing prediction errors.
-    \item Robustness to Dynamic Environments: In dynamic environments with varying levels of congestion, obstacles, or traffic patterns, the CAM provides MTT algorithms with greater robustness and adaptability, enabling effective tracking even in challenging scenarios.
-    \item Applications in Autonomous Systems: In autonomous systems such as self-driving cars, drones, or robotics, the CAM plays a crucial role in motion planning, obstacle avoidance, and trajectory prediction, enhancing the safety and efficiency of autonomous navigation.
+    \item Improved trajectory estimation: By accounting for changes in acceleration, the CAM enables more accurate
+    and realistic trajectory estimation, particularly for targets exhibiting non-uniform motion patterns or sudden changes in velocity.
+    \item Enhanced predictive capability: The inclusion of acceleration dynamics allows MTT algorithms to make more
+    informed predictions about future target states, improving tracking performance and reducing prediction errors.
+    \item Robustness to dynamic environments: In dynamic environments with varying levels of congestion, obstacles,
+    or traffic patterns, the CAM provides MTT algorithms with greater robustness and adaptability, enabling effective tracking even in challenging scenarios.
+    \item Applications in autonomous systems: In autonomous systems such as self-driving cars, drones, or robotics,
+    the CAM plays a crucial role in motion planning, obstacle avoidance, and trajectory prediction, enhancing the safety and efficiency of autonomous navigation.
 \end{itemize}
 In summary, the Constant Acceleration Model represents a significant advancement in multi-target tracking, offering a
 more nuanced and comprehensive approach to modeling target motion dynamics. By incorporating acceleration effects
@@ -408,26 +417,26 @@ previous state
     likelihood)}, \\
     p(x_0)& \quad \text{(initial state)}.
 \end{align}
-In models of higher order, the transition probability would be:
+In models of higher order, the transition probability is
 \begin{align}
     p(x_k|x_{k-1},\dots,x_{k-n}),
 \end{align}
-where $n$ is the number of the order.
+where $n$ is the number of the order. Details of this model is not described in this work and can be seen in \cite{
+    HadarHMMHigherOrder}.
 
-In cases where the process is not didectly observable, but can be observed through another observable variable $y_k$,
+In cases where the process is not didectly observable, but can be observed through another observable variable $z_k$,
 we often talk about Hidden Markov process.
 \begin{figure}[h]
     \centering
-    \label{fig:hmm}
-    \includegraphics[width=13cm]{./text/chapter_01/imgs/hmm}
+    \includegraphics[width=\linewidth]{./text/chapter_01/imgs/HMM}
     \caption{Demonstration of the course of the hidden Markov process.}
+    \label{fig:hmm}
 \end{figure}
 
 At its core, the Hidden Markov Process represents a stochastic process characterized by a set of hidden states that transition probabilistically over time. While these hidden states are unobservable, they influence the generation of observable measurements, which are assumed to be conditionally independent given the hidden states. In the context of MTT, the hidden states may represent latent attributes of targets, such as their locations, velocities, or motion patterns, while the observable measurements correspond to sensor readings or detections obtained from surveillance systems.
 
 \section{Bayes' filter}
-The Bayes filter is a recursive framework that estimates an internal state of the system over time using measurements
-. The Bayes filter leverages both motion and measurement models, operating under the assumption that these models
+The Bayes filter is a recursive framework that estimates an internal state of the system over time using measurements. The Bayes filter leverages both motion and measurement models, operating under the assumption that these models
 accurately describe the system's behavior. Operating within a recursive framework, the Bayes filter continually
 estimates the internal state of the system over time using available measurements. Each iteration of the filter
 entails two fundamental steps: prediction and update. During the prediction step, the filter anticipates the internal
@@ -453,54 +462,55 @@ measurement model $p(z_k|x_k)$. This step uses common Bayes' rule.
         (x_k|z_{0:k-1},u_{0:k})
     \end{align}
 \end{theorem}
-These two steps work in an iterative method where in each iteration first prediction step is used, where we predict
-the state $x_k$ and then update step is used to correct our quess with provided measurement.
+These two steps work in an iterative method, where, in each iteration, first prediction step is used to predict
+the state $x_k$ and then update step is used to correct our guess with provided measurement.
 \section{Kalman filter}
-    \label{Kalman}
+    \label{sec:Kalman}
 The Kalman filter, named after its developer Rudolf E. Kalman, has a rich history dating back to the early 1960s when Kalman first introduced the algorithm in a series of landmark papers. Initially developed for aerospace applications, the Kalman filter gained prominence for its ability to provide optimal state estimation in the presence of noisy measurements and uncertain dynamics.
 
 Over the years, the Kalman filter has found widespread usage across diverse fields and industries, including aerospace, robotics, finance, and telecommunications. Its applications range from tracking spacecraft trajectories and guiding missiles to monitoring financial markets and controlling autonomous vehicles. The filter's versatility, efficiency, and effectiveness have made it a cornerstone of modern estimation and control systems.
 
 The Kalman filter operates on the principles of recursive Bayesian estimation, utilizing a system dynamics model and noisy measurements to predict and update the state of a dynamic system over time. Its mathematical elegance and simplicity make it well-suited for real-time applications, enabling accurate and efficient state estimation even in complex and uncertain environments.
 
-Despite its remarkable success, the Kalman filter continues to evolve, with extensions and variations such as the extended Kalman filter (EKF), unscented Kalman filter (UKF), and particle filter (PF) addressing more challenging scenarios involving nonlinear dynamics and non-Gaussian noise.
+Despite its remarkable success, the Kalman filter continues to evolve, with extensions and variations such as the
+extended Kalman filter (EKF), unscented Kalman filter (UKF), and particle filter (PF) addressing more challenging scenarios involving non-linear dynamics and non-Gaussian noise.
 
 In summary, the Kalman filter stands as a seminal contribution to the field of estimation and control, with a rich history of development and widespread usage across diverse domains. Its continued relevance and versatility underscore its status as a foundational tool for state estimation and tracking in modern technological applications.
 
 \subsection{Kalman filter inference}
-In section \ref{sec:stateSpaceModel} we talked about State space model, which is used by Kalman filter. Thus the
-equations look like this:
+In section \ref{sec:stateSpaceModel} we talked about State space model, which is used by Kalman filter. Thus we work
+with equations
 \begin{align}
-    x_k &= Fx_{k-1} + Bu_t + v_t \\
-    z_t &= Hx_k + w_k,
+    x_k &= Fx_{k-1} + w_t \\
+    z_t &= Hx_k + v_k,
 \end{align}
 where both noise variables are independent and with zero mean
 \begin{align}
-    v_k &\sim \mathcal{N}(0,Q), \\
-    w_k &\sim \mathcal{N}(0,R).
+    w_k &\sim \mathcal{N}(0,Q), \\
+    v_k &\sim \mathcal{N}(0,R).
 \end{align}
-Then the state and measurement distributions follows:
+Then the state and measurement distributions follows
 \begin{align}
-    x_k &\sim \mathcal{N}(Fx_{k-1} + Bu_t,Q) \qquad && \text{with density}\quad p(x_k|x_{k-1},u_k), \\
+    x_k &\sim \mathcal{N}(Fx_{k-1},Q) \qquad && \text{with density}\quad p(x_k|x_{k-1}), \\
     z_k &\sim  \mathcal{N}(Hx_k,R) \qquad && \text{with density}\quad p(z_k|x_k).
 \end{align}
-Because Kalman filter is bayesian, we need aprior distribution for $x_k$. Model $z_k$ is Gaussian, conjugated apriori
-is then also Gaussian with mean $x_{k-1}^+$ and covariance matrix $P_{k-1}+$,
+Because Kalman filter is bayesian, we need prior distribution for $x_k$. Model $z_k$ is Gaussian, conjugated prior and
+is then also Gaussian with mean $x_{k-1}^+$ and covariance matrix $P_{k-1}^+$,
 \begin{align}
-    p(x_k|z_{0:k-1},u_{0:k-1}) &= \mathcal{N}(x_{k-1}^+,P_{k-1}^+).
+    p(x_k|z_{0:k-1}) &= \mathcal{N}(x_{k-1}^+,P_{k-1}^+).
 \end{align}
 
 The prediction step is derived from formula (\ref{eq:chapman_kolmogorov_predict}). Note, that by multiplicating two
 gaussian distributions we again get gaussian distribution $\mathcal{N}(x_k^-,P_k^-)$ with hyperparemeters
 \begin{align}
-    x_k^- &= Fx_{k-1}^+ + Bu_k \\
+    x_k^- &= Fx_{k-1}^+ \\
     P_k^- &= FP_{k-1}^{+}F^T + Q.
 \end{align}
-By multiplicating two normal distributions and followed marginalization enumerates the state equation. The estimation
+By multiplicating two normal distributions followed by marginalization, we enumerate the state equation. The estimation
 of state $x_k^-$ is just applying model variables into appropriate equations. The estimated covariance $P_k^-$
 expresses the degree of uncertainty of the estimation. By applying this step, the uncertainty grows.
 
-The update step corrects the prediction step by applying new observed measurements $z_k$. For that, formula (\ref{eq:bayes_update}) is used. The model is transformed into exponential form a looks like this:
+The update step corrects the prediction step by applying new observed measurements $z_k$. For that, formula (\ref{eq:bayes_update}) is used. The model is transformed into exponential form
 \begin{align}
     p(z_k|x_k) &\propto \exp \left\{-\frac{1}{2}(z_k - Hx_k)^T R^{-1} (z_k - Hx_k)\right \} \nonumber \\
     &= \exp
@@ -533,7 +543,7 @@ The update step corrects the prediction step by applying new observed measuremen
 \end{align}
 The conjugated shape has the form
 \begin{align}
-    p(x_k|z_{0:k-1}, u_{0:t}) &\propto \exp
+    p(x_k|z_{0:k-1}) &\propto \exp
     \left\{-\frac{1}{2}(x_k - x_k^-)^T (P_k^-)^{-1} (x_k - x_k^-)\right \} \nonumber \\
     &= \exp
     \left\{
@@ -565,7 +575,7 @@ The conjugated shape has the form
 \end{align}
 where $I$ is identity matrix of appropriate shape.
 
-The bayesian update is sum of the hyperparameter and sufficient statistic,
+The bayesian update is a sum of the hyperparameter and sufficient statistic,
 \begin{align}
     \xi_{k}
     &= \xi_{k-1} +  T(z_{k})  \nonumber \\
@@ -577,8 +587,7 @@ The bayesian update is sum of the hyperparameter and sufficient statistic,
     & (P_{k}^{-})^{-1} + H^{T} R^{-1} H.
     \end{bmatrix}
 \end{align}
-The posterior parameters are then derived as follows:
-
+The posterior parameters are then derived
 \begin{align}
     P_{k}^{+} &= (\xi_{k;[2,2]})^{-1} \notag\\
     &= \left[ (P_{k}^{-})^{-1} + H^{T} R^{-1} H \right]^{-1} \notag\\
@@ -591,9 +600,10 @@ where
 \begin{align}
     K_{k} &= P_{k}^{-} H^{T}(R + H P_{k}^{-}H^{T})^{-1} \label{eq:kalman_gain}
 \end{align}
-is Kalman gain. This form is the optimal Kalman gain, as it minimizes the root mean squared error. In general, the greater the gain, the greater the emphasis of the new measurements. The filter is then more sensitive, but filters noise less easily.
+is the Kalman gain. This form is the optimal Kalman gain, as it minimizes the root mean squared error. In general, the
+greater the gain, the greater the emphasis of the new measurements. The filter is then more sensitive, but filters noise less easily.
 
-In literature it is common to write each equation in this or similar form:
+In literature it is common to write each equation in following or similar form
 \begin{align}
     \hat{z}_{k}^{-} &= H \hat{x}_{k}^{-}, \qquad &&\text{(measurement prediction)} \\
     \nu_t &= z_t - \hat{z}_{k}^{-}, \qquad &&\text{(innovation or prediction error $z_t$)} \\
@@ -603,8 +613,7 @@ In literature it is common to write each equation in this or similar form:
     P_{k}^{+} &= (I - K_t H) P_{k}^{-}. \qquad &&\text{(aposteriori covariance)}
 \end{align}
 
-        \subsubsection{Kalman filter algorithm}
-This section provides with pseudo algorithm of Kalman filter.
+The pseudo algorithm of Kalman filter is shown in algorithm \ref{alg:kalman_filter}.
 \begin{algorithm}
     \caption{Kalman Filter Algorithm}
     \begin{algorithmic}[1]
@@ -613,24 +622,32 @@ This section provides with pseudo algorithm of Kalman filter.
         covariance matrix $R_k$, and measurements $Z$.
         \State \textbf{Outputs:} Updated state estimate $\hat{x}_k$ and updated covariance matrix $P_k$.
         \State
-        \State \textbf{Initialization:}
-        \State $\hat{x}_0$  \Comment{Initialize state estimate}
-        \State $P_0$ \Comment{Initialize error covariance matrix}
+        \Procedure{Initialization}{$x_0,P$}
+            \State $\hat{x}_0 = x_0$  \Comment{Initialize state estimate}
+            \State $P_0 = P$ \Comment{Initialize error covariance matrix}
+        \EndProcedure
+
         \State
-        \State \textbf{Prediction Step:}
-        \State $\hat{x}_{k|k-1} = F_k \hat{x}_{k-1} $ \Comment{Predict state estimate}
-        \State $P_{k|k-1} = F_k P_{k-1} F_k^T + Q_k$ \Comment{Predict covariance:}
+        \Procedure{Prediction step}{}
+            \State $\hat{x}_{k|k-1} = F_k \hat{x}_{k-1} $ \Comment{Predict state estimate}
+            \State $P_{k|k-1} = F_k P_{k-1} F_k^T + Q_k$ \Comment{Predict covariance:}
+        \EndProcedure
+
         \State
-        \State \textbf{Measurement Update Step:}
-        \State $K_k = P_{k|k-1} H_k^T (H_k P_{k|k-1} H_k^T + R_k)^{-1}$ \Comment{Kalman gain}
-        \State $\hat{x}_k = \hat{x}_{k|k-1} + K_k(z_k - H_k \hat{x}_{k|k-1})$ \Comment{Update state estimate}
-        \State $P_k = (I - K_k H_k) P_{k|k-1}$ \Comment{Update covariance}
+        \Procedure{Update step}{$z_k$}
+            \State $K_k = P_{k|k-1} H_k^T (H_k P_{k|k-1} H_k^T + R_k)^{-1}$ \Comment{Kalman gain}
+            \State $\hat{x}_k = \hat{x}_{k|k-1} + K_k(z_k - H_k \hat{x}_{k|k-1})$ \Comment{Update state estimate}
+            \State $P_k = (I - K_k H_k) P_{k|k-1}$ \Comment{Update covariance}
+        \EndProcedure
         \State
-        \State \textbf{Kalman filter loop:}
-        \State Initialization
-        \ForAll{z_k $ \in$ Z}
-        \State Perform Prediction Step
-        \State Perform Measurement Update Step with $z_k$
-        \EndFor
+        \Procedure{Kalman filter recursion}{}
+            \State Initialization
+            \ForAll{z_k $ \in$ Z}
+                \State Perform Prediction Step
+                \State Perform Update Step with $z_k$
+            \EndFor
+        \EndProcedure
+
     \end{algorithmic}
+    \label{alg:kalman_filter}
 \end{algorithm}

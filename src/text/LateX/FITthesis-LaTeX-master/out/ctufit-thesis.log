@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.14)  30 MAR 2024 22:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  31 MAR 2024 03:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -58,9 +58,9 @@ File: babel.def 2020/02/14 3.40 Babel common definitions
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
 Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language22) on input line 105.
+(babel)             (\language44) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language22) on input line 108.
+(babel)             (\language44) on input line 108.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
@@ -1447,8 +1447,8 @@ Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 132
  [1
 
 
- <./seibemic-assignment.pdf{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}>
-]
+ <./seibemic-assignment.pdf{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updm
+ap/pdftex.map}>]
 <seibemic-assignment.pdf, id=225, page=2, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
@@ -1561,7 +1561,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.93 ...ying detection probability}{37}{chapter.5}
+l.91 ...ying detection probability}{37}{chapter.5}
                                                   % [2
 
 ])
@@ -1661,34 +1661,34 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  [10 <./text/chapter_01/imgs/mvn_mixture_contour.png> <./text/chapter_01/imgs/m
 vn_mixture_3d.png>]
 [11] [12] [13]
-Overfull \hbox (1.544pt too wide) detected at line 373
+Overfull \hbox (1.1779pt too wide) detected at line 378
 []
  []
 
 [14]
-<./text/chapter_01/imgs/hmm.png, id=517, 501.875pt x 128.48pt>
-File: ./text/chapter_01/imgs/hmm.png Graphic file (type png)
-<use ./text/chapter_01/imgs/hmm.png>
-Package pdftex.def Info: ./text/chapter_01/imgs/hmm.png  used on input line 422
+<./text/chapter_01/imgs/HMM.png, id=519, 714.67pt x 241.90375pt>
+File: ./text/chapter_01/imgs/HMM.png Graphic file (type png)
+<use ./text/chapter_01/imgs/HMM.png>
+Package pdftex.def Info: ./text/chapter_01/imgs/HMM.png  used on input line 431
 .
-(pdftex.def)             Requested size: 369.88582pt x 94.69533pt.
- [15 <./text/chapter_01/imgs/hmm.png>] [16] [17]
+(pdftex.def)             Requested size: 418.25368pt x 141.57402pt.
+ [15 <./text/chapter_01/imgs/HMM.png>] [16] [17]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 609.
+put line 618.
 
-./text/chapter_01/chapter_01.tex:631: Missing $ inserted.
+./text/chapter_01/chapter_01.tex:645: Missing $ inserted.
 <inserted text> 
                 $
-l.631         \ForAll{z_k $ \in$ Z}
-                                   
+l.645             \ForAll{z_k $ \in$ Z}
+                                       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./text/chapter_01/chapter_01.tex:631: Missing $ inserted.
+./text/chapter_01/chapter_01.tex:645: Missing $ inserted.
 <inserted text> 
                 $
-l.631         \ForAll{z_k $ \in$ Z}
-                                   
+l.645             \ForAll{z_k $ \in$ Z}
+                                       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
@@ -1698,7 +1698,7 @@ you left one out. Proceed, with fingers crossed.
  (./text/chapter_02/chapter_02.tex
 Chapter 3.
 
-Overfull \hbox (6.85863pt too wide) in paragraph at lines 9--10
+Overfull \hbox (6.85863pt too wide) in paragraph at lines 15--17
 []\OT1/lmr/m/n/10 Beyond single-target track-ing, radar sys-tems of-ten ne-ces-
 si-tate multi-target track-ing ap-proaches.
  []
@@ -1708,56 +1708,46 @@ si-tate multi-target track-ing ap-proaches.
 
 
 ] [21]
-<text/chapter_02/imgs/clutter_singleTarget.png, id=589, 722.7pt x 722.7pt>
+<text/chapter_02/imgs/clutter_singleTarget.png, id=593, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_singleTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_singleTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_singleTarget.png  used on
- input line 55.
+ input line 78.
 (pdftex.def)             Requested size: 284.52756pt x 284.53154pt.
  [22 <./text/chapter_02/imgs/clutter_singleTarget.png>]
-<text/chapter_02/imgs/clutter_multiTarget.png, id=598, 722.7pt x 722.7pt>
+<text/chapter_02/imgs/clutter_multiTarget.png, id=602, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_multiTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_multiTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_multiTarget.png  used on 
-input line 71.
+input line 101.
 (pdftex.def)             Requested size: 284.52756pt x 284.53154pt.
  [23 <./text/chapter_02/imgs/clutter_multiTarget.png>] [24]
 
-LaTeX Font Warning: Command \Large invalid in math mode on input line 154.
+LaTeX Font Warning: Command \Large invalid in math mode on input line 189.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 154.
+(Font)              <14.4> on input line 189.
 
-LaTeX Font Warning: Command \Large invalid in math mode on input line 154.
+LaTeX Font Warning: Command \Large invalid in math mode on input line 189.
 
-[25] [26] [27]
-./text/chapter_02/chapter_02.tex:254: Undefined control sequence.
-l.254 ...find out that for a function $f=\partialF
-                                                  _{(\dot)}(T)$ the set inte...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[28] [29]
-./text/chapter_02/chapter_02.tex:337: Double subscript.
+[25] [26] [27] [28] [29]
+./text/chapter_02/chapter_02.tex:400: Double subscript.
 <argument> ..._{k|k-1}(x|\zeta ) &= \sum _{j=1}^J_
                                                   {\beta ,k} w_{\beta ,k}^{(...
-l.337         \end{align}
+l.400         \end{align}
                          
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-./text/chapter_02/chapter_02.tex:337: Double subscript.
+./text/chapter_02/chapter_02.tex:400: Double subscript.
 <argument> ..._{k|k-1}(x|\zeta ) &= \sum _{j=1}^J_
                                                   {\beta ,k} w_{\beta ,k}^{(...
-l.337         \end{align}
+l.400         \end{align}
                          
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 [30] [31]
-./text/chapter_02/chapter_02.tex:402: Undefined control sequence.
-l.402 ...ee intensities $\nu_{S,k|k-1}, \nu_{\neta
+./text/chapter_02/chapter_02.tex:465: Undefined control sequence.
+l.465 ...ee intensities $\nu_{S,k|k-1}, \nu_{\neta
                                                   ,k|k-1} \text{ and } \gamm...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1765,8 +1755,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./text/chapter_02/chapter_02.tex:402: Undefined control sequence.
-l.402 ... $|Z_k|$ detection cases $\nu_{D,k}(\codt
+./text/chapter_02/chapter_02.tex:465: Undefined control sequence.
+l.465 ... $|Z_k|$ detection cases $\nu_{D,k}(\codt
                                                   ;z)$ for every $z \in Z_k$...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1776,10 +1766,10 @@ and I'll forget about whatever was undefined.
 
 
 LaTeX Font Warning: Font shape `OT1/lmr/bx/sc' undefined
-(Font)              using `OT1/lmr/bx/n' instead on input line 422.
+(Font)              using `OT1/lmr/bx/n' instead on input line 485.
 
 
-LaTeX Warning: Float too large for page by 70.87004pt on input line 486.
+LaTeX Warning: Float too large for page by 70.87004pt on input line 549.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1873,17 +1863,17 @@ Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 268.
  ) 
 Here is how much of TeX's memory you used:
- 35271 strings out of 481239
- 637000 string characters out of 5920377
- 1405168 words of memory out of 5000000
- 49567 multiletter control sequences out of 15000+600000
+ 35276 strings out of 481239
+ 637191 string characters out of 5920377
+ 1405397 words of memory out of 5000000
+ 49572 multiletter control sequences out of 15000+600000
  634238 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,23n,60p,1766b,2054s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/
-dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
-hare/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/l
-m/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texm
+dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
+/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/
+lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texm
 f/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmbx7.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb><
@@ -1905,10 +1895,10 @@ sr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (53 pages, 1080112 bytes).
+eX-master/out/ctufit-thesis.pdf (53 pages, 1086473 bytes).
 PDF statistics:
- 1039 PDF objects out of 1200 (max. 8388607)
- 912 compressed objects within 10 object streams
+ 1043 PDF objects out of 1200 (max. 8388607)
+ 916 compressed objects within 10 object streams
  286 named destinations out of 1000 (max. 500000)
  417 words of extra memory for PDF output out of 10000 (max. 10000000)
 

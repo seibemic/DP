@@ -46,9 +46,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.8}Kalman filter}{16}{section.2.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.8.1}Kalman filter inference}{16}{subsection.2.8.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.1.1}Kalman filter algorithm}{18}{subsubsection.2.8.1.1}%
+\contentsline {subsection}{\numberline {2.8.1}Kalman filter inference}{17}{subsection.2.8.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Target tracking}{20}{chapter.3}%
 \defcounter {refsection}{0}\relax 
@@ -60,7 +58,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.3}Single target tracking}{23}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.1}PDA filter}{23}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.1}PDA filter}{24}{subsection.3.3.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.1.1}PDAF predict step}{24}{subsubsection.3.3.1.1}%
 \defcounter {refsection}{0}\relax 
@@ -80,7 +78,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.2.2}GM-PHD for linear models}{30}{subsubsection.3.4.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.4.2.3}GM-PHD recursion for linear models}{30}{subsubsection.3.4.2.3}%
+\contentsline {subsubsection}{\numberline {3.4.2.3}GM-PHD recursion for linear models}{31}{subsubsection.3.4.2.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.2.4}Pruning and merging in GM-PHD filter}{32}{subsubsection.3.4.2.4}%
 \defcounter {refsection}{0}\relax 

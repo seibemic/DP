@@ -2205,19 +2205,20 @@
     <bcf:citekey order="20">GarciaPMBM2018</bcf:citekey>
     <bcf:citekey order="21">VoMaPHD2006</bcf:citekey>
     <bcf:citekey order="22">BulutEastimation2011</bcf:citekey>
-    <bcf:citekey order="23">DedeciusSeq2017</bcf:citekey>
-    <bcf:citekey order="24">BarShalomPDA</bcf:citekey>
-    <bcf:citekey order="25">Particle_Khan2005</bcf:citekey>
-    <bcf:citekey order="25">Particle_Gustafsson2002</bcf:citekey>
-    <bcf:citekey order="25">Particle_Doucet2001</bcf:citekey>
-    <bcf:citekey order="25">nonlinearParticleFilter</bcf:citekey>
-    <bcf:citekey order="26">FISSTgoodman1997</bcf:citekey>
-    <bcf:citekey order="27">VoRFS2003</bcf:citekey>
-    <bcf:citekey order="28">mahler</bcf:citekey>
-    <bcf:citekey order="29">VoMaPHD2006</bcf:citekey>
-    <bcf:citekey order="30">daley2003</bcf:citekey>
-    <bcf:citekey order="31">VoMaPHD2006</bcf:citekey>
-    <bcf:citekey order="32">bar1988tracking</bcf:citekey>
+    <bcf:citekey order="23">HadarHMMHigherOrder</bcf:citekey>
+    <bcf:citekey order="24">DedeciusSeq2017</bcf:citekey>
+    <bcf:citekey order="25">BarShalomPDA</bcf:citekey>
+    <bcf:citekey order="26">Particle_Khan2005</bcf:citekey>
+    <bcf:citekey order="26">Particle_Gustafsson2002</bcf:citekey>
+    <bcf:citekey order="26">Particle_Doucet2001</bcf:citekey>
+    <bcf:citekey order="26">nonlinearParticleFilter</bcf:citekey>
+    <bcf:citekey order="27">FISSTgoodman1997</bcf:citekey>
+    <bcf:citekey order="28">VoRFS2003</bcf:citekey>
+    <bcf:citekey order="29">mahler</bcf:citekey>
+    <bcf:citekey order="30">VoMaPHD2006</bcf:citekey>
+    <bcf:citekey order="31">daley2003</bcf:citekey>
+    <bcf:citekey order="32">VoMaPHD2006</bcf:citekey>
+    <bcf:citekey order="33">bar1988tracking</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

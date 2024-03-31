@@ -724,6 +724,38 @@
       \verb 10.1007/978-1-4419-9834-7_36
       \endverb
     \endentry
+    \entry{HadarHMMHigherOrder}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=86a033ccfc435d620fa286a2b93e2dab}{%
+           family={Hadar},
+           familyi={H\bibinitperiod},
+           given={Uri},
+           giveni={U\bibinitperiod}}}%
+        {{hash=1bc57a7a4833341c4659cf8a65c7102c}{%
+           family={messer},
+           familyi={m\bibinitperiod},
+           given={Hagit},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{d444e5e00d5b97c9e33f59b33ae9c026}
+      \strng{fullhash}{d444e5e00d5b97c9e33f59b33ae9c026}
+      \strng{bibnamehash}{d444e5e00d5b97c9e33f59b33ae9c026}
+      \strng{authorbibnamehash}{d444e5e00d5b97c9e33f59b33ae9c026}
+      \strng{authornamehash}{d444e5e00d5b97c9e33f59b33ae9c026}
+      \strng{authorfullhash}{d444e5e00d5b97c9e33f59b33ae9c026}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2009 IEEE/SP 15th Workshop on Statistical Signal Processing}
+      \field{title}{High-order Hidden Markov Models - estimation and implementation}
+      \field{year}{2009}
+      \field{pages}{249\bibrangedash 252}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/SSP.2009.5278591
+      \endverb
+    \endentry
     \entry{DedeciusSeq2017}{article}{}
       \name{author}{2}{}{%
         {{hash=217678957c569d01044c5ca1dce6ab43}{%
