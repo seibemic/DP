@@ -609,8 +609,8 @@ In literature it is common to write each equation in following or similar form
     \nu_t &= z_t - \hat{z}_{k}^{-}, \qquad &&\text{(innovation or prediction error $z_t$)} \\
     S_t &= H P_{k}^{-} H^T + R, \qquad &&\text{(covariance of innovation $\nu_t$)} \\
     K_t &= P_{k}^{-} H^T S_t^{-1}, \qquad &&\text{(Kalman gain)} \\
-    {x}_{k}^{+} &= \hat{x}_{k}^{-} + K_t \nu_t, \qquad &&\text{(aposteriori state estimation $x_t$)} \\
-    P_{k}^{+} &= (I - K_t H) P_{k}^{-}. \qquad &&\text{(aposteriori covariance)}
+    {x}_{k}^{+} &= \hat{x}_{k}^{-} + K_t \nu_t, \qquad &&\text{(posterior state estimation $x_t$)} \\
+    P_{k}^{+} &= (I - K_t H) P_{k}^{-}. \qquad &&\text{(posterior covariance)}
 \end{align}
 
 The pseudo algorithm of Kalman filter is shown in algorithm \ref{alg:kalman_filter}.

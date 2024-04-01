@@ -370,7 +370,7 @@ where $p_{S,k}(\cdot)$ is the probability of target survival, $\phi_{k|k-1}(\cdo
 transition density, and $\nu_{\gamma,k}(\cdot)$ denotes the prior PHD of the target's birth at time $k$.
 The predicted intensity $\nu_{k|k-1}$ is then updated by the measurement set $Z_k$ given by sensors at time $k$ according to the Bayesian update
 \begin{align}
-        \nu_k(x) &= [1 - p_{D,k}(x)]\nu_{k|k-1}(x) \\
+        \nu_k(x) &= [1 - p_{D,k}(x)]\nu_{k|k-1}(x) \notag \\
         &+ \sum_{z \in Z_k}\frac{p_{D,k}(x) g_k(z|x) \nu_{k|k-1}(x)}{\kappa_k(z) + \int p_{D,k}(\zeta) g_k(z|\zeta) \nu_{k|k-1}(\zeta)d\zeta}, \label{eq:phdPosterior}
 \end{align}
 where $g_k(\cdot|\cdot)$ is the likelihood function, $p_{D,k}(\cdot)$ is the probability of detection, and $\kappa_k(\cdot)$ is the clutter density.
@@ -380,33 +380,33 @@ ineffectivity awakening from the unknown association of measurements with correc
 a function of a single-target state space $\mathcal{X}$, thus the recursion is more computationally effective than \eqref{eq:chapman_kolmogorov_predict} and \eqref{eq:bayes_update} that in the case of the PHD filter operates on $\mathcal{F(X)}$. But in general it is not possible to come up with a closed-form solution in the PHD recursion.
 
         \subsubsection{GM-PHD for linear models}
-In this section we delve into details of multi-target models, i. e., linear Gaussian multi-target models. With PHD recursions \eqref{eq:phdPrior} and \eqref{eq:phdPosterior} it is achievable to get an efficient multi-taget closed form solution for multi-target algorithms. This solution proposed by Vo and Ma in \cite{VoMaPHD2006} requires additional assumptions to the already proposed ones. Not only standard linear Gaussian model for each targets are assumed, but also the linear Gausssian multi-target model includes assumptions on the death, birth and detections.
+In this section we delve into details of multi-target linear PHD Gaussian models. With PHD recursions \eqref{eq:phdPrior} and \eqref{eq:phdPosterior} it is achievable to get an efficient multi-target closed-form solution for multi-target algorithms. This solution proposed by Vo and Ma in \cite{VoMaPHD2006} requires additional assumptions to the already proposed ones. Not only standard linear Gaussian model for each targets are assumed, but also the linear Gausssian multi-target model includes assumptions on the death, birth and detections.
 \begin{enumerate}[start=4]
     \item  Each target follows a linear Gaussian dynamical model and the sensor has a linear Gaussian measurement model, i.e., \label{as:phd_4}
         \begin{align}
-            f_{k|k-1}(x|\zeta) &= \mathcal{N}(x; F_{k-1}\zeta, Q_{k-1}) \label{eq:phd_linear_model_state}\\
+            f_{k|k-1}(x|\zeta) &= \mathcal{N}(x; F_{k-1}\zeta, Q_{k-1}), \label{eq:phd_linear_model_state}\\
             g_k(z|x) &= \mathcal{N}(z;H_kx, R_k), \label{eq:phd_linear_model_measurements}
         \end{align}
         where $\mathcal{N}(\cdot;m,P)$ is a Gaussian density with mean $m$ and covariance $P$, $F_{k-1}$ is the state transition matrix, $Q_{k-1}$ is the process noise covariance, $H_k$ is the observation matrix and $R_k$ is the observation noise covariance.
-    \item The survival and detection probabilities are state independent, i. e., \label{as:phd_5}
+    \item The survival and detection probabilities are state independent, i.e., \label{as:phd_5}
         \begin{align}
-            p_{S,k}(x) &= p_{S,k} \label{eq:phd_ps}\\
+            p_{S,k}(x) &= p_{S,k}, \label{eq:phd_ps}\\
             p_{D,k}(x) &= p_{D,k}. \label{eq:phd_pd}
         \end{align}
     \item The intesities of the birth and spawn RFSs are Gaussian mixtures of the form \label{as:phd_6}
         \begin{align}
-            \gamma_k(x) &= \sum_{i=1}^{J_{\gamma,k}}w_{\gamma,k}^{(i)} \mathcal{N}(x; m_{\gamma.k}^{(i)}, P_{\gamma,k}^{(i)}) \label{eq:phd_birth_intensity} \\
-            \beta_{k|k-1}(x|\zeta) &= \sum_{j=1}^J_{\beta,k} w_{\beta,k}^{(j)} \mathcal{N}(x;F_{\beta,k-1}^(j)\zeta + d_{\beta,k-1}^{(j)}, Q_{\beta,k-1}^{(j)}), \label{eq:phd_spawning_intensity}
+            \gamma_k(x) &= \sum_{i=1}^{J_{\gamma,k}}w_{\gamma,k}^{(i)} \mathcal{N}(x; m_{\gamma.k}^{(i)}, P_{\gamma,k}^{(i)}), \label{eq:phd_birth_intensity} \\
+            \beta_{k|k-1}(x|\zeta) &= \sum_{j=1}^{J_{\beta,k}} w_{\beta,k}^{(j)} \mathcal{N}(x;F_{\beta,k-1}^{(j)}\zeta + d_{\beta,k-1}^{(j)}, Q_{\beta,k-1}^{(j)}), \label{eq:phd_spawning_intensity}
         \end{align}
 \end{enumerate}
 where $J_{\gamma,k}, w_{\gamma,k}^{(i)}, m_{\gamma,k}^{(i)}, P_{\gamma,k}^{(i)}, i=1,\dots, J_{\gamma,k}$ are given model parameters that actuate the shape of the birth intensity and $J_{\beta,k}, w_{\beta,k}^{(j)}, F_{\beta,k-1}^{(j)}, d_{\beta,k-1}^{(j)}$ and $Q_{\beta,k-1}^{(j)}, j=1,\dots, J_{\beta,k}$ determine the shape of the spawning intensity of a target with previous state $\zeta$.
 
 Assumptions \ref{as:phd_4} and \ref{as:phd_5} are very common and used in various tracking algorithms \cite{bar1988tracking}, but the closed-form solution allows for state- and time-dependent $p_{S,k}$ and $p_{D,k}$. This convenience is used in the practical part of this thesis.
 
-The means $m_{\gamma,k}^{(i)}$ is assumption \ref{as:phd_6} are the peaks of the spontaneous birth intensity in \eqref{eq:phd_birth_intensity}. These are points with highest concentrations of expected number of spontaneous births and represent place like airports or other places with highest probability targets appear. $P_{\gamma,k}^{(i)}$ is the covariance matrix that regulate the spread of the birth intensity. The weight $w_{\gamma, k}^{(i)}$ gives the expected number number of new targets originating from $m_{\gamma,k}^{(i)}$. Similary in \eqref{eq:phd_spawning_intensity} with addition, that the peak $F_{\beta,k-1}^{(j)}\zeta + d_{\beta,k-1}^{(j)}$ is an affine function of $\zeta$. This spawned target can be pictured as a new target spawned in the neighborhood of another target with previous state $\zeta$. This can be, for example, a smaller ship detached from its mother ship.
+The means $m_{\gamma,k}^{(i)}$ in assumption \ref{as:phd_6} are the peaks of the spontaneous birth intensity in \eqref{eq:phd_birth_intensity}. These are the points with highest concentrations of the expected number of spontaneous births, meaning they represent places like airports or other places with highest probability target appearance. $P_{\gamma,k}^{(i)}$ is the covariance matrix that regulate the spread of the birth intensity. The weight $w_{\gamma, k}^{(i)}$ gives the expected number of new targets originating from $m_{\gamma,k}^{(i)}$. Similary in \eqref{eq:phd_spawning_intensity} with addition, that the peak $F_{\beta,k-1}^{(j)}\zeta + d_{\beta,k-1}^{(j)}$ is an affine function of $\zeta$. This spawned target can be pictured as a new target spawned in the neighborhood of another target with previous state $\zeta$. This can be, for example, a smaller ship detached from its mother ship.
 
         \subsubsection{GM-PHD recursion for linear models}
-In this section we delve into Gaussian mixture probability hypothesis density filter recursion for the linear Gaussian multi-target model and its closed-form solution to the \eqref{eq:phdPrior} and \eqref{eq:phdPosterior}. With assumptions \ref{as:phd_4}-\ref{as:phd_6} suppose that the posterior intensity at time $k-1$ is a Gaussian mixture of the form
+In this section we delve into Gaussian mixture probability hypothesis density filter recursion for the linear Gaussian multi-target model and its closed-form solution to the \eqref{eq:phdPrior} and \eqref{eq:phdPosterior}. Suppose, that with assumptions \ref{as:phd_4}-\ref{as:phd_6} the posterior intensity at time $k-1$ is a Gaussian mixture of the form
 \begin{align}
     \nu_{k-1}(x) &= \sum_{i=1}^{J_{k-1}} w_{k-1}^{(i)} \mathcal{N}(x;, m_{k-1}^{(i)}, P_{k-1}^{(i)}). \label{eq:phd_recursion_posterior}
 \end{align}
@@ -419,16 +419,16 @@ where $\gamma_k(x)$ is given in \eqref{eq:phd_birth_intensity}. This yields
 \begin{align}
     \nu_{S,k|k-1}(x) &= p_{S,k}\sum_{j=1}^{J_{k-1}}w_{k-1}^{(j)} \mathcal{N}(x;m_{S,k|k-1}^{(j)}, P_{S,k|k-1}^{(j)}) \label{eq:recursion_predict_intensity}, \\
     m_{S,k|k-1}^{(j)} &= F_{k-1}m_{k-1}^{(j)},  \label{eq:recursion_predict_m} \\
-    P_{S,k|k-1}^{(j)} &= Q_{k-1} + F_{k-1}P_{k-1}^{(j)}F_{k-1}^T  \label{eq_recursion_predict_P} \\
-    \nu_{\beta,k|k-1}(x) &= \sum_{j=1}^{J_{k-1}} \sum_{l=1}^{J_{\beta,k}} w_{k-1}^{(j)} w_{\beta,k}^{(l)} \mathcal{N}(x;m_{\beta,k|k-1}^{(j, l)},P_{\beta,k|k-1}^{(j,l)}) \\
-    m_{\beta,k|k-1}^{(j, l)} &= F_{\beta,k-1}^{(l)} m_{k-1}^{(j)} + d_{\beta,k-1}^{(l)} \\
+    P_{S,k|k-1}^{(j)} &= Q_{k-1} + F_{k-1}P_{k-1}^{(j)}F_{k-1}^T,  \label{eq_recursion_predict_P} \\
+    \nu_{\beta,k|k-1}(x) &= \sum_{j=1}^{J_{k-1}} \sum_{l=1}^{J_{\beta,k}} w_{k-1}^{(j)} w_{\beta,k}^{(l)} \mathcal{N}(x;m_{\beta,k|k-1}^{(j, l)},P_{\beta,k|k-1}^{(j,l)}), \\
+    m_{\beta,k|k-1}^{(j, l)} &= F_{\beta,k-1}^{(l)} m_{k-1}^{(j)} + d_{\beta,k-1}^{(l)}, \\
     P_{\beta,k|k-1}^{(j, l)} &= Q_{\beta,k-1}^{(l)} + F_{\beta,k-1}^{(l)} P_{\beta,k-1}^{(l)} (F_{\beta,k-1}^{(l)})^T.
 \end{align}
 Thus the predicted intensity at the time $k$ is a Gaussian mixture
 \begin{align}
     \nu_{k|k-1}(x) &= \sum_{i=1}^{J_{k|k-1}}w_{k|k-1}^{(i)} \mathcal{N}(x;m_{k|k-1}^{(i)}, P_{k|k-1}^{(i)}),  \label{eq:recursion_predict_intensity2}
 \end{align}
-and the posterior intensity at time $k$ is also Gaussian mixture,
+and the posterior intensity at time $k$ is also a Gaussian mixture
 \begin{align}
     \nu_{k}(x) &= (1-p_{D,k}) \nu_{k|k-1}(x) + \sum_{z\in Z_k}\nu_{D,k}(x;z), \label{eq:recursion_update_intesity}
 \end{align}
@@ -441,7 +441,7 @@ where
     K_{k}^{(j)}(z) &= P_{k}^{(j)} H_k^T(H_k P_{k|k-1}^{(j)} H_k^T + R_k)^{-1}. \label{eq:recursion_update_intesity_detect_K}
 \end{align}
 
-Formulations \eqref{eq:phd_recursion_posterior}, \eqref{eq:phd_recursion_predict} and \eqref{eq:recursion_predict_intensity2}, \eqref{eq:recursion_update_intesity} are the result of applying standard Gaussian properties, i. e., given $F, d, Q, m$ and $P$ of appropriate dimensions and that $Q$ and $P$ are positive definite matrices
+Formulations \eqref{eq:phd_recursion_posterior}, \eqref{eq:phd_recursion_predict} and \eqref{eq:recursion_predict_intensity2}, \eqref{eq:recursion_update_intesity} are the result of applying standard Gaussian properties, i.e., given $F, d, Q, m$ and $P$ of appropriate dimensions and $Q$, $P$ are positive definite matrices, this yields
 \begin{align}
     \int \mathcal{N}(x; F\zeta + d, Q) \mathcal{N}(\zeta; m, P) d\zeta &= \mathcal{N}(x; Fm + d, Q + FPF^T) \label{eq:phd_integral_Gaussian}
 \end{align}
@@ -451,38 +451,38 @@ and given $H, R, m$ and $P$ of appropriate dimensions assuming $R$ and $P$ are p
 \end{align}
 where
 \begin{align}
-    q(z) &= \mathcal{N}(z; Hm, R + HPH^T) \\
-    \tilde{m} &= m + K(z - Hm) \\
-    \tilde{P} &= (I - KH)P \\
+    q(z) &= \mathcal{N}(z; Hm, R + HPH^T), \\
+    \tilde{m} &= m + K(z - Hm), \\
+    \tilde{P} &= (I - KH)P, \\
     K &= PH^T(HPH^T + R)^{-1}.
 \end{align}
 
 
 Equations \eqref{eq:phd_linear_model_state}, \eqref{eq:phd_ps}, and \eqref{eq:phd_birth_intensity} - \eqref{eq:phd_recursion_posterior} are inserted into the PHD prediction equation \eqref{eq:phdPrior}, and then replacing integrals of the type \eqref{eq:phd_integral_Gaussian} with suitable Gaussian functions. Similarly, formulations \eqref{eq:recursion_predict_intensity2}, \eqref{eq:recursion_update_intesity} are established by substituting equations \eqref{eq:phd_linear_model_measurements}, \eqref{eq:phd_pd}, and \eqref{eq:recursion_predict_intensity2} into the PHD update equation \eqref{eq:phdPosterior}, and subsequently replacing integrals resembling form \eqref{eq:phd_integral_Gaussian} and products of Gaussians resembling form \eqref{eq:phd_integral_Gaussian_measurement} with appropriate Gaussian functions.
 
-If we comply prior intensity $\nu_0$ as a Gaussian mixture, then all following predicted intensities $\nu_{k|k-1}$ and posterior intensities $\nu_k$ are also Gaussian mixtures and the recursion holds. Formulations \eqref{eq:phd_recursion_posterior} and \eqref{eq:phd_recursion_predict} give a closed-form guidance for computing the means, covariances and weights of $\nu_k$ from $\nu_{k|k-1}$ after new set of measurements is available.
+If we comply prior intensity $\nu_0$ as a Gaussian mixture, then all following predicted intensities $\nu_{k|k-1}$ and posterior intensities $\nu_k$ are also Gaussian mixtures and the recursion holds. Formulations \eqref{eq:phd_recursion_posterior} and \eqref{eq:phd_recursion_predict} give a closed-form guidance for computing the means, covariances and weights of $\nu_k$ from $\nu_{k|k-1}$ after a new set of measurements is available.
 
-The intensity $\nu_{k|k-1}$ in \eqref{eq:phd_recursion_predict} includes three intensities $\nu_{S,k|k-1}, \nu_{\neta,k|k-1} \text{ and } \gamma_k$. These intensities represent existing targets, spawned targets and spontaneous births. The updated intensity $\nu_k$ consists a misdetection case $(1-p_{D,k})\nu_{k|k-1}$ and $|Z_k|$ detection cases $\nu_{D,k}(\codt;z)$ for every $z \in Z_k$. The GM-PHD recursion prediction step thus follows Kalman prediction step and and the GM-PHD update step follows Kalman update step.
+The intensity $\nu_{k|k-1}$ in \eqref{eq:phd_recursion_predict} includes three intensities $\nu_{S,k|k-1}, \nu_{\neta,k|k-1} \text{ and } \gamma_k$. These intensities represent existing targets, spawned targets and spontaneous births. The updated intensity $\nu_k$ consists a misdetection case $(1-p_{D,k})\nu_{k|k-1}$ and $|Z_k|$ detection cases $\nu_{D,k}(\codt;z)$ for every $z \in Z_k$. The GM-PHD recursion prediction step thus follows Kalman prediction step and the GM-PHD update step follows Kalman update step.
 
 By summing the weights of $\nu_{k|k-1}$ and $\nu_k$ we can get the expected number of targets $\tilde{N}_{k|k-1}$ and $\tilde{N}_k$, respectively,
 \begin{align}
     \tilde{N}_{k|k-1} &=\tilde{N}_{k-1} \left( p_{S,k} + \sum_{j=1}^{J_{\beta,k}} w_{\beta,k}^{(j)} \right) + \sum_{j=1}^{J_{\gamma,k}} w_{\gamma,k}^{(j)} \\
     \tilde{N}_k &= \tilde{N}_{k|k-1} (1 - p_{D,k}) + \sum_{z \in Z_k} \sum_{j=1}^{J_{k|k-1}} w_k^{(j)}(z),
 \end{align}
-where $\tilde{N}_{k|k-1}$ is expected number of targets after prediction step, which is the sum of surviving, spawning and borned targets. Similary, $\tilde{N}_k$ is the expected number of targets after update step, which is the sum of updated number of targets plus the mean number of targets
+where $\tilde{N}_{k|k-1}$ is the expected number of targets after the prediction step, which is the sum of surviving, spawning and borned targets. Similary, $\tilde{N}_k$ is the expected number of targets after the update step, which is the sum of thr updated number of targets plus the mean number of targets
 that are not detected.
 
-The GM-PHD filter pseudo algorithm is provided in algorithm \ref{alg:phd}.
-\algrenewcommand\algorithmicrequire{\textbf{Input:}}
-\algrenewcommand\algorithmicprocedure{\textit{Function }}
-\algrenewcommand\algorithmicensure{\textbf{Output:}}
+The GM-PHD filter pseudo algorithm is provided in the algorithm \ref{alg:phd}.
+%\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+%\algrenewcommand\algorithmicprocedure{\textit{Function }}
+%\algrenewcommand\algorithmicensure{\textbf{Output:}}
 \begin{algorithm}[h]
     \caption{Pseudo algorithm for the GM-PHD filter}
     \begin{algorithmic}[1]
         \Require{$\{w_{k-1}^{(i)}, m_{k-1}^{(i)},P_{k-1}^{(i)}\}_{i=1}^{J_{k-1}}$, and the measurement set $Z_k$.}
 
         \State
-        \Procedure{\textbf{Prediction step for birth targets:}}{}
+        \Procedure{Prediction step for birth targets:}{}
         \For{$j=1, \dots, J_{\gamma,k}$}
             \State $i:= i+1,$
             \State $w_{k|k-1}^{(i)} = w_{\gamma,k}^{(i)},$ \quad
@@ -502,7 +502,7 @@ The GM-PHD filter pseudo algorithm is provided in algorithm \ref{alg:phd}.
         \State
 
 
-        \Procedure{\textbf{Prediction step for existing targets:}}{}
+        \Procedure{Prediction step for existing targets:}{}
         \For{$j=1,\dots, J_{k-1}$}
             \State $i:=i+1$,
             \State $w_{k|k-1}^{(i)} = p_{S,k} w_{k-1}^{(j)},$
@@ -513,7 +513,7 @@ The GM-PHD filter pseudo algorithm is provided in algorithm \ref{alg:phd}.
         \EndProcedure
 
         \State
-        \Procedure{\textbf{Computation of PHD update components:}}{}
+        \Procedure{Computation of PHD update components:}{}
         \For{$j=1,\dots,J_{k|k-1}$}
             \State $\eta_{k|k-1}^{(j)} = H_k m_{k|k-1}^{(j)},$ \quad
              $S_k^{(j)} = R_k + H_k P_{k|k-1}^{(j)} H_k^T,$
@@ -523,7 +523,7 @@ The GM-PHD filter pseudo algorithm is provided in algorithm \ref{alg:phd}.
         \EndProcedure
 
         \State
-        \Procedure{\textbf{PHD update step:}}{}
+        \Procedure{PHD update step:}{$Z_k$}
         \For{$j=1,\dots,J_{k|k-1}$} \Comment{Misdetection}
             \State $w_k^{(j)} = (1 - p_{D,k}) w_{k|k-1}^{(j)},$ \quad
              $m_k^{(j)} = m_{k|k-1}^{(j)},$ \quad
@@ -540,10 +540,10 @@ The GM-PHD filter pseudo algorithm is provided in algorithm \ref{alg:phd}.
         \State $w_k^{(l J_{k|k-1} + j)} := \frac{w_k^{(l J_{k|k-1} + j)}}{\kappa_k(z) + \sum_{i=1}^{J_{k|k-1}} w_k^{(
             l J_{k|k-1} + i)}}, \text{for $j = 1,\dots,J_{k|k-1}$},$
         \EndFor
-        \State $J_k = l J_{k|k-1} 9 J_{k|k-1}.$
+        \State $J_k = l J_{k|k-1} + J_{k|k-1}.$
         \EndProcedure
 
-        \Ensure{$\{ w_k^{(i)}, m_k^{(i)}, P_k^{(i)} \}_{i=1}^{J_k}$.}
+        \State Output: $\{ w_k^{(i)}, m_k^{(i)}, P_k^{(i)} \}_{i=1}^{J_k}$.
     \end{algorithmic}
     \label{alg:phd}
 \end{algorithm}
@@ -553,17 +553,17 @@ Due to the propogation of the Gaussian mixture in time, the PHD filter suffers f
 \begin{align}
 (J_{k-1} (1 + J_{\beta,k}) + J_{\gamma,k}) (1 + |Z_k|) &= \mathcal{O}(J_{k-1} |Z_k|),
 \end{align}
-where $J_{k-1}$ is the number of Gaussian components of intensity $\nu_{k-1}$.
+where $J_{k-1}$ is the number of Gaussian components of the intensity $\nu_{k-1}$.
 
-To resolve this issue, many techniques can be applied. The simplest one is to remove components with low weight to the next timestep. This can be done be predefining a threshold, under which the target falls, is removed.
+To resolve this issue, many techniques can be applied. The simplest one is to remove components with a low weight to the next timestep. This can be done by predefining a threshold. Only targets with a higher weight than this threshold continue to survive.
 
-The next possibility is the keep a certain number of targets and remove the ones with lowest weight. However, some of the Gausssian components can be so close together, that they can be merged into a single component. Such procedure is a good approximation with appropriate merging threshold. Pseudo algorithm for this procedure is shown in algorithm \ref{alg:phd_merging}.
+The next possibility is keeping a certain number of targets and removing the ones with the lowest weight. However, some of the Gausssian components can appear so close together, that they can be merged into a single component. Such procedure is a good approximation with appropriate merging threshold. Pseudo algorithm for this procedure is shown in the algorithm \ref{alg:phd_merging}.
 
-After computing the posterior intensity $\nu_k$, the subsequent objective is to derive estimates for the multiple-target states. In the context of the Gaussian mixture representation of $\nu_k$, extracting estimates for the multiple-target states becomes relatively straightforward, as the means of the individual Gaussian components typically correspond to the local maxima of $\nu_k$, given that they are adequately separated. However, it's essential to note that closely spaced Gaussian components may have been merged after pruning.
+After computing the posterior intensity $\nu_k$, the subsequent objective is to derive estimates for multi-target states. In the context of the Gaussian mixture representation of $\nu_k$, extracting estimates for the multi-target states becomes relatively straightforward, as the means of the individual Gaussian components typically correspond to the local maxima of $\nu_k$, given that they are adequately separated. However, it is essential to note that closely spaced Gaussian components may have been merged after pruning.
 
-Since the magnitude of each peak is influenced by both its weight and covariance, merely selecting the $\tilde{N}_k$ highest peaks of $\nu_k$ may yield state estimates associated with Gaussians having weak weights. This scenario is suboptimal, as the expected number of targets attributed to these peaks might be small despite their peak magnitudes being substantial. A more effective approach involves choosing the means of the Gaussians with weights exceeding a certain threshold, such as 0.5. This method ensures a more robust selection of state estimates.
+Since the magnitude of each peak is influenced by both its weight and covariance, merely selecting the $\tilde{N}_k$ highest peaks of $\nu_k$ may yield to state estimates associated with Gaussians to have weak weights. This scenario is suboptimal, as the expected number of targets attributed to these peaks might be small despite their peak magnitudes being substantial. A more effective approach involves choosing the means of the Gaussians with weights exceeding a certain threshold, such as 0.5. This method ensures a more robust selection of state estimates.
 
-The outlined procedure for state estimation in the Gaussian mixture PHD filter is summarized in algorithm \ref{alg:phd_state_extraction}.
+The outlined procedure for state estimation in the Gaussian mixture PHD filter is summarized in algorithm the \ref{alg:phd_state_extraction}.
 
 \begin{algorithm}
     \caption{Pseudo algorithm for pruning in the GM-PHD filter}
@@ -571,7 +571,7 @@ The outlined procedure for state estimation in the Gaussian mixture PHD filter i
         \Require{$\{w_{k}^{(i)}, m_{k}^{(i)},P_{k}^{(i)}\}_{i=1}^{J_{k}}$, a truncation threshold T, a merging
         threshold U and a maximum number of allowed Gaussian terms $J_{max}$. Set $l=0,$ and
             $I = \{ i=1,\dots, J_k | w_k^{(i)} > T\}$.}
-        \Procedure{\textbf{Merging of targets}}{}
+        \Procedure{Merging of targets}{}
         \While{$I \neq \emptyset$}
             \State $l:= l+1$
             \State $j:= \text{argmax}_{i \in I} w_k{(i)},$
@@ -584,9 +584,9 @@ The outlined procedure for state estimation in the Gaussian mixture PHD filter i
         \EndProcedure
         \State
         \State If $l > J_{max}$ then replace $\{ \tilde{w}_k^{(i)}, \tilde{m}_k^{(i)}, \tilde{P}_k^{(i)} \}_{i=1}^l$
-        by those of the $J_max$ Gaussians with largest weights.
+        by those of the $J_{max}$ Gaussians with largest weights.
         \State
-        \Ensure{$\{ \tilde{w}_k^{(i)}, \tilde{m}_k^{(i)}, \tilde{P}_k^{(i)} \}_{i=1}^l$ as pruned Gaussian components.}
+        \State Output: $\{ \tilde{w}_k^{(i)}, \tilde{m}_k^{(i)}, \tilde{P}_k^{(i)} \}_{i=1}^l$ as pruned Gaussian components.
 
     \end{algorithmic}
     \label{alg:phd_merging}
@@ -606,7 +606,7 @@ The outlined procedure for state estimation in the Gaussian mixture PHD filter i
             \EndIf
         \EndFor
 
-        \Ensure{$\hat{X}_k$ as the multi-target state estimate.}
+        \State Output: $\hat{X}_k$ as the multi-target state estimate.
     \end{algorithmic}
     \label{alg:phd_state_extraction}
 \end{algorithm}

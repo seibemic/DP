@@ -84,22 +84,22 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Object detection and segmentation}{36}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}YOLO}{36}{section.4.1}%
+\contentsline {section}{\numberline {4.1}YOLO}{37}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Segment Anything}{36}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Segment Anything}{38}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Dynamic time and state varying detection probability}{37}{chapter.5}%
+\contentsline {chapter}{\numberline {5}Dynamic time and state varying detection probability}{39}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Problem definition}{37}{section.5.1}%
+\contentsline {section}{\numberline {5.1}Problem definition}{39}{section.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Dynamic detection probability in video data}{37}{section.5.2}%
+\contentsline {section}{\numberline {5.2}Dynamic detection probability in video data}{39}{section.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{37}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{39}{section.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{37}{section.5.4}%
+\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{39}{section.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Experiments}{38}{chapter.6}%
+\contentsline {chapter}{\numberline {6}Experiments}{40}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Nějaká příloha}{39}{appendix.A}%
+\contentsline {chapter}{\numberline {A}Nějaká příloha}{41}{appendix.A}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Obsah příloh}{42}{appendix*.16}%
+\contentsline {chapter}{Obsah příloh}{44}{appendix*.16}%

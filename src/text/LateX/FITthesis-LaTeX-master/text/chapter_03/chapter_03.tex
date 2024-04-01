@@ -1,3 +1,63 @@
 \chapter{Object detection and segmentation}
+In this thesis we focus on tracking objects in video data. Thus, we need to have a sensor for detecting object in a frame. Object detection is a fundamental task in computer vision that involves identifying and localizing objects within images or video frames. Unlike image classification, which assigns a single label to an entire image, object detection algorithms aim to detect multiple objects of various classes and accurately localize them with bounding boxes.
+
+The development of object detection algorithms has evolved significantly over the years, driven by advances in deep learning, dataset availability, and computational power. Traditional object detection methods relied on handcrafted features and machine learning algorithms, such as sliding window-based classifiers, histogram of oriented gradients (HOG), and Haar cascades. While effective in certain scenarios, these methods often lacked robustness and scalability, particularly in complex and cluttered scenes.
+
+With the advent of deep learning, convolutional neural networks (CNNs) revolutionized the field of object detection. CNNs are capable of automatically learning hierarchical representations of data, making them well-suited for image analysis tasks. The rise of CNN-based approaches has led to significant improvements in object detection accuracy and efficiency.
+
+Object detection poses several challenges, including variations in object appearance, scale, orientation, occlusion, and cluttered backgrounds. Additionally, real-world images often contain multiple objects of different classes, making it essential for detection algorithms to handle overlapping and partially visible objects.
+
+Furthermore, object detection systems must balance accuracy and speed to meet the demands of real-time applications. Achieving high detection accuracy while maintaining fast inference times is a key challenge, especially for resource-constrained devices and applications requiring low-latency processing.
+
+Object detection algorithms typically consist of several key components:
+
+Input Processing: Images or video frames are preprocessed to standardize their format and size, often involving resizing, normalization, and data augmentation to enhance model generalization.
+
+Feature Extraction: Feature extraction is performed to capture relevant information from the input data. In deep learning-based approaches, convolutional neural networks (CNNs) are commonly used to extract hierarchical features that encode object appearance and spatial relationships.
+
+Localization: Localization involves predicting the spatial extent of objects within the image using bounding boxes. This step requires regression or classification to estimate bounding box coordinates and confidence scores for object presence.
+
+Classification: Object classification assigns class labels to detected objects based on their visual appearance. Classification models are trained to distinguish between different object categories, enabling accurate identification of objects within the scene.
+
+Post-Processing: Post-processing techniques, such as non-maximum suppression (NMS), are applied to refine detection results, suppress duplicate detections, and improve localization accuracy.
+
+Evaluation Metrics
+
+Evaluation metrics play a crucial role in assessing the performance of object detection algorithms. Common metrics include precision, recall, average precision (AP), mean average precision (mAP), intersection over union (IoU), and accuracy. These metrics provide quantitative measures of detection accuracy, robustness, and generalization across different datasets and scenarios.
+
+Applications of Object Detection
+
+Object detection has diverse applications across various industries and domains. Some common applications include:
+
+Autonomous Driving: Object detection is essential for autonomous vehicles to detect and recognize pedestrians, vehicles, cyclists, and other objects in the environment to ensure safe navigation.
+
+Surveillance and Security: Object detection is used in surveillance systems for detecting intruders, identifying suspicious activities, and monitoring restricted areas in real-time.
+
+Medical Imaging: Object detection plays a critical role in medical imaging for detecting and localizing abnormalities in X-rays, MRI scans, CT scans, and other medical images.
+
+Retail and E-commerce: Object detection is utilized in retail environments for inventory management, shelf monitoring, product recognition, and cashier-less checkout systems.
+
+Augmented Reality: Object detection enables augmented reality applications to recognize and interact with real-world objects, overlay digital content, and enhance user experiences.
+
+Conclusion
+
+Object detection is a fundamental task in computer vision with widespread applications across numerous domains. The continual advancements in deep learning, dataset availability, and computational resources have led to significant improvements in object detection accuracy, efficiency, and scalability. As object detection technology continues to evolve, it holds immense potential to drive innovation and impact various industries, shaping the future of visual perception and intelligent systems.
+
+
+
+
+
+
 \section{YOLO}
+You Only Look Once (YOLO) is a revolutionary object detection algorithm that significantly transformed the field of computer vision. Developed by Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi, YOLO offers real-time object detection capabilities with impressive accuracy. This algorithm addresses the challenge of simultaneously detecting and classifying multiple objects within an image in a single forward pass through a convolutional neural network (CNN).
+
+Traditionally, object detection systems involved multiple stages, including region proposal, feature extraction, classification, and post-processing. However, YOLO introduced a unified approach that directly predicts bounding boxes and class probabilities from the raw image data. This design not only simplifies the detection pipeline but also significantly accelerates inference speed, making it suitable for real-time applications.
+
+At the core of YOLO is a single neural network that divides the input image into a grid and predicts bounding boxes and class probabilities for each grid cell. Each bounding box prediction includes coordinates (x, y) for the center of the box, width (w), height (h), and confidence score indicating the likelihood of containing an object. Additionally, class probabilities are estimated for each bounding box to determine the object category.
+
+YOLO employs a loss function that penalizes localization errors, confidence errors, and classification errors. This loss function is optimized during training using labeled datasets to learn accurate object representations. Moreover, YOLO adopts anchor boxes to improve localization accuracy and handle scale variations of objects within the image.
+
+One of the key advantages of YOLO is its impressive performance in terms of both accuracy and speed. By eliminating the need for multiple passes through the network and adopting a unified architecture, YOLO achieves state-of-the-art results while maintaining real-time processing capabilities. This makes it ideal for applications such as autonomous driving, surveillance systems, and robotics, where timely and accurate object detection is crucial.
+
+However, YOLO also has its limitations. The fixed grid-based approach may struggle with detecting small objects or objects that are closely clustered together. Additionally, while YOLO is efficient for general object detection tasks, it may not perform as well as specialized algorithms in certain scenarios, such as detecting fine-grained object attributes or in highly cluttered environments.
 \section{Segment Anything}

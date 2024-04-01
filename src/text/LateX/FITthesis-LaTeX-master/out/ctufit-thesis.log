@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  31 MAR 2024 03:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.14)  1 APR 2024 21:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -58,9 +58,9 @@ File: babel.def 2020/02/14 3.40 Babel common definitions
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
 Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language44) on input line 105.
+(babel)             (\language22) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language44) on input line 108.
+(babel)             (\language22) on input line 108.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
@@ -1447,8 +1447,8 @@ Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 132
  [1
 
 
- <./seibemic-assignment.pdf{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updm
-ap/pdftex.map}>]
+ <./seibemic-assignment.pdf{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}>
+]
 <seibemic-assignment.pdf, id=225, page=2, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
@@ -1561,7 +1561,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.91 ...ying detection probability}{37}{chapter.5}
+l.91 ...ying detection probability}{38}{chapter.5}
                                                   % [2
 
 ])
@@ -1730,22 +1730,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 LaTeX Font Warning: Command \Large invalid in math mode on input line 189.
 
-[25] [26] [27] [28] [29]
-./text/chapter_02/chapter_02.tex:400: Double subscript.
-<argument> ..._{k|k-1}(x|\zeta ) &= \sum _{j=1}^J_
-                                                  {\beta ,k} w_{\beta ,k}^{(...
-l.400         \end{align}
-                         
-I treat `x_1_2' essentially like `x_1{}_2'.
-
-./text/chapter_02/chapter_02.tex:400: Double subscript.
-<argument> ..._{k|k-1}(x|\zeta ) &= \sum _{j=1}^J_
-                                                  {\beta ,k} w_{\beta ,k}^{(...
-l.400         \end{align}
-                         
-I treat `x_1_2' essentially like `x_1{}_2'.
-
-[30] [31]
+[25] [26] [27] [28] [29] [30] [31]
 ./text/chapter_02/chapter_02.tex:465: Undefined control sequence.
 l.465 ...ee intensities $\nu_{S,k|k-1}, \nu_{\neta
                                                   ,k|k-1} \text{ and } \gamm...
@@ -1765,11 +1750,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Font Warning: Font shape `OT1/lmr/bx/sc' undefined
-(Font)              using `OT1/lmr/bx/n' instead on input line 485.
-
-
-LaTeX Warning: Float too large for page by 70.87004pt on input line 549.
+LaTeX Warning: Float too large for page by 72.2589pt on input line 549.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1779,16 +1760,16 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  (./text/chapter_03/chapter_03.tex
 Chapter 4.
-) [36
+[36
 
 
 
-]
+] [37]) [38]
 \openout2 = `text/chapter_04/chapter_04.aux'.
 
  (./text/chapter_04/chapter_04.tex
 Chapter 5.
-) [37
+) [39
 
 
 
@@ -1797,7 +1778,7 @@ Chapter 5.
 
  (./text/chapter_05/chapter_05.tex
 Chapter 6.
-) [38
+) [40
 
 
 
@@ -1806,7 +1787,7 @@ Chapter 6.
 
  (./text/appendix.tex
 Appendix A.
-) [39
+) [41
 
 
 
@@ -1815,14 +1796,14 @@ LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line
 264.
  (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [40
+) [42
 
 
 
-] [41]
+] [43]
 \openout2 = `text/medium.aux'.
 
- (./text/medium.tex) [42
+ (./text/medium.tex) [44
 
 
 ]
@@ -1853,20 +1834,16 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 268.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 268.
 Package rerunfilecheck Info: File `ctufit-thesis.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
 Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 \openout1 = `ctufit-thesis.run.xml'.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 268.
  ) 
 Here is how much of TeX's memory you used:
- 35276 strings out of 481239
- 637191 string characters out of 5920377
- 1405397 words of memory out of 5000000
- 49572 multiletter control sequences out of 15000+600000
+ 35275 strings out of 481239
+ 637161 string characters out of 5920377
+ 1405403 words of memory out of 5000000
+ 49570 multiletter control sequences out of 15000+600000
  634238 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,23n,60p,1766b,2054s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1895,10 +1872,10 @@ sr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (53 pages, 1086473 bytes).
+eX-master/out/ctufit-thesis.pdf (55 pages, 1095664 bytes).
 PDF statistics:
- 1043 PDF objects out of 1200 (max. 8388607)
- 916 compressed objects within 10 object streams
- 286 named destinations out of 1000 (max. 500000)
+ 1051 PDF objects out of 1200 (max. 8388607)
+ 922 compressed objects within 10 object streams
+ 287 named destinations out of 1000 (max. 500000)
  417 words of extra memory for PDF output out of 10000 (max. 10000000)
 
