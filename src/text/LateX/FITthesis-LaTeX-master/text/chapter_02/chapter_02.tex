@@ -470,7 +470,7 @@ By summing the weights of $\nu_{k|k-1}$ and $\nu_k$ we can get the expected numb
     \tilde{N}_k &= \tilde{N}_{k|k-1} (1 - p_{D,k}) + \sum_{z \in Z_k} \sum_{j=1}^{J_{k|k-1}} w_k^{(j)}(z),
 \end{align}
 where $\tilde{N}_{k|k-1}$ is the expected number of targets after the prediction step, which is the sum of surviving
-, spawning and borned targets. Similary, $\tilde{N}_k$ is the expected number of targets after the update step, which is the sum of the updated number of targets plus the mean number of targets
+, spawning and born targets. Similary, $\tilde{N}_k$ is the expected number of targets after the update step, which is the sum of the updated number of targets plus the mean number of targets
 that are not detected.
 
 The GM-PHD filter pseudo algorithm is provided in the algorithm \ref{alg:phd}.
@@ -550,7 +550,8 @@ The GM-PHD filter pseudo algorithm is provided in the algorithm \ref{alg:phd}.
 \end{algorithm}
 
         \subsubsection{Pruning and merging in GM-PHD filter}
-Due to the propogation of the Gaussian mixture in time, the PHD filter suffers from computation issues resulting from exponential increase of Gaussian components
+Due to the propagation of the Gaussian mixture in time, the PHD filter suffers from computation issues resulting from
+exponential increase of Gaussian components
 \begin{align}
 (J_{k-1} (1 + J_{\beta,k}) + J_{\gamma,k}) (1 + |Z_k|) &= \mathcal{O}(J_{k-1} |Z_k|),
 \end{align}
