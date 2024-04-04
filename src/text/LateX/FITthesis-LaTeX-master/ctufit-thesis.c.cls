@@ -434,6 +434,7 @@
 \RequirePackage{mathtools}[2020/03/24]
 \RequirePackage{amssymb}[2013/01/14]
 
+
 \thm@headfont{%
     \textcolor{decoration}{$\blacktriangleright$}\nobreakspace\bfseries}
 \def\th@remark{%

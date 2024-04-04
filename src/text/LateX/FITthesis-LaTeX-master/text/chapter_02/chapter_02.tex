@@ -10,7 +10,11 @@ accurate estimates despite target maneuvers, occlusions, or potential target los
 multiple targets in the same neighbour introduces significant ambiguities and challenges in trajectory estimation and
 association.
 
-In the realm of single-target tracking, algorithms such as the Probabilistic Data Association (PDA) filter and its derivatives, such as the Joint Probabilistic Data Association (JPDA) filter or the Integrated Probabilistic Data Association (IPDA) filter, are commonly employed. These algorithms provide robust solutions for associating measurements with existing tracks and updating target state estimates in dynamic scenarios.
+In the realm of single-target tracking, algorithms such as the Probabilistic Data Association (PDA) filter and its
+derivatives, such as the Integrated
+Probabilistic Data Association (IPDA) filter or multi-target tracking variation Joint Probabilistic Data Association (JPDA)
+filter, are commonly
+employed. These algorithms provide robust solutions for associating measurements with existing tracks and updating target state estimates in dynamic scenarios.
 
 Beyond single-target tracking, radar systems often necessitate multi-target tracking approaches. These approaches,
 particularly those based on Random Finite Sets (RFS), offer advanced capabilities for tracking multiple targets simultaneously. RFS-based filters, including the Probability Hypothesis Density (PHD) filter and the Multi-Bernoulli filter, excel in scenarios where the number of targets is uncertain or dynamic.
@@ -29,11 +33,20 @@ filter. The second problem involves determining whether the filter needs modific
 association uncertainty. The objective is to obtain the minimum mean square error (MMSE) estimate of the target state
 and associated uncertainty.
 
-The optimal estimator involves the recursive computation of the conditional probability density function (pdf) of the
+The optimal estimator involves the recursive computation of the conditional probability density function of the
 state, with detailed conditions provided under which this pdf serves as a sufficient statistic in the presence of
 data association uncertainty.
-  \subsection{Validation region}
-    \label{sec:validation_region}
+
+\section{Clutter}
+When it comes to clutter, two scenarios may occur. The first one is a single target in clutter. This problem of
+tracking a single target in clutter appears when several measurements appear in the validation region. The
+validated measurements comprise the accurate measurement, if detected within this region, along with spurious
+measurements originating from clutter or false alarms. In air traffic control systems, where cooperative targets are
+involved, each measurement includes a target identifier known as the squawk number. If this identifier is entirely
+reliable, data association uncertainty is eliminated. However, in cases where a potentially hostile target is non-cooperative, data association uncertainty becomes a significant challenge.
+
+\subsection{Validation region}
+\label{sec:validation_region}
 In target tracking scenarios, the process of signal detection provides measurements, from which the appropriate ones
 for inclusion in the target state estimator are chosen. In radar systems, for instance, the signal reflected from the
 target of interest is sought within a specific time interval, determined by the expected range of the target when it
@@ -50,13 +63,6 @@ validation region is designed to ensure that the target measurement falls within
 the gate probability, based on the statistical characterization of the predicted measurement. In the event, where more
 than one detection appears within the gate, association uncertainty arises. With this uncertainty, it is important to
 figure out which measurement really comes from the target and should be used to update our tracking information. This includes things like the target's estimated position and its variability, or more broadly, the key information we need about the target. Measurements outside the validation region can be disregarded, as they are too distant from the predicted measurement and are unlikely to have originated from the target of interest. This scenario typically arises when the gate probability is close to unity, and the statistical model used to define the gate is accurate.
-\section{Clutter}
-When it comes to clutter, two scenarios may occur. The first one is a single target in clutter. This problem of
-tracking a single target in clutter appears when several measurements appear in the validation region. The
-validated measurements comprise the accurate measurement, if detected within this region, along with spurious
-measurements originating from clutter or false alarms. In air traffic control systems, where cooperative targets are
-involved, each measurement includes a target identifier known as the squawk number. If this identifier is entirely
-reliable, data association uncertainty is eliminated. However, in cases where a potentially hostile target is non-cooperative, data association uncertainty becomes a significant challenge.
 
 Figure \ref{fig:singleTargetInClutter} illustrates a scenario involving multiple validated measurements. The validation region depicted in the
 figure is two-dimensional and takes the form of an ellipse centered at the predicted measurement $\hat{z}$. The
@@ -135,14 +141,14 @@ The PDAF algorithm comes with many assumptions:
     \item The track has been initialized.
     \item The past information through time $k-1$ about the target is summarized approximately by a suffifient statistic in the form of the Gaussian posterior
         \begin{align}
-            p(x_{k-1}|z_{k-1}) &= \mathcal{N}(x_{k-1}; x_{k-1|k-1}, P_{k-1|k-1})). \label{eq:pda_A3}
+            p(x_{k-1}|z_{k-1}) &= \mathcal{N}(x_{k-1}; x_{k-1|k-1}, P_{k-1|k-1}). \label{eq:pda_A3}
         \end{align}
     \item At each time a measurement validation region is set up around the predicted measurement to select the candidate measurements for association to the target of interest.
     \item If the target was detected and the corresponding
     measurement fell into the validation region, then,
     according to \eqref{eq:pda_A1_eq2}, at most one of the validated measurements can be target originated.
     \item The remaining measurements are assumed to be due
-    to false alarms or clutter and are modeled as independent and identically distributed with uniform spatial distribution, and the number of false alarms or clutter points obeys either a Poisson distribution, that is, a spatial Poisson process, with known
+    to false alarms or clutter and are modeled as independent and identically distributed with uniform spatial distribution, and the number of false alarms or clutter points obeys either a Poisson distribution, that is, a spatial Poisson process with known
     spatial density $\lambda$, or a diffuse prior.
     \item The target detections occur independently over time
     with known probability $p_D$.
@@ -158,7 +164,7 @@ The prediction step of PDA filter from time $k-1$ to $k$ is as in the standard K
     \eta_{k|k-1} &= H_k x_{k|k-1},\\
     P_{k|k-1} &= F_{k-1} P_{k-1|k-1} F_{k-1}^T + Q_{k-1},
 \end{align}
-where $P_{k-1|k-1}$ is from the equation \eqref{eq:pda_A3}. The innovation covariance matrix $S_k$ is computed as
+where $P_{k-1|k-1}$ is from the Equation \eqref{eq:pda_A3}. The innovation covariance matrix $S_k$ is computed as
 \begin{align}
     S_k &= H_{k} P_{k|k-1} H_{k}^T + R_{k}. \label{eq:pda_S}
 \end{align}
@@ -169,25 +175,24 @@ should fall into validation region. This elliptical region is formulated as
 \begin{align}
     \nu(k,\gamma) &= \bigcup_{z \in Z_k}[(z - \hat{z}_{k|k-1})^T S_k^{-1} (z - \hat{z}_{k|k-1})) \leq \gamma], \label {eq:validation_region}
 \end{align}
-where $Z_k$ are all measurements at time $k$, $\gamma$ is the gate threshold corresponding to the gate probability $p_G$, which is the probability, that the region contains the correct measurement if detected and $S_k$ given in \eqref{eq:pda_S} is the covariance of the innovation.
+where $Z_k$ are all measurements at time $k$, $\gamma>0$ is the gate threshold corresponding to the gate probability $
+p_G$, which is the probability, that the region contains the correct measurement if detected and $S_k$ given in \eqref{eq:pda_S} is the covariance of the innovation.
 
 \subsubsection{PDAF data association step}
 The clutter in target tracking is assumed to be Poisson model with spatial density $\lambda$. In PDAF it yields to the association probability for $z_{i,k}$ being the correct measurement as
-
-\vspace{-0.5cm}
-
 \begin{align}
     \beta_{i,k} &=
-    \begingroup
-    \Large
     \begin{cases}
-        \frac{\mathcal{L}_{i,k}}{1-p_D p_G + \sum_{j=1}^{m_k}\mathcal{L}_{j,k}}, & i=1, \dots, m_k, \\
-        \frac{1-p_D p_G}{1-p_D P_G + \sum_{j=1}^{m_k}\mathcal{L}_{j,k}}, & i =0,
+        {\frac{\displaystyle\mathcal{L}_{i,k}}{\displaystyle 1-p_D p_G + \sum_{j=1}^{m_k}\mathcal{L}_{j,k}}}, & i=1, \dots, m_k, \\
+        {\frac{\displaystyle 1-p_D p_G}{\displaystyle 1-p_D p_G + \sum_{j=1}^{m_k}\mathcal{L}_{j,k}}}, & i =0,
     \end{cases}
     \label{eq:pda_beta}
-    \endgroup
 \end{align}
-where $i=0$ means none is correct, $p_D$ is the detection probability, $p_G$ is the gate probability analogous to \eqref{eq:validation_region}, and
+where $i=0$ stands for case, where none of the measurements is correct, i.e. there is not any measurement in
+validation region or none of them originate from the target, $p_D$ is the detection probability, $p_G$ is
+the gate
+probability
+analogous to \eqref{eq:validation_region}, and
 \begin{align}
     \mathcal{L}_{i,k} &= \frac{\mathcal{N}(z_{i,k};\hat{z}_{k|k-1}, S_k) p_D}{\lambda} \label{eq:pda_likelihood}
 \end{align}
@@ -208,7 +213,7 @@ and the Kalman gain is the same as in \eqref{eq:kalman_gain}
 \begin{align}
     K_k &= P_{k|k-1} H_k^T S_k^{-1}.
 \end{align}
-The covarince matrix associated with the update state \eqref{eq:pda_update_state} is expressed as
+The covariance matrix associated with the update state \eqref{eq:pda_update_state} is expressed as
 \begin{align}
     P_{k|k} &= \beta_{0,k} P_{k|k-1} + (1-\beta_{0,k}) P_{k|k}^c + \tilde{P}_k, \label{eq:pda_update_cov_misdetect}
 \end{align}
@@ -222,18 +227,18 @@ and of the innovation term spreads according to
 \end{align}
 With probability $\beta_{0,k}$ none of the measurement is correct. In such case, there is no update step of the
 state estimation. The prediction covariance $P_{k|k-1}$ in \eqref{eq:pda_update_cov_misdetect} has weight $\beta_{0,k}$. There
-is probability $1-\beta_{0,k}$ that correct measurement appears and the update covariance $P_{k|k}^c$ has weight $1-\beta_{0,k}$. However, there is no certainty, which of the validated measurement $z_k$ is correct, so the positive semidefinite covariance matrix increases. This matrix is the result of the measurement origin uncertainty. Note, that in \eqref{eq:pda_covariance_increase} the dependence of the estimation is nonlinear. The PDAF is nonlinear estimator, while the estimate update in \eqref{eq:pda_update_state} appears linear, but the association probabilities $\beta_{i,k}$ depend on the innovation in \eqref{eq:pda_beta}.
+is probability $1-\beta_{0,k}$ that correct measurement appears and the update covariance $P_{k|k}^c$ has weight $1-\beta_{0,k}$. However, there is no certainty, which of the validated measurement $z_k$ is correct, so the positive semidefinite covariance matrix increases. This matrix is the result of the measurement origin uncertainty. Note, that in \eqref{eq:pda_covariance_increase} the dependence of the estimation is non-linear. The PDAF is non-linear estimator, while the estimate update in \eqref{eq:pda_update_state} appears linear, but the association probabilities $\beta_{i,k}$ depend on the innovation in \eqref{eq:pda_beta}.
 
 
 
 \section{Multi target tracking}
 In the field of multi-target tracking, there are many different algorithms and approaches. One of the classes is the
 particle filters approach (\cite{Particle_Khan2005, Particle_Gustafsson2002, Particle_Doucet2001,
-    nonlinearParticleFilter}). These filters are able to handle nonlinear motion, but the computational demands are
+    nonlinearParticleFilter}). These filters are able to handle non-linear motion, but the computational demands are
 really high. The second class is bayesian filtering, which is usually more effective when it comes to computational
 demands. Moreover there are two different approaches -- data association filters and random finite sets filters
-. The example of data association, which we talked about in section \ref{sec:data_association}, is the PDA filter (
-section \ref{sec:pda_filter}) or the integrated probabilistic data association filter. The updated version of these
+. The example of data association, which we talked about in Section \ref{sec:data_association}, is the PDA filter (
+Section \ref{sec:pda_filter}) or the integrated probabilistic data association filter. The updated version of these
 filters, that can handle more targets, especially when two or more targets' validation region is in the same neighbourhood are the joint probabilistic data association filter and the joint integrated probabilistic data association filter. The other family is filters based on random finite sets. Random finite sets statistics are explained in the following section.
 %    \subsection{JPDA filter}
 %    \subsection{IPDA filter}
@@ -309,11 +314,11 @@ defined as
 \begin{align}
     \int_{S}f(X)\partial X &\equiv \sum_{i=0}^{\infty} \frac{1}{i!}\int_{S^i} f({x_1,\dots,x_i})\lambda_K^i(dx_1\dots dx_i),
 \end{align}
-where $\lambda_K(S)$ denote the hyper-volume of S in units of K, which is usually in MTT modeled as RFS Poisson process with uniform rate of $K^{-1}$ with intensity $\lambda = \lambda_K/K$, i.e., \cite{VoRFS2003}
+where $\lambda_K(S)$ denote the hyper-volume of S in units of K, which is usually in MTT modeled as RFS Poisson process with uniform rate of $K^{-1}$ with intensity $\lambda = \lambda_K/K$, i.e.,
 \begin{align}
     \mu(\mathcal{T}) &= \sum_{i=0}^{\infty} \frac{\lambda^i(\mathcal{T} \cap E^i)}{i!},
 \end{align}
-where $E$ and $\mathcal{T}$ are closed and bounded sebsets of $R^n$.
+where $E$ and $\mathcal{T}$ are closed and bounded subsets of $R^n$ \cite{VoRFS2003}.
 
         \subsection{PHD filter}
 The PHD filter serves as an approximation devised to tackle the computational complexity inherent in the multi-target Bayes filter. Instead of tracking the complete posterior density of multi-target states over time, the PHD filter focuses on propagating the posterior intensity, which represents the first-order statistical moment of the posterior multi-target state \cite{mahler}. This operational strategy draws parallels with the constant gain Kalman filter, which tracks the first moment (mean) of the single-target state \cite{VoMaPHD2006}.
@@ -458,7 +463,9 @@ where
 \end{align}
 
 
-Equations \eqref{eq:phd_linear_model_state}, \eqref{eq:phd_ps}, and \eqref{eq:phd_birth_intensity} - \eqref{eq:phd_recursion_posterior} are inserted into the PHD prediction equation \eqref{eq:phdPrior}, and then replacing integrals of the type \eqref{eq:phd_integral_Gaussian} with suitable Gaussian functions. Similarly, formulations \eqref{eq:recursion_predict_intensity2}, \eqref{eq:recursion_update_intesity} are established by substituting equations \eqref{eq:phd_linear_model_measurements}, \eqref{eq:phd_pd}, and \eqref{eq:recursion_predict_intensity2} into the PHD update equation \eqref{eq:phdPosterior}, and subsequently replacing integrals resembling form \eqref{eq:phd_integral_Gaussian} and products of Gaussians resembling form \eqref{eq:phd_integral_Gaussian_measurement} with appropriate Gaussian functions.
+Equations \eqref{eq:phd_linear_model_state}, \eqref{eq:phd_ps}, and \eqref{eq:phd_birth_intensity} - \eqref{eq
+:phd_recursion_posterior} are inserted into the PHD prediction Equation \eqref{eq:phdPrior}, and then replacing
+integrals of the type \eqref{eq:phd_integral_Gaussian} with suitable Gaussian functions. Similarly, Formulations \eqref{eq:recursion_predict_intensity2}, \eqref{eq:recursion_update_intesity} are established by substituting Equations \eqref{eq:phd_linear_model_measurements}, \eqref{eq:phd_pd}, and \eqref{eq:recursion_predict_intensity2} into the PHD update Equation \eqref{eq:phdPosterior}, and subsequently replacing integrals resembling Form \eqref{eq:phd_integral_Gaussian} and products of Gaussians resembling Form \eqref{eq:phd_integral_Gaussian_measurement} with appropriate Gaussian functions.
 
 If we comply prior intensity $\nu_0$ as a Gaussian mixture, then all following predicted intensities $\nu_{k|k-1}$ and posterior intensities $\nu_k$ are also Gaussian mixtures and the recursion holds. Formulations \eqref{eq:phd_recursion_posterior} and \eqref{eq:phd_recursion_predict} give a closed-form guidance for computing the means, covariances and weights of $\nu_k$ from $\nu_{k|k-1}$ after a new set of measurements is available.
 
@@ -473,12 +480,12 @@ where $\tilde{N}_{k|k-1}$ is the expected number of targets after the prediction
 , spawning and born targets. Similary, $\tilde{N}_k$ is the expected number of targets after the update step, which is the sum of the updated number of targets plus the mean number of targets
 that are not detected.
 
-The GM-PHD filter pseudo algorithm is provided in the algorithm \ref{alg:phd}.
+The GM-PHD filter pseudo-algorithm is provided in the Algorithm \ref{alg:phd}.
 %\algrenewcommand\algorithmicrequire{\textbf{Input:}}
 %\algrenewcommand\algorithmicprocedure{\textit{Function }}
 %\algrenewcommand\algorithmicensure{\textbf{Output:}}
 \begin{algorithm}[h]
-    \caption{Pseudo algorithm for the GM-PHD filter}
+    \caption{Pseudo-algorithm for the GM-PHD filter}
     \begin{algorithmic}[1]
         \Require{$\{w_{k-1}^{(i)}, m_{k-1}^{(i)},P_{k-1}^{(i)}\}_{i=1}^{J_{k-1}}$, and the measurement set $Z_k$.}
 
@@ -559,16 +566,18 @@ where $J_{k-1}$ is the number of Gaussian components of the intensity $\nu_{k-1}
 
 To resolve this issue, many techniques can be applied. The simplest one is to remove components with a low weight to the next timestep. This can be done by predefining a threshold. Only targets with a higher weight than this threshold continue to survive.
 
-The next possibility is keeping a certain number of targets and removing the ones with the lowest weight. However, some of the Gausssian components can appear so close together, that they can be merged into a single component. Such procedure is a good approximation with appropriate merging threshold. Pseudo algorithm for this procedure is shown in the algorithm \ref{alg:phd_merging}.
+The next possibility is keeping a certain number of targets and removing the ones with the lowest weight. However,
+some of the Gausssian components can appear so close together, that they can be merged into a single component. Such
+procedure is a good approximation with appropriate merging threshold. Pseudo-algorithm for this procedure is shown in the Algorithm \ref{alg:phd_merging}.
 
 After computing the posterior intensity $\nu_k$, the subsequent objective is to derive estimates for multi-target states. In the context of the Gaussian mixture representation of $\nu_k$, extracting estimates for the multi-target states becomes relatively straightforward, as the means of the individual Gaussian components typically correspond to the local maxima of $\nu_k$, given that they are adequately separated. However, it is essential to note that closely spaced Gaussian components may have been merged after pruning.
 
 Since the magnitude of each peak is influenced by both its weight and covariance, merely selecting the $\tilde{N}_k$ highest peaks of $\nu_k$ may yield to state estimates associated with Gaussians to have weak weights. This scenario is suboptimal, as the expected number of targets attributed to these peaks might be small despite their peak magnitudes being substantial. A more effective approach involves choosing the means of the Gaussians with weights exceeding a certain threshold, such as 0.5. This method ensures a more robust selection of state estimates.
 
-The outlined procedure for state estimation in the Gaussian mixture PHD filter is summarized in algorithm the \ref{alg:phd_state_extraction}.
+The outlined procedure for the state estimation in the Gaussian mixture PHD filter is summarized in the Algorithm \ref{alg:phd_state_extraction}.
 
 \begin{algorithm}
-    \caption{Pseudo algorithm for pruning in the GM-PHD filter}
+    \caption{Pseudo-algorithm for pruning in the GM-PHD filter}
     \begin{algorithmic}[1]
         \Require{$\{w_{k}^{(i)}, m_{k}^{(i)},P_{k}^{(i)}\}_{i=1}^{J_{k}}$, a truncation threshold T, a merging
         threshold U and a maximum number of allowed Gaussian terms $J_{max}$. Set $l=0,$ and
@@ -595,7 +604,7 @@ The outlined procedure for state estimation in the Gaussian mixture PHD filter i
 \end{algorithm}
 
 \begin{algorithm}
-    \caption{Pseudo algorithm for state extraction in the GM-PHD filter}
+    \caption{Pseudo-algorithm for state extraction in the GM-PHD filter}
     \begin{algorithmic}[1]
         \Require{$\{w_{k}^{(i)}, m_{k}^{(i)},P_{k}^{(i)}\}_{i=1}^{J_{k}}$.}
 

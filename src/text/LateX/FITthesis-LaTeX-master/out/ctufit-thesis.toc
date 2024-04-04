@@ -24,7 +24,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.5}Structure}{5}{section.1.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Background}{6}{chapter.2}%
+\contentsline {chapter}{\numberline {2}Theoretical Background}{6}{chapter.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.1}Bayesian inference}{6}{section.2.1}%
 \defcounter {refsection}{0}\relax 
@@ -46,31 +46,31 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.8}Kalman filter}{18}{section.2.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.8.1}Kalman filter inference}{19}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.1}Kalman filter inference}{18}{subsection.2.8.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Target tracking}{22}{chapter.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Data association}{23}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.1}Validation region}{23}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Clutter}{23}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Clutter}{24}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Validation region}{23}{subsection.3.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Single target tracking}{26}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Single target tracking}{25}{section.3.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.1}PDA filter}{26}{subsection.3.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.3.1.1}PDAF predict step}{28}{subsubsection.3.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.3.1.1}PDAF predict step}{27}{subsubsection.3.3.1.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.1.2}PDAF measurement validation step}{28}{subsubsection.3.3.1.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.1.3}PDAF data association step}{28}{subsubsection.3.3.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.3.1.4}PDAF update step}{29}{subsubsection.3.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.3.1.4}PDAF update step}{28}{subsubsection.3.3.1.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.4}Multi target tracking}{29}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}RFS statistics}{30}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.1}RFS statistics}{29}{subsection.3.4.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.2}PHD filter}{32}{subsection.3.4.2}%
 \defcounter {refsection}{0}\relax 
@@ -86,20 +86,20 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.1}YOLO}{43}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Segment Anything}{44}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Segment Anything}{43}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Dynamic time and state varying detection probability}{45}{chapter.5}%
+\contentsline {chapter}{\numberline {5}Dynamic time and state varying detection probability}{44}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Problem definition}{45}{section.5.1}%
+\contentsline {section}{\numberline {5.1}Problem definition}{44}{section.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Dynamic detection probability in video data}{45}{section.5.2}%
+\contentsline {section}{\numberline {5.2}Dynamic detection probability in video data}{44}{section.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{45}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{44}{section.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{45}{section.5.4}%
+\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{44}{section.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Experiments}{46}{chapter.6}%
+\contentsline {chapter}{\numberline {6}Experiments}{45}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Nějaká příloha}{47}{appendix.A}%
+\contentsline {chapter}{\numberline {A}Nějaká příloha}{46}{appendix.A}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Obsah příloh}{50}{appendix*.17}%
+\contentsline {chapter}{Obsah příloh}{49}{appendix*.17}%

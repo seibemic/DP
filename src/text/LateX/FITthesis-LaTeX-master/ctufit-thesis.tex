@@ -106,6 +106,14 @@ object advanced image processing techniques} % replace with the title of your th
 \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{subcaption}
+%\usepackage{hyperref}
+
+%\usepackage{newtxtext,newtxmath}
+%\usepackage{tgtermes}
+%\usepackage{unicode-math}
+%\setmathfont[math-style=ISO,bold-style=ISO,vargreek-shape=TeX]{TG Termes Math}
+%\usepackage[bigsym]{mathptm}
+\usepackage{newtxtext,newtxmath}
 %theorems, definitions, etc.
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
@@ -116,8 +124,9 @@ object advanced image processing techniques} % replace with the title of your th
 \theoremstyle{definition}
 \newtheorem{example}[theorem]{Example}
 \theoremstyle{remark}
+\theoremstyle{definition}
 \newtheorem{note}[theorem]{Note}
-\newtheorem*{note*}{Poznámka}
+%\newtheorem*{note*}{Poznámka}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem*{remark*}{Pozorování}
 \numberwithin{theorem}{chapter}
@@ -242,7 +251,7 @@ W3C & World Wide Web Consortium
 % THE THESIS
 % MODIFY ANYTHING BELOW THIS LINE
 %%%%%%%%%%%%%%%%%%%
-%\large
+\large
 \include{text/Introduction} % include `text.tex' from `text/' subdirectory
 \include{text/chapter_00/chapter_00}
 \include{text/chapter_01/chapter_01}

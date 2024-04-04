@@ -4,6 +4,15 @@ frame. Object detection is a fundamental task in computer vision that involves i
 within images or video frames, respectively. Unlike image classification, which assigns a single label to an entire
 image, object
 detection algorithms aim to detect multiple objects of various classes and localize them with bounding boxes.
+Alongside image classification and object detections, there are other tasks, such as semantic segmentation and
+instance segmentation. Figure \ref{fig:seg_type} shows differences between these types of image processing tasks.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{text/chapter_03/imgs/segmentation-types}
+  \caption{Image detection and segmentation task types. (Source: \href{https://techvidvan.com/tutorials/image-segmentation-machine-learning/}{techvidvan.com}.)}
+  \label{fig:seg_type}
+\end{figure}
 
 The development of object detection algorithms has evolved significantly over the years, driven by advances in deep
 learning, dataset availability and computational power. Traditional object detection methods relied on handcrafted
@@ -43,15 +52,11 @@ Instance segmentation, on the other hand, extends semantic segmentation by disti
 
 Despite significant advancements, object detection and segmentation still face several challenges. These include handling scale variations, occlusions, cluttered backgrounds, and fine-grained object attributes. Additionally, achieving real-time performance while maintaining high accuracy remains a critical goal for many applications.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{text/chapter_03/imgs/segmentation-types}
-  \caption{Image detection and segmentation task types.}
-  \label{fig:seg_type}
-\end{figure}
+
 
 \section{YOLO}
-You Only Look Once (YOLO) is a revolutionary object detection algorithm that significantly transformed the field of computer vision. Developed by Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi, YOLO offers real-time object detection capabilities with impressive accuracy. This algorithm addresses the challenge of simultaneously detecting and classifying multiple objects within an image in a single forward pass through a convolutional neural network (CNN).
+You Only Look Once is a state-of-art object detection algorithm that significantly transformed the field of
+computer vision. Developed by Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi, YOLO offers real-time object detection capabilities with impressive accuracy. This algorithm addresses the challenge of simultaneously detecting and classifying multiple objects within an image in a single forward pass through a convolutional neural network (CNN).
 
 Traditionally, object detection systems involved multiple stages, including region proposal, feature extraction, classification, and post-processing. However, YOLO introduced a unified approach that directly predicts bounding boxes and class probabilities from the raw image data. This design not only simplifies the detection pipeline but also significantly accelerates inference speed, making it suitable for real-time applications.
 

@@ -1,4 +1,4 @@
-\chapter{Background}
+\chapter{Theoretical Background}
 Multi-target tracking relies heavily on mathematical concepts from probability theory, statistics, and linear algebra to model and infer the state of multiple objects over time. Key mathematical concepts involved in MTT include Bayesian inference, which provides a framework for updating estimates based on observed evidence, and the use of probabilistic models such as the Gaussian distribution and its extensions, such as Gaussian mixture models. In addition, MTT commonly employs state space models to represent the dynamics of object motion, with popular models including the constant velocity and constant acceleration models. These models are integrated into Bayesian filters, such as the Kalman filter, which recursively estimates the state of multiple targets given noisy measurements. 
 %\section{Foundations of probability theory}
 %\section{Probability distributions}
@@ -14,11 +14,12 @@ Bayes' rule, a cornerstone of Bayesian inference, embodies a fundamental princip
     Let $X$ and $Y$ be jointly continuous random variables, $f_Y$ continuous at $y$ and $f_Y(y) > 0$. Then the conditional distribution function of $X$, given condition ${Y=y}$ is defined by
     \end{definition}
     \begin{align}
-        F_{X|Y}(x|y) &:= lim_{\epsilon\to0} \textbf{P}\{X\leq x | Y \in (y, y + \epsilon)\} = \frac{\partial F(x,y) / \partial y}{f_Y(y)}.\label{eq:conditional_distribution}
+        F_{X|Y}(x|y) &:= \lim_{\epsilon\to0} \textbf{P}\{X\leq x | Y \in (y, y + \epsilon)\} = \frac{\partial F(x,y) /
+        \partial y}{f_Y(y)}.\label{eq:conditional_distribution}
     \end{align}
     Differentiating this, the conditional density function of $X$, given the condition ${Y = y}$ is
     \begin{align}
-        f_{X|Y}(x|y) &:= \frac{\partial^2 F(x,y) / [\partial x \partial y]}{f_Y(y)} = \frac{f(x,y)}{f_Y(y)}. \label{eq:conditional_distribution2}
+        f_{X|Y}(x|y) &:= \frac{ \frac{\partial^2 F(x,y)}{\partial x \partial y}}{f_Y(y)} = \frac{f(x,y)}{f_Y(y)}. \label{eq:conditional_distribution2}
     \end{align}
     Naturally, fixing $y$, $F_{X|Y}(\cdot|y)$ and $f_{X|Y}(\cdot|y)$ are proper distribution and density functions, respectively. It is also clear that $X$ and $Y$ are independent if and only if $F_{X|Y}(x|y) = F_X(x)$ and $f_{X|Y}(x|y) = f_X(x)$ for all $x$ and $y$ for which these quantities are defined.
 
@@ -38,11 +39,11 @@ where
             \end{align}
     \end{itemize}
     
-Combining equations \ref{eq:conditional_distribution}, \ref{eq:conditional_distribution2} and \ref{eq:marginal_density} to formula \ref{eq:bayes_rule} we get complete formula for Bayes' theorem
+Combining Equations \eqref{eq:conditional_distribution}, \eqref{eq:conditional_distribution2} and \eqref{eq:marginal_density} to Formula \eqref{eq:bayes_rule} we get complete formula for Bayes' theorem
     \begin{align}
         f(x|y) &= \frac{f(y|x) f(x)}{f(y)} = \frac{f(y|x) f(x)}{\int f(y|x) f(x) \partial x}. \label{eq:bayes_full}
     \end{align}
-The denominator is only the normalizing constant independent of $x$, often only proportionality is used
+The denominator is the normalizing constant independent of $x$, often only proportionality is used
     \begin{align}
         f(x|y) &\propto f(y|x)f(x).
     \end{align}
@@ -59,7 +60,8 @@ The denominator is only the normalizing constant independent of $x$, often only 
 
     
     \section{Multivariate Gaussian distribution}
-In the realm of multi-target tracking, various probability distributions are employed to model the uncertainty associated with target states and measurements. However, among these distributions, the multivariate Gaussian distribution holds a preeminent position due to its versatility, mathematical tractability, and empirical relevance. While other distributions may capture specific aspects of target behavior or measurement noise, the Gaussian distribution emerges as the cornerstone of MTT due to its ability to characterize complex probability distributions in multi-dimensional spaces. As a result common assumption among MTT filters is, that the targets follows linear Gaussian dynamic and measuremets models, as in \cite{bar1995}, \cite{GarciaPMBM2018} or \cite{VoMaPHD2006}. The Gaussian distribution finds ubiquitous application across various components of tracking algorithms, including
+In the realm of multi-target tracking, various probability distributions are employed to model the uncertainty
+associated with target states and measurements. However, among these distributions, the multivariate Gaussian distribution holds a preeminent position due to its versatility, mathematical tractability, and empirical relevance. While other distributions may capture specific aspects of target behavior or measurement noise, the Gaussian distribution emerges as the cornerstone of MTT due to its ability to characterize complex probability distributions in multi-dimensional spaces. As a result common assumption among MTT filters is, that the targets follows linear Gaussian dynamic and measuremets models, as in \cite{bar1995}, \cite{GarciaPMBM2018}, or \cite{VoMaPHD2006}. The Gaussian distribution finds ubiquitous application across various components of tracking algorithms, including
 \begin{itemize}
     \item \textbf{State representation:} Gaussian distributions are used to model the probability distributions of target states, allowing for efficient representation and propagation of uncertainty over time.
     \item \textbf{Measurement model:} Gaussian distributions are employed to model the likelihood of sensor measurements given the true target state, facilitating the incorporation of sensor data into the tracking process.
@@ -73,12 +75,15 @@ with
 $k-$dimensional mean vector
 $\mathbf{\mu} = \mathsf{E}[\mathbf{X}] = (\mathsf{E}[X_1], \mathsf{E}[X_1], \dots, \mathsf{E}[X_k])^T$
 and
-$k\times k$ positive semi-definite covariance matrix
-$\mathsf{\Sigma}_{ij} = \mathsf{E}[(X_i - \mu_i)(X_j - \mu_j)] = Cov[X_i, X_j]$
+$k\times k$ positive semi-definite covariance matrix $\Sigma$, with elements
+\begin{align}
+    \mathbf{\Sigma}_{ij} &= \mathsf{E}[(X_i - \mu_i)(X_j - \mu_j)] = Cov[X_i, X_j].
+\end{align}
+
 \end{note}
 The probability density function (PDF) is given by formula
 \begin{align}
-    \mathcal{N}(\mathbf{x};\mathbf{\mu},\mathbf{\Sigma}) &= \frac{1}{\sqrt{(2\pi)^k |\mathbf{\Sigma}|}}\exp(-\frac{1}{2}(\mathbf{x}-\mathbf{\mu})^T\mathbf{\Sigma}^{-1}(\mathbf{x}-\mathbf{\mu})),
+    \mathcal{N}(\mathbf{x};\mathbf{\mu},\mathbf{\Sigma}) &= \frac{1}{\sqrt{(2\pi)^k |\mathbf{\Sigma}|}}\exp \left(-\frac{1}{2}(\mathbf{x}-\mathbf{\mu})^T\mathbf{\Sigma}^{-1}(\mathbf{x}-\mathbf{\mu}) \right),
 \end{align}
 where $k$ is the length of the vector $\mathbf{x}$ and $|\cdot|$ denotes the determinant of a matrix. It should be noted that the exponent is known as Mahalanobis distance.
 \begin{definition}[Mahalanobis distance]
@@ -121,7 +126,8 @@ where
     \end{align}
 \end{theorem}
 
-Examples of multivariate Gaussian distribution are shown in figure \ref{fig:mvnplot}.
+Examples of multivariate Gaussian distribution are shown in Figure \ref{fig:mvnplot} and marginal distributions for
+multivariate Gaussian distribution in Figure
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
@@ -148,7 +154,8 @@ Gaussian Mixture Models offer a flexible and powerful framework for representing
     \begin{align}
         p(\Theta) = \sum_{i=1}^k w_i \mathcal{N}(\mathbf{\mu}_i, \mathbf{\Sigma}_i),
     \end{align}
-where the $i^{th}$ vector component is characterized by normal distributions with weights $w_i$, means $\mathbf{\mu}_i$ and covariance matrices $\mathbf{\Sigma}_i$.
+where the $i^{th}$ vector component is characterized by Gaussian distributions with weights $w_i$, means $\mathbf{\mu}
+_i$ and covariance matrices $\mathbf{\Sigma}_i$. These parameters are encapsulated to the parameter $\Theta$ in $p(\cdot)$.
 
 %In multi-target tracking, we are often dealing with linear Gaussian models, thus the posterior density is
 %represented as a mixture of one or many Gaussian components. The pdf of Gaussian mixture distribution is simple sum of every Gaussian component, so the formula is as follows:
@@ -162,7 +169,7 @@ where $k$ is the number of Gaussian component, $w_i>0$ is the weight of $i^{th}$
 
 In MTT, Gaussian mixture models are particularly useful for tasks such as data association, where they probabilistically assign measurements to existing tracks or create new tracks based on the likelihood of observations given the target states. By modeling complex distributions of target states and measurements, Gaussian mixture models enable MTT algorithms to handle uncertainties and ambiguities inherent in real-world tracking scenarios, including occlusions, clutter, and target interactions.
 
-Examples of multivariate Gaussian mixture distribution are shown in figure \ref{fig:mvn_mixture_plot}.
+Examples of multivariate Gaussian mixture distribution are shown in Figure \ref{fig:mvn_mixture_plot}.
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
@@ -186,7 +193,8 @@ Examples of multivariate Gaussian mixture distribution are shown in figure \ref{
 \label{sec:stateSpaceModel}
 State-space models serve as a fundamental framework for describing the evolution of dynamic systems over time. In the context of multi-target tracking, state-space models provide a formalism for representing motion dynamics of targets and the measurement process, enabling efficient and accurate inference of target states from sensor data.
 
-At the core of a state-space model lies a set of latent variables, known as the state vector, which encapsulates the unobservable quantities of interest, such as the position, velocity, and acceleration of targets in MTT. The dynamics governing the evolution of the state vector are typically described by a transition model, which specifies how the state evolves over time according to a probabilistic process. This transition model can take various forms depending on the nature of the system dynamics, ranging from simple linear or nonlinear models to more complex stochastic processes.
+At the core of a state-space model lies a set of latent variables, known as the state vector, which encapsulates the
+unobservable quantities of interest, such as the position, velocity, and acceleration of targets in MTT. The dynamics governing the evolution of the state vector are typically described by a transition model, which specifies how the state evolves over time according to a probabilistic process. This transition model can take various forms depending on the nature of the system dynamics, ranging from simple linear or non-linear models to more complex stochastic processes.
 
 In addition to the transition model, state-space models incorporate an observation model that describes the relationship between the observed measurements and the underlying state variables. This observation model accounts for the uncertainties and noise inherent in the measurement process, allowing for the probabilistic mapping of observed data to the latent state space.
 
@@ -227,8 +235,8 @@ should be noted, that definitions in \eqref{eq:state_space_model_state} and \eqr
 To get a closed-form solution in the Bayesian inference framework, we need
 to choose conjugate distributions for the likelihood and the prior. The Kalman filter (see Section \ref{sec:Kalman} for
 more) works for the Gaussian-linear case, where the functions
-$f_t$ and $h_t$ are linear and noisy variables and are distributed as Gaussians with zero mean, i.e., $w_k, v_k  \thicksim \mathcal{N}(0,\Sigma)$. The Gaussian linear
-state space model has the formulation
+$f_t$ and $h_t$ are linear and noisy variables and are distributed as Gaussians with zero mean. The Gaussian linear
+state space model has the formulation:
 \begin{align}
     p(x_k|x_{k-1}) &= Fx_{k-1} + Bu_k + w_k
      &w_k \sim \mathcal{N}(0,Q),\\
@@ -241,9 +249,11 @@ where
     \item F is the transition matrix of appropriate dimension,
     \item B is the input matrix of appropriate dimension,
     \item H is the measurement matrix of appropriate dimension,
-    \item Q is the symmetric positive semi-definite matrix that desribes the statistical properties of motion noise $
+    \item Q is the symmetric positive semi-definite covariance matrix of
+    motion noise $
     w_k$,
-    \item R is the symmetric positive semi-definite matrix that desribes the statistical properties of measurement
+    \item R is the symmetric positive semi-definite covariance matrix of
+    measurement
     noise $v_k$,
     \item $\hat{x}_0$ and $P_0$ are the mean and the covariance matrix of the prior state.
 \end{itemize}
@@ -264,9 +274,9 @@ At its core, the constant velocity model embodies the notion of inertia, where a
 
 Mathematically, the constant velocity model describes the evolution of a target's state vector over time in terms of
 its position and velocity. At each time step $k$, the state vector $\mathbf{x}_k$ comprises the position $[x_{1,k},x_{
-    2,k}]$ and velocity $v$ of the target
+    2,k}]$ and velocity $s$ of the target
 \begin{align}
-    \mathbf{x}_k &= [x_{1,k}, x_{2,k}, v_{1,k}, v_{2,k}]^T.
+    \mathbf{x}_k &= [x_{1,k}, x_{2,k}, s_{1,k}, s_{2,k}]^T.
 \end{align}
 
 The dynamics of the constant velocity model can be represented using a state transition matrix $F$  and a process
@@ -281,26 +291,26 @@ All together, vector $\mathbf{x}_k$, matrices $\mathbf{F}$ and $\mathbf{Q}$, mig
         \begin{bmatrix}
             x_{1,k} \\
             x_{2,k} \\
-            v_{1,k} \\
-            v_{2,k} \\
+            s_{1,k} \\
+            s_{2,k} \\
         \end{bmatrix},
     \quad \mathbf{F} =
         \begin{bmatrix}
-            1 & 0 & dt & 0 \\
-            0 & 1 & 0 & dt \\
+            1 & 0 & \Delta & 0 \\
+            0 & 1 & 0 & \Delta \\
             0 & 0 & 1 & 0 \\
             0 & 0 & 0 & 1 \\
         \end{bmatrix},
     \quad \mathbf{Q} = q^2
         \begin{bmatrix}
-            \frac{dt^3}{3} & 0 & \frac{dt^2}{2} & 0 \\
-            0 & \frac{dt^3}{3} & 0 & \frac{dt^2}{2} \\
-            \frac{dt^2}{2} & 0 & dt & 0 \\
-            0 & \frac{dt^2}{2} & 0 & dt \\
+            \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2} & 0 \\
+            0 & \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2} \\
+            \frac{\Delta^2}{2} & 0 & \Delta & 0 \\
+            0 & \frac{\Delta^2}{2} & 0 & \Delta \\
         \end{bmatrix},
     \label{eq:state_space_model}
 \end{align}
-where $dt$ stands for delta time, i.e., elapsed time between the last estimation and the current one, $q$ is the
+where $\Delta$ stands for delta time, i.e., elapsed time between the last estimation and the current one, $q$ is the
 motion noise parameter, which represents the uncertainty in the state transition. The measurement model transforms a
 state vector from the state space into the measurement space. Since filters derived from Kalman filter assumes only
 linear models, the measurement model for CVM assumes the same space as in the state vectors. As a result, the
@@ -343,24 +353,24 @@ direction, or environmental influences. Ignoring these accelerative effects can 
 Mathematically, the Constant Acceleration Model extends the state transition function of the state-space model to
 accommodate changes in acceleration over time. At each time step $k$, the evolution of the target's state vector $x_k$ is governed by a set of dynamic equations that describe the position, velocity, and acceleration of the target
 \begin{align}
-    \mathbf{x}_k &= [x_{1,k}, x_{2,k}, v_{1,k}, v_{2,k}, a_{1,k}, a_{2,k}]^T,
+    \mathbf{x}_k &= [x_{1,k}, x_{2,k}, s_{1,k}, s_{2,k}, a_{1,k}, a_{2,k}]^T,
 \end{align}
-where, as in CVM, $x_{1,k}$, $x_{2,k}$ is the position of an target in two-dimensional space, $v_{1,k}, v_{2,k}$ is
+where, as in CVM, $x_{1,k}$, $x_{2,k}$ is the position of an target in two-dimensional space, $s_{1,k}, s_{2,k}$ is
 the velocity and $a_{1,k}, a_{2,k}$ are the accelerations in both directions. Matrices $F$ and $Q$ can then be expressed
 \begin{align}
     \mathbf{x}_k &=
     \begin{bmatrix}
         x_{1,k} \\
         x_{2,k} \\
-        v_{1,k} \\
-        v_{2,k} \\
+        s_{1,k} \\
+        s_{2,k} \\
         a_{1,k} \\
         a_{2,k} \\
     \end{bmatrix},
     \quad \mathbf{F} =
     \begin{bmatrix}
-        1 & 0 & dt & 0 & \frac{1}{2}dt^2 & 0\\
-        0 & 1 & 0 & dt & 0 & \frac{1}{2}dt^2\\
+        1 & 0 & \Delta & 0 & \frac{1}{2}\Delta^2 & 0\\
+        0 & 1 & 0 & \Delta & 0 & \frac{1}{2}\Delta^2\\
         0 & 0 & 1 & 0 & 0 & 0\\
         0 & 0 & 0 & 1 & 0 & 0\\
         0 & 0 & 0 & 0 & 1 & 0\\
@@ -368,12 +378,12 @@ the velocity and $a_{1,k}, a_{2,k}$ are the accelerations in both directions. Ma
     \end{bmatrix},
     \quad \mathbf{Q} = q^2
     \begin{bmatrix}
-        \frac{dt^4}{4} & 0 & \frac{dt^3}{3} & 0 & \frac{dt^2}{2} & 0\\
-        0 & \frac{dt^4}{4} & 0 & \frac{dt^3}{3} & 0 & \frac{dt^2}{2}\\
-        \frac{dt^3}{3} & 0 & \frac{dt^2}{2} & 0 & dt & 0\\
-        0 & \frac{dt^3}{3} & 0 & \frac{dt^2}{2} & 0 & dt \\
-        \frac{dt^3}{3} & 0 & \frac{dt^2}{2} & 0 & dt & 0\\
-        0 & \frac{dt^3}{3} & 0 & \frac{dt^2}{2} & 0 & dt \\
+        \frac{\Delta^4}{4} & 0 & \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2} & 0\\
+        0 & \frac{\Delta^4}{4} & 0 & \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2}\\
+        \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2} & 0 & \Delta & 0\\
+        0 & \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2} & 0 & \Delta \\
+        \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2} & 0 & \Delta & 0\\
+        0 & \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2} & 0 & \Delta \\
     \end{bmatrix}.
 \end{align}
 The measurement model remains unchanged from the standard state-space model, relating the observed measurements $\mathbf{z}_k$ to the target's true state $\mathbf{x}_k$ through a measurement function $h(\cdot)$ corrupted by measurement noise $v_t$
@@ -428,7 +438,7 @@ In cases where the process is not didectly observable, but can be observed throu
 we often talk about Hidden Markov process.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\linewidth]{./text/chapter_01/imgs/HMM}
+    \includegraphics[width=0.8\linewidth]{./text/chapter_01/imgs/HMM}
     \caption{Demonstration of the course of the hidden Markov process.}
     \label{fig:hmm}
 \end{figure}
@@ -478,7 +488,7 @@ extended Kalman filter (EKF), unscented Kalman filter (UKF), and particle filter
 In summary, the Kalman filter stands as a seminal contribution to the field of estimation and control, with a rich history of development and widespread usage across diverse domains. Its continued relevance and versatility underscore its status as a foundational tool for state estimation and tracking in modern technological applications.
 
 \subsection{Kalman filter inference}
-In section \ref{sec:stateSpaceModel} we talked about State space model, which is used by Kalman filter. Thus we work
+In Section \ref{sec:stateSpaceModel} we talked about state space model, which is used by Kalman filter. Thus we work
 with equations
 \begin{align}
     x_k &= Fx_{k-1} + w_t \\
@@ -494,19 +504,20 @@ Then the state and measurement distributions follows
     x_k &\sim \mathcal{N}(Fx_{k-1},Q) \qquad && \text{with density}\quad p(x_k|x_{k-1}), \\
     z_k &\sim  \mathcal{N}(Hx_k,R) \qquad && \text{with density}\quad p(z_k|x_k).
 \end{align}
-Because Kalman filter is bayesian, we need prior distribution for $x_k$. Model $z_k$ is Gaussian, conjugated prior and
+Because Kalman filter is Bayesian, we need prior distribution for $x_k$. Model $z_k$ is Gaussian, conjugate prior and
 is then also Gaussian with mean $x_{k-1}^+$ and covariance matrix $P_{k-1}^+$,
 \begin{align}
     p(x_k|z_{0:k-1}) &= \mathcal{N}(x_{k-1}^+,P_{k-1}^+).
 \end{align}
 
-The prediction step is derived from formula (\ref{eq:chapman_kolmogorov_predict}). Note, that by multiplicating two
-gaussian distributions we again get gaussian distribution $\mathcal{N}(x_k^-,P_k^-)$ with hyperparemeters
+The prediction step is derived from Formula (\ref{eq:chapman_kolmogorov_predict}). Note, that by multiplicating two
+Gaussian distributions we again get Gaussian distribution $\mathcal{N}(x_k^-,P_k^-)$ with hyperparemeters
 \begin{align}
     x_k^- &= Fx_{k-1}^+ \\
     P_k^- &= FP_{k-1}^{+}F^T + Q.
 \end{align}
-By multiplicating two normal distributions followed by marginalization, we enumerate the state equation. The estimation
+By multiplicating two Gaussian distributions followed by marginalization, we enumerate the state equation. The
+estimation
 of state $x_k^-$ is just applying model variables into appropriate equations. The estimated covariance $P_k^-$
 expresses the degree of uncertainty of the estimation. By applying this step, the uncertainty grows.
 
@@ -601,9 +612,10 @@ where
     K_{k} &= P_{k}^{-} H^{T}(R + H P_{k}^{-}H^{T})^{-1} \label{eq:kalman_gain}
 \end{align}
 is the Kalman gain. This form is the optimal Kalman gain, as it minimizes the root mean squared error. In general, the
-greater the gain, the greater the emphasis of the new measurements. The filter is then more sensitive, but filters noise less easily.
+greater the gain, the greater the emphasis of the new measurements. The filter is then more sensitive.
 
-In literature it is common to write each equation in following or similar form
+There are several possible formulas that express the optimal Kalman filter. One of the most popular formulations is
+as follows:
 \begin{align}
     \hat{z}_{k}^{-} &= H \hat{x}_{k}^{-}, \qquad &&\text{(measurement prediction)} \\
     \nu_t &= z_t - \hat{z}_{k}^{-}, \qquad &&\text{(innovation or prediction error $z_t$)} \\
@@ -613,13 +625,13 @@ In literature it is common to write each equation in following or similar form
     P_{k}^{+} &= (I - K_t H) P_{k}^{-}. \qquad &&\text{(posterior covariance)}
 \end{align}
 
-The pseudo algorithm of Kalman filter is shown in algorithm \ref{alg:kalman_filter}.
+The pseudo-algorithm of Kalman filter is shown in Algorithm \ref{alg:kalman_filter}.
 \begin{algorithm}
     \caption{Kalman Filter Algorithm}
     \begin{algorithmic}[1]
         \State \textbf{Inputs:} Initial state estimate $\hat{x}_0$, initial covariance matrix $P_0$, system
-        dynamics matrix $F_k$, process noise covariance matrix $Q_k$, measurement matrix $H_k$, measurement noise
-        covariance matrix $R_k$, and measurements $Z$.
+        dynamics matrix $F$, process noise covariance matrix $Q$, measurement matrix $H$, measurement noise
+        covariance matrix $R$, and measurements $Z$.
         \State \textbf{Outputs:} Updated state estimate $\hat{x}_k$ and updated covariance matrix $P_k$.
         \State
         \Procedure{Initialization}{$x_0,P$}
@@ -629,15 +641,15 @@ The pseudo algorithm of Kalman filter is shown in algorithm \ref{alg:kalman_filt
 
         \State
         \Procedure{Prediction step}{}
-            \State $\hat{x}_{k|k-1} = F_k \hat{x}_{k-1} $ \Comment{Predict state estimate}
-            \State $P_{k|k-1} = F_k P_{k-1} F_k^T + Q_k$ \Comment{Predict covariance:}
+            \State $\hat{x}_{k|k-1} = F \hat{x}_{k-1} $ \Comment{Predict state estimate}
+            \State $P_{k|k-1} = F P_{k-1} F^T + Q$ \Comment{Predict covariance:}
         \EndProcedure
 
         \State
         \Procedure{Update step}{$z_k$}
-            \State $K_k = P_{k|k-1} H_k^T (H_k P_{k|k-1} H_k^T + R_k)^{-1}$ \Comment{Kalman gain}
-            \State $\hat{x}_k = \hat{x}_{k|k-1} + K_k(z_k - H_k \hat{x}_{k|k-1})$ \Comment{Update state estimate}
-            \State $P_k = (I - K_k H_k) P_{k|k-1}$ \Comment{Update covariance}
+            \State $K_k = P_{k|k-1} H^T (H P_{k|k-1} H^T + R)^{-1}$ \Comment{Kalman gain}
+            \State $\hat{x}_k = \hat{x}_{k|k-1} + K_k(z_k - H \hat{x}_{k|k-1})$ \Comment{Update state estimate}
+            \State $P_k = (I - K_k H) P_{k|k-1}$ \Comment{Update covariance}
         \EndProcedure
         \State
         \Procedure{Kalman filter recursion}{}
