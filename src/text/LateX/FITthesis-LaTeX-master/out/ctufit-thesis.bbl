@@ -41,8 +41,8 @@
       \strng{authorbibnamehash}{9a03c8be476f35122e26ec67a6756b45}
       \strng{authornamehash}{9a03c8be476f35122e26ec67a6756b45}
       \strng{authorfullhash}{9a03c8be476f35122e26ec67a6756b45}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9780964831209}
@@ -66,8 +66,8 @@
       \strng{authorbibnamehash}{3877b560cb9ed6ae5750951d4ba7f918}
       \strng{authornamehash}{3877b560cb9ed6ae5750951d4ba7f918}
       \strng{authorfullhash}{3877b560cb9ed6ae5750951d4ba7f918}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-965-93120-1-6}
@@ -103,8 +103,8 @@
       \strng{authorbibnamehash}{47ecdaed0871c7416b884d2cf62d3243}
       \strng{authornamehash}{7354f0485100887aadcfd62fa98733ed}
       \strng{authorfullhash}{47ecdaed0871c7416b884d2cf62d3243}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Signal Processing}
@@ -136,8 +136,8 @@
       \strng{authorbibnamehash}{1d9e9b06b9bc3dbc5de2b41b21634177}
       \strng{authornamehash}{1d9e9b06b9bc3dbc5de2b41b21634177}
       \strng{authorfullhash}{1d9e9b06b9bc3dbc5de2b41b21634177}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Fundamentals of Sensor Fusion}
@@ -157,8 +157,8 @@
       \strng{authorbibnamehash}{2a6e9888df8eda3a9493b2e7d4b09a2b}
       \strng{authornamehash}{2a6e9888df8eda3a9493b2e7d4b09a2b}
       \strng{authorfullhash}{2a6e9888df8eda3a9493b2e7d4b09a2b}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Aerospace and Electronic Systems}
@@ -206,8 +206,8 @@
       \strng{authorbibnamehash}{af2b3ac7cd191b9ad3be9bf8b2390be3}
       \strng{authornamehash}{0886d1eddfc31c1eeaa9db9388c7dbf4}
       \strng{authorfullhash}{af2b3ac7cd191b9ad3be9bf8b2390be3}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:1603.00831}
@@ -233,8 +233,8 @@
       \strng{authorbibnamehash}{90a46cd888fd69b2b162c5bd80b5a396}
       \strng{authornamehash}{90a46cd888fd69b2b162c5bd80b5a396}
       \strng{authorfullhash}{90a46cd888fd69b2b162c5bd80b5a396}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{17th International Conference on Information Fusion (FUSION)}
@@ -267,8 +267,8 @@
       \strng{authorbibnamehash}{0c6295d56e2711735e5609c59a16b1e9}
       \strng{authornamehash}{0c6295d56e2711735e5609c59a16b1e9}
       \strng{authorfullhash}{0c6295d56e2711735e5609c59a16b1e9}
-      \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Signal Processing}
@@ -595,8 +595,8 @@
       \strng{authorbibnamehash}{e1b53df289014de61ce81433e59569c2}
       \strng{authornamehash}{3436b8b0a46a0fa244a58f42f3c68e41}
       \strng{authorfullhash}{e1b53df289014de61ce81433e59569c2}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2023 5th International Conference on Electronic Engineering and Informatics (EEI)}
@@ -1024,8 +1024,8 @@
       \strng{authorbibnamehash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
       \strng{authornamehash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
       \strng{authorfullhash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2003 Proceedings of the International Conference on Radar (IEEE Cat. No.03EX695)}
@@ -1098,6 +1098,261 @@
       \field{series}{Mathematics in science and engineering}
       \field{title}{Tracking and Data Association}
       \field{year}{1988}
+    \endentry
+    \entry{HoOGDalal2005}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=521763e082baf91e4935f956c6c0f8b3}{%
+           family={Dalal},
+           familyi={D\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=d90650ec8434180101eb4aeec8e4a0c6}{%
+           family={Triggs},
+           familyi={T\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{8316a8a4748fedae6ff9c5414cecc95a}
+      \strng{fullhash}{8316a8a4748fedae6ff9c5414cecc95a}
+      \strng{bibnamehash}{8316a8a4748fedae6ff9c5414cecc95a}
+      \strng{authorbibnamehash}{8316a8a4748fedae6ff9c5414cecc95a}
+      \strng{authornamehash}{8316a8a4748fedae6ff9c5414cecc95a}
+      \strng{authorfullhash}{8316a8a4748fedae6ff9c5414cecc95a}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR'05)}
+      \field{title}{Histograms of oriented gradients for human detection}
+      \field{volume}{1}
+      \field{year}{2005}
+      \field{pages}{886\bibrangedash 893 vol. 1}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1109/CVPR.2005.177
+      \endverb
+    \endentry
+    \entry{HaarCascadesLi2016}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=4b67936f526f4b0f4724b751d3a66901}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yunyang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b6fc78834b479731029a5edb14fd5de0}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Xin},
+           giveni={X\bibinitperiod}}}%
+        {{hash=6a1226a3fab6ec0a4571feaab546e9af}{%
+           family={Mu},
+           familyi={M\bibinitperiod},
+           given={Nan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=685d97480ebafb5a158e7c3dfdcb69a8}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{d6afe66ac355c31205bab44c466721c3}
+      \strng{fullhash}{a8cbc4d44258ebf42e1390dc164b6d1a}
+      \strng{bibnamehash}{a8cbc4d44258ebf42e1390dc164b6d1a}
+      \strng{authorbibnamehash}{a8cbc4d44258ebf42e1390dc164b6d1a}
+      \strng{authornamehash}{d6afe66ac355c31205bab44c466721c3}
+      \strng{authorfullhash}{a8cbc4d44258ebf42e1390dc164b6d1a}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2016 IEEE 11th Conference on Industrial Electronics and Applications (ICIEA)}
+      \field{title}{Eye-gaze tracking system by haar cascade classifier}
+      \field{year}{2016}
+      \field{pages}{564\bibrangedash 567}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/ICIEA.2016.7603648
+      \endverb
+    \endentry
+    \entry{YOLORedmon2016}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=99bced2e56a5253f3fe98a5f04e6d9b2}{%
+           family={Redmon},
+           familyi={R\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+        {{hash=05ca9f19da9ecbd2def4e5514f8043c8}{%
+           family={Divvala},
+           familyi={D\bibinitperiod},
+           given={Santosh},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bd5dadbe57bedc5957c19a3154c4d424}{%
+           family={Girshick},
+           familyi={G\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+        {{hash=396c6ddedb6f986906fc3e4994d19974}{%
+           family={Farhadi},
+           familyi={F\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{fceadd5e0c88bc623c502d7999f124d7}
+      \strng{fullhash}{b5530443e433a4da53dbe3cf155225b4}
+      \strng{bibnamehash}{b5530443e433a4da53dbe3cf155225b4}
+      \strng{authorbibnamehash}{b5530443e433a4da53dbe3cf155225b4}
+      \strng{authornamehash}{fceadd5e0c88bc623c502d7999f124d7}
+      \strng{authorfullhash}{b5530443e433a4da53dbe3cf155225b4}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{06}
+      \field{title}{You Only Look Once: Unified, Real-Time Object Detection}
+      \field{year}{2016}
+      \field{pages}{779\bibrangedash 788}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/CVPR.2016.91
+      \endverb
+    \endentry
+    \entry{YoloVersions2022}{article}{}
+      \name{author}{5}{}{%
+        {{hash=cfee295769917f190b5452668046130c}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Peiyuan},
+           giveni={P\bibinitperiod}}}%
+        {{hash=89ac469fa346462120acfd4f24d8896a}{%
+           family={Ergu},
+           familyi={E\bibinitperiod},
+           given={Daji},
+           giveni={D\bibinitperiod}}}%
+        {{hash=cb1fdce5d3a3877d7a15859e937b7318}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Fangyao},
+           giveni={F\bibinitperiod}}}%
+        {{hash=1590429c915a01a51d67986862f94c45}{%
+           family={Cai},
+           familyi={C\bibinitperiod},
+           given={Ying},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=5d175f09ef61faffce7a1860094ac4c8}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Bo},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d15935475e24f123c8e78483c529a902}
+      \strng{fullhash}{adf8b831f6f3ced1a6b683e78a3e0828}
+      \strng{bibnamehash}{adf8b831f6f3ced1a6b683e78a3e0828}
+      \strng{authorbibnamehash}{adf8b831f6f3ced1a6b683e78a3e0828}
+      \strng{authornamehash}{d15935475e24f123c8e78483c529a902}
+      \strng{authorfullhash}{adf8b831f6f3ced1a6b683e78a3e0828}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1877-0509}
+      \field{journaltitle}{Procedia Computer Science}
+      \field{note}{The 8th International Conference on Information Technology and Quantitative Management (ITQM 2020 & 2021): Developing Global Digital Economy after COVID-19}
+      \field{title}{A Review of Yolo Algorithm Developments}
+      \field{volume}{199}
+      \field{year}{2022}
+      \field{pages}{1066\bibrangedash 1073}
+      \range{pages}{8}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.procs.2022.01.135
+      \endverb
+    \endentry
+    \entry{MaskRCNN2017}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=6b4b60e909e78633945f3f9c9dc83e01}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Kaiming},
+           giveni={K\bibinitperiod}}}%
+        {{hash=6e67eba235a8cccf3a69b746a53d5722}{%
+           family={Gkioxari},
+           familyi={G\bibinitperiod},
+           given={Georgia},
+           giveni={G\bibinitperiod}}}%
+        {{hash=ecd149fdcb3e0503881d49e545744c3d}{%
+           family={Dollár},
+           familyi={D\bibinitperiod},
+           given={Piotr},
+           giveni={P\bibinitperiod}}}%
+        {{hash=bd5dadbe57bedc5957c19a3154c4d424}{%
+           family={Girshick},
+           familyi={G\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{af79567ad619fcbc7afdcd5151a42613}
+      \strng{fullhash}{25317aa10282a4a31c271050ed66c455}
+      \strng{bibnamehash}{25317aa10282a4a31c271050ed66c455}
+      \strng{authorbibnamehash}{25317aa10282a4a31c271050ed66c455}
+      \strng{authornamehash}{af79567ad619fcbc7afdcd5151a42613}
+      \strng{authorfullhash}{25317aa10282a4a31c271050ed66c455}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2017 IEEE International Conference on Computer Vision (ICCV)}
+      \field{title}{Mask R-CNN}
+      \field{year}{2017}
+      \field{pages}{2980\bibrangedash 2988}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/ICCV.2017.322
+      \endverb
+      \keyw{Feature extraction;Image segmentation;Object detection;Semantics;Quantization (signal);Robustness}
+    \endentry
+    \entry{IBM}{misc}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IBM}
+      \field{title}{What is image segmentation?}
+      \verb{urlraw}
+      \verb https://www.ibm.com/topics/image-segmentation
+      \endverb
+      \verb{url}
+      \verb https://www.ibm.com/topics/image-segmentation
+      \endverb
+    \endentry
+    \entry{SemanticSegmentationGuo2022}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=80d8406dd8954908ccff92567bba9aee}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Yuanhui},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b7b81d286a470faef1c4b6e5a9aa2b6c}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Biao},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{4b346a533bcf16b229f16473fc763b49}
+      \strng{fullhash}{4b346a533bcf16b229f16473fc763b49}
+      \strng{bibnamehash}{4b346a533bcf16b229f16473fc763b49}
+      \strng{authorbibnamehash}{4b346a533bcf16b229f16473fc763b49}
+      \strng{authornamehash}{4b346a533bcf16b229f16473fc763b49}
+      \strng{authorfullhash}{4b346a533bcf16b229f16473fc763b49}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 International Conference on Machine Learning, Cloud Computing and Intelligent Mining (MLCCIM)}
+      \field{title}{A Survey of Semantic Segmentation Methods in Traffic Scenarios}
+      \field{year}{2022}
+      \field{pages}{452\bibrangedash 457}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/MLCCIM55934.2022.00083
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

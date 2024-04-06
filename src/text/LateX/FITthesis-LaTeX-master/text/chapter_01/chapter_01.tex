@@ -127,7 +127,7 @@ where
 \end{theorem}
 
 Examples of multivariate Gaussian distribution are shown in Figure \ref{fig:mvnplot} and marginal distributions for
-multivariate Gaussian distribution in Figure
+multivariate Gaussian distribution in Figure \ref{fig:gaussWithMarginals}.
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
@@ -147,6 +147,12 @@ multivariate Gaussian distribution in Figure
     \label{fig:mvnplot}
 \end{figure}
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{text/chapter_01/imgs/gauss_with_marginals}
+    \caption{Gaussian distribution with corresponding marginals.}
+    \label{fig:gaussWithMarginals}
+\end{figure}
     \section{Gaussian mixture}
 %A Bayesian Gaussian mixture model is commonly extended to fit a vector of unknown parameters, or multivariate normal
 %distributions. In a multivariate distribution, a vector of parameters (such as several observations of a signal) is modeled using a Gaussian mixture model prior distribution on the vector of estimates given by
@@ -169,7 +175,7 @@ where $k$ is the number of Gaussian component, $w_i>0$ is the weight of $i^{th}$
 
 In MTT, Gaussian mixture models are particularly useful for tasks such as data association, where they probabilistically assign measurements to existing tracks or create new tracks based on the likelihood of observations given the target states. By modeling complex distributions of target states and measurements, Gaussian mixture models enable MTT algorithms to handle uncertainties and ambiguities inherent in real-world tracking scenarios, including occlusions, clutter, and target interactions.
 
-Examples of multivariate Gaussian mixture distribution are shown in Figure \ref{fig:mvn_mixture_plot}.
+Examples of multivariate Gaussian mixture distribution are shown in Figure \ref{fig:mvn_mixture_plot}. Gaussian mixture distribution with marginal distribution for each dimension in Figure \ref{fig:gaussMixWithMarginals}.
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
@@ -187,6 +193,13 @@ Examples of multivariate Gaussian mixture distribution are shown in Figure \ref{
     \end{subfigure}
     \caption{Examples of plots of multivariate Gaussian mixture distribution. There are three components in figures with means $\{[0, 0], [3, 3], [-3, -1]\}$. Note that the density of peaks is very low, because the sum has to be equal $1$.}
     \label{fig:mvn_mixture_plot}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{text/chapter_01/imgs/gaussMix_with_marginals}
+    \caption{Gaussian mixture distribution with means $\{[0,0], [2,2]\}$, weights $\{[0.6, 0.4]\}$ and corresponding marginals.}
+    \label{fig:gaussMixWithMarginals}
 \end{figure}
 
     \section{State space model}

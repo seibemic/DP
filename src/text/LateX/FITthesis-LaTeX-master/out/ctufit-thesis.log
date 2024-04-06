@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  4 APR 2024 15:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.14)  6 APR 2024 16:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -58,9 +58,9 @@ File: babel.def 2020/02/14 3.40 Babel common definitions
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
 Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language44) on input line 105.
+(babel)             (\language22) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language44) on input line 108.
+(babel)             (\language22) on input line 108.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
@@ -1241,6 +1241,9 @@ Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
 \c@subfigure=\count470
 \c@subtable=\count471
 )
+(/usr/share/texlive/texmf-dist/tex/latex/doublestroke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+)
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxtext.sty
 Package: newtxtext 2018/03/27 v1.531
 
@@ -1438,56 +1441,54 @@ t/chapter_04/chapter_04.aux)
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
 t/chapter_05/chapter_05.aux)
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/appendix.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
 t/medium.aux))
 \openout1 = `ctufit-thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 138.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 140.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line
- 138.
+ 140.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 140.
 LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 
-138.
+140.
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 140.
 LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line
- 138.
+ 140.
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 140.
 LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input lin
-e 138.
+e 140.
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    ... okay on input line 140.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1550,10 +1551,10 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \lstlistingname on input line 138.
-LaTeX Info: Redefining \lstlistlistingname on input line 138.
+LaTeX Info: Redefining \lstlistingname on input line 140.
+LaTeX Info: Redefining \lstlistlistingname on input line 140.
 \AtBeginShipoutBox=\box114
-Package hyperref Info: Link coloring OFF on input line 138.
+Package hyperref Info: Link coloring OFF on input line 140.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1566,9 +1567,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count489
 )
-LaTeX Info: Redefining \ref on input line 138.
-LaTeX Info: Redefining \pageref on input line 138.
-LaTeX Info: Redefining \nameref on input line 138.
+LaTeX Info: Redefining \ref on input line 140.
+LaTeX Info: Redefining \pageref on input line 140.
+LaTeX Info: Redefining \nameref on input line 140.
 
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
 fit-thesis.out)
@@ -1603,65 +1604,65 @@ Package biblatex Info: ... file 'ctufit-thesis.bbl' found.
 
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
 fit-thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 138.
-Package biblatex Info: Reference segment=0 on input line 138.
+Package biblatex Info: Reference section=0 on input line 140.
+Package biblatex Info: Reference segment=0 on input line 140.
 \c@lstlisting=\count490
 \c@mv@tabular=\count491
 \c@mv@boldtabular=\count492
-<seibemic-assignment.pdf, id=179, 597.23125pt x 844.15375pt>
+<seibemic-assignment.pdf, id=183, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf>
-Package pdftex.def Info: seibemic-assignment.pdf  used on input line 141.
+Package pdftex.def Info: seibemic-assignment.pdf  used on input line 143.
 (pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf>
-Package pdftex.def Info: seibemic-assignment.pdf  used on input line 141.
+Package pdftex.def Info: seibemic-assignment.pdf  used on input line 143.
 (pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
-<seibemic-assignment.pdf, id=182, page=1, 597.23125pt x 844.15375pt>
+<seibemic-assignment.pdf, id=186, page=1, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
-Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 141
+Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 143
 .
 (pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
-Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 141
+Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 143
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
-Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 141
+Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 143
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
-Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 141
+Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 143
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
-Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 141
+Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 143
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
  [1
 
 
- <./seibemic-assignment.pdf{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updm
-ap/pdftex.map}>]
-<seibemic-assignment.pdf, id=225, page=2, 597.23125pt x 844.15375pt>
+ <./seibemic-assignment.pdf{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}>
+]
+<seibemic-assignment.pdf, id=229, page=2, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
-Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 141
+Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 143
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
-Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 141
+Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 143
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
-Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 141
+Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 143
 .
 (pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
  [2 <./seibemic-assignment.pdf>]
@@ -1698,47 +1699,47 @@ Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 141
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 144.
+(Font)              scaled to size 12.0pt on input line 146.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 20.74pt on input line 144.
+(Font)              scaled to size 20.74pt on input line 146.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 20.74pt on input line 144.
+(Font)              scaled to size 20.74pt on input line 146.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 144.
+(Font)              scaled to size 12.0pt on input line 146.
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.144 
+l.146 
        [1
 
 
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 145.
+(Font)              scaled to size 9.0pt on input line 147.
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 145.
+e 147.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 145.
+(Font)              scaled to size 9.0pt on input line 147.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 9.0pt on input line 145.
+(Font)              scaled to size 9.0pt on input line 147.
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.147 \tableofcontents
+l.149 \tableofcontents
                        % do not remove this command [1
 
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 147.
+(Font)              scaled to size 14.4pt on input line 149.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 14.4pt on input line 147.
+(Font)              scaled to size 14.4pt on input line 149.
 
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
 fit-thesis.toc
@@ -1788,7 +1789,7 @@ File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.91 ...ying detection probability}{44}{chapter.5}
+l.95 ...ying detection probability}{47}{chapter.5}
                                                   % [2
 
 ])
@@ -1817,7 +1818,7 @@ fit-thesis.lol)
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.0pt on input line 168.
+(Font)              scaled to size 10.0pt on input line 170.
  [5
 
 ] [6
@@ -1892,103 +1893,113 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 7.91994pt on input line 76.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 5.93996pt on input line 76.
-<text/chapter_01/imgs/mvn_contour.png, id=439, 578.16pt x 433.62pt>
+<text/chapter_01/imgs/mvn_contour.png, id=461, 578.16pt x 433.62pt>
 File: text/chapter_01/imgs/mvn_contour.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_contour.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_contour.png  used on input li
-ne 134.
+ne 135.
 (pdftex.def)             Requested size: 188.21288pt x 141.1564pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 135.
+(Font)              scaled to size 8.0pt on input line 136.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 135.
+(Font)              scaled to size 7.19995pt on input line 136.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 7.19995pt on input line 135.
-<text/chapter_01/imgs/mvn_3d.png, id=441, 722.7pt x 578.16pt>
+(Font)              scaled to size 7.19995pt on input line 136.
+<text/chapter_01/imgs/mvn_3d.png, id=463, 722.7pt x 578.16pt>
 File: text/chapter_01/imgs/mvn_3d.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_3d.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_3d.png  used on input line 14
-1.
+2.
 (pdftex.def)             Requested size: 188.21288pt x 150.56506pt.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 145.
+(Font)              scaled to size 8.09995pt on input line 146.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 8.09995pt on input line 145.
+(Font)              scaled to size 8.09995pt on input line 146.
+<text/chapter_01/imgs/gauss_with_marginals.png, id=464, 1084.05pt x 722.7pt>
+File: text/chapter_01/imgs/gauss_with_marginals.png Graphic file (type png)
+<use text/chapter_01/imgs/gauss_with_marginals.png>
+Package pdftex.def Info: text/chapter_01/imgs/gauss_with_marginals.png  used on
+ input line 152.
+(pdftex.def)             Requested size: 418.25368pt x 278.83032pt.
  [9] [10 <./text/chapter_01/imgs/mvn_contour.png> <./text/chapter_01/imgs/mvn_3
-d.png>]
-<text/chapter_01/imgs/mvn_mixture_contour.png, id=471, 578.16pt x 433.62pt>
+d.png> <./text/chapter_01/imgs/gauss_with_marginals.png>]
+<text/chapter_01/imgs/mvn_mixture_contour.png, id=494, 578.16pt x 433.62pt>
 File: text/chapter_01/imgs/mvn_mixture_contour.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_mixture_contour.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_mixture_contour.png  used on 
-input line 176.
+input line 183.
 (pdftex.def)             Requested size: 188.21288pt x 141.1564pt.
-<text/chapter_01/imgs/mvn_mixture_3d.png, id=472, 722.7pt x 578.16pt>
+<text/chapter_01/imgs/mvn_mixture_3d.png, id=495, 722.7pt x 578.16pt>
 File: text/chapter_01/imgs/mvn_mixture_3d.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_mixture_3d.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_mixture_3d.png  used on input
- line 183.
+ line 190.
 (pdftex.def)             Requested size: 188.21288pt x 150.56506pt.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 187.
+(Font)              scaled to size 9.0pt on input line 194.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 9.0pt on input line 187.
+(Font)              scaled to size 9.0pt on input line 194.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 7.3pt on input line 187.
+(Font)              scaled to size 7.3pt on input line 194.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 5.5pt on input line 187.
+(Font)              scaled to size 5.5pt on input line 194.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 6.56995pt on input line 187.
+(Font)              scaled to size 6.56995pt on input line 194.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 4.94997pt on input line 187.
- [11 <./text/chapter_01/imgs/mvn_mixture_contour.png> <./text/chapter_01/imgs/m
-vn_mixture_3d.png>] [12] [13] [14] [15]
-<./text/chapter_01/imgs/HMM.png, id=520, 714.67pt x 241.90375pt>
+(Font)              scaled to size 4.94997pt on input line 194.
+<text/chapter_01/imgs/gaussMix_with_marginals.png, id=496, 1084.05pt x 722.7pt>
+
+File: text/chapter_01/imgs/gaussMix_with_marginals.png Graphic file (type png)
+<use text/chapter_01/imgs/gaussMix_with_marginals.png>
+Package pdftex.def Info: text/chapter_01/imgs/gaussMix_with_marginals.png  used
+ on input line 200.
+(pdftex.def)             Requested size: 418.25368pt x 278.83032pt.
+ [11] [12 <./text/chapter_01/imgs/mvn_mixture_contour.png> <./text/chapter_01/i
+mgs/mvn_mixture_3d.png> <./text/chapter_01/imgs/gaussMix_with_marginals.png>] [
+13] [14] [15] [16] [17]
+<./text/chapter_01/imgs/HMM.png, id=555, 714.67pt x 241.90375pt>
 File: ./text/chapter_01/imgs/HMM.png Graphic file (type png)
 <use ./text/chapter_01/imgs/HMM.png>
-Package pdftex.def Info: ./text/chapter_01/imgs/HMM.png  used on input line 440
+Package pdftex.def Info: ./text/chapter_01/imgs/HMM.png  used on input line 454
 .
 (pdftex.def)             Requested size: 334.60422pt x 113.25922pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[16] [17 <./text/chapter_01/imgs/HMM.png>] [18] [19]
+ [18 <./text/chapter_01/imgs/HMM.png>] [19] [20]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 629.
+put line 643.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 631.
+(Font)              scaled to size 10.0pt on input line 645.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 631.
+(Font)              scaled to size 8.99994pt on input line 645.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 636.
+(Font)              scaled to size 10.0pt on input line 650.
 
-./text/chapter_01/chapter_01.tex:656: Missing $ inserted.
+./text/chapter_01/chapter_01.tex:670: Missing $ inserted.
 <inserted text> 
                 $
-l.656             \ForAll{z_k $ \in$ Z}
+l.670             \ForAll{z_k $ \in$ Z}
                                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./text/chapter_01/chapter_01.tex:656: Missing $ inserted.
+./text/chapter_01/chapter_01.tex:670: Missing $ inserted.
 <inserted text> 
                 $
-l.656             \ForAll{z_k $ \in$ Z}
+l.670             \ForAll{z_k $ \in$ Z}
                                        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-) [20] [21]
+) [21] [22]
 \openout2 = `text/chapter_02/chapter_02.aux'.
 
  (./text/chapter_02/chapter_02.tex
 Chapter 3.
-[22
+[23
 
 
 
-] [23]
-<text/chapter_02/imgs/clutter_singleTarget.png, id=598, 722.7pt x 722.7pt>
+] [24]
+<text/chapter_02/imgs/clutter_singleTarget.png, id=629, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_singleTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_singleTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_singleTarget.png  used on
@@ -1998,8 +2009,8 @@ Package pdftex.def Info: text/chapter_02/imgs/clutter_singleTarget.png  used on
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24]
-<text/chapter_02/imgs/clutter_multiTarget.png, id=604, 722.7pt x 722.7pt>
+[25]
+<text/chapter_02/imgs/clutter_multiTarget.png, id=635, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_multiTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_multiTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_multiTarget.png  used on 
@@ -2009,10 +2020,10 @@ input line 107.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[25 <./text/chapter_02/imgs/clutter_singleTarget.png>] [26 <./text/chapter_02/i
-mgs/clutter_multiTarget.png>] [27] [28] [29] [30] [31] [32] [33] [34] [35]
+[26 <./text/chapter_02/imgs/clutter_singleTarget.png>] [27 <./text/chapter_02/i
+mgs/clutter_multiTarget.png>] [28] [29] [30] [31] [32] [33] [34] [35] [36]
 
-LaTeX Warning: Reference `eq :phd_recursion_posterior' on page 36 undefined on 
+LaTeX Warning: Reference `eq :phd_recursion_posterior' on page 37 undefined on 
 input line 467.
 
 ./text/chapter_02/chapter_02.tex:472: Undefined control sequence.
@@ -2033,7 +2044,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[36]
+[37]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.3pt on input line 549.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
@@ -2045,29 +2056,43 @@ LaTeX Warning: Float too large for page by 67.65852pt on input line 557.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[37]) [38] [39] [40]
+[38]) [39] [40] [41]
 \openout2 = `text/chapter_03/chapter_03.aux'.
 
  (./text/chapter_03/chapter_03.tex
 Chapter 4.
-<text/chapter_03/imgs/segmentation-types.png, id=840, 1890.06125pt x 773.89125p
+<text/chapter_03/imgs/segmentation-types.png, id=871, 1890.06125pt x 773.89125p
 t>
 File: text/chapter_03/imgs/segmentation-types.png Graphic file (type png)
 <use text/chapter_03/imgs/segmentation-types.png>
 Package pdftex.def Info: text/chapter_03/imgs/segmentation-types.png  used on i
-nput line 12.
+nput line 16.
 (pdftex.def)             Requested size: 418.25368pt x 171.24852pt.
-[41
+[42
 
 
 
-] [42 <./text/chapter_03/imgs/segmentation-types.png>]) [43]
+]
+<text/chapter_03/imgs/CNN.png, id=883, 893.3375pt x 515.9275pt>
+File: text/chapter_03/imgs/CNN.png Graphic file (type png)
+<use text/chapter_03/imgs/CNN.png>
+Package pdftex.def Info: text/chapter_03/imgs/CNN.png  used on input line 37.
+(pdftex.def)             Requested size: 418.25368pt x 241.557pt.
+ [43 <./text/chapter_03/imgs/segmentation-types.png>] [44 <./text/chapter_03/im
+gs/CNN.png>] [45]
+<text/chapter_03/imgs/YOLO_architecture.png, id=907, 667.49374pt x 277.035pt>
+File: text/chapter_03/imgs/YOLO_architecture.png Graphic file (type png)
+<use text/chapter_03/imgs/YOLO_architecture.png>
+Package pdftex.def Info: text/chapter_03/imgs/YOLO_architecture.png  used on in
+put line 83.
+(pdftex.def)             Requested size: 418.25368pt x 173.59453pt.
+) [46 <./text/chapter_03/imgs/YOLO_architecture.png>]
 \openout2 = `text/chapter_04/chapter_04.aux'.
 
 
 (./text/chapter_04/chapter_04.tex
 Chapter 5.
-) [44
+) [47
 
 
 
@@ -2076,44 +2101,47 @@ Chapter 5.
 
  (./text/chapter_05/chapter_05.tex
 Chapter 6.
-) [45
-
-
-
-]
-\openout2 = `text/appendix.aux'.
-
- (./text/appendix.tex
-Appendix A.
-) [46
+) [48
 
 
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-273.
+275.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 273.
- [47
+(Font)              scaled to size 10.0pt on input line 275.
+ [49
 
 
 
-] [48]
+] [50]
+./ctufit-thesis.tex:276: Misplaced alignment tab character &.
+<argument> ...Quantitative Management (ITQM 2020 &
+                                                   2021): Developing Global ...
+l.276 
+      
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[51]
 \openout2 = `text/medium.aux'.
 
-
-(./text/medium.tex
+ (./text/medium.tex
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 12.0pt on input line 12.
-) [49
+) [52
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 277.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 277.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 279.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 279.
 
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
 fit-thesis.aux
@@ -2132,33 +2160,28 @@ t/chapter_04/chapter_04.aux)
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
 t/chapter_05/chapter_05.aux)
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
-t/appendix.aux)
-(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
 t/medium.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 277.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 277.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 279.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 279.
 Package rerunfilecheck Info: File `ctufit-thesis.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 \openout1 = `ctufit-thesis.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 277.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 279.
  ) 
 Here is how much of TeX's memory you used:
- 37448 strings out of 481239
- 664763 string characters out of 5920377
- 1421740 words of memory out of 5000000
- 51636 multiletter control sequences out of 15000+600000
+ 37523 strings out of 481239
+ 667065 string characters out of 5920377
+ 1421265 words of memory out of 5000000
+ 51691 multiletter control sequences out of 15000+600000
  746689 words of font info for 290 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,23n,70p,1766b,2078s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,23n,70p,1766b,2903s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-sc.enc}{/usr/
 share/texmf/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texlive/texmf-dist/fo
 nts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dv
@@ -2177,10 +2200,10 @@ e1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
 fonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
 Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (60 pages, 2023494 bytes).
+eX-master/out/ctufit-thesis.pdf (63 pages, 2717141 bytes).
 PDF statistics:
- 1034 PDF objects out of 1200 (max. 8388607)
- 912 compressed objects within 10 object streams
- 294 named destinations out of 1000 (max. 500000)
- 422 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1111 PDF objects out of 1200 (max. 8388607)
+ 978 compressed objects within 10 object streams
+ 312 named destinations out of 1000 (max. 500000)
+ 450 words of extra memory for PDF output out of 10000 (max. 10000000)
 
