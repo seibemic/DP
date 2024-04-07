@@ -96,12 +96,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.1}Problem definition}{47}{section.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Dynamic detection probability in video data}{47}{section.5.2}%
+\contentsline {section}{\numberline {5.2}Dynamic detection probability in video data}{48}{section.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{47}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{48}{section.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{47}{section.5.4}%
+\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{48}{section.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Experiments}{48}{chapter.6}%
+\contentsline {chapter}{\numberline {6}Experiments}{49}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Obsah příloh}{52}{appendix*.21}%
+\contentsline {chapter}{Obsah příloh}{53}{appendix*.22}%

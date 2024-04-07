@@ -2226,8 +2226,7 @@
     <bcf:citekey order="40">MaskRCNN2017</bcf:citekey>
     <bcf:citekey order="41">YOLORedmon2016</bcf:citekey>
     <bcf:citekey order="42">YOLORedmon2016</bcf:citekey>
-    <bcf:citekey order="43">IBM</bcf:citekey>
-    <bcf:citekey order="44">SemanticSegmentationGuo2022</bcf:citekey>
+    <bcf:citekey order="43">SemanticSegmentationGuo2022</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

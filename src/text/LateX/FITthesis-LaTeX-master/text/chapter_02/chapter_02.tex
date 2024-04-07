@@ -321,6 +321,7 @@ where $\lambda_K(S)$ denote the hyper-volume of S in units of K, which is usuall
 where $E$ and $\mathcal{T}$ are closed and bounded subsets of $R^n$ \cite{VoRFS2003}.
 
         \subsection{PHD filter}
+\label{sec:phdfilter}
 The PHD filter serves as an approximation devised to tackle the computational complexity inherent in the multi-target Bayes filter. Instead of tracking the complete posterior density of multi-target states over time, the PHD filter focuses on propagating the posterior intensity, which represents the first-order statistical moment of the posterior multi-target state \cite{mahler}. This operational strategy draws parallels with the constant gain Kalman filter, which tracks the first moment (mean) of the single-target state \cite{VoMaPHD2006}.
 
 For a Random finite set $X$ on $\mathcal{X}$ with probability distribution $P$, its first-order moment is a
@@ -385,6 +386,7 @@ ineffectivity awakening from the unknown association of measurements with correc
 a function of a single-target state space $\mathcal{X}$, thus the recursion is more computationally effective than \eqref{eq:chapman_kolmogorov_predict} and \eqref{eq:bayes_update} that in the case of the PHD filter operates on $\mathcal{F(X)}$. But in general it is not possible to come up with a closed-form solution for the PHD recursion.
 
         \subsubsection{GM-PHD for linear models}
+\label{sec:gmphdFilter}
 In this section we delve into details of multi-target linear PHD Gaussian models. With PHD recursions \eqref{eq:phdPrior} and \eqref{eq:phdPosterior} it is achievable to get an efficient multi-target closed-form solution for multi-target algorithms. This solution proposed by Vo and Ma in \cite{VoMaPHD2006} requires additional assumptions to the already proposed ones. Not only standard linear Gaussian model for each targets are assumed, but also the linear Gausssian multi-target model includes assumptions on the death, birth and detections.
 \begin{enumerate}[start=4]
     \item  Each target follows a linear Gaussian dynamical model and the sensor has a linear Gaussian measurement model, i.e., \label{as:phd_4}
