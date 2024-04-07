@@ -2226,7 +2226,21 @@
     <bcf:citekey order="40">MaskRCNN2017</bcf:citekey>
     <bcf:citekey order="41">YOLORedmon2016</bcf:citekey>
     <bcf:citekey order="42">YOLORedmon2016</bcf:citekey>
-    <bcf:citekey order="43">SemanticSegmentationGuo2022</bcf:citekey>
+    <bcf:citekey order="43">IBM</bcf:citekey>
+    <bcf:citekey order="44">RCNN2014</bcf:citekey>
+    <bcf:citekey order="45">FPNLin2017</bcf:citekey>
+    <bcf:citekey order="46">mohan2020efficientps</bcf:citekey>
+    <bcf:citekey order="47">zhang2019oanet</bcf:citekey>
+    <bcf:citekey order="48">kirillov2019panoptic</bcf:citekey>
+    <bcf:citekey order="49">xiong2019upsnet</bcf:citekey>
+    <bcf:citekey order="50">yang2019sognet</bcf:citekey>
+    <bcf:citekey order="51">wu2020bidirectional</bcf:citekey>
+    <bcf:citekey order="52">sun2019aunet</bcf:citekey>
+    <bcf:citekey order="53">otsu1979</bcf:citekey>
+    <bcf:citekey order="54">Edgedet1986</bcf:citekey>
+    <bcf:citekey order="55">Watershed1991</bcf:citekey>
+    <bcf:citekey order="56">RCNN2016</bcf:citekey>
+    <bcf:citekey order="57">ClusteringSeg1979</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

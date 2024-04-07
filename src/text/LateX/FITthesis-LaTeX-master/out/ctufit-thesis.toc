@@ -88,20 +88,32 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1.1}YOLO}{45}{subsection.4.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Object segmentation}{46}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Image segmentation}{46}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Segment anything}{46}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.1}Semantic segmentation}{47}{subsection.4.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Dynamic time and state varying detection probability}{47}{chapter.5}%
+\contentsline {subsection}{\numberline {4.2.2}Instance segmentation}{47}{subsection.4.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Problem definition}{47}{section.5.1}%
+\contentsline {subsection}{\numberline {4.2.3}Panoptic segmentation}{48}{subsection.4.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Dynamic detection probability in video data}{48}{section.5.2}%
+\contentsline {subsection}{\numberline {4.2.4}Traditional image segmentation}{49}{subsection.4.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{48}{section.5.3}%
+\contentsline {subsection}{\numberline {4.2.5}Deep learning image segmentation}{49}{subsection.4.2.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{48}{section.5.4}%
+\contentsline {subsubsection}{\numberline {4.2.5.1}Transformers}{50}{subsubsection.4.2.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Experiments}{49}{chapter.6}%
+\contentsline {subsection}{\numberline {4.2.6}Segment anything}{51}{subsection.4.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Obsah příloh}{53}{appendix*.22}%
+\contentsline {chapter}{\numberline {5}Dynamic time and state varying detection probability}{52}{chapter.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Problem definition}{52}{section.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Dynamic detection probability in video data}{53}{section.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{53}{section.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{53}{section.5.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Experiments}{54}{chapter.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Obsah příloh}{58}{appendix*.22}%

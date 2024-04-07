@@ -1315,6 +1315,10 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{IBM}
       \field{title}{What is image segmentation?}
+      \field{urlday}{4}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.ibm.com/topics/image-segmentation
       \endverb
@@ -1322,37 +1326,616 @@
       \verb https://www.ibm.com/topics/image-segmentation
       \endverb
     \endentry
-    \entry{SemanticSegmentationGuo2022}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=80d8406dd8954908ccff92567bba9aee}{%
-           family={Guo},
+    \entry{RCNN2014}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=bd5dadbe57bedc5957c19a3154c4d424}{%
+           family={Girshick},
            familyi={G\bibinitperiod},
-           given={Yuanhui},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=b7b81d286a470faef1c4b6e5a9aa2b6c}{%
-           family={Yang},
-           familyi={Y\bibinitperiod},
-           given={Biao},
-           giveni={B\bibinitperiod}}}%
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+        {{hash=913090a0d65c7a300c602f5a5a5a61e3}{%
+           family={Donahue},
+           familyi={D\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+        {{hash=90180e1a30742e0d15328bfe637c2ef4}{%
+           family={Darrell},
+           familyi={D\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=c75a5377b6dc5213831576e88ffe553c}{%
+           family={Malik},
+           familyi={M\bibinitperiod},
+           given={Jitendra},
+           giveni={J\bibinitperiod}}}%
       }
-      \strng{namehash}{4b346a533bcf16b229f16473fc763b49}
-      \strng{fullhash}{4b346a533bcf16b229f16473fc763b49}
-      \strng{bibnamehash}{4b346a533bcf16b229f16473fc763b49}
-      \strng{authorbibnamehash}{4b346a533bcf16b229f16473fc763b49}
-      \strng{authornamehash}{4b346a533bcf16b229f16473fc763b49}
-      \strng{authorfullhash}{4b346a533bcf16b229f16473fc763b49}
+      \strng{namehash}{4c9093705c2d81c64ebf3509f96715c5}
+      \strng{fullhash}{9147daa2f6a058d5b8880ff5cf38abd6}
+      \strng{bibnamehash}{9147daa2f6a058d5b8880ff5cf38abd6}
+      \strng{authorbibnamehash}{9147daa2f6a058d5b8880ff5cf38abd6}
+      \strng{authornamehash}{4c9093705c2d81c64ebf3509f96715c5}
+      \strng{authorfullhash}{9147daa2f6a058d5b8880ff5cf38abd6}
+      \field{extraname}{1}
       \field{sortinit}{4}
       \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{2022 International Conference on Machine Learning, Cloud Computing and Intelligent Mining (MLCCIM)}
-      \field{title}{A Survey of Semantic Segmentation Methods in Traffic Scenarios}
-      \field{year}{2022}
-      \field{pages}{452\bibrangedash 457}
-      \range{pages}{6}
+      \field{booktitle}{2014 IEEE Conference on Computer Vision and Pattern Recognition}
+      \field{title}{Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation}
+      \field{year}{2014}
+      \field{pages}{580\bibrangedash 587}
+      \range{pages}{8}
       \verb{doi}
-      \verb 10.1109/MLCCIM55934.2022.00083
+      \verb 10.1109/CVPR.2014.81
       \endverb
+    \endentry
+    \entry{FPNLin2017}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=08f925fe4692d130a1d7cb7d94483351}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Tsung-Yi},
+           giveni={T\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=ecd149fdcb3e0503881d49e545744c3d}{%
+           family={Dollár},
+           familyi={D\bibinitperiod},
+           given={Piotr},
+           giveni={P\bibinitperiod}}}%
+        {{hash=bd5dadbe57bedc5957c19a3154c4d424}{%
+           family={Girshick},
+           familyi={G\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+        {{hash=6b4b60e909e78633945f3f9c9dc83e01}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Kaiming},
+           giveni={K\bibinitperiod}}}%
+        {{hash=9cadf8ca1dd9b5f5a830ba2059b2517f}{%
+           family={Hariharan},
+           familyi={H\bibinitperiod},
+           given={Bharath},
+           giveni={B\bibinitperiod}}}%
+        {{hash=044d1db5259b74e4975282f599d8e767}{%
+           family={Belongie},
+           familyi={B\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{810de9a8158d576bdd055e689072c3b1}
+      \strng{fullhash}{407b643cc48d7ba78686be05e508bfa5}
+      \strng{bibnamehash}{407b643cc48d7ba78686be05e508bfa5}
+      \strng{authorbibnamehash}{407b643cc48d7ba78686be05e508bfa5}
+      \strng{authornamehash}{810de9a8158d576bdd055e689072c3b1}
+      \strng{authorfullhash}{407b643cc48d7ba78686be05e508bfa5}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{title}{Feature Pyramid Networks for Object Detection}
+      \field{year}{2017}
+      \field{pages}{936\bibrangedash 944}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/CVPR.2017.106
+      \endverb
+    \endentry
+    \entry{mohan2020efficientps}{article}{}
+      \name{author}{2}{}{%
+        {{hash=39d7f617a582eac56cb082df11b29d8c}{%
+           family={Mohan},
+           familyi={M\bibinitperiod},
+           given={Rohit},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e617bbf6770fb9b5d306c86b067abb46}{%
+           family={Valada},
+           familyi={V\bibinitperiod},
+           given={Abhinav},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9728ac08f7556bdd43a5f8615fafddc5}
+      \strng{fullhash}{9728ac08f7556bdd43a5f8615fafddc5}
+      \strng{bibnamehash}{9728ac08f7556bdd43a5f8615fafddc5}
+      \strng{authorbibnamehash}{9728ac08f7556bdd43a5f8615fafddc5}
+      \strng{authornamehash}{9728ac08f7556bdd43a5f8615fafddc5}
+      \strng{authorfullhash}{9728ac08f7556bdd43a5f8615fafddc5}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Computer Vision (IJCV)}
+      \field{title}{Efficientps: Efficient panoptic segmentation}
+      \field{year}{2021}
+    \endentry
+    \entry{zhang2019oanet}{article}{}
+      \name{author}{9}{}{%
+        {{hash=edf050fda17fc49e5a98daaa4ebdef8e}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Jiahui},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2b197db0dc7548785fd36609c3867e2b}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Dawei},
+           giveni={D\bibinitperiod}}}%
+        {{hash=de5a813d8970fdf590c3bdf244d0f97f}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Zixin},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=6d1816cd3a74c457a2df5497339fbbe3}{%
+           family={Yao},
+           familyi={Y\bibinitperiod},
+           given={Anbang},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2b37b3016aa8f759b5f3c3f37dedec23}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Lei},
+           giveni={L\bibinitperiod}}}%
+        {{hash=faed59606b0120b93a9142f6de610f7b}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Tianwei},
+           giveni={T\bibinitperiod}}}%
+        {{hash=5f0ea24c10429c2ba6d3430450589690}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yurong},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b0a7fc1741645deb23f3f539c91d998d}{%
+           family={Quan},
+           familyi={Q\bibinitperiod},
+           given={Long},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ec6d0d52ca3e14cead10e0b6613ce869}{%
+           family={Liao},
+           familyi={L\bibinitperiod},
+           given={Hongen},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{f6a7574cea8ad858d0dc7006caa7c704}
+      \strng{fullhash}{80b61c8ed09b624e13e84eb6c7a034e6}
+      \strng{bibnamehash}{80b61c8ed09b624e13e84eb6c7a034e6}
+      \strng{authorbibnamehash}{80b61c8ed09b624e13e84eb6c7a034e6}
+      \strng{authornamehash}{f6a7574cea8ad858d0dc7006caa7c704}
+      \strng{authorfullhash}{80b61c8ed09b624e13e84eb6c7a034e6}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Conference on Computer Vision (ICCV)}
+      \field{title}{Learning Two-View Correspondences and Geometry Using Order-Aware Network}
+      \field{year}{2019}
+    \endentry
+    \entry{kirillov2019panoptic}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=28c5859f568975f174c8668976ed369d}{%
+           family={Kirillov},
+           familyi={K\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=bd5dadbe57bedc5957c19a3154c4d424}{%
+           family={Girshick},
+           familyi={G\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+        {{hash=6b4b60e909e78633945f3f9c9dc83e01}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Kaiming},
+           giveni={K\bibinitperiod}}}%
+        {{hash=ecd149fdcb3e0503881d49e545744c3d}{%
+           family={Dollár},
+           familyi={D\bibinitperiod},
+           given={Piotr},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{e8bbe43ab183390ab62a9adf939d2dd1}
+      \strng{fullhash}{3ffcfcec3e42f982fac07ec8841093d7}
+      \strng{bibnamehash}{3ffcfcec3e42f982fac07ec8841093d7}
+      \strng{authorbibnamehash}{3ffcfcec3e42f982fac07ec8841093d7}
+      \strng{authornamehash}{e8bbe43ab183390ab62a9adf939d2dd1}
+      \strng{authorfullhash}{3ffcfcec3e42f982fac07ec8841093d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{Panoptic Feature Pyramid Networks}
+      \field{year}{2019}
+      \verb{eprint}
+      \verb 1901.02446
+      \endverb
+    \endentry
+    \entry{xiong2019upsnet}{misc}{}
+      \name{author}{7}{}{%
+        {{hash=f012ee418555d50074adfa68fdfb1aa6}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Yuwen},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=29e06af1da90bf92f1d6c73ba097d1c1}{%
+           family={Liao},
+           familyi={L\bibinitperiod},
+           given={Renjie},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b2c00b2ccbbe98f22709d2cb8ccc0bba}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Hengshuang},
+           giveni={H\bibinitperiod}}}%
+        {{hash=f83dcd88cba19bb8171f6d8c52ec9a60}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Rui},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b2c6e382429e61fe370192dddc891d04}{%
+           family={Bai},
+           familyi={B\bibinitperiod},
+           given={Min},
+           giveni={M\bibinitperiod}}}%
+        {{hash=751719e3a408c6e623f8d2812dbc9dd4}{%
+           family={Yumer},
+           familyi={Y\bibinitperiod},
+           given={Ersin},
+           giveni={E\bibinitperiod}}}%
+        {{hash=bc58c1e920023b071a4d0695299cf804}{%
+           family={Urtasun},
+           familyi={U\bibinitperiod},
+           given={Raquel},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{eb9203f2ece2b33a3d19e6c99b8b1ade}
+      \strng{fullhash}{27178abb012aae870555129e4dbbd921}
+      \strng{bibnamehash}{27178abb012aae870555129e4dbbd921}
+      \strng{authorbibnamehash}{27178abb012aae870555129e4dbbd921}
+      \strng{authornamehash}{eb9203f2ece2b33a3d19e6c99b8b1ade}
+      \strng{authorfullhash}{27178abb012aae870555129e4dbbd921}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{UPSNet: A Unified Panoptic Segmentation Network}
+      \field{year}{2019}
+      \verb{eprint}
+      \verb 1901.03784
+      \endverb
+    \endentry
+    \entry{yang2019sognet}{misc}{}
+      \name{author}{6}{}{%
+        {{hash=2f53c8328680fa976fc790ff4723b1b8}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Yibo},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=5012ff87ce2ac6ff494ff1b58dad6975}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Hongyang},
+           giveni={H\bibinitperiod}}}%
+        {{hash=0d36a6690c1ecc71addd182336c05c16}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Xia},
+           giveni={X\bibinitperiod}}}%
+        {{hash=8f2e1ace756e89c527665834f87d6820}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Qijie},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=31604fb7d8d61e0ce14c453eaab8d89d}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Jianlong},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d08dc1d35b0b9ca9dee8f69661ecd33c}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Zhouchen},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{29deb13465eb9c095cfd6b09a64bec45}
+      \strng{fullhash}{1090f4ca7dd2965f3ecad1bf79c3de88}
+      \strng{bibnamehash}{1090f4ca7dd2965f3ecad1bf79c3de88}
+      \strng{authorbibnamehash}{1090f4ca7dd2965f3ecad1bf79c3de88}
+      \strng{authornamehash}{29deb13465eb9c095cfd6b09a64bec45}
+      \strng{authorfullhash}{1090f4ca7dd2965f3ecad1bf79c3de88}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{SOGNet: Scene Overlap Graph Network for Panoptic Segmentation}
+      \field{year}{2019}
+      \verb{eprint}
+      \verb 1911.07527
+      \endverb
+    \endentry
+    \entry{wu2020bidirectional}{misc}{}
+      \name{author}{7}{}{%
+        {{hash=756f73e6a450d1aaa52ee806eb6834c5}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Yangxin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=042d42257daf563ed24d72c386fa14e0}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Gengwei},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b4207adc16f094b1b2057bea0e64623f}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Yiming},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e469a39edc7085724731ca95469aefdd}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={Xiajun},
+           giveni={X\bibinitperiod}}}%
+        {{hash=01cad406e363315b7c586331e7b866b3}{%
+           family={Gong},
+           familyi={G\bibinitperiod},
+           given={Ke},
+           giveni={K\bibinitperiod}}}%
+        {{hash=ed0317356692f8fc4be95fe54ddaa3df}{%
+           family={Liang},
+           familyi={L\bibinitperiod},
+           given={Xiaodan},
+           giveni={X\bibinitperiod}}}%
+        {{hash=d650bffada236f784875d868dd6c39b3}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Liang},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{58f78df58afc1ee4151e7765d25e88b6}
+      \strng{fullhash}{34bc56bb6c803ac7ee5c65c34ac756b5}
+      \strng{bibnamehash}{34bc56bb6c803ac7ee5c65c34ac756b5}
+      \strng{authorbibnamehash}{34bc56bb6c803ac7ee5c65c34ac756b5}
+      \strng{authornamehash}{58f78df58afc1ee4151e7765d25e88b6}
+      \strng{authorfullhash}{34bc56bb6c803ac7ee5c65c34ac756b5}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{Bidirectional Graph Reasoning Network for Panoptic Segmentation}
+      \field{year}{2020}
+      \verb{eprint}
+      \verb 2004.06272
+      \endverb
+    \endentry
+    \entry{sun2019aunet}{misc}{}
+      \name{author}{6}{}{%
+        {{hash=fc4d4f6080dbd569718f9709acaa7768}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Hui},
+           giveni={H\bibinitperiod}}}%
+        {{hash=0fa86ce76f38abb4293116ef56b787fa}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Cheng},
+           giveni={C\bibinitperiod}}}%
+        {{hash=f12c6cb0e30307aae59c34ec2f6444fd}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Boqiang},
+           giveni={B\bibinitperiod}}}%
+        {{hash=74b510706a89844aa9564f6b838b7696}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Hairong},
+           giveni={H\bibinitperiod}}}%
+        {{hash=6b4e2fe75298007584ab5338af55056b}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={David\bibnamedelima Dagan},
+           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=735e3709d5d32e7c90dad41161f7db97}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Shanshan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{b971395b83e552a7057f35c7ac7b698c}
+      \strng{fullhash}{a57e1e0e38feea515a27f7343088b4b6}
+      \strng{bibnamehash}{a57e1e0e38feea515a27f7343088b4b6}
+      \strng{authorbibnamehash}{a57e1e0e38feea515a27f7343088b4b6}
+      \strng{authornamehash}{b971395b83e552a7057f35c7ac7b698c}
+      \strng{authorfullhash}{a57e1e0e38feea515a27f7343088b4b6}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{AUNet: Attention-guided dense-upsampling networks for breast mass segmentation in whole mammograms}
+      \field{year}{2019}
+      \verb{eprint}
+      \verb 1810.10151
+      \endverb
+    \endentry
+    \entry{otsu1979}{article}{}
+      \name{author}{1}{}{%
+        {{hash=4c9490b4888796e772e507d10bb89b3f}{%
+           family={Otsu},
+           familyi={O\bibinitperiod},
+           given={Nobuyuki},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{4c9490b4888796e772e507d10bb89b3f}
+      \strng{fullhash}{4c9490b4888796e772e507d10bb89b3f}
+      \strng{bibnamehash}{4c9490b4888796e772e507d10bb89b3f}
+      \strng{authorbibnamehash}{4c9490b4888796e772e507d10bb89b3f}
+      \strng{authornamehash}{4c9490b4888796e772e507d10bb89b3f}
+      \strng{authorfullhash}{4c9490b4888796e772e507d10bb89b3f}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Systems, Man, and Cybernetics}
+      \field{number}{1}
+      \field{title}{A Threshold Selection Method from Gray-Level Histograms}
+      \field{volume}{9}
+      \field{year}{1979}
+      \field{pages}{62\bibrangedash 66}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/TSMC.1979.4310076
+      \endverb
+    \endentry
+    \entry{Edgedet1986}{article}{}
+      \name{author}{1}{}{%
+        {{hash=fa344b67077711bfaa0525254de2977a}{%
+           family={Canny},
+           familyi={C\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{fa344b67077711bfaa0525254de2977a}
+      \strng{fullhash}{fa344b67077711bfaa0525254de2977a}
+      \strng{bibnamehash}{fa344b67077711bfaa0525254de2977a}
+      \strng{authorbibnamehash}{fa344b67077711bfaa0525254de2977a}
+      \strng{authornamehash}{fa344b67077711bfaa0525254de2977a}
+      \strng{authorfullhash}{fa344b67077711bfaa0525254de2977a}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+      \field{number}{6}
+      \field{title}{A Computational Approach to Edge Detection}
+      \field{volume}{PAMI-8}
+      \field{year}{1986}
+      \field{pages}{679\bibrangedash 698}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1109/TPAMI.1986.4767851
+      \endverb
+    \endentry
+    \entry{Watershed1991}{article}{}
+      \name{author}{2}{}{%
+        {{hash=776bd86fd18881aaacece58ff03164ed}{%
+           family={Vincent},
+           familyi={V\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=3c250b7275b2d28a4fc4b9a0b1b7d80e}{%
+           family={Soille},
+           familyi={S\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{a316a51e115ee7a125591f0cbae0556f}
+      \strng{fullhash}{a316a51e115ee7a125591f0cbae0556f}
+      \strng{bibnamehash}{a316a51e115ee7a125591f0cbae0556f}
+      \strng{authorbibnamehash}{a316a51e115ee7a125591f0cbae0556f}
+      \strng{authornamehash}{a316a51e115ee7a125591f0cbae0556f}
+      \strng{authorfullhash}{a316a51e115ee7a125591f0cbae0556f}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+      \field{number}{6}
+      \field{title}{Watersheds in digital spaces: an efficient algorithm based on immersion simulations}
+      \field{volume}{13}
+      \field{year}{1991}
+      \field{pages}{583\bibrangedash 598}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1109/34.87344
+      \endverb
+    \endentry
+    \entry{RCNN2016}{article}{}
+      \name{author}{4}{}{%
+        {{hash=bd5dadbe57bedc5957c19a3154c4d424}{%
+           family={Girshick},
+           familyi={G\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+        {{hash=913090a0d65c7a300c602f5a5a5a61e3}{%
+           family={Donahue},
+           familyi={D\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+        {{hash=90180e1a30742e0d15328bfe637c2ef4}{%
+           family={Darrell},
+           familyi={D\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=c75a5377b6dc5213831576e88ffe553c}{%
+           family={Malik},
+           familyi={M\bibinitperiod},
+           given={Jitendra},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{4c9093705c2d81c64ebf3509f96715c5}
+      \strng{fullhash}{9147daa2f6a058d5b8880ff5cf38abd6}
+      \strng{bibnamehash}{9147daa2f6a058d5b8880ff5cf38abd6}
+      \strng{authorbibnamehash}{9147daa2f6a058d5b8880ff5cf38abd6}
+      \strng{authornamehash}{4c9093705c2d81c64ebf3509f96715c5}
+      \strng{authorfullhash}{9147daa2f6a058d5b8880ff5cf38abd6}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+      \field{number}{1}
+      \field{title}{Region-Based Convolutional Networks for Accurate Object Detection and Segmentation}
+      \field{volume}{38}
+      \field{year}{2016}
+      \field{pages}{142\bibrangedash 158}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1109/TPAMI.2015.2437384
+      \endverb
+    \endentry
+    \entry{ClusteringSeg1979}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a16ad1d7e92ebcf4b52da6987d00a22b}{%
+           family={Coleman},
+           familyi={C\bibinitperiod},
+           given={G.B.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=5dd706a462c6591788e73d0d4a28dee9}{%
+           family={Andrews},
+           familyi={A\bibinitperiod},
+           given={H.C.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{b0e61ba8ef9bab0eb217ed917f3e83c6}
+      \strng{fullhash}{b0e61ba8ef9bab0eb217ed917f3e83c6}
+      \strng{bibnamehash}{b0e61ba8ef9bab0eb217ed917f3e83c6}
+      \strng{authorbibnamehash}{b0e61ba8ef9bab0eb217ed917f3e83c6}
+      \strng{authornamehash}{b0e61ba8ef9bab0eb217ed917f3e83c6}
+      \strng{authorfullhash}{b0e61ba8ef9bab0eb217ed917f3e83c6}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the IEEE}
+      \field{number}{5}
+      \field{title}{Image segmentation by clustering}
+      \field{volume}{67}
+      \field{year}{1979}
+      \field{pages}{773\bibrangedash 785}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/PROC.1979.11327
+      \endverb
+      \keyw{Image segmentation;Clustering algorithms;Image recognition;Mathematical model;Prototypes;Humans;Image converters;Scattering parameters;Performance evaluation;Psychology}
     \endentry
   \enddatalist
 \endrefsection

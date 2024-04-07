@@ -1,5 +1,5 @@
 \chapter{Object detection and segmentation}
-In this thesis we focus on tracking objects in video data using target tracking algorithms with dynamic detection probability due to the existence of obstacles that cause sensors to not detect objects in certain situations. But first, we need to have a sensor for detecting objects in a
+In this thesis we focus on tracking objects in video data using target tracking algorithms with dynamic detection probability due to the existence of obstacles that cause sensors to not detect objects in certain situations. But first, we need to have a sensor to detect objects in a
 frame.
 
 
@@ -86,14 +86,135 @@ Compared to traditional object detection methodologies such as region-based conv
 \end{figure}
 
 
-\section{Object segmentation}
-Object segmentation involves partitioning an image into semantically meaningful regions and associating each region
-with a specific object instance. Unlike object detection, which identifies objects at the bounding box level, segmentation provides pixel-level delineation of object boundaries. This fine-grained information is invaluable for tasks such as image understanding, scene understanding and image manipulation.
+\section{Image segmentation}
+Image segmentation, a fundamental technique in computer vision, involves dividing a digital image into distinct pixel groups called segments. By breaking down the visual data into manageable segments, image segmentation facilitates more efficient and sophisticated image processing.
 
-Semantic segmentation assigns a class label to each pixel in the image, effectively partitioning the image into regions corresponding to different object categories. Fully Convolutional Networks (FCNs) and their variants, such as U-Net and DeepLab, have demonstrated remarkable success in semantic segmentation tasks by leveraging the power of convolutional neural networks for dense pixel-wise predictions \cite{SemanticSegmentationGuo2022}.
+The methods employed for image segmentation vary from straightforward heuristic approaches to cutting-edge deep learning techniques. Traditional algorithms typically analyze basic visual attributes such as color and brightness to delineate object boundaries and background regions. Machine learning plays a pivotal role in this domain by training models on labeled datasets, allowing them to accurately classify objects and regions within images.
 
-Instance segmentation, on the other hand, extends semantic segmentation by distinguishing between individual object instances of the same class. This task requires not only segmenting objects but also differentiating between instances of the same class, even if they overlap or occlude each other. Mask R-CNN, an extension of Faster R-CNN, combines region-based object detection with instance segmentation, achieving state-of-the-art results in both tasks.
+With its versatility and practical applications, image segmentation finds widespread use across artificial intelligence scenarios. Its applications span from assisting medical diagnoses through imaging to enabling automation in robotics and self-driving vehicles. Furthermore, it plays a crucial role in tasks such as identifying objects within satellite imagery.
 
-Despite significant advancements, object detection and segmentation still face several challenges. These include handling scale variations, occlusions, cluttered backgrounds, and fine-grained object attributes. Additionally, achieving real-time performance while maintaining high accuracy remains a critical goal for many applications.
+There are three main task types in image segmentation: semantic segmentation, instance segmentation and panoptic segmentation \cite{IBM}.
+The distinction between various types of image segmentation tasks hinges on how they handle semantic classes, which are specific categories assigned to individual pixels within an image.
+
+In the realm of computer vision, semantic classes are broadly categorized into two types, each requiring distinct segmentation techniques for accurate results.
+\begin{itemize}
+  \item \textit{Things} represent classes of objects characterized by identifiable shapes, such as \textit{car, tree,} or \textit{person}. These classes typically consist of discrete instances with consistent sizes and distinguishable constituent parts. For instance, all cars have wheels, which are distinct from the car itself.
+  \item On the other hand, \textit{stuff} refers to semantic classes with amorphous shapes and variable sizes, like sky, water, or grass. Unlike \textit{things}, \textit{stuff} lacks clearly defined, countable individual instances and does not possess distinct parts. For example, both a single blade of grass and an entire field of grass fall under the category of \textit{grass}.
+\end{itemize}
+In certain image contexts, some classes can straddle the line between being considered \textit{things} or \textit{stuff}. For instance, a large gathering of people might be interpreted either as multiple people -- each being a clearly shaped, countable thing, or as a singular, indistinct person.
+
+While much of the focus in object detection typically centers on \textit{thing} classes, it is crucial to recognize that \textit{stuff}, such as sky, walls, floors, and ground constitutes the bulk of our visual environment. \textit{Stuff} serves as crucial contextual information for identifying \textit{things}. For instance, a metallic object on the road is likely a car, while a blue background behind an object is indicative of water if it is a boat or sky if it is a plane. This interplay between \textit{stuff} and \textit{things} holds particular significance for deep learning models.
+
+  \subsection{Semantic segmentation}
+Semantic segmentation represents the most straightforward form of image segmentation. In this approach, a semantic segmentation model assigns a semantic class to every pixel in an image, without providing additional context or information, such as the identification of specific objects.
+
+Unlike more nuanced segmentation techniques, semantic segmentation treats all pixels uniformly as \textit{stuff} without distinguishing between \textit{stuff} and \textit{things}. This means that it does not differentiate between different types of objects within the same class.
+
+For instance, imagine a semantic segmentation model trained to analyze urban scenes. It would generate segmentation masks outlining the boundaries of various classes of \textit{things} and \textit{stuff}. However, it would not differentiate between individual instances of the same class. For example, if there are multiple trees in a forest, the model would likely treat them as one continuous tree segment rather than recognizing each individual tree separately.
+
+\subsection{Instance segmentation}
+Instance segmentation represents a departure from the approach of semantic segmentation. While semantic segmentation focuses solely on assigning semantic classes to each pixel without distinguishing between individual instances, instance segmentation precisely outlines the shape of each separate object instance within an image.
+
+In essence, instance segmentation segregates \textit{things} from \textit{stuff}, disregarding the latter, and can be viewed as a more sophisticated version of object detection. Instead of providing rough bounding boxes, instance segmentation furnishes precise segmentation masks for each object instance.
+
+This task poses greater challenges compared to semantic segmentation. Even when instances of the same class overlap or touch each other, instance segmentation models must accurately separate and delineate the shape of each instance. In contrast, semantic segmentation models may simply group them together.
+
+Instance segmentation algorithms typically adopt either a two-stage or one-shot methodology to address the task.
+
+Two-stage models, exemplified by Region-based Convolutional Neural Networks \cite{RCNN2014}, initially conduct conventional object detection to produce bounding boxes for each potential instance. Subsequently, they refine segmentation and classification within these bounding boxes to precisely delineate each object instance.
+
+Conversely, one-shot models, such as YOLO, streamline the process by simultaneously performing object detection, classification, and segmentation. This approach enables real-time instance segmentation.
+
+While one-shot methods boast faster processing speeds, they often sacrifice some accuracy. On the other hand, two-stage approaches prioritize accuracy but may be slower due to the additional refinement steps.
+
+  \subsection{Panoptic segmentation}
+Panoptic segmentation represents a synthesis of semantic and instance segmentation methodologies, offering a comprehensive understanding of an image.
+
+In panoptic segmentation, each pixel receives both a semantic label and an instance ID. Pixels with the same label and ID are assigned to the same object instance. For \textit{stuff} pixels, the instance ID is disregarded.
+
+This approach provides computer vision systems with a complete and cohesive interpretation of an image, combining the benefits of both semantic and instance segmentation. However, achieving panoptic segmentation consistently and efficiently presents significant computational challenges. Despite its evident appeal, realizing panoptic segmentation in a manner that balances accuracy and computational efficiency remains a formidable task.
+
+The challenge in achieving panoptic segmentation lies in reconciling the conflicting approaches of semantic and instance segmentation models. Semantic segmentation treats all pixels uniformly as \textit{stuff}, disregarding individual instances of objects, while instance segmentation focuses solely on isolating individual objects, ignoring \textit{stuff}. Integrating these methodologies proves difficult as neither model can effectively take on the responsibilities of the other.
+
+Early attempts at panoptic segmentation involved combining separate semantic and instance segmentation models, followed by a post-processing phase to merge their outputs. However, this approach encountered two significant drawbacks: it demanded substantial computational resources and struggled with inconsistencies between the data produced by the semantic segmentation network and that produced by the instance segmentation network.
+
+Recent advancements in panoptic segmentation architectures aim to overcome these limitations through a more unified deep learning approach. Many of these architectures utilize a common backbone network, such as a feature pyramid network (FPN) \cite{FPNLin2017}, to extract features from the input image. These features are then fed into parallel branches, such as a foreground branch and a background branch, or a semantic head and an instance head. The outputs from each branch are merged using a weighted system to produce the final segmentation. Notable proposed architectures include EfficientPS \cite{mohan2020efficientps}, OANet \cite{zhang2019oanet}, PanopticFPN \cite{kirillov2019panoptic}, UPSNet \cite{xiong2019upsnet}, SOGNet \cite{yang2019sognet}, BGRNet \cite{wu2020bidirectional}, AUNet \cite{sun2019aunet} and others.
+
+\subsection{Traditional image segmentation}
+Traditional image segmentation techniques leverage pixel color values and related characteristics, such as brightness, contrast, or intensity, for feature extraction. These methods are often trained with simple machine learning algorithms and are particularly useful for tasks like semantic classification. Despite their limitations in precision compared to deep learning-based approaches, traditional methods offer advantages in terms of lower cost and computational demands, allowing them to efficiently solve certain problems.
+
+Some common traditional image segmentation techniques include:
+\begin{enumerate}
+  \item \textbf{Thresholding:} Thresholding methods create binary images by classifying pixels based on whether their intensity exceeds or falls below a predetermined threshold value. Otsu's method is frequently used to identify the threshold value that minimizes intra-class variation \cite{otsu1979}.
+  \item \textbf{Histograms:} Histograms plot the frequency of specific pixel values in an image and are often employed to define thresholds. For instance, histograms can infer background pixel values, aiding in the isolation of object pixels.
+  \item \textbf{Edge detection:} Edge detection techniques identify object boundaries or classes by detecting abrupt changes in brightness or contrast \cite{Edgedet1986}.
+  \item \textbf{Watersheds:} Watershed algorithms \cite{Watershed1991} convert images to grayscale and generate a topographic map where each pixel's elevation is determined by its brightness. Regions, boundaries, and objects can be inferred from the formation of valleys, ridges, and catchment basins.
+  \item \textbf{Region-based segmentation:} Region-growing algorithms \cite{RCNN2016} initiate segmentation with one or more seed pixels, progressively grouping neighboring pixels with similar characteristics. These algorithms can be either agglomerative or divisive.
+  \item \textbf{Clustering-based segmentation:} Clustering algorithms \cite{ClusteringSeg1979}, an unsupervised learning technique, partition visual data into clusters of pixels with similar values. One popular variant is K-means clustering, where k represents the number of clusters. In this method, pixel values are treated as data points, and $k$ random points are selected as the centroids of clusters. Each pixel is then assigned to the nearest centroid based on similarity. Centroids are iteratively relocated to the mean of each cluster until convergence, resulting in stabilized clusters.
+\end{enumerate}
+
+\subsection{Deep learning image segmentation}
+Trained on meticulously annotated datasets, deep learning image segmentation models harness the power of neural networks to uncover underlying patterns within visual data. These models discern salient features crucial for tasks such as classification, detection, and segmentation.
+
+Despite their higher computational requirements and longer training times, deep learning models consistently outperform traditional approaches, serving as the cornerstone for ongoing advancements in computer vision.
+
+Some prominent deep learning models utilized in image segmentation include:
+
+\begin{enumerate}
+  \item \textbf{Fully Convolutional Networks:} FCNs, commonly employed for semantic segmentation, are a variant of convolutional neural networks characterized by flexible layers. In FCNs, an encoder network processes visual input through convolutional layers to extract pertinent features for segmentation or classification. The compressed feature data is then passed through decoder layers to upsample and reconstruct the input image along with segmentation masks.
+  \item \textbf{U-Nets:} U-Nets adapt the FCN architecture to mitigate data loss during downsampling by incorporating skip connections. These connections enable the preservation of finer details by selectively bypassing certain convolutional layers as information propagates through the network. The name "U-Net" derives from the shape of diagrams illustrating its layered arrangement.
+  \item \textbf{Deeplab:} Similar to U-Nets, Deeplab modifies the FCN architecture. In addition to utilizing skip connections, Deeplab employs dilated (or "atrous") convolution to produce larger output maps without requiring additional computational resources.
+  \item \textbf{Mask R-CNNs:} Mask R-CNNs stand out as a leading model for instance segmentation. These models integrate a region proposal network (RPN), responsible for generating bounding boxes for potential instances, with an FCN-based "mask head" that produces segmentation masks within each confirmed bounding box.
+  \item \textbf{Transformers:} Inspired by the success of transformer models in natural language processing, newer models like the Vision Transformer (ViT) employ attention mechanisms in lieu of convolutional layers. These models have demonstrated comparable or superior performance to CNNs for various computer vision tasks.
+\end{enumerate}
+
+\subsubsection{Transformers}
+Inspired by the success of transformer models in natural language processing, newer models like the Vision Transformer (ViT) employ attention mechanisms in lieu of convolutional layers. These models have demonstrated comparable or superior performance to CNNs for various computer vision tasks.
+
+Transformers consist of a stack of identical layers, typically comprising an encoder and a decoder. The encoder processes the input sequence, while the decoder generates the output sequence.
+
+The core of the Transformer architecture lies in its self-attention mechanism. This mechanism enables each token in the input sequence to attend to every other token, learning contextual relationships and dependencies. By computing attention scores between all pairs of tokens and taking weighted sums of their embeddings, the Transformer can effectively capture long-range dependencies and dependencies between distant tokens.
+
+To enhance the expressiveness of self-attention, Transformers employ multi-head attention mechanisms. Instead of computing attention once, multi-head attention computes attention multiple times in parallel, each with its set of learnable parameters. This allows the model to attend to different aspects of the input sequence simultaneously, facilitating richer representations and improved performance.
+
+Unlike sequential models, Transformers do not inherently encode the positional information of tokens. To address this limitation, positional encoding is added to the input embeddings to convey the position of each token in the sequence. This positional information is crucial for the Transformer to distinguish between tokens with the same content but different positions within the sequence.
+
+In addition to self-attention layers, Transformers incorporate feedforward neural networks (FNNs) within each layer. These FNNs consist of multiple fully connected layers with non-linear activation functions, enabling the model to capture complex interactions and transformations within the input data.
+
+To stabilize training and facilitate gradient flow, Transformers employ layer normalization and residual connections within each layer. Layer normalization normalizes the activations across feature dimensions, while residual connections enable the direct flow of gradients through the network, mitigating the vanishing gradient problem.
+
+During training, Transformers are optimized using backpropagation and gradient-based optimization algorithms, such as Adam or SGD, to minimize a predefined loss function. By iteratively updating the parameters of the model based on the disparity between the predicted outputs and the ground truth labels, Transformers learn to encode and generate meaningful representations of input sequences, enabling them to excel in various NLP tasks and beyond.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%Object segmentation involves partitioning an image into semantically meaningful regions and associating each region with a specific object instance. Unlike object detection, which identifies objects at the bounding box level, segmentation provides pixel-level delineation of object boundaries. This fine-grained information is invaluable for tasks such as image understanding, scene understanding and image manipulation.
+
+%Semantic segmentation assigns a class label to each pixel in the image, effectively partitioning the image into regions corresponding to different object categories. Fully Convolutional Networks (FCNs) and their variants, such as U-Net and DeepLab, have demonstrated remarkable success in semantic segmentation tasks by leveraging the power of convolutional neural networks for dense pixel-wise predictions \cite{SemanticSegmentationGuo2022}.
+
+%Instance segmentation, on the other hand, extends semantic segmentation by distinguishing between individual object instances of the same class. This task requires not only segmenting objects but also differentiating between instances of the same class, even if they overlap or occlude each other. Mask R-CNN, an extension of Faster R-CNN, combines region-based object detection with instance segmentation, achieving state-of-the-art results in both tasks.
+
+%Despite significant advancements, object detection and segmentation still face several challenges. These include handling scale variations, occlusions, cluttered backgrounds, and fine-grained object attributes. Additionally, achieving real-time performance while maintaining high accuracy remains a critical goal for many applications.
 
   \subsection{Segment anything}
