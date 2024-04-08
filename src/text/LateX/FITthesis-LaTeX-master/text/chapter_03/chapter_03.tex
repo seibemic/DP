@@ -99,7 +99,8 @@ The distinction between various types of image segmentation tasks hinges on how 
 In the realm of computer vision, semantic classes are broadly categorized into two types, each requiring distinct segmentation techniques for accurate results.
 \begin{itemize}
   \item \textit{Things} represent classes of objects characterized by identifiable shapes, such as \textit{car, tree,} or \textit{person}. These classes typically consist of discrete instances with consistent sizes and distinguishable constituent parts. For instance, all cars have wheels, which are distinct from the car itself.
-  \item On the other hand, \textit{stuff} refers to semantic classes with amorphous shapes and variable sizes, like sky, water, or grass. Unlike \textit{things}, \textit{stuff} lacks clearly defined, countable individual instances and does not possess distinct parts. For example, both a single blade of grass and an entire field of grass fall under the category of \textit{grass}.
+  \item \textit{Stuff} refers to semantic classes with amorphous shapes and variable sizes, like sky, water, or grass
+  . Unlike \textit{things}, \textit{stuff} lacks clearly defined, countable individual instances and does not possess distinct parts. For example, both a single blade of grass and an entire field of grass fall under the category of \textit{grass}.
 \end{itemize}
 In certain image contexts, some classes can straddle the line between being considered \textit{things} or \textit{stuff}. For instance, a large gathering of people might be interpreted either as multiple people -- each being a clearly shaped, countable thing, or as a singular, indistinct person.
 
@@ -161,51 +162,82 @@ Despite their higher computational requirements and longer training times, deep 
 Some prominent deep learning models utilized in image segmentation include:
 
 \begin{enumerate}
-  \item \textbf{Fully Convolutional Networks:} FCNs, commonly employed for semantic segmentation, are a variant of convolutional neural networks characterized by flexible layers. In FCNs, an encoder network processes visual input through convolutional layers to extract pertinent features for segmentation or classification. The compressed feature data is then passed through decoder layers to upsample and reconstruct the input image along with segmentation masks.
-  \item \textbf{U-Nets:} U-Nets adapt the FCN architecture to mitigate data loss during downsampling by incorporating skip connections. These connections enable the preservation of finer details by selectively bypassing certain convolutional layers as information propagates through the network. The name "U-Net" derives from the shape of diagrams illustrating its layered arrangement.
-  \item \textbf{Deeplab:} Similar to U-Nets, Deeplab modifies the FCN architecture. In addition to utilizing skip connections, Deeplab employs dilated (or "atrous") convolution to produce larger output maps without requiring additional computational resources.
-  \item \textbf{Mask R-CNNs:} Mask R-CNNs stand out as a leading model for instance segmentation. These models integrate a region proposal network (RPN), responsible for generating bounding boxes for potential instances, with an FCN-based "mask head" that produces segmentation masks within each confirmed bounding box.
-  \item \textbf{Transformers:} Inspired by the success of transformer models in natural language processing, newer models like the Vision Transformer (ViT) employ attention mechanisms in lieu of convolutional layers. These models have demonstrated comparable or superior performance to CNNs for various computer vision tasks.
+  \item \textbf{Fully Convolutional Networks:} FCNs \cite{FCNLong2015}, commonly employed for semantic segmentation, are a
+  variant
+  of
+  convolutional neural networks characterized by flexible layers. In FCNs, an encoder network processes visual input through convolutional layers to extract pertinent features for segmentation or classification. The compressed feature data is then passed through decoder layers to upsample and reconstruct the input image along with segmentation masks.
+  \item \textbf{U-Nets:} U-Nets \cite{ronneberger2015unet} adapt the FCN architecture to mitigate data loss during downsampling by
+  incorporating skip connections. These connections enable the preservation of finer details by selectively bypassing
+  certain convolutional layers as information propagates through the network. The name U-Net derives from the shape 
+  of diagrams illustrating its layered arrangement (see Figure \ref{fig:unet_architecture}).
+  \item \textbf{Deeplab:} Similar to U-Nets, Deeplab modifies the FCN architecture \cite{Deeplab2018}. In addition to utilizing skip
+  connections, Deeplab employs dilated (or "atrous") convolution to produce larger output maps without requiring additional computational resources.
+  \item \textbf{Mask R-CNNs:} Mask R-CNNs stand out as a leading model for instance segmentation \cite{MaskRCNN2017}. These models
+  integrate a region proposal network (RPN), responsible for generating bounding boxes for potential instances, with an FCN-based "mask head" that produces segmentation masks within each confirmed bounding box.
+  \item \textbf{Transformers:} Inspired by the success of transformer models \cite{vaswani2023attention} in natural language processing,
+  newer models like the Vision Transformer (ViT) employ attention mechanisms in lieu of convolutional layers. These models have demonstrated comparable or superior performance to CNNs for various computer vision tasks.
 \end{enumerate}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{text/chapter_03/imgs/unet}
+  \caption{U-net architecture (example for 32x32 pixels in the lowest resolution). (Source \cite{ronneberger2015unet})}
+  \label{fig:unet_architecture}
+\end{figure}
+
 \subsubsection{Transformers}
-Inspired by the success of transformer models in natural language processing, newer models like the Vision Transformer (ViT) employ attention mechanisms in lieu of convolutional layers. These models have demonstrated comparable or superior performance to CNNs for various computer vision tasks.
+As we use Transformer model in our work, we briefly demonstrate Transformers' architecture and how they work.
+Transformers consist of a stack of identical layers, typically comprising an encoder and a decoder (Figure \ref{fig:transformer_architecture}). The
+encoder
+processes the input sequence, while the decoder generates the output sequence.
 
-Transformers consist of a stack of identical layers, typically comprising an encoder and a decoder. The encoder processes the input sequence, while the decoder generates the output sequence.
 
-The core of the Transformer architecture lies in its self-attention mechanism. This mechanism enables each token in the input sequence to attend to every other token, learning contextual relationships and dependencies. By computing attention scores between all pairs of tokens and taking weighted sums of their embeddings, the Transformer can effectively capture long-range dependencies and dependencies between distant tokens.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\linewidth]{text/chapter_03/imgs/transformers}
+  \caption{Transformer architecture. (Source \cite{vaswani2023attention})}
+  \label{fig:transformer_architecture}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Encoder:} The encoder is composed of a stack of $N=6$ identical layers. Each layer has two
+  sub-layers. The first is a multi-head self-attention mechanism (Figure \ref{fig:transformer_multihead}), and the second is positionwise fully
+  connected feed-forward network. There is a residual connection \cite{DeepResidual2016} around each of two sub-layers, followed by normalization \cite{ba2016layer}: the output of each sub-layer is $LayerNorm(x + Sublayer(x))$, where $Sublayer(x)$ is the function implemented by the sub-layer
+  itself.
+  \item \textbf{Decoder:} The decoder is also composed of a stack of $N=6$ identical layers. In addition to the two
+  sub-layers in each encoder layer, the decoder inserts a third sub-layer, which performs multi-head
+  attention over the output of the encoder stack. Similar to the encoder, there is residual connections
+  around each of the sub-layers, followed by layer normalization.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\linewidth]{text/chapter_03/imgs/multihead}
+  \caption{Multi-head attention. (Source \cite{vaswani2023attention})}
+  \label{fig:transformer_multihead}
+\end{figure}
+
+
+The core of the Transformer architecture lies in its self-attention mechanism \cite{vaswani2023attention}. This mechanism enables each token in the input sequence to attend to every other token, learning contextual relationships and dependencies. By computing attention scores between all pairs of tokens and taking weighted sums of their embeddings, the Transformer can effectively capture long-range dependencies and dependencies between distant tokens.
 
 To enhance the expressiveness of self-attention, Transformers employ multi-head attention mechanisms. Instead of computing attention once, multi-head attention computes attention multiple times in parallel, each with its set of learnable parameters. This allows the model to attend to different aspects of the input sequence simultaneously, facilitating richer representations and improved performance.
 
 Unlike sequential models, Transformers do not inherently encode the positional information of tokens. To address this limitation, positional encoding is added to the input embeddings to convey the position of each token in the sequence. This positional information is crucial for the Transformer to distinguish between tokens with the same content but different positions within the sequence.
 
-In addition to self-attention layers, Transformers incorporate feedforward neural networks (FNNs) within each layer. These FNNs consist of multiple fully connected layers with non-linear activation functions, enabling the model to capture complex interactions and transformations within the input data.
+In addition to self-attention layers, Transformers incorporate feedforward neural networks within each layer. These FNNs consist of multiple fully connected layers with non-linear activation functions, enabling the model to capture complex interactions and transformations within the input data
+\begin{align}
+  FFN(x) &= max(0, xW_1 + b_1)W_2 + b_2,
+\end{align}
+where $W$ are weights and $b$ stands for bias.
 
 To stabilize training and facilitate gradient flow, Transformers employ layer normalization and residual connections within each layer. Layer normalization normalizes the activations across feature dimensions, while residual connections enable the direct flow of gradients through the network, mitigating the vanishing gradient problem.
 
-During training, Transformers are optimized using backpropagation and gradient-based optimization algorithms, such as Adam or SGD, to minimize a predefined loss function. By iteratively updating the parameters of the model based on the disparity between the predicted outputs and the ground truth labels, Transformers learn to encode and generate meaningful representations of input sequences, enabling them to excel in various NLP tasks and beyond.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+During training, Transformers are optimized using backpropagation and gradient-based optimization algorithms, such as
+Adam \cite{kingma2017adam} or SGD \cite{rakhlin2012making}, to minimize a predefined loss function. By iteratively updating the
+parameters of the model based on
+the disparity between the predicted outputs and the ground truth labels, Transformers learn to encode and generate
+meaningful representations of input sequences, enabling them to excel in various NLP tasks and more recently
+image processing tasks.
 
 
 

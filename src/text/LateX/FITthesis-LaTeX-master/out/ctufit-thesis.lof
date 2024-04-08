@@ -38,9 +38,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Yolo architecture proposed in \cite {YOLORedmon2016} has 24 convolutinal layers followed by 2 fully connected layers. Convolutional layers were pretrained on the ImageNet classificator at half resolution (224 x 224 input image) and the doubled the resolution for detection. (Source \cite {YOLORedmon2016}.)\relax }}{46}{figure.caption.19}%
 \defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces U-net architecture (example for 32x32 pixels in the lowest resolution). (Source \cite {ronneberger2015unet})\relax }}{51}{figure.caption.20}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Transformer architecture. (Source \cite {vaswani2023attention})\relax }}{51}{figure.caption.21}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Multi-head attention. (Source \cite {vaswani2023attention})\relax }}{52}{figure.caption.22}%
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces All classes, filtered classes\relax }}{52}{figure.caption.20}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces All classes, filtered classes\relax }}{54}{figure.caption.23}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
