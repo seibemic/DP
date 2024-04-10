@@ -1,56 +1,385 @@
 \chapter{Dynamic time and state varying detection probability}
 In this work, we focus on tracking objects in frame sequence using target tracking methods and object detection and
 segmentation algorithms. Object detectors were discussed in previous section, as they serve as a sensor for getting
-measurements from image.
+measurements from an image.
 
-Note, that in all target tracking, especially multi-target tracking algorithms for cluttered environments and targets
+Note, that in all target tracking algorithms for cluttered environments and targets
 birth and dead possibilities, there is a parameter called detection probability ($p_D$). This parameter, as it name
 suggest, is a probability, that the target is detected in particular time. It is also commonly used as a constatnt
 time and state independent variable. As we want to improve the performance of multi-target algorithms in video data
 in scenarios, where the targets may be hidden by an obstacle or just reduce impacts of a misdetection of a sensor, it
 is appropriate to have a dynamic time- and state-varying detection probability.
 \section{Problem definition}
-Even though it is possible to fine tune YOLO model on own datasets to either improve performance in detection of
-pretrained classes, or to train the model for detecting other classes, with over 70 pretrained class instances it was
-not neccesary to fine tune own YOLO model in this work. The model also detects all class instances, it knows and
-appear in a scene. For testing purposes we filter only objects, we want to detect and get measurements from.
-\begin{figure}
-  \caption{All classes, filtered classes}
-\end{figure}
-
-As a multi-target tracking algorithm, we chose Probabilist Hypothesis density filter, as it is on simpler side of RFS
--based methods and is computationally very effective in comparison with filters such as the CPHD or the PMBM filter,
+In practical part of this thesis, we can find three different settings of object detection and segmentation.
+As a multi-target tracking algorithm, we choose Probabilist Hypothesis Density filter, as it is on simpler side of
+RFS-based methods and is computationally very effective in comparison with filters such as the CPHD or the PMBM filter,
 which may seem
-to be more appropriate for this task. YOLO is a very effective, real-time object detector and the PHD filter is the
-only one RFS filter that even though is not real-time, is the closest one to be.
+to be more appropriate for this task. However, these more complicated filters have high computational demands, which
+are not appropriate when using in video streams. Provided settings are:
+\begin{enumerate}
+  \item \textbf{S1: YOLO + PHD} -- Yolo itself can produce object segmentation mask with lower accuracy but with greater
+  speed. This setting is appropriate when using only CPU.
+  \item \textbf{S2: YOLO + SAM + PHD} -- As SAM can not annotate labels to objects, it needs another object detector
+  before segmenting. In this seting we use YOLO as an object detector and SAM for mask segmentation of detected
+  objects. This procedure requires GPU for faster computation.
+  \item \textbf{S3: Grounded SAM + PHD} -- Grounded SAM is the most universal approach, as it can detect objects based
+  on an text input and uses SAM for segmenting. This setting also requires GPU for faster computation.
+\end{enumerate}
+
+
+\subsection{The modified GM-PHD filter}
+As a multi-target tracking algorithm, we chose Probabilist Hypothesis density filter, as it is on the simpler side of
+RFS-based methods and is computationally very effective in comparison with filters such as the CPHD or the PMBM filter,
+which may seem
+to be more appropriate for this task.
 
 To modify the PHD filter for our use case, first we need to define a few assumptions that are very similar to
 assumptions of PHD filter and GM-PHD filter in Section \ref{sec:phdfilter} and \ref{sec:gmphdFilter}.
 \begin{enumerate}
-  \item Each target evolves and generates observations independently of each other.
-  \item Clutter is Poisson and independent of target-originated measurements.
-  \item The predicted multi-target RFS governed by $p_{k|k-1}$ is Poisson.
-  \item Each target follows a linear Gaussian dynamical model and the sensor has a linear
+  \item Each target evolves and generates observations independently of each other. \label{as:mphd_1}
+  \item Clutter is Poisson and independent of target-originated measurements. \label{as:mphd_2}
+  \item The predicted multi-target RFS governed by $p_{k|k-1}$ is Poisson. \label{as:mphd_3}
+  \item Each target follows a linear Gaussian dynamical model and the sensor has a linear \label{as:mphd_4}
   Gaussian measurement model, i.e.,
-        \begin{align}
-          f_{k|k-1}(x|\zeta) &= \mathcal{N}(x; F_{k-1}\zeta, Q_{k-1}),\\
-          g_k(z|x) &= \mathcal{N}(z;H_kx, R_k),
-        \end{align}
+  \begin{align}
+    f_{k|k-1}(x|\xi) &= \mathcal{N}(x; F_{k-1}\xi, Q_{k-1}),\\
+    g_k(z|x) &= \mathcal{N}(z;H_kx, R_k),
+  \end{align}
   where $\mathcal{N}(\cdot;m,P)$ is a Gaussian density with mean $m$ and covariance $P$, $F_{k-1}$ is the state transition matrix, $Q_{k-1}$ is the process noise covariance, $H_k$ is the observation matrix and $R_k$ is the observation noise covariance.
-  \item The survival and detection probabilities are state independent, i.e.,
+  \item The survival probability is state independent, i.e.,
   \begin{align}
-    p_{S,k}(x) &= p_{S,k},\\
-    p_{D,k}(x) &= p_{D,k}.
+    p_{S,k}(x) &= p_{S,k}.
   \end{align}
-  \item The intesities of the birth and spawn RFSs are Gaussian mixtures of the form
+    \label{as:mphd_5}
+  \item The detection probability is state dependent, i.e.,
+    \begin{align}
+      p_{D,k}(x) &= 
+      \begin{cases}
+         p_{D,k} &\qquad \text{if detected for the first time,} \\
+         p_{D,k}(x) &\qquad \text{otherwise.}
+      \end{cases}
+    \end{align}
+    \label{as:mphd_6}
+  \item The intensity of the birth RFS is Gaussian mixture of the form
   \begin{align}
-    \gamma_k(x) &= \sum_{i=1}^{J_{\gamma,k}}w_{\gamma,k}^{(i)} \mathcal{N}(x; m_{\gamma.k}^{(i)}, P_{\gamma,k}^{(i)}),\\
-    \beta_{k|k-1}(x|\zeta) &= \sum_{j=1}^{J_{\beta,k}} w_{\beta,k}^{(j)} \mathcal{N}(x;F_{\beta,k-1}^{(j)}\zeta + d_{\beta,k-1}^{(j)}, Q_{\beta,k-1}^{(j)}),
+    \gamma_k(x) &= \sum_{i=1}^{J_{\gamma,k}}w_{\gamma,k}^{(i)} \mathcal{N}(x; m_{\gamma.k}^{(i)}, P_{\gamma,k}^{(i)}).
+    \label{eq:mphd_intensity}
   \end{align}
+  \label{as:mphd_7}
 \end{enumerate}
 
-Note, that assumptions 1,2 are very strong. 1 - may generate more and depedently. 2 - clutter may be dependent. 5 -
-divide into two parts. 6 - remove beta
+Note, that assumptions \ref{as:mphd_1} may be ambiguous, as targets' state are often dependently evolved. Imagine,
+for example, common traffic scenario. If one of the car immediatelly stops, following vehicle have to stop as well,
+so they are affected by another target.
+Assumption \ref{as:mphd_2} is reasonable, especially if we consider, that clutter rate should be very low in our 
+scenarios.
+The survival probability is state independent as in GM-PHD filter and should be set high, as the targets are expected
+to survive to the next time step.
+The detection probability is state dependent and is equal to $p_{D,k}$, i.e., predefined threshold, in situation when
+the target is detected for the first time. Otherwise, meaning the target evolved from previous state $\xi$, the
+detection probability calculated in a way that is described in section \ref{sec:dynamic_pd}. There is only intensity
+of the birth RFS and no spawn intensity RFS in assumption \ref{as:mphd_7}. It still can be added to the assumption
+and equations without any problems.
+
+\subsubsection{The modified PHD recursions}
+Let us assume a target state $x$ described by an intensity function $\nu(x)$. At time $k$, the prediction of the prior
+intensity $\nu_{k-1}(x)$ is given by
+\begin{equation}
+  \nu_{k|k-1}(x) = \int p_{S,k}(\xi)\phi_{k|k-1}(x|\xi)\nu_{k-1}(\xi)d\xi + \nu_{\gamma,k}(x), \label{eq:mphdPrior}
+\end{equation}
+where $p_{S,k}(\cdot)$ is the probability of target survival, $\phi_{k|k-1}(\cdot|\cdot)$ is the target state transition density, and $\nu_{\gamma,k}(\cdot)$ denotes the prior PHD of the targets birth at time k.
+The predicted intensity $\nu_{k|k-1}$ is then updated by the measurement set $Z_k$ given by sensors at time $k$ according to the Bayesian update
+\begin{equation}
+  \begin{aligned}
+    \nu_k(x) &= [1 - p_{D,k}(x)]\nu_{k|k-1}(x) \\
+    &+ \sum_{z \in Z_k}\frac{p_{D,k}(x) g_k(z|x) \nu_{k|k-1}(x)}{\kappa_k(z) + \int p_{D,k}(\xi) g_k(z|\xi) \nu_{k|
+    k-1}(\xi)d\xi}, \label{eq:mphdPosterior}
+  \end{aligned}
+\end{equation}
+where $g_k(\cdot|\cdot)$ is the likelihood function, $p_{D,k}(\cdot)$ is the probability of detection, and $\kappa_k(\cdot)$ is the clutter density.
+
+\subsubsection{The modified GM-PHD recursion}
+\label{sec:mGMPHDrec}
+In the context of the linear Gaussian multiple-target model, the PHD recursion equations (\ref{eq:mphdPrior}) and (\ref{eq:mphdPosterior}) attain analytical solution \cite{VoMaPHD2006}.
+Suppose that the posterior intensity at time $k-1$ is a Gaussian mixture of the form
+\begin{equation}
+  \label{eq:mphd_recursion_posterior}
+  \begin{aligned}
+    \nu(x) &= \sum_{i=1}^{J_{\gamma,k}} w_{\gamma,k}^{(i)}\mathcal{N}(x;m_{\gamma,k}^{(i)},P_{\gamma,k}^{(i)}).
+  \end{aligned}
+\end{equation}
+The predicted intensity for time $k$ is also a Gaussian mixture of the form
+\begin{equation}
+  \label{eq:mphd_recursion_prior}
+  \begin{aligned}
+    \nu_{k|k-1}(x) &= \nu_{S,k|k-1}(x) + \gamma_k(x),
+  \end{aligned}
+\end{equation}
+where $\gamma_k(x)$ is given in Formula (\ref{eq:mphd_intensity}). This yields
+\begin{align}
+  \nu_{S,k|k-1}(x) &= p_{S,k}\sum_{j=1}^{J_{k-1}}w_{k-1}^{(j)} \mathcal{N}(x;m_{S,k|k-1}^{(j)}, P_{S,k|k-1}^{(j)}) \label{eq:mphd_recursion_predict_intensity}, \\
+  m_{S,k|k-1}^{(j)} &= F_{k-1}m_{k-1}^{(j)},  \label{eq:mphd_recursion_predict_m} \\
+  P_{S,k|k-1}^{(j)} &= Q_{k-1} + F_{k-1}P_{k-1}^{(j)}F_{k-1}^T.  \label{eq:mphd_recursion_predict_P}
+\end{align}
+Thus the predicted intensity at the time $k$ is a Gaussian mixture
+\begin{align}
+  \nu_{k|k-1}(x) &= \sum_{i=1}^{J_{k|k-1}}w_{k|k-1}^{(i)} \mathcal{N}(x;m_{k|k-1}^{(i)}, P_{k|k-1}^{(i)}),  \label{eq:mphd_recursion_predict_intesity}
+\end{align}
+and the posterior intensity at time $k$ is also Gaussian mixture,
+\begin{align}
+  \nu_{k}(x) &= \sum_{i=1}^{J_{k|k-1}}[1-p_{D,k}^{(i)}(x)]w_{k|k-1}^{(i)} \mathcal{N}(x;m_{k|k-1}^{(i)}, P_{k|k-1}^{(
+  i)})\nonumber \\
+  &+ \sum_{z\in Z_k}\nu_{D,k}(x;z), \label{eq:mphd_recursion_update_intesity}
+\end{align}
+where
+\begin{align}
+  \nu_{D,k}(x;z) &= \sum_{j=1}^{J_{k|k-1}} w_k^{(j)}(z) \mathcal{N}(x;m_{k|k}^{(j)}(z),P_{k|k}^{(j)}), \label{eq:mphd_recursion_update_intesity_detect} \\
+  w_k^{(j)}(z) &= \frac{p_{D,k}^{(j)}(x;z) w_{k|k-1}^{(j)} q_k^{(j)}(z) }{\kappa_k(z) + p_{D,k}^{(j)}(x;z) \sum_{l=1}^{J_{k|k-1}} w_{k|k-1}^{(l)} q_k^{(l)}(z)}, \label{eq:mphd_recursion_update_intesity_detect_w} \\
+  m_{k|k}^{(j)}(z) &= m_{k|k-1}^{(j)} + K_k^{(j)}(z-H_k m_{k|k-1}^{(j)}), \label{eq:mphd_recursion_update_intesity_detect_m} \\
+  P_{k|k}^{(j)}(z) &= [I - K_k^{(j)} H_k] P_{k|k-1}^{(j)},  \label{eq:mphd_recursion_update_intesity_detect_P} \\
+  \kappa_{k}^{(j)}(z) &= P_{k}^{(j)} H_k^T(H_k P_{k|k-1}^{(j)} H_k^T + R_k)^{-1}. \label{eq
+  :mphd_recursion_update_intesity_detect_K}
+\end{align}
+The dynamically estimated detection probability in \ref{eq:mphd_recursion_update_intesity} follows from one of two
+possible scenarios described in Section \ref{sec:dynamic_pd}.
+\subsection{S1: YOLO + PHD}
+Even though it is possible to fine tune YOLO model on own datasets to either improve performance in detection of
+pretrained classes, or to train the model for detecting other classes, with over 70 pretrained class instances it is
+not necessary to fine tune own YOLO model for experiments in this work. The model also detects all class instances, it
+it is trained for and appear in a scene. For testing purposes we filter only objects, we want to detect and get
+measurements from. The YOLO itself is able to produce segmentation mask in real-time but with less accuracy and
+precision. In fact, the output image resolution is $640x640$ pixels and to fit the YOLO output to our frame, we have
+to resize this output to our desired frame size. This resizing is causing the imperfections. However, the precision
+to pixel level is not always necessary in our scenarios, thus this setting
+is sufficient
+enough for most of cases. The advantage of this approach is that it runs fast enough with CPU only. The example of
+object segmentation YOLO model is shown in the Figure \ref{fig:yolo_seg}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.35\linewidth]{text/chapter_04/imgs/YOLO_screenshot_2}
+  \caption{YOLO segmentation example. This picture shows all detected objects the YOLO model is trained for and also
+  the segmented objects' masks. These masks are imperfect, but often sufficient enough.}
+  \label{fig:yolo_seg}
+\end{figure}
+
+\subsection{S2: YOLO + SAM + PHD}
+The SAM model architecture in \cite{SAM2023} is prepared to process text input and segment object based in the input
+. However, this feature is not available yet in the original implementation and for our purpose we need to have an
+object
+detector before segmentation process. The SAM model is able to segment a desired object based on one of two provided
+inputs with high precision and accuracy. The first possible input is bounding box around the required object which
+can be provided by an output of YOLO model. The second option is to provide a rough center point of an object, which
+can also be the center of a bounding box provided by the YOLO model.
+
+However for our purposes it is not recommended
+to use the combination of both inputs, as SAM is able to produce multiple masks for an object. For example if we
+denote, that we want the segment a person, by a bounding box, one of the output mask can be his jacket, as it is a
+valid segmentation mask. By combining both inputs, we can get such undesirable output. Another example of such behaviour
+is shown in the Figure \ref{fig:sam_examples}
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[h]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{text/chapter_04/imgs/SAM_box}
+    \caption{By defining an object by a bounding box, SAM is able to make a segmented masks of this object and choose
+    the most probable one.}
+    \label{fig:sam_box}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[h]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{text/chapter_04/imgs/SAM_box_point}
+    \caption{If we use a bounding box together with a point, we get different result. Here this can be used to select just the trucks's tire, instead of the entire wheel.}
+    \label{fig:sam_boxPoint}
+  \end{subfigure}
+  \caption{Comparison of using only a bounding box vs combination of a bounding box and a point as an input for SAM.}
+  \label{fig:sam_examples}
+\end{figure}
+
+The accuracy of SAM model is remarkable and in combination with object detector it can produce object segmentation
+with high precision. The cooperation of these two models is demonstrated in Figure \ref{fig:yolo_sam_seg}.
+\begin{figure}[h!t]
+  \centering
+  \includegraphics[width=0.35\linewidth]{text/chapter_04/imgs/YOLO_SAM_02}
+  \caption{The cooperation of YOLO and SAM models. The YOLO provides bounding boxes of objects, which are inputs to
+  SAM. The SAM model then make segmented masks of these objects.}
+  \label{fig:yolo_sam_seg}
+\end{figure}
+
+\subsection{S3: Grounded SAM + PHD}
+
+
+
+
 \section{Dynamic detection probability in video data}
+\label{sec:dynamic_pd}
+To model the dynamic state- and time-dependent detection probability $p_{D,k}(x)$, we propose to base the current
+point estimate of $p_{D}(x)$ at time $k$ on the similarity of the subsequent frame properties,
+
+  \begin{align}
+    p_{D,k}(x) &= \frac{\sum_{\sigma_j \in S_{sim}} \sum_{i=1}^{|H|}
+      \sigma_j\left[h_i\left(M(x; k|k-1) \!\circ\! D_k\right),
+        h_i\left(M(x; k-1) \!\circ\! D_k\right)\right]}{\|S_c\| \cdot \|H\|}, \label{eq:similarity}
+  \end{align}
+
+where $D_k$ is the frame in the given color spectrum, $h_i(\cdot)$ is color histogram made from given color spectrum, $A\circ B$ is the Hadamard product, $M(\cdot, \cdot)$ is the object binary mask, and $\sigma_j[\cdot, \cdot]$ is the given similarity of two vectors. The $\|\cdot\|$ values in the denominator represent the set size. The whole fraction is in fact the mean value accross all color spectrums and similarity functions.
+
+There are many color spectrums to consider, each providing certain benefits and downsides. In this work we use
+following list of color spectrums.
+\begin{itemize}
+  \item \textbf{RGB} -- The RGB (Red, Green, Blue) color model is ubiquitous in electronic displays, digital cameras
+  , and computer graphics. It defines colors by their intensities of red, green, and blue components. One of its primary advantages lies in its widespread use and intuitive representation for additive color mixing. However, RGB lacks direct perceptual relevance to human vision, as it doesn't inherently represent attributes like brightness or hue.
+  \item \textbf{XYZ} -- In contrast, the XYZ color space, established by the International Commission on Illumination
+  (CIE), serves as a standard for quantifying colors in scientific and industrial applications. Although it offers device-independent color representation and facilitates color matching and conversion, it's not as perceptually intuitive and can be complex to work with practically.
+  \item \textbf{HSV} -- HSV (Hue, Saturation, Value) is favored in graphics software and image editing for its
+  intuitive representation of color. It aligns better with human perception compared to RGB, allowing independent adjustment of hue, saturation, and brightness. However, it may not be as straightforward for certain color manipulation tasks and lacks the widespread hardware and software support enjoyed by RGB.
+  \item \textbf{LAB} -- LAB (CIELAB color space), another CIE-defined model, aims for perceptual uniformity unlike
+  XYZ. Widely used in color correction, image editing, and color management, LAB offers uniform changes in perceived color with uniform changes in LAB values. Despite its perceptual accuracy, it can be complex to comprehend and lacks universal software and hardware support compared to simpler models like RGB or HSV.
+  \item \textbf{HLS} --  HLS (Hue, Lightness, Saturation) finds its place in computer graphics and image editing
+  applications. Similar to HSV but with lightness instead of value, HLS provides an intuitive representation for color adjustment tasks. However, its support may not be as widespread as RGB or HSV, and it may lack the perceptual accuracy of LAB in certain color correction scenarios.
+\end{itemize}
+
+We apply a range of similarity functions, each with its unique advantages and limitations. These functions include cosine similarity, intersection, and correlation.
+\begin{itemize}
+  \item \textbf{Cosine similarity} -- Cosine similarity, a widely used metric, determines the cosine of the angle
+  between two vectors in a multi-dimensional space. It is insensitive to vector magnitudes, focusing more on their
+  orientation, which proves beneficial when the absolute magnitude of vectors is less crucial than their relative
+  orientations. However, cosine similarity does not take into account the distribution of data points. Cosine
+  similarity is defined as
+  \begin{align}
+    S_{cos} [A,B] &= \frac{A\cdot B}{\|A\|\|B\|} = \frac{\sum_{i=1}^nA_iB_i}{\sqrt{\sum_{i=1}^nA_i^2} \cdot \sqrt{\sum_{i
+    =1}^n B_i^2}},
+  \end{align}
+  where the sums run over all elements of the arguments.
+  \item \textbf{Intersection} -- Intersection similarity, on the other hand, calculates the overlap between two sets
+  . This metric is commonly employed in applications like document retrieval and collaborative filtering. Its
+  simplicity and intuitiveness make it ideal for comparing binary data or sets, where the presence or absence of
+  elements is more significant than their values. Additionally, it treats all elements equally, disregarding their
+  magnitudes, which can be a limitation in certain contexts. The intersection is formulated
+    \begin{align}
+      S_{inter}[A,B] &= \frac{\sum_{i=1}^{\|A\|} min(A_i, B_i) }{\sum_{i=1}^{\|B\|} B_i},
+    \end{align}
+    where $\|\cdot\|$ denotes the set size.
+  \item \textbf{Pearson correlation coefficient} -- Correlation measures the linear relationship between two
+  variables and is frequently used in statistics, finance, and signal processing. It captures both the strength and
+  direction of the relationship between variables, making it valuable for identifying patterns and dependencies in
+  data. However, correlation assumes a linear relationship between variables, which may not always hold true, and it
+  is susceptible to outliers and non-linear relationships, potentially affecting its reliability in certain scenarios. In this work, we calculate the correlation between corresponding elements in a set.
+    \begin{align}
+      S_{corr}[A,B] &= \frac{cov(A,B)}{\sigma_A \sigma_B},
+    \end{align}
+    where $cov$ is the covariance and $\sigma_{(\cdot)}$ is the standard deviation,
+\end{itemize}
+
+For simplicity, let us name the whole fraction in \eqref{eq:similarity} as $S_c$. This value represents the "average" similarity across all used color spectrums and similarity functions.
+
+As mentioned in Section \ref{sec:mGMPHDrec}, the dynamically estimated detection probability in \eqref{eq:mphd_recursion_update_intesity} follows from one of two possible scenarios. First, there is no current measurement at
+time $k$, hence the current mask results from its predicted position,
+\begin{align}
+  \label{eq:mphd_recursion_update_intesity_misdetect_pd}
+  p_{D,k}^{(i)}(x) &=
+  \begin{cases}
+     S_c^{(i)}\left[h(M_{k|k-1}^{(i)}(x) \circ D_k), h_{0,k}^{(i)}\right] &\text{if $h_{0,k}^{(i)}$ exists,} \\
+     p_{D,k}^{(i)} \quad& \text{otherwise,}
+  \end{cases}
+\end{align}
+and where the histogram from the last detection $h_{0,k}^{(i)} \equiv  h_{0,k-1}^{(i)}$ is used in the first scenario. A user-preset value $p_{D,k}^{(i)}$ is used for targets undetected so far. The mask is obtained via
+\begin{align}
+  \label{eq:mphd_recursion_update_intesity_misdetect_M_shifted}
+  M_{k|k-1}^{(i)}(x) &=
+  \begin{cases}
+    \!M_{k-1}^{(i)}(x)[m-v_x, n-v_y] &\text{if $m\geq v_x, n\geq v_y$,} \\
+    \mathbf{0} \quad &\text{otherwise,}
+  \end{cases}
+\end{align}
+where $m, n$ are indices of the binary mask $M$ and $v_x, v_y$ are x- and y-direction velocities of the target. $\mathbf{0}$ is a zero vector of the same size as the mask. The second scenario takes the current measurement $z$ into account. The detection probability is modified according to
+\begin{align}
+  p_{D,k}^{(j)}(x;z) &= S_c\left[h(M_{k}^{(j)}(z) \circ D_k), h_{0,k}^{(j)}\right],
+\end{align}
+where $h_{0,k}^{(j)}$ is the histogram resulting from the last detection,
+\begin{equation}
+  \label{eq:mphd_recursion_update_intesity_misdetect_Hist}
+  h_{0,k}^{(j)} =
+  \begin{cases}
+    h(M_{k-1}^{(j)}(z) \circ D_{k-1}) &\text{if } h(M_{k-1}^{(j)}(z)) \text{ exists,} \\
+    % h(M_{k|k-1}^{(j)}(x) \circ D_{k_0}) &\text{otherwise,} \\
+    h_{0,k-1} &\text{otherwise.}
+  \end{cases}
+\end{equation}
+The histogram $h(M_{k-1}^{(j)}(z) \circ D_{k-1})$ stands for the previously detected target, and $h_{0,k-1}$ is the histogram from the time step when the target was detected the last time.
+
+
+
 \section{Modified pruning for GM-PHD filter}
+As the PHD filter propagates the posterior intensity, the number of potential hypotheses exponentially increases. This leads to an enormous increase in memory and computational demands. Pruning techniques become indispensable in mitigating this computational load by selectively discarding less likely hypotheses, allowing for a more focused and efficient tracking process. These pruning mechanisms, guided by predefined thresholds or heuristics, ensure that computational resources are allocated judiciously, striking a balance between accuracy and computational efficiency in multi-target tracking applications.
+
+Recall that sensors in our work are represented by cameras. Naturally, the detecting algorithms are unable to
+recognize an object hidden by an obstacle. These obstacles may differ not only in size but also in color. In
+situations where the color of an obstacle closely matches the surrounding scene, the likelihood of detection remains
+sufficiently high, increasing the risk that the target may not survive even though it is only hidden. In order to suppress this phenomenon, we introduce a method for modified pruning along with standard pruning and merging techniques \cite{VoMaPHD2006}.
+
+The most deployed generic method for pruning consists of removing targets with weights below some predefined threshold. Nonetheless, as mentioned before, targets with some history may only be hidden, and it is not desired to remove these targets from the scene. To overcome this issue, we assign each target a tag that represents the state in which the target is likely to occur,
+\begin{equation}
+  S = \{\text{detected, hidden, dead}\}.
+  \notag
+\end{equation}
+This tag is modeled by a discrete-time Markov chain with the transition matrix
+\begin{align}
+  \label{eq:mphd_transition_matrix}
+  P &= \begin{bmatrix}
+         p_{D,k} & 1-p_{D,k} & 0 \\
+         p_{D,k} & (1-p_{H,k}^{T_H}) \cdot (1-p_{D,k}) & p_{H,k}^{T_H} \cdot (1- p_{D,k}) \\
+         p_{D,k} & (1-p_{H,k}^{T_H}) \cdot (1-p_{D,k}) & p_{H,k}^{T_H} \cdot (1- p_{D,k})
+  \end{bmatrix},
+\end{align}
+where $p_{D,k}$ is a generic detection probability, and $T_H$ is an exponent for controlling probabilities that is
+set higher in scenarios, where the target color mask is similar to the color mask of the obstacle, or may be set
+lower otherwise. $p_{H,k}$ is the probability that the target is removed. This probability is the result of \eqref{eq:mphd_recursion_update_intesity_misdetect_pH}, where the bounding boxes of the object detector are used.
+If we denote by $B_{P,k}^{(j)}$ the bounding box predicted $T_c$ steps ahead and by $B_{S,k}^{(j)}$ the bounding box of the last step $k$ when the object was detected, then
+\begin{align}
+  B_{P,k}^{(j)} &= B_{P,k-1}^{(j)} + n_k^{(j)}\cdot [v_{x,{k}}^{(j)}, v_{y,{k}}^{(j)}, _{x,{k}}^{(j)}, v_{y,{k}}^{(j)}], \\
+  B_{S,k}^{(j)} &= B_{S,k-1}^{(j)}, \\
+  p_{H,k} &= S_c\left[D_k(B_{P,k}^{(j)}), D_k(B_{S,k}^{(j)})\right], \label{eq:mphd_recursion_update_intesity_misdetect_pH}
+\end{align}
+where
+\begin{align}
+  \label{eq:mphd_recursion_update_intesity_misdetect_T_move}
+  n_k^{(j)} &=
+  \begin{cases}
+    T_c \quad & \text{if } k\text{ } mod \text{ }T_c = 0,  \\
+    0 \quad & \text{otherwise.}
+  \end{cases}
+\end{align}
+$D_k(\cdot)$ is a part of a frame within the bounding box given by $B(\cdot)$. With this approach, when a target is most likely in the \textit{hidden} state, the pruning threshold is heuristically lowered to prevent the target removal.
+
+In summary, first we define a birth place in scene. We call this birth place spawn point (SP). It is possible to
+define more spawn places in a scene, depending on the situation. If a target crosses this spawn point, it is initialized, but because it is first time, the target has been seen, the detection probability is a predefined constant. In the
+next time step, suppose that the target is detected and there is one measurement (originating from this target) in a
+validation region. Due to the GM-PHD recursion, two targets arise from the target. One is originates from
+misdetection possibility and one from the measurement. As we first predict the target's position and covariance
+matrix, we move the target's mask detected at time $k-1$ to $k$ by its velocity (in case of CVM model). Then the
+predicted mask color properties are compared to the mask made from the new measurement from time $k$. If nothing
+unpredictable happened, both masks should occur on very similar position, thus the color masks' properties should be
+very similar. It such case, the detection probability is very likely to be high, lowering the weight of the
+misdetection-borned target. As the weight is small, the target is likely to be removed during pruning step.
+
+If the previously detected target is hidden behind some obstacle and the object detector does not provide any
+measurement, only misdetection-borned target arises. In such case the mask from the time, the target was lastly
+detected, is compared to the predicted mask, that contains the obstacle's color properties. Because we use cameras as
+a sensor, it produces frames at high rate. It is not desired, to lower fps to something like 1 fps, as a lot of
+information is lost. We lower the fps to 10-20 fps to enhance dynamics of the scene. However, in such short time
+period, the target like car does not move by a lot during this time. The predicted mask then intersects the lastly
+detected target's mask by a considerably huge amount. That is why we define hidden probability $p_{H,k}$ and modify
+the pruning of components. As the masks are likely to intersect, the detection probability is likely to be high in
+the first couple of frames, when the target is hidden. We need this target to be able to survive this rough period.
+The hidden probability is based on color properties of bounding boxes from the time the target was lastly detected
+and from the bounding box that is moved $T_c$ time steps ahead in a direction of target's velocity. The moved
+bounding box reveals us the color properties of the obstacle, that are likely to be different from these the target
+was lastly detected. The hidden probability should be then low and the target's state should be in hidden state,
+based on \ref{eq:mphd_transition_matrix}, thus the pruning threshold is lowered. After the target overtakes the obstacle
+, it should appear in a scene and detected again. If it does not and the color properties of a scene given by moving
+bounding box is similar from the one the target was lastly detected, the hidden probability is high and the target is
+in dead state. The pruning threshold is not lowered a the detection probability is low, so the target is removed
+during pruning step.
 \section{Merging in GM-PHD filter with dynamic detection probability}
+\section{Architecture}

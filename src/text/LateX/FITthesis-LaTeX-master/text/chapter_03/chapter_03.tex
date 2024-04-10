@@ -250,3 +250,45 @@ image processing tasks.
 %Despite significant advancements, object detection and segmentation still face several challenges. These include handling scale variations, occlusions, cluttered backgrounds, and fine-grained object attributes. Additionally, achieving real-time performance while maintaining high accuracy remains a critical goal for many applications.
 
   \subsection{Segment anything}
+To get the best possible results in practical part of this thesis, it is necessary to use powerful, yet fast image
+segmentation model. The Segment Anything (SAM) model represents a significant advancement in image segmentation,
+introducing a novel approach to tackling the challenges in this field \cite{SAM2023}. SAM is designed to address the need for
+efficient and effective segmentation models that can generalize to diverse tasks and data distributions, even in zero-shot scenarios.
+
+The SAM project introduces a new task, model, and dataset for image segmentation. It leverages a promptable model
+architecture to achieve impressive zero-shot performance on diverse segmentation tasks. This task involves generating valid segmentation masks given any segmentation prompt. A prompt can include spatial or textual information indicating what to segment in an image. SAM ensures the output mask is reasonable for at least one interpretation of the prompt, handling ambiguity effectively.
+
+SAM's architecture comprises three main components: an image encoder, a prompt encoder, and a mask decoder (Figure \ref{fig:sam_architecture}). The
+image encoder processes input images using a Vision Transformer, while the prompt encoder handles various types of prompts, including points, boxes, and text. The mask decoder efficiently generates segmentation masks based on the input image and prompt embeddings. SAM is designed for real-time performance, enabling interactive use with low latency.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{text/chapter_03/imgs/sam}
+  \caption{SAM architecture (Source \cite{SAM2023})}
+  \label{fig:sam_architecture}
+\end{figure}
+
+SAM addresses ambiguity by predicting multiple output masks for a single prompt. It efficiently ranks these masks based on confidence scores, allowing it to produce accurate segmentations even in complex scenarios.
+
+Efficiency is a core consideration in SAM's design. The model's components are optimized for fast execution, enabling it to run in a web browser on CPU with a runtime of approximately 50ms. This real-time performance facilitates seamless interaction with the model for prompt-based segmentation tasks.
+
+SAM is trained using the linear combination of focal loss \cite{FocalLoss2020} and dice loss \cite{DiceLoss2016}, tailored for the
+promptable segmentation
+task. It simulates an interactive setup during training, sampling prompts to ensure robustness and adaptability.
+
+SAM's contributions include the development of a promptable segmentation task, a novel model architecture optimized
+for real-time performance, and a large-scale dataset (SA-1B) comprising over 1 billion masks and 11 million images.
+The model's zero-shot capabilities and efficient design make it a valuable tool for various segmentation tasks, with
+potential applications across diverse domains. The example of segmented images are shown in Figure \ref{fig:sam_example}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{text/chapter_03/imgs/sam_example}
+  \caption{The demonstration of SAM's strength. These masks were annotated fully automatically by SAM and are part of
+  the SA-1B dataset. (Source \cite{SAM2023})}
+  \label{fig:sam_example}
+\end{figure}
+
+\subsection{Grounded segment anything}
+As SAM text prompt was not released yet,\ldots
+\todo{try it}

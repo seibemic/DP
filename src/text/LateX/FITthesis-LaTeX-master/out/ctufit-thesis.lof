@@ -44,9 +44,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Multi-head attention. (Source \cite {vaswani2023attention})\relax }}{52}{figure.caption.22}%
 \defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces SAM architecture (Source \cite {SAM2023})\relax }}{53}{figure.caption.23}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The demonstration of SAM's strength. These masks were annotated fully automatically by SAM and are part of the SA-1B dataset. (Source \cite {SAM2023})\relax }}{54}{figure.caption.24}%
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces All classes, filtered classes\relax }}{54}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces YOLO segmentation example. This picture shows all detected objects the YOLO model is trained for and also the segmented objects' masks. These masks are imperfect, but often sufficient enough.\relax }}{59}{figure.caption.25}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Comparison of using only a bounding box vs combination of a bounding box and a point as an input for SAM.\relax }}{60}{figure.caption.26}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The cooperation of YOLO and SAM models. The YOLO provides bounding boxes of objects, which are inputs to SAM. The SAM model then make segmented masks of these objects.\relax }}{60}{figure.caption.27}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 

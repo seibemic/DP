@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  8 APR 2024 02:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  10 APR 2024 13:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1609,7 +1609,7 @@ Package biblatex Info: Reference segment=0 on input line 140.
 \c@lstlisting=\count490
 \c@mv@tabular=\count491
 \c@mv@boldtabular=\count492
-<seibemic-assignment.pdf, id=203, 597.23125pt x 844.15375pt>
+<seibemic-assignment.pdf, id=228, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf>
 Package pdftex.def Info: seibemic-assignment.pdf  used on input line 143.
@@ -1618,7 +1618,7 @@ File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf>
 Package pdftex.def Info: seibemic-assignment.pdf  used on input line 143.
 (pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
-<seibemic-assignment.pdf, id=206, page=1, 597.23125pt x 844.15375pt>
+<seibemic-assignment.pdf, id=231, page=1, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 1>
 Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 143
@@ -1649,7 +1649,7 @@ Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 143
 
  <./seibemic-assignment.pdf{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updm
 ap/pdftex.map}>]
-<seibemic-assignment.pdf, id=249, page=2, 597.23125pt x 844.15375pt>
+<seibemic-assignment.pdf, id=273, page=2, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
 Package pdftex.def Info: seibemic-assignment.pdf , page2 used on input line 143
@@ -1808,15 +1808,15 @@ fit-thesis.lot)
 \tf@lot=\write8
 \openout8 = `ctufit-thesis.lot'.
 
+ [4
 
+]
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
 fit-thesis.lol)
 \tf@lol=\write9
 \openout9 = `ctufit-thesis.lol'.
 
- [4
-
-] [5]
+ [5]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.0pt on input line 170.
  [6
@@ -1893,7 +1893,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 7.91994pt on input line 76.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 5.93996pt on input line 76.
-<text/chapter_01/imgs/mvn_contour.png, id=504, 578.16pt x 433.62pt>
+<text/chapter_01/imgs/mvn_contour.png, id=548, 578.16pt x 433.62pt>
 File: text/chapter_01/imgs/mvn_contour.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_contour.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_contour.png  used on input li
@@ -1905,7 +1905,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 136.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 (Font)              scaled to size 7.19995pt on input line 136.
-<text/chapter_01/imgs/mvn_3d.png, id=506, 722.7pt x 578.16pt>
+<text/chapter_01/imgs/mvn_3d.png, id=550, 722.7pt x 578.16pt>
 File: text/chapter_01/imgs/mvn_3d.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_3d.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_3d.png  used on input line 14
@@ -1915,7 +1915,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 8.09995pt on input line 146.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 (Font)              scaled to size 8.09995pt on input line 146.
-<text/chapter_01/imgs/gauss_with_marginals.png, id=507, 1084.05pt x 722.7pt>
+<text/chapter_01/imgs/gauss_with_marginals.png, id=551, 1084.05pt x 722.7pt>
 File: text/chapter_01/imgs/gauss_with_marginals.png Graphic file (type png)
 <use text/chapter_01/imgs/gauss_with_marginals.png>
 Package pdftex.def Info: text/chapter_01/imgs/gauss_with_marginals.png  used on
@@ -1923,13 +1923,13 @@ Package pdftex.def Info: text/chapter_01/imgs/gauss_with_marginals.png  used on
 (pdftex.def)             Requested size: 418.25368pt x 278.83032pt.
  [9] [10 <./text/chapter_01/imgs/mvn_contour.png> <./text/chapter_01/imgs/mvn_3
 d.png> <./text/chapter_01/imgs/gauss_with_marginals.png>]
-<text/chapter_01/imgs/mvn_mixture_contour.png, id=536, 578.16pt x 433.62pt>
+<text/chapter_01/imgs/mvn_mixture_contour.png, id=580, 578.16pt x 433.62pt>
 File: text/chapter_01/imgs/mvn_mixture_contour.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_mixture_contour.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_mixture_contour.png  used on 
 input line 183.
 (pdftex.def)             Requested size: 188.21288pt x 141.1564pt.
-<text/chapter_01/imgs/mvn_mixture_3d.png, id=537, 722.7pt x 578.16pt>
+<text/chapter_01/imgs/mvn_mixture_3d.png, id=581, 722.7pt x 578.16pt>
 File: text/chapter_01/imgs/mvn_mixture_3d.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_mixture_3d.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_mixture_3d.png  used on input
@@ -1947,7 +1947,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 6.56995pt on input line 194.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 4.94997pt on input line 194.
-<text/chapter_01/imgs/gaussMix_with_marginals.png, id=538, 1084.05pt x 722.7pt>
+<text/chapter_01/imgs/gaussMix_with_marginals.png, id=582, 1084.05pt x 722.7pt>
 
 File: text/chapter_01/imgs/gaussMix_with_marginals.png Graphic file (type png)
 <use text/chapter_01/imgs/gaussMix_with_marginals.png>
@@ -1957,7 +1957,7 @@ Package pdftex.def Info: text/chapter_01/imgs/gaussMix_with_marginals.png  used
  [11] [12 <./text/chapter_01/imgs/mvn_mixture_contour.png> <./text/chapter_01/i
 mgs/mvn_mixture_3d.png> <./text/chapter_01/imgs/gaussMix_with_marginals.png>] [
 13] [14] [15] [16] [17]
-<./text/chapter_01/imgs/HMM.png, id=597, 714.67pt x 241.90375pt>
+<./text/chapter_01/imgs/HMM.png, id=642, 714.67pt x 241.90375pt>
 File: ./text/chapter_01/imgs/HMM.png Graphic file (type png)
 <use ./text/chapter_01/imgs/HMM.png>
 Package pdftex.def Info: ./text/chapter_01/imgs/HMM.png  used on input line 454
@@ -1999,7 +1999,7 @@ Chapter 3.
 
 
 ] [24]
-<text/chapter_02/imgs/clutter_singleTarget.png, id=671, 722.7pt x 722.7pt>
+<text/chapter_02/imgs/clutter_singleTarget.png, id=715, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_singleTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_singleTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_singleTarget.png  used on
@@ -2010,7 +2010,7 @@ Package pdftex.def Info: text/chapter_02/imgs/clutter_singleTarget.png  used on
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [25]
-<text/chapter_02/imgs/clutter_multiTarget.png, id=678, 722.7pt x 722.7pt>
+<text/chapter_02/imgs/clutter_multiTarget.png, id=722, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_multiTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_multiTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_multiTarget.png  used on 
@@ -2061,7 +2061,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  (./text/chapter_03/chapter_03.tex
 Chapter 4.
-<text/chapter_03/imgs/segmentation-types.png, id=913, 1890.06125pt x 773.89125p
+<text/chapter_03/imgs/segmentation-types.png, id=958, 1890.06125pt x 773.89125p
 t>
 File: text/chapter_03/imgs/segmentation-types.png Graphic file (type png)
 <use text/chapter_03/imgs/segmentation-types.png>
@@ -2073,14 +2073,14 @@ nput line 16.
 
 
 ]
-<text/chapter_03/imgs/CNN.png, id=925, 893.3375pt x 515.9275pt>
+<text/chapter_03/imgs/CNN.png, id=970, 893.3375pt x 515.9275pt>
 File: text/chapter_03/imgs/CNN.png Graphic file (type png)
 <use text/chapter_03/imgs/CNN.png>
 Package pdftex.def Info: text/chapter_03/imgs/CNN.png  used on input line 37.
 (pdftex.def)             Requested size: 418.25368pt x 241.557pt.
  [43 <./text/chapter_03/imgs/segmentation-types.png>] [44 <./text/chapter_03/im
 gs/CNN.png>] [45]
-<text/chapter_03/imgs/YOLO_architecture.png, id=950, 667.49374pt x 277.035pt>
+<text/chapter_03/imgs/YOLO_architecture.png, id=994, 667.49374pt x 277.035pt>
 File: text/chapter_03/imgs/YOLO_architecture.png Graphic file (type png)
 <use text/chapter_03/imgs/YOLO_architecture.png>
 Package pdftex.def Info: text/chapter_03/imgs/YOLO_architecture.png  used on in
@@ -2088,13 +2088,13 @@ put line 83.
 (pdftex.def)             Requested size: 418.25368pt x 173.59453pt.
  [46 <./text/chapter_03/imgs/YOLO_architecture.png>]
 [47] [48] [49]
-<text/chapter_03/imgs/unet.png, id=1013, 959.585pt x 650.43pt>
+<text/chapter_03/imgs/unet.png, id=1057, 959.585pt x 650.43pt>
 File: text/chapter_03/imgs/unet.png Graphic file (type png)
 <use text/chapter_03/imgs/unet.png>
 Package pdftex.def Info: text/chapter_03/imgs/unet.png  used on input line 183.
 
 (pdftex.def)             Requested size: 418.25368pt x 283.50047pt.
-<text/chapter_03/imgs/transformers.png, id=1016, 1324.95pt x 1866.975pt>
+<text/chapter_03/imgs/transformers.png, id=1060, 1324.95pt x 1866.975pt>
 File: text/chapter_03/imgs/transformers.png Graphic file (type png)
 <use text/chapter_03/imgs/transformers.png>
 Package pdftex.def Info: text/chapter_03/imgs/transformers.png  used on input l
@@ -2102,28 +2102,107 @@ ine 197.
 (pdftex.def)             Requested size: 209.12683pt x 294.67685pt.
  [50] [51 <./text/chapter_03/imgs/unet.png> <./text/chapter_03/imgs/transformer
 s.png>]
-<text/chapter_03/imgs/multihead.png, id=1041, 278.03876pt x 319.1925pt>
+<text/chapter_03/imgs/multihead.png, id=1086, 278.03876pt x 319.1925pt>
 File: text/chapter_03/imgs/multihead.png Graphic file (type png)
 <use text/chapter_03/imgs/multihead.png>
 Package pdftex.def Info: text/chapter_03/imgs/multihead.png  used on input line
- 216.
+ 215.
 (pdftex.def)             Requested size: 209.12683pt x 240.08539pt.
- [52 <./text/chapter_03/imgs/multihead.png>]) [53]
+ [52 <./text/chapter_03/imgs/multihead.png>]
+
+LaTeX Warning: Citation 'SAM2023' on page 53 undefined on input line 255.
+
+<text/chapter_03/imgs/sam.png, id=1097, 708.6475pt x 153.57375pt>
+File: text/chapter_03/imgs/sam.png Graphic file (type png)
+<use text/chapter_03/imgs/sam.png>
+Package pdftex.def Info: text/chapter_03/imgs/sam.png  used on input line 266.
+(pdftex.def)             Requested size: 418.25368pt x 90.64287pt.
+
+LaTeX Warning: Citation 'SAM2023' on page 53 undefined on input line 267.
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 9.0pt on input line 267.
+[53 <./text/chapter_03/imgs/sam.png>]
+
+LaTeX Warning: Citation 'FocalLoss2020' on page 54 undefined on input line 275.
+
+
+
+LaTeX Warning: Citation 'DiceLoss2016' on page 54 undefined on input line 275.
+
+<text/chapter_03/imgs/sam_example.png, id=1107, 660.4675pt x 335.2525pt>
+File: text/chapter_03/imgs/sam_example.png Graphic file (type png)
+<use text/chapter_03/imgs/sam_example.png>
+Package pdftex.def Info: text/chapter_03/imgs/sam_example.png  used on input li
+ne 286.
+(pdftex.def)             Requested size: 418.25368pt x 212.31003pt.
+
+LaTeX Warning: Citation 'SAM2023' on page 54 undefined on input line 288.
+
+./text/chapter_03/chapter_03.tex:294: Undefined control sequence.
+l.294 \todo
+           {try it}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+) [54 <./text/chapter_03/imgs/sam_example.png>]
 \openout2 = `text/chapter_04/chapter_04.aux'.
 
 
 (./text/chapter_04/chapter_04.tex
 Chapter 5.
-[54
+[55
 
 
 
-]) [55]
+] [56] [57]
+<text/chapter_04/imgs/YOLO_screenshot_2.png, id=1160, 228.855pt x 407.27156pt>
+File: text/chapter_04/imgs/YOLO_screenshot_2.png Graphic file (type png)
+<use text/chapter_04/imgs/YOLO_screenshot_2.png>
+Package pdftex.def Info: text/chapter_04/imgs/YOLO_screenshot_2.png  used on in
+put line 159.
+(pdftex.def)             Requested size: 146.39133pt x 260.52861pt.
+ [58]
+
+LaTeX Warning: Citation 'SAM2023' on page 59 undefined on input line 166.
+
+<text/chapter_04/imgs/SAM_box.png, id=1176, 773.89125pt x 514.92375pt>
+File: text/chapter_04/imgs/SAM_box.png Graphic file (type png)
+<use text/chapter_04/imgs/SAM_box.png>
+Package pdftex.def Info: text/chapter_04/imgs/SAM_box.png  used on input line 1
+83.
+(pdftex.def)             Requested size: 200.75996pt x 133.57845pt.
+<text/chapter_04/imgs/SAM_box_point.png, id=1177, 777.90625pt x 518.93875pt>
+File: text/chapter_04/imgs/SAM_box_point.png Graphic file (type png)
+<use text/chapter_04/imgs/SAM_box_point.png>
+Package pdftex.def Info: text/chapter_04/imgs/SAM_box_point.png  used on input 
+line 191.
+(pdftex.def)             Requested size: 200.75996pt x 133.92317pt.
+<text/chapter_04/imgs/YOLO_SAM_02.png, id=1179, 228.855pt x 407.27156pt>
+File: text/chapter_04/imgs/YOLO_SAM_02.png Graphic file (type png)
+<use text/chapter_04/imgs/YOLO_SAM_02.png>
+Package pdftex.def Info: text/chapter_04/imgs/YOLO_SAM_02.png  used on input li
+ne 203.
+(pdftex.def)             Requested size: 146.39133pt x 260.52861pt.
+[59 <./text/chapter_04/imgs/YOLO_screenshot_2.png (PNG copy)>] [60 <./text/chap
+ter_04/imgs/SAM_box.png> <./text/chapter_04/imgs/SAM_box_point.png> <./text/cha
+pter_04/imgs/YOLO_SAM_02.png (PNG copy)>] [61] [62] [63] [64pdfTeX warning (ext
+4): destination with the same identifier (name{equation.5.3.28}) has been alrea
+dy used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.385 ...ilter with dynamic detection probability}
+                                                  ]) [65]
 \openout2 = `text/chapter_05/chapter_05.aux'.
 
- (./text/chapter_05/chapter_05.tex
+
+(./text/chapter_05/chapter_05.tex
 Chapter 6.
-) [56
+) [66
 
 
 
@@ -2135,11 +2214,11 @@ File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 10.0pt on input line 275.
- [57
+ [67
 
 
 
-] [58]
+] [68]
 ./ctufit-thesis.tex:276: Misplaced alignment tab character &.
 <argument> ...Quantitative Management (ITQM 2020 &
                                                    2021): Developing Global ...
@@ -2152,13 +2231,13 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[59] [60]
+[69] [70]
 \openout2 = `text/medium.aux'.
 
  (./text/medium.tex
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 12.0pt on input line 12.
-) [61
+) [71
 
 
 ]
@@ -2191,17 +2270,22 @@ Package rerunfilecheck Info: File `ctufit-thesis.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                ctufit-thesis
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 \openout1 = `ctufit-thesis.run.xml'.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 279.
  ) 
 Here is how much of TeX's memory you used:
- 37666 strings out of 481239
- 671111 string characters out of 5920377
- 1423883 words of memory out of 5000000
- 51766 multiletter control sequences out of 15000+600000
- 746689 words of font info for 290 fonts, out of 8000000 for 9000
+ 37815 strings out of 481239
+ 674663 string characters out of 5920377
+ 1427400 words of memory out of 5000000
+ 51856 multiletter control sequences out of 15000+600000
+ 749489 words of font info for 291 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,23n,70p,1766b,2903s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-sc.enc}{/usr/
@@ -2222,10 +2306,10 @@ e1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
 fonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
 Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (73 pages, 2910049 bytes).
+eX-master/out/ctufit-thesis.pdf (83 pages, 5234102 bytes).
 PDF statistics:
- 1310 PDF objects out of 1440 (max. 8388607)
- 1159 compressed objects within 12 object streams
- 377 named destinations out of 1000 (max. 500000)
- 505 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1469 PDF objects out of 1728 (max. 8388607)
+ 1297 compressed objects within 13 object streams
+ 429 named destinations out of 1000 (max. 500000)
+ 583 words of extra memory for PDF output out of 10000 (max. 10000000)
 
