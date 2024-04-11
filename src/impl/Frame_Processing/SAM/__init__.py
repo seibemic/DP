@@ -15,6 +15,7 @@ class SAM_handler:
         if not os.path.exists(f"{HOME}/weights/sam_vit_h_4b8939.pth"):
             warnings.warn("sam not available, downloading...")
             os.system(f"""wget -q https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth""")
+            os.system(f"""mv sam_vit_h_4b8939.pth {HOME}/weights/sam_vit_h_4b8939.pth""")
         self.m_sam_checkpoint = "weights/sam_vit_h_4b8939.pth"
         self.m_model_type = "vit_h"
         self.m_device = device
@@ -28,6 +29,8 @@ class SAM_handler:
         return transformed_boxes
 
     def predict(self, frame, frameDimensions, detections):
+        print("detections:")
+        print(detections)
         transformed_boxes = self.transformBoxes(frameDimensions, detections)
         self.m_predictor.set_image(frame)
         masks, scores, logits = self.m_predictor.predict_torch(

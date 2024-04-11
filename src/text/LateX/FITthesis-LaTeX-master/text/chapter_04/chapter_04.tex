@@ -391,9 +391,8 @@ The hidden probability is based on color properties of bounding boxes from the t
 and from the bounding box that is moved $T_c$ time steps ahead in a direction of target's velocity. The moved
 bounding box reveals us the color properties of the obstacle, that are likely to be different from these the target
 was lastly detected. The hidden probability should be then low and the target's state should be in hidden state,
-based on \ref{eq:mphd_transition_matrix}, thus the pruning threshold is lowered. After the target overtakes the obstacle
-, it should appear in a scene and detected again. If it does not and the color properties of a scene given by the
-moving
+based on \ref{eq:mphd_transition_matrix}, thus the pruning threshold is lowered. After the target overtakes the obstacle,
+it should appear in a scene and detected again. If it does not and the color properties of a scene given by the moving
 bounding box is similar from the one the target was lastly detected, the hidden probability is high and the target is
 in dead state. The pruning threshold is not lowered a the detection probability is low, so the target is removed
 during pruning step.

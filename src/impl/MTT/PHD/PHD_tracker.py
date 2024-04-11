@@ -33,7 +33,7 @@ class PHDTracker(TargetTracker):
         self.predictBirthTargets(frame_num)
         self.predictExistingTargets()
 
-    def update(self, z, pd, xyxy, masks, frame, frame_num,lambd=0.00001):
+    def update(self, z, xyxy, masks, frame, frame_num,lambd=0.00001):
         Jk = len(self.trackers)
         self.updateComponents()
         # print("z len: ", len(z))

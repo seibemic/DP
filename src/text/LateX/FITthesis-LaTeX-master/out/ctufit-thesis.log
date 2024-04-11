@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  11 APR 2024 02:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.14)  11 APR 2024 12:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -58,9 +58,9 @@ File: babel.def 2020/02/14 3.40 Babel common definitions
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
 Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language44) on input line 105.
+(babel)             (\language22) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language44) on input line 108.
+(babel)             (\language22) on input line 108.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
@@ -1647,8 +1647,8 @@ Package pdftex.def Info: seibemic-assignment.pdf , page1 used on input line 143
  [1
 
 
- <./seibemic-assignment.pdf{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updm
-ap/pdftex.map}>]
+ <./seibemic-assignment.pdf{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}>
+]
 <seibemic-assignment.pdf, id=273, page=2, 597.23125pt x 844.15375pt>
 File: seibemic-assignment.pdf Graphic file (type pdf)
 <use seibemic-assignment.pdf, page 2>
@@ -2178,7 +2178,7 @@ name{equation.5.3.28}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.368 
+l.369 
       ]) [66]
 \openout2 = `text/chapter_05/chapter_05.aux'.
 
@@ -2260,7 +2260,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 279.
 Here is how much of TeX's memory you used:
  37853 strings out of 481239
  676061 string characters out of 5920377
- 1427780 words of memory out of 5000000
+ 1428122 words of memory out of 5000000
  51879 multiletter control sequences out of 15000+600000
  746689 words of font info for 290 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2283,7 +2283,7 @@ e1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
 fonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
 Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (85 pages, 5240963 bytes).
+eX-master/out/ctufit-thesis.pdf (85 pages, 5240962 bytes).
 PDF statistics:
  1527 PDF objects out of 1728 (max. 8388607)
  1352 compressed objects within 14 object streams

@@ -5,7 +5,7 @@ import os
 import re
 import numpy as np
 
-from src.impl.Frame_Processing import FrameProcessing
+from src.impl.Frame_Processing import FrameProcessing, DINO_handler
 from src.impl.MTT import TargetTracker
 from src.impl.MTT.confidence_ellipse import cv2_confidence_ellipse
 from src.impl.Frame_Processing.Stream import Stream
@@ -23,8 +23,9 @@ class VideoMTT:
 
         if chosen_class_ids is None:
             chosen_class_ids = [0]
-        self.check_chosenClassIds(chosen_class_ids)
-        self.chosen_class_ids = chosen_class_ids
+        if not isinstance(self.frameProcessor.bboxPredictor, DINO_handler):
+            self.check_chosenClassIds(chosen_class_ids)
+            self.chosen_class_ids = chosen_class_ids
 
     def set_chosenClassIds(self, chosen_class_ids):
         self.check_chosenClassIds(chosen_class_ids)
@@ -270,7 +271,11 @@ class VideoMTT:
                # self.show_frame(frameWithSpawnPoints,frame_num)
             #    frame_num +=1
                # continue
-            xyxy, conf, masks, cls = self.filterClasses(bboxes.cls.numpy(), bboxes.xyxy.numpy(), bboxes.conf.numpy(), masks)
+            try:
+                xyxy, conf, masks, cls = self.filterClasses(bboxes.cls.numpy(), bboxes.xyxy.numpy(), bboxes.conf.numpy(), masks)
+            except Exception as e:
+                xyxy = bboxes.xyxy
+                masks = masks
             # if len(xyxy) == 0 or masks is None or masks.shape[0] == 0:
                 # masks = np.empty(shape=(0,0,0))
                 # print("no detections")
@@ -293,7 +298,7 @@ class VideoMTT:
             #     xyxy = np.empty_like(xyxy)
             #     conf = np.empty_like(conf)
             #     masks = np.empty_like(masks)
-            self.MTT.update(z_masks_centers, conf, xyxy, masks, frame, frame_num)
+            self.MTT.update(z_masks_centers, xyxy, masks, frame, frame_num)
             self.MTT.pruneByMaxWeight(0.1)
             # if frame_num < 20 or 1:
             self.MTT.mergeTargets()

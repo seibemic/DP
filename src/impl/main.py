@@ -24,12 +24,11 @@ if __name__ == '__main__':
 
     of = "/home/michal/Documents/FIT/DP/dp/src/data/output/test01"
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    frameProcessor = FrameProcessing(mode=0
-                                     , device=device)
+    frameProcessor = FrameProcessing(mode=2, device=device)
     # yolo = YOLOHandler()
 
     # sam = SAM_handler(device = "cpu")
-    input = "/home/michal/Documents/FIT/DP/dp/src/data/input/VID20240229170959.mp4"
+    input = "/home/michal/Documents/FIT/DP/dp/src/data/input/VID20240229170748.mp4"
     vid = VideoMTT(input_video=input, MTT = MTT, frameProcessor=frameProcessor,  chosen_class_ids=[2], output_video=of)
 
     d = 800
