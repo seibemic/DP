@@ -249,7 +249,7 @@ image processing tasks.
 
 %Despite significant advancements, object detection and segmentation still face several challenges. These include handling scale variations, occlusions, cluttered backgrounds, and fine-grained object attributes. Additionally, achieving real-time performance while maintaining high accuracy remains a critical goal for many applications.
 
-  \subsection{Segment anything}
+  \subsection{Segment Anything}
 To get the best possible results in practical part of this thesis, it is necessary to use powerful, yet fast image
 segmentation model. The Segment Anything (SAM) model represents a significant advancement in image segmentation,
 introducing a novel approach to tackling the challenges in this field \cite{SAM2023}. SAM is designed to address the need for
@@ -289,6 +289,23 @@ potential applications across diverse domains. The example of segmented images a
   \label{fig:sam_example}
 \end{figure}
 
-\subsection{Grounded segment anything}
-As SAM text prompt was not released yet,\ldots
-\todo{try it}
+\subsection{Grounded Segment Anything}
+Even though the SAM model with text prompt was not released yet, many other projects occur recently and combines
+other models with SAM. One of such project is Grounded Segment Anything \cite{ren2024grounded}. This project connects
+image processing models Grounding DINO \cite{liu2023grounding} as an open-set object detector and SAM \cite{SAM2023} as 
+an object segmentation model. Moreover, to enhance to performance and usability of Grounded SAM, other powerful 
+models are used.
+\begin{itemize}
+  \item \textbf{BLIP:} BLIP is Vision-Language Pre-training (VLP) framework which transfers flexibly to both vision
+  -language understanding and generation tasks \cite{li2022blip}. VLP frameworks aim to improve performance of
+  downstream vision and language tasks by pretraining the model on large-scale image-text pairs.
+  \item \textbf{Recognize Anything:} Recognize Anything Model (RAM) is a string foundation model for image tagging \cite{zhang2023recognize}. RAM makes
+  a substantial step for large models in computer vision,
+  demonstrating the zero-shot ability to recognize any common category with high accuracy.
+  \item \textbf{Stable-Diffusion:} Stable-Diffusion is latent text-to-image diffusion model (LDMs)\cite{
+    rombach2022highresolution}. LDMs enhance the efficiency and flexibility of diffusion models (DMs) by training them in the latent space of pretrained autoencoders. By leveraging powerful denoising autoencoders, LDMs achieve state-of-the-art results in tasks such as image inpainting, class-conditional image synthesis, and super-resolution while significantly reducing computational requirements.
+  \item \textbf{OSX:} OSX is a one-stage pipeline for expressive whole-body mesh recovery from single images \cite{
+    OSX2023}. OSX employs a Component Aware Transformer (CAT) consisting of a global body encoder and a local face/hand decoder. By leveraging a feature-level upsample-crop scheme and keypoint-guided deformable attention, OSX achieves precise estimation of face and hand parameters while maintaining connection coherence.
+\end{itemize}
+Grounded DINO also offers cooperation of SAM and other models: Visual ChatGPT \cite{wu2023visual}, RAM++ \cite{
+  huang2023openset}, VoxelNeXt \cite{chen2023voxelnext} and more.

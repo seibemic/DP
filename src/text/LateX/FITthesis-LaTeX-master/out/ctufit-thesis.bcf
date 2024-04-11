@@ -2259,9 +2259,19 @@
     <bcf:citekey order="78">FocalLoss2020</bcf:citekey>
     <bcf:citekey order="79">DiceLoss2016</bcf:citekey>
     <bcf:citekey order="80">SAM2023</bcf:citekey>
-    <bcf:citekey order="81">VoMaPHD2006</bcf:citekey>
-    <bcf:citekey order="82">SAM2023</bcf:citekey>
-    <bcf:citekey order="83">VoMaPHD2006</bcf:citekey>
+    <bcf:citekey order="81">ren2024grounded</bcf:citekey>
+    <bcf:citekey order="82">liu2023grounding</bcf:citekey>
+    <bcf:citekey order="83">SAM2023</bcf:citekey>
+    <bcf:citekey order="84">li2022blip</bcf:citekey>
+    <bcf:citekey order="85">zhang2023recognize</bcf:citekey>
+    <bcf:citekey order="86">rombach2022highresolution</bcf:citekey>
+    <bcf:citekey order="87">OSX2023</bcf:citekey>
+    <bcf:citekey order="88">wu2023visual</bcf:citekey>
+    <bcf:citekey order="89">huang2023openset</bcf:citekey>
+    <bcf:citekey order="90">chen2023voxelnext</bcf:citekey>
+    <bcf:citekey order="91">VoMaPHD2006</bcf:citekey>
+    <bcf:citekey order="92">SAM2023</bcf:citekey>
+    <bcf:citekey order="93">VoMaPHD2006</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

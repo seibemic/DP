@@ -207,7 +207,21 @@ with high precision. The cooperation of these two models is demonstrated in Figu
 \end{figure}
 
 \subsection{S3: Grounded SAM + PHD}
+Grounding DINO is an object detector that denote objects in an image based on a given text prompt. This feature
+allows us to track all required objects without the need to fine tune every class instance to a model. Moreover, this
+model is able to mark objects based on ambiguous text input. However despide this universality, in cases where the
+model is not confident enough, if the desired object appears in a scene, it is possible to get different results with
+the same input every time, the model is executed. This brings uncertainty in situations with ambiguous text inputs
+and we should be aware of it in practical scenarios.
 
+For segmentation task, Grounded DINO is connected to SAM model, as it produces bounding boxes of detected objects.
+SAM uses these bounding boxes to segment objects and creates a segmentation binary mask. The cooperation of these
+powerful models is demonstrated in Figure \ref{fig:GroundedSAM}.
+
+\begin{figure}
+  \centering
+  \label{fig:GroundedSAM}
+\end{figure}
 
 
 
@@ -271,7 +285,8 @@ We apply a range of similarity functions, each with its unique advantages and li
     where $cov$ is the covariance and $\sigma_{(\cdot)}$ is the standard deviation,
 \end{itemize}
 
-For simplicity, let us name the whole fraction in \eqref{eq:similarity} as $S_c$. This value represents the "average" similarity across all used color spectrums and similarity functions.
+For simplicity, let us denote the fraction in \eqref{eq:similarity} as $S_c$. This value represents the "average"
+similarity across all used color spectrums and similarity functions.
 
 As mentioned in Section \ref{sec:mGMPHDrec}, the dynamically estimated detection probability in \eqref{eq:mphd_recursion_update_intesity} follows from one of two possible scenarios. First, there is no current measurement at
 time $k$, hence the current mask results from its predicted position,
@@ -361,10 +376,10 @@ matrix, we move the target's mask detected at time $k-1$ to $k$ by its velocity 
 predicted mask color properties are compared to the mask made from the new measurement from time $k$. If nothing
 unpredictable happened, both masks should occur on very similar position, thus the color masks' properties should be
 very similar. It such case, the detection probability is very likely to be high, lowering the weight of the
-misdetection-borned target. As the weight is small, the target is likely to be removed during pruning step.
+misdetection-born target. As the weight is small, the target is likely to be removed during pruning step.
 
 If the previously detected target is hidden behind some obstacle and the object detector does not provide any
-measurement, only misdetection-borned target arises. In such case the mask from the time, the target was lastly
+measurement, only misdetection-born target arises. In such case the mask from the time, the target was lastly
 detected, is compared to the predicted mask, that contains the obstacle's color properties. Because we use cameras as
 a sensor, it produces frames at high rate. It is not desired, to lower fps to something like 1 fps, as a lot of
 information is lost. We lower the fps to 10-20 fps to enhance dynamics of the scene. However, in such short time
@@ -377,7 +392,8 @@ and from the bounding box that is moved $T_c$ time steps ahead in a direction of
 bounding box reveals us the color properties of the obstacle, that are likely to be different from these the target
 was lastly detected. The hidden probability should be then low and the target's state should be in hidden state,
 based on \ref{eq:mphd_transition_matrix}, thus the pruning threshold is lowered. After the target overtakes the obstacle
-, it should appear in a scene and detected again. If it does not and the color properties of a scene given by moving
+, it should appear in a scene and detected again. If it does not and the color properties of a scene given by the
+moving
 bounding box is similar from the one the target was lastly detected, the hidden probability is high and the target is
 in dead state. The pruning threshold is not lowered a the detection probability is low, so the target is removed
 during pruning step.
