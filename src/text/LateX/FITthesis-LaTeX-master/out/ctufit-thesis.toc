@@ -2,15 +2,15 @@
 \babel@toc {english}{}
 \babel@toc {english}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{{Acknowledgments}}{vi}{chapter*.5}%
+\contentsline {chapter}{{Acknowledgments}}{vi}{chapter*.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\thectufitdeclarationlabel }{vii}{chapter*.6}%
+\contentsline {chapter}{\thectufitdeclarationlabel }{vii}{chapter*.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{{Abstract}}{viii}{chapter*.7}%
+\contentsline {chapter}{{Abstract}}{viii}{chapter*.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Seznam zkratek}{ix}{chapter*.8}%
+\contentsline {chapter}{Seznam zkratek}{ix}{chapter*.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Introduction}{1}{chapter*.9}%
+\contentsline {chapter}{Introduction}{1}{chapter*.8}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Thesis establishment}{2}{chapter.1}%
 \defcounter {refsection}{0}\relax 
@@ -128,8 +128,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{66}{section.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}Architecture}{66}{section.5.5}%
+\contentsline {section}{\numberline {5.5}Architecture}{67}{section.5.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Experiments}{67}{chapter.6}%
+\contentsline {chapter}{\numberline {6}Experiments}{68}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Obsah příloh}{73}{appendix*.30}%
+\contentsline {chapter}{Obsah příloh}{74}{appendix*.29}%

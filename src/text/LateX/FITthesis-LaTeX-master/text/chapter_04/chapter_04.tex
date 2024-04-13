@@ -214,7 +214,7 @@ model is not confident enough, if the desired object appears in a scene, it is p
 the same input every time, the model is executed. This brings uncertainty in situations with ambiguous text inputs
 and we should be aware of it in practical scenarios.
 
-For segmentation task, Grounded DINO is connected to SAM model, as it produces bounding boxes of detected objects.
+For segmentation task, Grounded DINO's output serves as an input to SAM model, as it produces bounding boxes of detected objects.
 SAM uses these bounding boxes to segment objects and creates a segmentation binary mask. The cooperation of these
 powerful models is demonstrated in Figure \ref{fig:GroundedSAM}.
 
@@ -309,7 +309,7 @@ and where the histogram from the last detection $h_{0,k}^{(i)} \equiv  h_{0,k-1}
 \end{align}
 where $m, n$ are indices of the binary mask $M$ and $v_x, v_y$ are x- and y-direction velocities of the target. $\mathbf{0}$ is a zero vector of the same size as the mask. The second scenario takes the current measurement $z$ into account. The detection probability is modified according to
 \begin{align}
-  p_{D,k}^{(j)}(x;z) &= S_c\left[h(M_{k}^{(j)}(z) \circ D_k), h_{0,k}^{(j)}\right],
+  p_{D,k}^{(j)}(x;z) &= S_c\left[h(M_{k}^{(j)}(z) \circ D_k), h_{0,k}^{(j)}\right], \label{eq:mphd_recursion_update_intesity_misdetect_z_pd}
 \end{align}
 where $h_{0,k}^{(j)}$ is the histogram resulting from the last detection,
 \begin{equation}
@@ -352,7 +352,7 @@ set higher in scenarios, where the target color mask is similar to the color mas
 lower otherwise. $p_{H,k}$ is the probability that the target is removed. This probability is the result of \eqref{eq:mphd_recursion_update_intesity_misdetect_pH}, where the bounding boxes of the object detector are used.
 If we denote by $B_{P,k}^{(j)}$ the bounding box predicted $T_c$ steps ahead and by $B_{S,k}^{(j)}$ the bounding box of the last step $k$ when the object was detected, then
 \begin{align}
-  B_{P,k}^{(j)} &= B_{P,k-1}^{(j)} + n_k^{(j)}\cdot [v_{x,{k}}^{(j)}, v_{y,{k}}^{(j)}, _{x,{k}}^{(j)}, v_{y,{k}}^{(j)}], \\
+  B_{P,k}^{(j)} &= B_{P,k-1}^{(j)} + n_k^{(j)}\cdot [v_{x,{k}}^{(j)}, v_{y,{k}}^{(j)}, _{x,{k}}^{(j)}, v_{y,{k}}^{(j)}], \label{eq:mphd_bbox_shift}\\
   B_{S,k}^{(j)} &= B_{S,k-1}^{(j)}, \\
   p_{H,k} &= S_c\left[D_k(B_{P,k}^{(j)}), D_k(B_{S,k}^{(j)})\right], \label{eq:mphd_recursion_update_intesity_misdetect_pH}
 \end{align}
@@ -383,7 +383,7 @@ measurement, only misdetection-born target arises. In such case the mask from th
 detected, is compared to the predicted mask, that contains the obstacle's color properties. Because we use cameras as
 a sensor, it produces frames at high rate. It is not desired, to lower fps to something like 1 fps, as a lot of
 information is lost. We lower the fps to 10-20 fps to enhance dynamics of the scene. However, in such short time
-period, the target like car does not move by a lot during this time. The predicted mask then intersects the lastly
+period, the target like car does not move enough. The predicted mask then intersects the lastly
 detected target's mask by a considerably huge amount. That is why we define hidden probability $p_{H,k}$ and modify
 the pruning of components. As the masks are likely to intersect, the detection probability is likely to be high in
 the first couple of frames, when the target is hidden. We need this target to be able to survive this rough period.
@@ -397,4 +397,42 @@ bounding box is similar from the one the target was lastly detected, the hidden 
 in dead state. The pruning threshold is not lowered a the detection probability is low, so the target is removed
 during pruning step.
 \section{Merging in GM-PHD filter with dynamic detection probability}
+Another way to lower computational demands and potentially increase robustness of a filter is through merging
+targets that appear in the same neighbourhood. This procedure is especially useful in situations, when many measurements
+occur in a validation region of a target. If at least some of these measurements originate from clutter, due to the
+GM-PHD recursion, the target count increases rapidly, increasing computational requirements. To prevent this issue,
+target merging technique is necessary.
+In GM-PHD filter, each target carries three variables: the target's weight $w$, mean $m$ and covariance matrix $P$.
+Merging these values of multiple filters is straightforward and is described in \cite{VoMaPHD2006} and Section \ref{sec:phd_pruning_and_merging}. However, in our modified GM-PHD filter, each target also holds these informations:
+\begin{itemize}
+  \item \textbf{Current bounding box position:} Bbox in $xyxy$ format that determines current position of an object.
+  This bbox is determined by bbox given by a measurement $z$ in current time step $k$ in update step. The target's
+  bbox is shifted in prediction step in \eqref{eq:mphd_bbox_shift}, thus the target must have been initialized in the
+  past in order to have current bbox.
+  \item \textbf{Current mask:} Current binary mask is given by a measurement $z$ in current time step $k$ in update
+  step. As with previous bboxes in order to inialize current mask, it must have been initialized by a measurement in
+  the past. The mask is shifted according to \eqref{eq:mphd_recursion_update_intesity_misdetect_M_shifted}.
+  \item Data structure \textbf{Object Stats:} Every new target born in update step of GM-PHD filter by a measurement $z$ from a target with previous state $xi$, contains a data structure $Object Stats$. This structure is composed of many variables determining the target's history. These variable arise in update step from a measurement and are useful for calculating dynamic detection probability in Equations \eqref{eq:mphd_recursion_update_intesity_misdetect_pd} - \eqref{eq:mphd_recursion_update_intesity_misdetect_pH}.
+      \begin{itemize}
+        \item \textbf{Bounding box position:} This variable in Object stats represents a bounding box from the time
+        the target was lastly detected. To calculate $p_{H,k}$ in \eqref{eq:mphd_recursion_update_intesity_misdetect_pH} this and current bbox are compared.
+        \item \textbf{Mask:} This variable represents the target's mask from the time the target was lastly detected. In \eqref{eq:mphd_recursion_update_intesity_misdetect_pd} and \eqref{eq:mphd_recursion_update_intesity_misdetect_z_pd} this mask is compared to the current mask
+        resulting from prediction step of a target with previous state $\xi$.
+        \item \textbf{Frame:} To compare color histograms in \eqref{eq:mphd_recursion_update_intesity_misdetect_pd}
+        and \eqref{eq:mphd_recursion_update_intesity_misdetect_z_pd}, each target contains a frame from the time $k$
+        in which
+        it was born.
+        \item \textbf{Time stamp:} This is variable to save the time $k$ the target was born.
+      \end{itemize}
+  \item Data structure \textbf{Markov Chain:} This data structure serves for determining the target's state. As the
+  distribution determined by transition matrix in \eqref{eq:mphd_transition_matrix} is not stationary, it is necessary
+  to calculate the resulting distribution in every time step.
+      \begin{itemize}
+        \item \textbf{Initial distribution:} To get the target's state, first we need to define initial distribution.
+        \item \textbf{Result matrix:} The result matrix is an ongoing outcome of previous result matrix and transition
+        matrix, i.e, result matrix $R_k = R_{k-1} P^{k-k_0}$, where $k_0$ is the time the target was born,
+        $R_0 = I_3$ and $I_n$ is identity matrix of the shape $n\times n$.
+      \end{itemize}
+\end{itemize}
+
 \section{Architecture}

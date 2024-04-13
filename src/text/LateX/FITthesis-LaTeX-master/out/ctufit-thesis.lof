@@ -14,47 +14,47 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of plots of multivariate Gaussian distribution.\relax }}{10}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of plots of multivariate Gaussian distribution.\relax }}{10}{figure.caption.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Gaussian distribution with corresponding marginals.\relax }}{10}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Gaussian distribution with corresponding marginals.\relax }}{10}{figure.caption.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Examples of plots of multivariate Gaussian mixture distribution. There are three components in figures with means $\{[0, 0], [3, 3], [-3, -1]\}$. Note that the density of peaks is very low, because the sum has to be equal $1$.\relax }}{12}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Examples of plots of multivariate Gaussian mixture distribution. There are three components in figures with means $\{[0, 0], [3, 3], [-3, -1]\}$. Note that the density of peaks is very low, because the sum has to be equal $1$.\relax }}{12}{figure.caption.11}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Gaussian mixture distribution with means $\{[0,0], [2,2]\}$, weights $\{[0.6, 0.4]\}$ and corresponding marginals.\relax }}{12}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Gaussian mixture distribution with means $\{[0,0], [2,2]\}$, weights $\{[0.6, 0.4]\}$ and corresponding marginals.\relax }}{12}{figure.caption.12}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Demonstration of the course of the hidden Markov process.\relax }}{18}{figure.caption.14}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Several measurements $z_i$ appeared in the validation region of a single target. $\hat {z}$ is a predicted measurement and none or any of the measurement $z_1 - z_3$ may have originated from the target.\relax }}{26}{figure.caption.15}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Several measurements $z_i$ appeared in the validation region of one of targets $\hat {z_1}$ or $\hat {z_2}$. $\hat {z_1}$ and $\hat {z_2}$ are predicted measurements and none or any of the measurement $z_1 - z_3$ may have originated from the target $\hat {z_1}$ and none or any of the measurement $z_3 - z_4$ may have originated from the target $\hat {z_2}$.\relax }}{27}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Demonstration of the course of the hidden Markov process.\relax }}{18}{figure.caption.13}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Image detection and segmentation task types. (Source: \href {https://techvidvan.com/tutorials/image-segmentation-machine-learning/}{techvidvan.com}.)\relax }}{43}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Several measurements $z_i$ appeared in the validation region of a single target. $\hat {z}$ is a predicted measurement and none or any of the measurement $z_1 - z_3$ may have originated from the target.\relax }}{26}{figure.caption.14}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces CNN architecture example. (Source \href {https://learnopencv.com/understanding-convolutional-neural-networks-cnn/}{learnopencv.com})\relax }}{44}{figure.caption.18}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Yolo architecture proposed in \cite {YOLORedmon2016} has 24 convolutinal layers followed by 2 fully connected layers. Convolutional layers were pretrained on the ImageNet classificator at half resolution (224 x 224 input image) and the doubled the resolution for detection. (Source \cite {YOLORedmon2016}.)\relax }}{46}{figure.caption.19}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces U-net architecture (example for 32x32 pixels in the lowest resolution). (Source \cite {ronneberger2015unet})\relax }}{51}{figure.caption.20}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Transformer architecture. (Source \cite {vaswani2023attention})\relax }}{51}{figure.caption.21}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Multi-head attention. (Source \cite {vaswani2023attention})\relax }}{52}{figure.caption.22}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.7}{\ignorespaces SAM architecture (Source \cite {SAM2023})\relax }}{53}{figure.caption.23}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.8}{\ignorespaces The demonstration of SAM's strength. These masks were annotated fully automatically by SAM and are part of the SA-1B dataset. (Source \cite {SAM2023})\relax }}{54}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Several measurements $z_i$ appeared in the validation region of one of targets $\hat {z_1}$ or $\hat {z_2}$. $\hat {z_1}$ and $\hat {z_2}$ are predicted measurements and none or any of the measurement $z_1 - z_3$ may have originated from the target $\hat {z_1}$ and none or any of the measurement $z_3 - z_4$ may have originated from the target $\hat {z_2}$.\relax }}{27}{figure.caption.15}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces YOLO segmentation example. This picture shows all detected objects the YOLO model is trained for and also the segmented objects' masks. These masks are imperfect, but often sufficient enough.\relax }}{60}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Image detection and segmentation task types. (Source: \href {https://techvidvan.com/tutorials/image-segmentation-machine-learning/}{techvidvan.com}.)\relax }}{43}{figure.caption.16}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Comparison of using only a bounding box vs combination of a bounding box and a point as an input for SAM.\relax }}{61}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces CNN architecture example. (Source \href {https://learnopencv.com/understanding-convolutional-neural-networks-cnn/}{learnopencv.com})\relax }}{44}{figure.caption.17}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces The cooperation of YOLO and SAM models. The YOLO provides bounding boxes of objects, which are inputs to SAM. The SAM model then make segmented masks of these objects.\relax }}{61}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Yolo architecture proposed in \cite {YOLORedmon2016} has 24 convolutinal layers followed by 2 fully connected layers. Convolutional layers were pretrained on the ImageNet classificator at half resolution (224 x 224 input image) and the doubled the resolution for detection. (Source \cite {YOLORedmon2016}.)\relax }}{46}{figure.caption.18}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces U-net architecture (example for 32x32 pixels in the lowest resolution). (Source \cite {ronneberger2015unet})\relax }}{51}{figure.caption.19}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Transformer architecture. (Source \cite {vaswani2023attention})\relax }}{51}{figure.caption.20}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Multi-head attention. (Source \cite {vaswani2023attention})\relax }}{52}{figure.caption.21}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces SAM architecture (Source \cite {SAM2023})\relax }}{53}{figure.caption.22}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The demonstration of SAM's strength. These masks were annotated fully automatically by SAM and are part of the SA-1B dataset. (Source \cite {SAM2023})\relax }}{54}{figure.caption.23}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces YOLO segmentation example. This picture shows all detected objects the YOLO model is trained for and also the segmented objects' masks. These masks are imperfect, but often sufficient enough.\relax }}{60}{figure.caption.24}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Comparison of using only a bounding box vs combination of a bounding box and a point as an input for SAM.\relax }}{61}{figure.caption.25}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The cooperation of YOLO and SAM models. The YOLO provides bounding boxes of objects, which are inputs to SAM. The SAM model then make segmented masks of these objects.\relax }}{61}{figure.caption.26}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
