@@ -218,8 +218,10 @@ For segmentation task, Grounded DINO's output serves as an input to SAM model, a
 SAM uses these bounding boxes to segment objects and creates a segmentation binary mask. The cooperation of these
 powerful models is demonstrated in Figure \ref{fig:GroundedSAM}.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
+  \includegraphics[width=0.35\linewidth]{text/chapter_04/imgs/DINO_example}
+  \caption{The result of the Grounded SAM model. Grounding dino mark objects with bounding boxes and SAM segments objects inside these bboxes. Marked objects are founded by Grounding DINO with text input \textit{person, car}.}
   \label{fig:GroundedSAM}
 \end{figure}
 
@@ -431,7 +433,7 @@ Merging these values of multiple filters is straightforward and is described in 
         \item \textbf{Initial distribution:} To get the target's state, first we need to define initial distribution.
         \item \textbf{Result matrix:} The result matrix is an ongoing outcome of previous result matrix and transition
         matrix, i.e, result matrix $R_k = R_{k-1} P^{k-k_0}$, where $k_0$ is the time the target was born,
-        $R_0 = I_3$ and $I_n$ is identity matrix of the shape $n\times n$.
+        $R_0 = I_3$ and $I_n$ is the identity matrix of the shape $n\times n$.
       \end{itemize}
 \end{itemize}
 

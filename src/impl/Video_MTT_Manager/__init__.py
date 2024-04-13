@@ -162,7 +162,7 @@ class VideoMTT:
 
     def showAllMasks(self, masks, frame, color = (0,0,128)):
         masks = self.mergeMasks(masks, color)
-        frame = cv2.addWeighted(frame, 1, masks, 0.3, 0)
+        frame = cv2.addWeighted(frame, 1, masks, 0.8, 0)#0.3
         return frame
 
     def showBboxWithLabel(self, xyxy, frame, label="", color=(0, 0, 0)):
@@ -259,6 +259,7 @@ class VideoMTT:
                 break
             if frame is None:
                 continue
+
             # frame[300:800,485:740,:] = 255
            # frame = frame[665:1200, 400:900]
             bboxes, masks = self.frameProcessor.predict(frame)
@@ -289,6 +290,8 @@ class VideoMTT:
             frameWithBboxes, z_masks_centers = self.get_masksCenters(masks, frameWithBboxes, True)
             frameWithBboxes = self.showAllBboxesWithLabels(xyxy+3, frameWithBboxes, color=(0,0,255))
             # frameWithBboxes= self.showAllBboxesWithLabels
+
+
 
             self.MTT.predict(frame_num)
             # print("masks len: ", len(masks))
@@ -351,7 +354,7 @@ class VideoMTT:
                     #             int(target.xyxy[0]):int(target.xyxy[2]), 0])
                     # print("     bbox mean: ", m)
             frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
-            show = 0
+            show = 1
             if show:
                 if len(prev_xyxy) > 0:
                     frameWithBboxes = self.showAllBboxesWithLabels(prev_xyxy,frameWithBboxes,None,(255,0,0))

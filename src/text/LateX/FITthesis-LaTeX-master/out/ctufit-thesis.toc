@@ -126,10 +126,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.3}Modified pruning for GM-PHD filter}{65}{section.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{66}{section.5.4}%
+\contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{67}{section.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}Architecture}{67}{section.5.5}%
+\contentsline {section}{\numberline {5.5}Architecture}{68}{section.5.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Experiments}{68}{chapter.6}%
+\contentsline {chapter}{\numberline {6}Experiments}{69}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Obsah příloh}{74}{appendix*.29}%
+\contentsline {chapter}{Obsah příloh}{75}{appendix*.29}%
