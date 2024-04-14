@@ -56,14 +56,14 @@ class PHD:
         self.P_apost = self.P.copy()
         self.P = (np.eye(len(self.K)) - self.K @ H) @ self.P
 
-    def moveMask_and_getPd(self, defaultPd = 0.3):
+    def moveMask_and_getPd(self, frame, defaultPd = 0.3):
         if self.mask is not None:
             self.prev_mask = self.mask.copy()
             dx = self.m[2]
             dy = self.m[3]
             print("dx, dy: ", dx, dy)
             self.move_binary_mask(dx, dy)
-            self.pd = self.getPd()
+            self.pd = self.getPd(frame)
             # print("pd: ", self.pd)
         else:
             self.pd = defaultPd
@@ -128,9 +128,9 @@ class PHD:
             # self.w = 1
         # self.P_aposterior = self.P_aprior
         self.w = (1 - self.pd) * self.w
-    def getPd(self):
+    def getPd(self, frame):
 
-        return self.objectStats.get_maskStatsMean(self.mask)
+        return self.objectStats.get_maskStatsMean(frame, self.mask)
         # self.getMaskStats(frame)
 
     def getPk(self,xyxy,frame):

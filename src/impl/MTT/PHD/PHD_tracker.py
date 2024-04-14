@@ -40,7 +40,7 @@ class PHDTracker(TargetTracker):
         # print("PHDS: ", Jk)
         measured = np.zeros(shape=(len(self.trackers)))
         for j in range(Jk):
-            self.trackers[j].moveMask_and_getPd()
+            self.trackers[j].moveMask_and_getPd(frame)
         for l, z in enumerate(z):
             phds_sum = 0
             gatings = 0
@@ -56,7 +56,7 @@ class PHDTracker(TargetTracker):
                     prev_xyxy = self.trackers[j].prev_xyxy if self.trackers[j].prev_xyxy is not None else None
                     objectstats = ObjectStats(frame, masks[l].copy(), xyxy[l], frame_num)
 
-                    pd = objectstats.get_maskStatsMean(self.trackers[j].mask)
+                    pd = objectstats.get_maskStatsMean(frame, self.trackers[j].mask)
                     markov = deepcopy(self.trackers[j].markovChain)
                     print("detection pd: ", pd, " m: ", m)
                     print("markov: ", markov.get_probs())

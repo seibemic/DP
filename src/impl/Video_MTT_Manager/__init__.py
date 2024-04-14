@@ -243,12 +243,11 @@ class VideoMTT:
         width, height = self.get_videoDimensions(videoCap)
         self.frameProcessor.set_frameDimensions((width, height))
         self.MTT.set_ImageSize(np.array([width, height]))
-        # self.MTT.add_PerimeterSpawnPoints(w=0.1, cov=P)
+        self.MTT.add_PerimeterSpawnPoints(w=0.1, cov=P)
         # self.MTT.add_MeshSpawnPoints(w=0.1,cov=P)
-        # P=P/3
         # self.MTT.add_SpawnPoint(np.array([708,1254]), w=0.1, cov=P)
-        self.MTT.add_SpawnPoint(np.array([617, 1050]), w=0.1, cov=P)
-      #  self.MTT.add_SpawnPoint(np.array([604, 800]), w=0.1, cov=P)
+       # self.MTT.add_SpawnPoint(np.array([617, 1050]), w=0.1, cov=P)
+        # self.MTT.add_SpawnPoint(np.array([604, 800]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([460, 542]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([281, 542]), w=0.1, cov=P)
         while videoCap.isOpened():
@@ -266,44 +265,20 @@ class VideoMTT:
 
             frame_copy = frame.copy()
             frameWithSpawnPoints = self.MTT.show_SpawnPoints(frame_copy)
-            # if len(bboxes) == 0 or masks is None or masks.shape[0] == 0:
-                # masks = np.empty(shape=(0, 0, 0))
-
-               # self.show_frame(frameWithSpawnPoints,frame_num)
-            #    frame_num +=1
-               # continue
             try:
                 xyxy, conf, masks, cls = self.filterClasses(bboxes.cls.numpy(), bboxes.xyxy.numpy(), bboxes.conf.numpy(), masks)
             except Exception as e:
                 xyxy = bboxes.xyxy
                 masks = masks
-            # if len(xyxy) == 0 or masks is None or masks.shape[0] == 0:
-                # masks = np.empty(shape=(0,0,0))
-                # print("no detections")
-                # self.show_frame(frameWithSpawnPoints,frame_num)
-                # frame_num +=1
-                # continue
-
             masks = self.resize_masks(masks)
 
             frameWithBboxes, z_bboxes_centers = self.get_bboxCenters(xyxy, frameWithSpawnPoints, True)
             frameWithBboxes, z_masks_centers = self.get_masksCenters(masks, frameWithBboxes, True)
             frameWithBboxes = self.showAllBboxesWithLabels(xyxy+3, frameWithBboxes, color=(0,0,255))
-            # frameWithBboxes= self.showAllBboxesWithLabels
-
-
 
             self.MTT.predict(frame_num)
-            # print("masks len: ", len(masks))
-            print("xyxy len: ", len(xyxy))
-            # if frame_num > 24:
-            #     z_masks_centers = np.empty_like(z_masks_centers)
-            #     xyxy = np.empty_like(xyxy)
-            #     conf = np.empty_like(conf)
-            #     masks = np.empty_like(masks)
             self.MTT.update(z_masks_centers, xyxy, masks, frame, frame_num)
             self.MTT.pruneByMaxWeight(0.1)
-            # if frame_num < 20 or 1:
             self.MTT.mergeTargets()
             print("Trackers: ", len(self.MTT.trackers))
 
@@ -318,7 +293,6 @@ class VideoMTT:
             for i, target in enumerate(self.MTT.trackers):
                 center = (int(target.m[0]), int(target.m[1]))
                 frameWithBboxes = cv2_confidence_ellipse(center=center, cov_matrix=target.P, image=frameWithBboxes, showCenter=True)
-                # print("target xyxy: ", target.xyxy)
                 if target.objectStats is not None:
                     prev_xyxy.append(target.objectStats.xyxy)
                 if target.xyxy is not None:
@@ -340,21 +314,9 @@ class VideoMTT:
                 print("     w: ", target.w)
                 print("     state: ", target.markovChain.get_probs())
                 print("     m: ", target.m)
-                    # for prev in prev_masks:
-                    #     print("prev mask: ")
-                    #     msk = prev * 255
-                    #     cv2.imshow(f"prev_{frame_num}", msk)
-                    #     cv2.waitKey(0)
 
-
-
-                    # cv2.imshow(f"prev_{frame_num}", frameWithBboxes)
-                    # cv2.waitKey(0)
-                    # m = np.mean(frame[int(target.xyxy[1]):int(target.xyxy[3]),
-                    #             int(target.xyxy[0]):int(target.xyxy[2]), 0])
-                    # print("     bbox mean: ", m)
             frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
-            show = 1
+            show = 0
             if show:
                 if len(prev_xyxy) > 0:
                     frameWithBboxes = self.showAllBboxesWithLabels(prev_xyxy,frameWithBboxes,None,(255,0,0))
@@ -374,55 +336,8 @@ class VideoMTT:
                 # merged_colored_mask = self.merge_masks_colored(act_masks, cls)
                 # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
 
-            # frameWithBboxes = self.showAllMasks(masks, frameWithBboxes, (0, 255, 255))
-
-            # print("xyxy: ", xyxy)
-            # print("predicted xyxy: ", predicted_xyxy)
-            # frameWithBboxes = self.frameProcessor.visualizeDetectionsBbox(frameWithBboxes,
-            #                                                               predicted_xyxy,
-            #                                                               predicted_conf,
-            #                                                               predicted_cls)
-            act_masks = np.array(act_masks, dtype=np.uint8)
-            # print("act mask ddtpye: ", act_masks.dtype)
-            # print("frame dtpye: ", frameWithBboxes.dtype)
-            # if len(prev_masks) > 0 and len(act_masks) > 0:
-            #     for xyxy, mask in zip(xyxy, act_masks):
-            #         frameWithBboxes = self.showMaskWithLabel(mask, frameWithBboxes, "tmp", xyxy.astype(int))
             output_video_boxes.write(frameWithBboxes)
 
-            # merged_colored_mask = self.merge_masks_colored(masks, bboxes.cls)
-            # print("merge mask shape: ", merged_colored_mask.shape)
-            # print("merge mask dtype: ", merged_colored_mask.dtype)
-            # print("frame with boxes shape: ", frameWithBboxes.shape)
-            # print("frame with boxes dtype: ", frameWithBboxes.dtype)
-            # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
-            # if masks is not None:
-            #     masks = self.resize_masks(masks)
-            #     for mask in masks:
-            #         y, x = np.indices(mask.shape)
-            #         print(type(mask))
-            #         print(mask.shape)
-            #         print(mask)
-            #         print("max: ", np.max(mask))
-            #         print("min: ", np.min(mask))
-            #         mask = np.array(mask, dtype=np.bool_)
-            #         # Use the mask to filter x and y coordinates
-            #         x_positions = x[mask]
-            #         y_positions = y[mask]
-            #
-            #         # Calculate the mean x and y positions
-            #         mean_x = int(np.mean(x_positions))
-            #         mean_y =int( np.mean(y_positions))
-            #         print("mean x: ", mean_x)
-            #         print("mean y: ", mean_y)
-            #         center = (mean_x, mean_y)
-            #         color = (0, 255, 128)
-            #         radius = 2
-            #         thickness = -1
-            #         frameWithBboxes = cv2.circle(frameWithBboxes, center, radius, color, thickness)
-            #
-            #     merged_colored_mask = self.merge_masks_colored(masks, bboxes.cls)
-            #     frameWithBboxes = cv2.addWeighted(frameWithBboxes, 0.7, merged_colored_mask, 0.7, 0)
 
             if frame_num > 0:
                 cv2.namedWindow(f"{frame_num}", cv2.WINDOW_NORMAL)
@@ -433,38 +348,6 @@ class VideoMTT:
                 cv2.imshow(f"{frame_num}", frameWithBboxes)
                 cv2.waitKey(0)
 
-            # frameWithYoloDetections = Image.fromarray(frameWithYoloDetections, "RGB")
-            #
-            # frameWithYoloDetections.show(title=f"num_{frame_num}")
-            # output_video_boxes.write(frame)
-            """
-
-            transformedBoxes = self.m_SAM.transformBoxes(detections=yoloDetections,
-                                                         video_dims=list(self.get_videoDimensions(videoCap)))
-
-
-            if len(transformedBoxes) == 0:
-                print("No boxes found on frame", frame_num)
-                output_video_masks.write(frame)
-                frame_num += 1
-                continue
-            masks, scores, logits = self.m_SAM.predict(frame, transformedBoxes)
-            if masks is None or len(masks) == 0:
-                print("No masks found on frame", frame_num)
-                output_video_masks.write(frame)
-                frame_num += 1
-                continue
-            print("mask shape: ", masks[0].shape)
-            print("frame[:,:,0] ", frame[:,:,0].shape)
-            print("masks[0][0] ", masks[0][0].shape)
-            frame_mask = np.ma.array(frame[:,:,0], mask = np.invert(masks[0][0]))
-            print("frame * mask mean", frame_mask.mean())
-            merged_colored_mask = self.merge_masks_colored(masks, yoloDetections[0].boxes.cls)
-
-            # Write masks to output video
-            image_combined = cv2.addWeighted(frame, 0.7, merged_colored_mask, 0.7, 0)
-            output_video_masks.write(image_combined)
-            """
             frame_num += 1
             if frame_num > 60 and 0:
                 break

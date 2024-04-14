@@ -142,8 +142,9 @@ class ObjectStats:
 
         return xyxy_mask
 
-    def get_maskStatsMean(self, mask):
-        hist1 = self.get_object_histogram(self.frame, mask)
+    def get_maskStatsMean(self, frame, mask):
+        #hist1 = self.get_object_histogram(self.frame, mask)
+        hist1 = self.get_object_histogram(frame, mask)
         hist2 = self.maskValues
         all_vals = []
         all_vals.append(self.get_cosineSimilarity(hist1, hist2, print_result=False))
