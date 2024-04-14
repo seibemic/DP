@@ -144,7 +144,7 @@ class VideoMTT:
     def showMaskWithLabel(self, mask, frame, label, xyxy):
         color = (0,0,128) # red
         mask = self.add_color(mask, self.get_color(color)).astype(np.uint8)
-        frame = cv2.addWeighted(frame, 0.7, mask, 0.3, 0)
+        frame = cv2.addWeighted(frame, 0.7, mask, 0.8, 0)
         color = (0, 0, 0)
         frame = cv2.putText(frame, label, (xyxy[0], xyxy[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, color, 2)
         return frame
@@ -305,18 +305,17 @@ class VideoMTT:
                 if target.mask is not None:
                     print(f"    mask mean: ", np.mean(frame[target.mask.nonzero()]))
                     act_masks.append(target.mask)
-                if target.prev_xyxy is not None:
-                    m = np.mean(frame[int(target.prev_xyxy[1]):int(target.prev_xyxy[3]),
-                                    int(target.prev_xyxy[0]):int(target.prev_xyxy[2]), 0])
-                    print("     prev bbox mean: ", m)
+
                 if target.objectStats is not None:
                     prev_masks.append(target.objectStats.mask)
                 print("     w: ", target.w)
                 print("     state: ", target.markovChain.get_probs())
                 print("     m: ", target.m)
+                print("     pd: ", target.pd)
+                print("     P: ", np.diag(target.P))
 
             frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
-            show = 0
+            show = 1
             if show:
                 if len(prev_xyxy) > 0:
                     frameWithBboxes = self.showAllBboxesWithLabels(prev_xyxy,frameWithBboxes,None,(255,0,0))
@@ -327,12 +326,12 @@ class VideoMTT:
                 cls = np.zeros(shape=len(prev_masks))
                 print("prev mask len: ", len(prev_masks))
                 if len(prev_masks) > 0:
-                    frameWithBboxes = self.showAllMasks(prev_masks, frameWithBboxes, (128, 0, 0))
+                    frameWithBboxes = self.showAllMasks(prev_masks, frameWithBboxes, (255, 0, 0))
                     # merged_colored_mask = self.merge_masks_colored(prev_masks, cls)
                     # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
                 cls = np.zeros(shape=len(act_masks))
                 if len(act_masks) > 0:
-                    frameWithBboxes = self.showAllMasks(act_masks, frameWithBboxes, color=(0, 0, 128))
+                    frameWithBboxes = self.showAllMasks(act_masks, frameWithBboxes, color=(0, 0, 255))
                 # merged_colored_mask = self.merge_masks_colored(act_masks, cls)
                 # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
 

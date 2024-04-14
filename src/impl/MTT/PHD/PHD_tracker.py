@@ -19,7 +19,7 @@ class PHDTracker(TargetTracker):
             m = np.append(m, [0, 0])
             P = sp.cov
             pd = sp.w
-            self.trackers.append(PHD(w, m, P, pd, timeStamp=frame_num))
+            self.trackers.append(PHD(w, m, P, pd))
 
     def predictExistingTargets(self):
         for target in self.trackers:
@@ -53,7 +53,6 @@ class PHDTracker(TargetTracker):
                     m = self.trackers[j].m + self.trackers[j].K @ (z - self.trackers[j].ny)
                     P = self.trackers[j].P
                     phds_sum += w
-                    prev_xyxy = self.trackers[j].prev_xyxy if self.trackers[j].prev_xyxy is not None else None
                     objectstats = ObjectStats(frame, masks[l].copy(), xyxy[l], frame_num)
 
                     pd = objectstats.get_maskStatsMean(frame, self.trackers[j].mask)
@@ -69,7 +68,7 @@ class PHDTracker(TargetTracker):
                         pd = np.mean(all_vals)
                     except:
                         pass
-                    self.trackers.append(PHD(w, m, P, pd, xyxy[l], prev_xyxy, masks[l].copy(), objectstats, markov, timeStamp=frame_num))
+                    self.trackers.append(PHD(w, m, P, pd, xyxy[l], masks[l].copy(), objectstats, markov))
                     gatings += 1
             for j in range(gatings):
                 self.trackers[start_index + j].w = self.trackers[start_index + j].w / (lambd + phds_sum)
@@ -119,68 +118,51 @@ class PHDTracker(TargetTracker):
             for t_id in L:
                 w_mix += filters_to_stay[t_id].w
             m_mix = np.zeros(4)
+
+
             for t_id in L:
                 m_mix += filters_to_stay[t_id].w * filters_to_stay[t_id].m
             m_mix /= w_mix
             P_mix = np.zeros_like(filters_to_stay[0].P, dtype="float64")
-
             for t_id in L:
                 P_mix += filters_to_stay[t_id].w * (
                         filters_to_stay[t_id].P + np.outer((m_mix - filters_to_stay[t_id].m),
                                                            (m_mix - filters_to_stay[t_id].m).T))
+            P_mix /= w_mix
             xyxy_mix = np.zeros(shape=(4))
-            conf_mix = 0
+            pd_mix = 0
             max_shape = (0, 0)
             for f in filters_to_stay:
                 if f.mask is not None and f.mask.shape[0] > max_shape[0] and f.mask.shape[1] > max_shape[1]:
                     max_shape = f.mask.shape
                     break
             mask_mix = np.zeros(shape=max_shape, dtype=np.float64)
-            prev_xyxy_mix = np.zeros(shape=(4))
-            prev_w_mix = 0
             xyxy_w_mix = 0
-            mask_w_mix = 0
             for t_id in L:
                 if filters_to_stay[t_id].xyxy is not None:
                     xyxy_mix += filters_to_stay[t_id].xyxy * filters_to_stay[t_id].w
-                    xyxy_w_mix += filters_to_stay[t_id].w
-                conf_mix += filters_to_stay[t_id].pd * filters_to_stay[t_id].w
+                pd_mix += filters_to_stay[t_id].pd * filters_to_stay[t_id].w
                 if filters_to_stay[t_id].mask is not None:
                     mask_mix += filters_to_stay[t_id].mask.astype(np.float64) * filters_to_stay[t_id].w
-                    mask_w_mix += filters_to_stay[t_id].w
-                if filters_to_stay[t_id].prev_xyxy is not None:
-                    prev_xyxy_mix += filters_to_stay[t_id].prev_xyxy * filters_to_stay[t_id].w
-                    prev_w_mix += filters_to_stay[t_id].w
-            # xyxy_mix /= w_mix
-            conf_mix /= w_mix
-            # mask_mix /= w_mix
-            if prev_w_mix != 0:
-                prev_xyxy_mix /= prev_w_mix
-            else:
-                prev_xyxy_mix = None
-            if xyxy_w_mix != 0:
-                xyxy_mix /= xyxy_w_mix
-            else:
-                xyxy_mix = None
-            if mask_w_mix != 0:
-                mask_mix /= mask_w_mix
-                mask_mix = np.array(mask_mix, dtype=np.int8)
-                mask_mix = np.clip(mask_mix, 0, 1)
-            else:
-                mask_mix = None
+
+            pd_mix /= w_mix
+            xyxy_mix /= w_mix
+
+            mask_mix /= w_mix
+            mask_mix = np.round(mask_mix)
+            mask_mix = np.clip(mask_mix, 0, 1)
+            mask_mix = np.array(mask_mix, dtype=np.int8)
+
+
+
             result_matrix = np.zeros_like(filters_to_stay[0].markovChain.resultMatrix)
             for t_id in L:
                 init_distr = filters_to_stay[t_id].markovChain.initial_distribution
-                # print("res mat: ", filters_to_stay[t_id].markovChain.resultMatrix)
-                # print("merge0: ", filters_to_stay[t_id].markovChain.resultMatrix)
                 result_matrix += filters_to_stay[t_id].markovChain.resultMatrix * filters_to_stay[t_id].w
-            # print("L: ", len(L))
-            # print(m_mix)
-            # print("merge1: ", result_matrix)
             result_matrix /= w_mix
-            # print("merge2: ", result_matrix)
             markov = MarkovChain(init_distr, result_matrix)
-            P_mix /= w_mix
+
+
 
             objectStats_index = 0
             maX = 0
@@ -188,17 +170,10 @@ class PHDTracker(TargetTracker):
                 if filters_to_stay[t_id].objectStats is not None and filters_to_stay[t_id].objectStats.timestamp > maX:
                     maX = filters_to_stay[t_id].objectStats.timestamp
                     objectStats_index = t_id
-            # print("L: ", len(L))
-            # print("timestamp: ", maX)
-            # mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, mask_mix,
-            #                          filters_to_stay[objectStats_index].objectStats))
 
-            mixed_filters.append(PHD(w_mix, m_mix, P_mix, conf_mix, xyxy_mix, prev_xyxy_mix, filters_to_stay[objectStats_index].mask,
-                                     filters_to_stay[objectStats_index].objectStats, markov, maX, fromMerge=True))
+            mixed_filters.append(PHD(w_mix, m_mix, P_mix, pd_mix, xyxy_mix, mask_mix,
+                                     filters_to_stay[objectStats_index].objectStats, markov, fromMerge=True))
 
-            # mixed_filters.append(
-            #     PHD(w_mix, m_mix, P_mix, filters_to_stay[objectStats_index].pd, xyxy_mix, prev_xyxy_mix, filters_to_stay[objectStats_index].mask,
-            #                                  filters_to_stay[objectStats_index].objectStats))
             removed = np.delete(filters_to_stay, L)
             filters_to_stay = removed.tolist()
 

@@ -7,18 +7,15 @@ from src.impl.MTT.ObjectStats import ObjectStats
 from src.impl.MTT.MarkovChain import MarkovChain
 from copy import deepcopy
 class PHD:
-    def __init__(self, w, m, P, pd = 0.9, xyxy = None, prev_xyxy=None, mask = None, objectStats=None, markovChain=None, timeStamp = 0, fromMerge=False):
+    def __init__(self, w, m, P, pd = 0.9, xyxy = None, mask = None, objectStats=None, markovChain=None, fromMerge=False):
         self.prev_m = None
         self.w = w
         self.m = m
         self.P = P
         self.pd = pd
         self.xyxy = xyxy
-        self.prev_xyxy = prev_xyxy
         self.mask = mask
-        self.prev_mask = None
         self.objectStats = objectStats
-        self.timeStamp = timeStamp
         self.state = 0
         if markovChain is None:
             init_dist = np.array([0.4,0.3,0.3])
@@ -58,7 +55,6 @@ class PHD:
 
     def moveMask_and_getPd(self, frame, defaultPd = 0.3):
         if self.mask is not None:
-            self.prev_mask = self.mask.copy()
             dx = self.m[2]
             dy = self.m[3]
             print("dx, dy: ", dx, dy)
@@ -71,15 +67,7 @@ class PHD:
     def moveBbox(self, t=1):
         self.xyxy = self.xyxy + t * np.array([self.m[2], self.m[3], self.m[2], self.m[3]])
     def update(self, H, pd, frame, frame_num):
-
-        # self.w = (1 - pd) * self.w
-        # self.w = (1 - self.conf) * self.w
-        # self.w = (1 - 0.3) * self.w
-        # if pd is not None:
-        # self.pd = pd
         t = 2
-        # if self.objectStats is not None:
-        #     print("frame num: ", frame_num," ts: ", self.objectStats.timestamp)
         if self.xyxy is not None and self.objectStats is not None and (frame_num - self.objectStats.timestamp) % t == 1:
             self.moveBbox(t)
         pk = 1
@@ -88,45 +76,10 @@ class PHD:
 
         self.m = self.m
         self.P = self.P_apost
-        # if self.objectStats is not None and self.xyxy is not None:
-            # print("m: ", self.m)
-            # print("res mat: ", self.markovChain.resultMatrix)
-            # print("init: ", self.markovChain.initial_distribution)
+
         x = self.markovChain.get_transitionProbs(self.pd, pk)
-        print("predict: pk: ", pk, "pd: ", self.pd, "w: ", self.w, "m: ", self.m)
-        print("state: ", x)
+
         self.state = np.argmax(x)
-        # if self.objectStats is not None and self.xyxy is not None:
-        #     print("res mat_2: ", self.markovChain.resultMatrix)
-        #     print("init2", self.markovChain.initial_distribution)
-        #     print("state: ", x)
-        #     print("final state: ", self.state)
-        # self.prev_xyxy = self.xyxy
-        # if self.xyxy is not None:
-        #     self.xyxy = self.xyxy + np.tile(H @ (self.m - self.prev_m) , 2)
-        # if self.mask is not None:
-        #     self.prev_mask = self.mask.copy()
-        #     # m = H @ (self.m - self.prev_m)
-        #     # dx = m[0]
-        #     # dy = m[1]
-        #     dx = self.m[2]
-        #     dy = self.m[3]
-        #     print("dx, dy: ", dx, dy)
-        #     self.move_binary_mask(dx, dy)
-        #     # print("prev mask sum: ", np.sum(self.prev_mask))
-        #     # print("   first non zero: ", self.first_nonzero_index(self.objectStats.mask))
-        #     # print("mask sum: ", np.sum(self.mask))
-        #     # print("   first non zero: ", self.first_nonzero_index(self.mask))
-        #     print("w: ", self.w)
-        #     pd = self.getPd()
-        #     print("pd: ", pd)
-        #     # if dx<0:
-        #     self.objectStats.printAll(self.mask, frame_num)
-        #     # self.getPd(frame)
-        # else:
-        #     self.w = 0
-            # self.w = 1
-        # self.P_aposterior = self.P_aprior
         self.w = (1 - self.pd) * self.w
     def getPd(self, frame):
 
