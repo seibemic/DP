@@ -276,7 +276,7 @@ class VideoMTT:
             frameWithBboxes, z_masks_centers = self.get_masksCenters(masks, frameWithBboxes, True)
             frameWithBboxes = self.showAllBboxesWithLabels(xyxy+3, frameWithBboxes, color=(0,0,255))
 
-            self.MTT.predict(frame_num)
+            self.MTT.predict()
             self.MTT.update(z_masks_centers, xyxy, masks, frame, frame_num)
             self.MTT.pruneByMaxWeight(0.1)
             self.MTT.mergeTargets()

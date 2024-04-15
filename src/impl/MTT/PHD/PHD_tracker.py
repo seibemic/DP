@@ -12,7 +12,7 @@ class PHDTracker(TargetTracker):
         self.U = 4
         self.J_max = 40
 
-    def predictBirthTargets(self, frame_num):
+    def predictBirthTargets(self):
         for sp in self.spawnPoints:
             w = sp.w
             m = sp.m
@@ -29,15 +29,13 @@ class PHDTracker(TargetTracker):
         for target in self.trackers:
             target.updateComponents(self.H, self.R)
 
-    def predict(self, frame_num):
-        self.predictBirthTargets(frame_num)
+    def predict(self):
+        self.predictBirthTargets()
         self.predictExistingTargets()
 
     def update(self, z, xyxy, masks, frame, frame_num,lambd=0.00001):
         Jk = len(self.trackers)
         self.updateComponents()
-        # print("z len: ", len(z))
-        # print("PHDS: ", Jk)
         measured = np.zeros(shape=(len(self.trackers)))
         for j in range(Jk):
             self.trackers[j].moveMask_and_getPd(frame)
@@ -57,8 +55,6 @@ class PHDTracker(TargetTracker):
 
                     pd = objectstats.get_maskStatsMean(frame, self.trackers[j].mask)
                     markov = deepcopy(self.trackers[j].markovChain)
-                    print("detection pd: ", pd, " m: ", m)
-                    print("markov: ", markov.get_probs())
                     try:
                         hist1=objectstats.maskValues
                         hist2=self.trackers[j].objectStats.maskValues
@@ -74,11 +70,10 @@ class PHDTracker(TargetTracker):
                 self.trackers[start_index + j].w = self.trackers[start_index + j].w / (lambd + phds_sum)
 
         for j in range(Jk):
-            # self.trackers[j].moveMask_and_getPd()
             if measured[j]:
-                self.trackers[j].update(self.H, pd=0.9, frame=frame, frame_num=frame_num)
+                self.trackers[j].update(frame=frame, frame_num=frame_num)
             else:
-                self.trackers[j].update(self.H,pd = None, frame=frame, frame_num=frame_num)
+                self.trackers[j].update(frame=frame, frame_num=frame_num)
 
 
     def pruneByMaxWeight(self, w):
@@ -88,10 +83,10 @@ class PHDTracker(TargetTracker):
                 filters_to_stay.append(filter)
         self.trackers = filters_to_stay
 
-    def argMaxW(self, filtres):
+    def argMaxW(self, filters):
         maX = 0
         argmaX = 0
-        for i, filter in enumerate(filtres):
+        for i, filter in enumerate(filters):
             if filter.w > maX:
                 maX = filter.w
                 argmaX = i
@@ -129,6 +124,8 @@ class PHDTracker(TargetTracker):
                         filters_to_stay[t_id].P + np.outer((m_mix - filters_to_stay[t_id].m),
                                                            (m_mix - filters_to_stay[t_id].m).T))
             P_mix /= w_mix
+
+            """Mask, xyxy"""
             xyxy_mix = np.zeros(shape=(4))
             pd_mix = 0
             max_shape = (0, 0)
@@ -137,7 +134,6 @@ class PHDTracker(TargetTracker):
                     max_shape = f.mask.shape
                     break
             mask_mix = np.zeros(shape=max_shape, dtype=np.float64)
-            xyxy_w_mix = 0
             for t_id in L:
                 if filters_to_stay[t_id].xyxy is not None:
                     xyxy_mix += filters_to_stay[t_id].xyxy * filters_to_stay[t_id].w
@@ -154,7 +150,7 @@ class PHDTracker(TargetTracker):
             mask_mix = np.array(mask_mix, dtype=np.int8)
 
 
-
+            """MARKOV"""
             result_matrix = np.zeros_like(filters_to_stay[0].markovChain.resultMatrix)
             for t_id in L:
                 init_distr = filters_to_stay[t_id].markovChain.initial_distribution
@@ -163,16 +159,33 @@ class PHDTracker(TargetTracker):
             markov = MarkovChain(init_distr, result_matrix)
 
 
-
-            objectStats_index = 0
-            maX = 0
+            "Object Stats"
+            OS_max_timestamp = 0
+            OS_frame = None
+            OS_mask = None
+            OS_w_mix = 0
+            OS_xyxy = np.zeros(shape=(4))
             for t_id in L:
-                if filters_to_stay[t_id].objectStats is not None and filters_to_stay[t_id].objectStats.timestamp > maX:
-                    maX = filters_to_stay[t_id].objectStats.timestamp
-                    objectStats_index = t_id
+                OS_mask = np.zeros_like(filters_to_stay[t_id].objectStats.mask)
+                if filters_to_stay[t_id].objectStats is not None and filters_to_stay[t_id].objectStats.timestamp > OS_max_timestamp:
+                    OS_max_timestamp = filters_to_stay[t_id].objectStats.timestamp
+                    OS_frame = filters_to_stay[t_id].objectStats.frame.copy()
+                if filters_to_stay[t_id].objectStats.mask is not None:
+                    OS_mask = filters_to_stay[t_id].objectStats.mask.astype(np.float64) * filters_to_stay[t_id].w
+                    OS_w_mix += filters_to_stay[t_id].w
+                if filters_to_stay[t_id].xyxy is not None:
+                    OS_xyxy += filters_to_stay[t_id].objectStats.xyxy.astype(np.float64) * filters_to_stay[t_id].w
 
-            mixed_filters.append(PHD(w_mix, m_mix, P_mix, pd_mix, xyxy_mix, mask_mix,
-                                     filters_to_stay[objectStats_index].objectStats, markov, fromMerge=True))
+            OS_mask /= OS_w_mix
+            OS_mask = np.round(OS_mask)
+            OS_mask = np.clip(OS_mask, 0, 1)
+            OS_mask = np.array(OS_mask, dtype=np.int8)
+
+            OS_xyxy /= OS_w_mix
+            OS = ObjectStats(OS_frame, OS_mask, OS_xyxy, OS_max_timestamp)
+
+
+            mixed_filters.append(PHD(w_mix, m_mix, P_mix, pd_mix, xyxy_mix, mask_mix, OS, markov, fromMerge=True))
 
             removed = np.delete(filters_to_stay, L)
             filters_to_stay = removed.tolist()

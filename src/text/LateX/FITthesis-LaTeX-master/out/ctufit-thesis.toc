@@ -128,8 +128,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.4}Merging in GM-PHD filter with dynamic detection probability}{67}{section.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}Architecture}{68}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Experiments}{71}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Experiments}{69}{chapter.6}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Obsah příloh}{75}{appendix*.29}%
+\contentsline {chapter}{Obsah příloh}{77}{appendix*.29}%

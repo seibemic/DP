@@ -10,7 +10,6 @@ class ObjectStats:
         self.frame = frame
         self.mask = mask
         self.xyxy = xyxy.astype(int)
-        # self.hue, self.saturation, self.value = self.get_object_histogram(frame, mask)
         self.maskValues = self.get_object_histogram(frame, mask)
         inverseMask = self.get_InverseMaskWithinBbox(self.xyxy)
         # inverseMask = self.get_xyxyMask(self.xyxy)
@@ -18,10 +17,8 @@ class ObjectStats:
         self.timestamp = timestamp
 
     def get_object_histogram(self, rgb_image, binary_mask, all_spectrums = True):
-        # Apply the binary mask to the RGB image
         masked_image = cv2.bitwise_and(rgb_image, rgb_image, mask=binary_mask)
 
-        # Convert the image to HSV color space
         spectrums =[]
         if all_spectrums == False:
             rgb_image = cv2.cvtColor(masked_image, cv2.COLOR_BGR2RGB)
@@ -31,7 +28,6 @@ class ObjectStats:
             all_arrs = []
             for j, spectrum in enumerate(spectrums):
                 for i in range(spectrum.shape[2]):
-                    # print("spectrum shape: ", spectrum.shape)
                     all_arrs.append(cv2.calcHist([spectrum], [i], None, [256], [0, 256])[1:].flatten())
 
             all_arrs = np.array(all_arrs)
@@ -53,11 +49,9 @@ class ObjectStats:
                     if j == 3:
                         all_arrs.append(cv2.calcHist([spectrum], [0], None, [256], [0, 256])[1:].flatten())
                         break
-                    # print("spectrum shape: ", spectrum.shape)
                     all_arrs.append(cv2.calcHist([spectrum], [i], None, [256], [0, 256])[1:].flatten())
 
             all_arrs = np.array(all_arrs)
-            # print("all arrs: ", all_arrs)
             e = 1e-10
             return all_arrs / (np.sum(all_arrs) + e)
 
@@ -66,10 +60,6 @@ class ObjectStats:
         cos_sim = np.zeros(shape=(hist1.shape[0]))
         np.save("hist1.npy", hist1)
         np.save("hist2.npy", hist2)
-        # print("hist1:")
-        # print(hist1)
-        # print("hist2:")
-        # print(hist2)
         th = 1e-20
         for i, val in enumerate(hist1):
             cos_sim[i] = (hist2[i]+th) @ (val+th) / (np.linalg.norm((hist2[i]+th)) * np.linalg.norm((val)+th))
@@ -81,8 +71,14 @@ class ObjectStats:
     def get_intersection(self, hist1, hist2, print_result=False):
         assert len(hist1) == len(hist2)
         inter = np.zeros(shape=(hist1.shape[0]))
+        th = 1e-20
         for i, val in enumerate(hist1):
-            inter[i] = np.sum(np.minimum(hist2[i], val)) / np.sum(hist2[i])
+           # print("inter: ", np.sum(hist2[i]))
+            #inter[i] = np.sum(np.minimum(hist2[i], val)) / np.sum(hist2[i])
+            #inter[i] = np.sum(np.minimum(hist2[i], val)) / len(hist2[i])
+            minima = np.minimum(hist2[i], val)
+            print("inter: ", np.sum(hist2[i]))
+            inter[i] = np.true_divide(np.sum(minima), np.sum(hist2[i])+th)
 
         if print_result:
             print("intersection:")
@@ -102,16 +98,7 @@ class ObjectStats:
         return corr
 
 
-    def printAll(self, mask, frame_num=0):
-        # hue, sat, val = self.get_object_histogram(self.frame, mask)
-        # self.plot_histogram(self.hue, "hue orig", frame_num)
-        # self.plot_histogram(self.saturation, "saturation orig", frame_num)
-        # self.plot_histogram(self.value, "value orig", frame_num)
-        #
-        # self.plot_histogram(hue, "hue new", frame_num)
-        # self.plot_histogram(sat, "saturation new", frame_num)
-        # self.plot_histogram(val, "value new", frame_num)
-
+    def printAll(self, mask):
         self.get_cosineSimilarity(mask, True)
         self.get_intersection(mask, True)
         self.get_correlation(mask, True)

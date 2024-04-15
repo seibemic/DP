@@ -31,9 +31,6 @@ class PHD:
                 self.state = np.argmax(self.markovChain.get_probs())
 
 
-        # self.P_aposterior=self.P_aprior
-
-
     def predict(self, ps, A, Q, frameShape):
         self.w = ps * self.w
         self.prev_m = self.m
@@ -57,16 +54,14 @@ class PHD:
         if self.mask is not None:
             dx = self.m[2]
             dy = self.m[3]
-            print("dx, dy: ", dx, dy)
             self.move_binary_mask(dx, dy)
             self.pd = self.getPd(frame)
-            # print("pd: ", self.pd)
         else:
             self.pd = defaultPd
-      #  self.pd = 0.95
     def moveBbox(self, t=1):
         self.xyxy = self.xyxy + t * np.array([self.m[2], self.m[3], self.m[2], self.m[3]])
-    def update(self, H, pd, frame, frame_num):
+
+    def update(self, frame, frame_num):
         t = 2
         if self.xyxy is not None and self.objectStats is not None and (frame_num - self.objectStats.timestamp) % t == 1:
             self.moveBbox(t)
@@ -82,14 +77,11 @@ class PHD:
         self.state = np.argmax(x)
         self.w = (1 - self.pd) * self.w
     def getPd(self, frame):
-
         return self.objectStats.get_maskStatsMean(frame, self.mask)
-        # self.getMaskStats(frame)
 
     def getPk(self,xyxy,frame):
         PK = self.objectStats.get_xyxyStatsMean(frame, xyxy)
-        # print("PK: ", PK)
-        # print("PD: ", self.pd)
+
         return PK
     def inGating(self, z, Pg=0.99):
         covInv = np.linalg.inv(self.S)
@@ -97,22 +89,8 @@ class PHD:
         if ((z - self.ny).T @ covInv @ (z - self.ny)) <= gamma:
             return True
         return False
-    def move_mask(self, dx, dy):
-        rows, cols = self.mask.shape
-
-        # Create an empty mask of the same size
-        # moved_mask = np.zeros_like(self.mask)
-
-        # Define the transformation matrix for translation
-        M = np.float32([[1, 0, dx], [0, 1, dy]])
-
-        # Apply the translation to the mask
-        moved_mask = cv2.warpAffine(self.mask, M, (cols, rows))
-        self.mask = moved_mask
-        # return moved_mask
 
     def move_binary_mask(self, dx, dy):
-        # Ensure dx and dy are integers
         dx = int(dx)
         dy = int(dy)
 
@@ -134,6 +112,6 @@ class PHD:
 
     def first_nonzero_index(self, arr):
         indices = np.nonzero(arr)
-        if indices[0].size == 0:  # Check if the array is entirely zero
+        if indices[0].size == 0:
             return None
         return (indices[0][0], indices[1][0])

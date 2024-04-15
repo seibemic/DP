@@ -414,7 +414,7 @@ Merging these values of multiple filters is straightforward and is described in 
   \item \textbf{Current mask:} Current binary mask is given by a measurement $z$ in current time step $k$ in update
   step. As with previous bboxes in order to inialize current mask, it must have been initialized by a measurement in
   the past. The mask is shifted according to \eqref{eq:mphd_recursion_update_intesity_misdetect_M_shifted}.
-  \item Data structure \textbf{Object Stats:} Every new target born in update step of GM-PHD filter by a measurement $z$ from a target with previous state $xi$, contains a data structure $Object Stats$. This structure is composed of many variables determining the target's history. These variable arise in update step from a measurement and are useful for calculating dynamic detection probability in Equations \eqref{eq:mphd_recursion_update_intesity_misdetect_pd} - \eqref{eq:mphd_recursion_update_intesity_misdetect_pH}.
+  \item Data structure \textbf{Object Stats:} Every new target born in update step of GM-PHD filter by a measurement $z$ from a target with previous state $xi$, contains a data structure \textit{Object Statss}. This structure is composed of many variables determining the target's history. These variable arise in update step from a measurement and are useful for calculating dynamic detection probability in Equations \eqref{eq:mphd_recursion_update_intesity_misdetect_pd} - \eqref{eq:mphd_recursion_update_intesity_misdetect_pH}.
       \begin{itemize}
         \item \textbf{Bounding box position:} This variable in Object stats represents a bounding box from the time
         the target was lastly detected. To calculate $p_{H,k}$ in \eqref{eq:mphd_recursion_update_intesity_misdetect_pH} this and current bbox are compared.
@@ -437,4 +437,74 @@ Merging these values of multiple filters is straightforward and is described in 
       \end{itemize}
 \end{itemize}
 
-\section{Architecture}
+The merging procedure of previous informations is inspired by the original GM-PHD merging procedure in \cite{
+  VoMaPHD2006}.
+
+The current bounding box merging is straightforward as $(x1,y1)$ and $(x2,y2)$ coordinates defining the bbox are
+averaged using targets' weight. Let us define a set $L$, which represents a subset of targets to merge into a single
+target. Then a resulting target's bbox
+\begin{align}
+  \tilde{B}_k^{(l)} &= \frac{\sum_{i \in L} B_k^{(i)} * w_k^{(i)}}{\sum_{i \in L}{w_k^{(i)}}},
+\end{align}
+where $w_k^{(i)}$, is the weight of a target $i$ is the weighted mean of targets in subset $L$. The same procedure is
+applied to the bounding box in \textit{Object Stats}, i.e., the previous bbox.
+
+The merging of masks is slightly complicated, as we merge targets' masks into a single "average" mask. First binary 
+masks of targets in subset $L$ are converted into \textit{float} data type, multiplied with targets' weight and 
+divided by the sum of these weights. To get the resulting binary mask, each element of mask
+\begin{align}
+  \tilde{M}_k^{(l)} &= \frac{\sum_{i \in L} M_k^{(i)} * w_k^{(i)}}{\sum_{i \in L}{w_k^{(i)}}}
+\end{align}
+is rounded either to zero or one and the mask is converted to the binary data type.
+
+We have not experimented with complicated merging of frames and time stamps, only argument maxima is used for both
+values, i.e,
+\begin{align}
+  \tilde{t}_k^{(l)} &= max_{i \in L} t_k^{(i)}, \\
+  \tilde{D}_k^{(l)} &= D_k^{(\tilde{t}_k^{(l)})}.
+\end{align}
+
+As the initial distribution is the same for every target, the resulting merged target's initial distribution is only
+copy of any target in $L$.
+
+The result matrix merging procedure is similar to bounding box distribution. The result matrix
+\begin{align}
+  \tilde{N}_k^{(l)} &= \frac{\sum_{i \in L} N_k^{(i)} * w_k^{(i)}}{\sum_{i \in L}{w_k^{(i)}}}
+\end{align}
+is the "average" result matrix of targets in subset $L$.
+
+The pseudo-code algorithm of modified pruning in GM-PHD filter is shown in Algorithm \ref{alg:mphd_merging}.
+\begin{algorithm}
+  \caption{Pseudo-algorithm for pruning in the GM-PHD filter}
+  \begin{algorithmic}[1]
+    \Require{$\{w_{k}^{(i)}, m_{k}^{(i)},P_{k}^{(i)}\}_{i=1}^{J_{k}}$, a truncation threshold T, a merging
+    threshold U and a maximum number of allowed Gaussian terms $J_{max}$. Set $l=0,$ and
+      $I = \{ i=1,\dots, J_k | w_k^{(i)} > T\}$.}
+    \Procedure{Merging of targets}{}
+      \While{$I \neq \emptyset$}
+        \State $l:= l+1$
+        \State $j:= \text{argmax}_{i \in I} w_k{(i)},$
+        \State $L:= \left\{ i \in I | (m_k^{(i)} - m_k^{(j)})^T (P_k{(i)})^{-1} (m_k^{(i)} - m_k^{(j)}) \leq U \right\},$
+        \State $\tilde{w}_k^{(l)} = \sum_{i \in L} w_k^{(i)}$,
+        \State $\tilde{m}_k^{(l)} = \frac{1}{\tilde{w}_k^{(l)}} \sum_{i \in L} w_k{(i)} x_k^{(i)},$
+        \State $\tilde{P}_k^{(l)} = \frac{1}{\tilde{w}_k^{(l)}} \sum_{i \in L} w_k^{(i)} (P_k^{(i)} + (m_k^{(l)} - m _k^{(i)}) (m_k^{(l)} - m _k^{(i)})^T,$
+        \State $\tilde{B}_k^{(l)} = \frac{1}{\tilde{w}_k^{(l)}} \sum_{i \in L} B_k^{(i)} * w_k^{(i)}$
+        \State $\tilde{M}_k^{(l)} = \frac{1}{\tilde{w}_k^{(l)}} \sum_{i \in L} M_k^{(i)} * w_k^{(i)}$
+        \State $\tilde{B}_{OS,k}^{(l)} = \frac{1}{\tilde{w}_k^{(l)}} \sum_{i \in L} B_{OS,k}^{(i)} * w_k^{(i)}$ \Comment{OS stands for Object Stats}
+        \State $\tilde{M}_{OS,k}^{(l)} = \frac{1}{\tilde{w}_k^{(l)}} \sum_{i \in L} M_{OS,k}^{(i)} * w_k^{(i)}$
+        \State $\tilde{t}_{OS,k}^{(l)} = max_{i \in L} t_{OS,k}^{(i)}$
+        \State $\tilde{D}_{OS,k}^{(l)} = D_k^{(\tilde{t}_{OS,k}^{(l)})}$
+        \State $\tilde{I}_{OS,k}^{(l)} = {I}_{OS,k}^{(j)}$ \Comment{Initial distribution of Markov process}
+        \State $\tilde{N}_{OS,k}^{(l)} = \frac{1}{\tilde{w}_k^{(l)}} \sum_{i \in L} N_{OS,k}^{(i)} * w_k^{(i)}$
+        \State $I:= I/L.$
+      \EndWhile
+    \EndProcedure
+    \State
+    \State If $l > J_{max}$ then replace $\{ \tilde{w}_k^{(i)}, \tilde{m}_k^{(i)}, \tilde{P}_k^{(i)} \}_{i=1}^l$
+    by those of the $J_{max}$ Gaussians with largest weights.
+    \State
+    \State Output: $\{ \tilde{w}_k^{(i)}, \tilde{m}_k^{(i)}, \tilde{P}_k^{(i)} \}_{i=1}^l$ as pruned Gaussian components.
+
+  \end{algorithmic}
+  \label{alg:mphd_merging}
+\end{algorithm}
