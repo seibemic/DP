@@ -77,7 +77,6 @@ class ObjectStats:
             #inter[i] = np.sum(np.minimum(hist2[i], val)) / np.sum(hist2[i])
             #inter[i] = np.sum(np.minimum(hist2[i], val)) / len(hist2[i])
             minima = np.minimum(hist2[i], val)
-            print("inter: ", np.sum(hist2[i]))
             inter[i] = np.true_divide(np.sum(minima), np.sum(hist2[i])+th)
 
         if print_result:

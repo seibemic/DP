@@ -14,8 +14,8 @@ if __name__ == '__main__':
                   [0, 1, 0, dt],
                   [0, 0, 1, 0],
                   [0, 0, 0, 1]])
-    Q = np.diag([1., 1., 1., 1.])*0.01
-    R = np.diag([5, 5]) * 250
+    Q = np.diag([1., 1., 1., 1.])*0.1
+    R = np.diag([5, 5]) * 30
     H = np.diag([1, 1])  # 2x4
     H = np.lib.pad(H, ((0, 0), (0, 2)), 'constant', constant_values=(0))
     Ps = 0.99
@@ -28,12 +28,18 @@ if __name__ == '__main__':
     # yolo = YOLOHandler()
 
     # sam = SAM_handler(device = "cpu")
-    input = "/home/michal/Documents/FIT/DP/dp/src/data/input/DSCN0005.MP4"
-    vid = VideoMTT(input_video=input, MTT = MTT, frameProcessor=frameProcessor,  chosen_class_ids=[0], output_video=of)
+    #VID20240229170542.mp4
+    # VID20240229170959.mp4
+    # yt_traffic01.mp4 https://www.youtube.com/watch?v=KBsqQez-O4w&t=30s&ab_channel=NickMartinez
+    # yt_traffic03.mp4 https://www.youtube.com/watch?v=7WFYiZersNc&ab_channel=AbdulMunaim
+    # yt_traffic04.mp4 https://www.youtube.com/watch?v=ddPnEk90vLk&ab_channel=IMFootage
+    input = "/home/michal/Documents/FIT/DP/dp/src/data/input/yt_traffic01.mp4"
+    vid = VideoMTT(input_video=input, MTT = MTT, frameProcessor=frameProcessor,  chosen_class_ids=[2], output_video=of)
 
-    d = 800
+    d = 600
     P = np.array([[d, 0, 0, 0],
                   [0, d, 0, 0],
                   [0, 0, d, 0],
                   [0, 0, 0, d]])
     vid.run(P)
+# frame 48

@@ -235,7 +235,7 @@ class VideoMTT:
     def run(self, P):
         self.checkClassMembers()
         # videoCap = cv2.VideoCapture(self.m_input_video)
-        videoCap = Stream(self.input_video, 10)
+        videoCap = Stream(self.input_video, 29)
         output_video_boxes = self.get_outputVideoWriter(videoCap, self.output_video + "_boxes.mp4")
         output_video_masks = self.get_outputVideoWriter(videoCap, self.output_video + "_masks.mp4")
         frame_num = 1
@@ -243,13 +243,43 @@ class VideoMTT:
         width, height = self.get_videoDimensions(videoCap)
         self.frameProcessor.set_frameDimensions((width, height))
         self.MTT.set_ImageSize(np.array([width, height]))
-        self.MTT.add_PerimeterSpawnPoints(w=0.1, cov=P)
+        #self.MTT.add_PerimeterSpawnPoints(w=0.1, cov=P)
         # self.MTT.add_MeshSpawnPoints(w=0.1,cov=P)
         # self.MTT.add_SpawnPoint(np.array([708,1254]), w=0.1, cov=P)
        # self.MTT.add_SpawnPoint(np.array([617, 1050]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([604, 800]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([460, 542]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([281, 542]), w=0.1, cov=P)
+        self.MTT.add_SpawnPoint(np.array([1480, 980]), w=0.1, cov=P)
+        self.MTT.add_SpawnPoint(np.array([1726, 913]), w=0.1, cov=P)
+        self.MTT.add_SpawnPoint(np.array([1752, 771]), w=0.1, cov=P)
+        self.MTT.add_SpawnPoint(np.array([1822, 708]), w=0.1, cov=P)
+
+        #self.MTT.add_SpawnPoint(np.array([790, 420]), w=0.1, cov=P/3)
+        #self.MTT.add_SpawnPoint(np.array([872, 420]), w=0.1, cov=P/3)
+        road = cv2.imread("/home/michal/Documents/FIT/DP/dp/src/data/imgs/road2.png", cv2.IMREAD_UNCHANGED)
+        print("road shape:")
+        print(road.shape)
+        desired_width = 1120
+        desired_height = 370
+
+        # Resize the image
+        road = cv2.resize(road, (desired_width, desired_height))
+        rotation_angle = 0
+        rows, cols, _ = road.shape
+        M = cv2.getRotationMatrix2D((cols / 2, rows / 2), rotation_angle, 1)
+        road = cv2.warpAffine(road, M, (cols, rows))
+
+
+        mask_road = road[:, :, 3] / 255.0
+        alpha_mask_inv = 1.0 - mask_road
+        height1, width1, _ = road.shape
+        print(road.shape)
+        x_offset = 0  # X coordinate where you want to place image1 in image2
+        y_offset = 350  # Y coordinate where you want to place image1 in image2
+        roi = road[y_offset:y_offset + height1, x_offset:x_offset + width1]
+
+
         while videoCap.isOpened():
             print("frame: ", frame_num)
             print("================================")
@@ -261,7 +291,35 @@ class VideoMTT:
 
             # frame[300:800,485:740,:] = 255
            # frame = frame[665:1200, 400:900]
-            bboxes, masks = self.frameProcessor.predict(frame)
+           # frame[y_offset:y_offset+height1, x_offset:x_offset+width1] = road
+
+
+            # frame[y_offset:y_offset + height1, x_offset:x_offset + width1] = \
+            #     frame[y_offset:y_offset + height1, x_offset:x_offset + width1] * (1 - mask_road) + \
+            #     road[:, :, :3] * mask_road
+            addRoad = 0
+            if addRoad:
+                for c in range(0, 3):
+                    frame[y_offset:y_offset + height1, x_offset:x_offset + width1, c] = \
+                        (mask_road * road[:, :, c] +
+                         alpha_mask_inv * frame[y_offset:y_offset + height1, x_offset:x_offset + width1, c])
+            frame_obstacles = frame.copy()
+            addObstacle = 1
+            if addObstacle:
+                height, width = frame_obstacles.shape[:2]
+                canvas = np.zeros((height, width, 3), dtype=np.uint8)
+                pts_left = np.array([[0, 0], [0, 600], [1400, 0]], np.int32)
+                cv2.fillPoly(canvas, [pts_left], (255, 255, 255))
+                pts_right = np.array([[width, 0], [width, 600], [width - 1400, 0]], np.int32)
+                cv2.fillPoly(canvas, [pts_right], (255, 255, 255))
+                rect_left = (0, 0,980, 1120)
+                cv2.rectangle(canvas, (rect_left[0], rect_left[1]),
+                              (rect_left[0] + rect_left[2], rect_left[1] + rect_left[3]), (255, 255, 255), -1)
+
+
+                #frame = cv2.add(frame, canvas)
+                frame_obstacles = cv2.add(frame_obstacles, canvas)
+            bboxes, masks = self.frameProcessor.predict(frame_obstacles)
 
             frame_copy = frame.copy()
             frameWithSpawnPoints = self.MTT.show_SpawnPoints(frame_copy)
@@ -292,7 +350,8 @@ class VideoMTT:
             act_masks = []
             for i, target in enumerate(self.MTT.trackers):
                 center = (int(target.m[0]), int(target.m[1]))
-                frameWithBboxes = cv2_confidence_ellipse(center=center, cov_matrix=target.P, image=frameWithBboxes, showCenter=True)
+                if target.w > 0.1:
+                    frameWithBboxes = cv2_confidence_ellipse(center=center, cov_matrix=target.P, image=frameWithBboxes, showCenter=True)
                 if target.objectStats is not None:
                     prev_xyxy.append(target.objectStats.xyxy)
                 if target.xyxy is not None:
@@ -315,7 +374,7 @@ class VideoMTT:
                 print("     P: ", np.diag(target.P))
 
             frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
-            show = 1
+            show = 0
             if show:
                 if len(prev_xyxy) > 0:
                     frameWithBboxes = self.showAllBboxesWithLabels(prev_xyxy,frameWithBboxes,None,(255,0,0))

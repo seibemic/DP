@@ -223,7 +223,7 @@ where the covariance of the updated state with the corrected measurement is
 \end{align}
 and of the innovation term spreads according to
 \begin{align}
-    \tilde{P}_k &= K_k (\sum_{i=1}^{m_k} \beta_{i.k} \nu_{i,k} \nu_{i,k}^T - \nu_{i,k} \nu_{i,k}^T) K_k^T. \label{eq:pda_covariance_increase}
+    \tilde{P}_k &= K_k (\sum_{i=1}^{m_k} \beta_{i.k} \nu_{i,k} \nu_{i,k}^T - \nu_{k} \nu_{k}^T) K_k^T. \label{eq:pda_covariance_increase}
 \end{align}
 With probability $\beta_{0,k}$ none of the measurement is correct. In such case, there is no update step of the
 state estimation. The prediction covariance $P_{k|k-1}$ in \eqref{eq:pda_update_cov_misdetect} has weight $\beta_{0,k}$. There
@@ -237,8 +237,7 @@ particle filters approach (\cite{Particle_Khan2005, Particle_Gustafsson2002, Par
     nonlinearParticleFilter}). These filters are able to handle non-linear motion, but the computational demands are
 really high. The second class is bayesian filtering, which is usually more effective when it comes to computational
 demands. Moreover there are two different approaches -- data association filters and random finite sets filters
-. The example of data association, which we talked about in Section \ref{sec:data_association}, is the PDA filter (
-Section \ref{sec:pda_filter}) or the integrated probabilistic data association filter. The updated version of these
+. The example of data association, which we talked about in Section \ref{sec:data_association}, is the PDA filter (Section \ref{sec:pda_filter}) or the integrated probabilistic data association filter. The updated version of these
 filters, that can handle more targets, especially when two or more targets' validation region is in the same neighbourhood are the joint probabilistic data association filter and the joint integrated probabilistic data association filter. The other family is filters based on random finite sets. Random finite sets statistics are explained in the following section.
 %    \subsection{JPDA filter}
 %    \subsection{IPDA filter}
