@@ -9,7 +9,7 @@ class YOLOHandler:
         if segment:
             self.m_yolo_model = YOLO(f'{HOME}/weights/yolov8l-seg.pt')
         else:
-            self.m_yolo_model = YOLO(f'{HOME}/weights/yolov8n.pt')
+            self.m_yolo_model = YOLO(f'{HOME}/weights/yolov8l.pt')
         self.segment = segment
 
         self.colors = np.random.randint(0, 256, size=(len(self.m_yolo_model.names), 3))
@@ -19,10 +19,10 @@ class YOLOHandler:
 
     def predict(self, frame):
         if self.segment:
-            detections = self.m_yolo_model(frame, conf = 0.4, verbose = False)
+            detections = self.m_yolo_model(frame, conf = 0.3, verbose = False)
             return detections
 
-        detections = self.m_yolo_model.predict(frame, conf=0.4, verbose=False)
+        detections = self.m_yolo_model.predict(frame, conf=0.3, verbose=False)
 
         # print("detections:")
         # print(detections)

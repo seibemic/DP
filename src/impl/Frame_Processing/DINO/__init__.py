@@ -35,19 +35,17 @@ class DINO_handler:
         ]
     def predict(self, frame, classes=None, box_threshold=None, text_threshold=None):
         if classes is None:
-            classes = ["car", "person"]
+            classes = ["car"]
         if box_threshold is None:
-            box_threshold = 0.2
+            box_threshold = 0.3
         if text_threshold is None:
-            text_threshold = 0.15
+            text_threshold = 0.25
         detections = self.grounding_dino_model.predict_with_classes(
             image=frame,
             classes=self.enhance_class_name(class_names=classes),
             box_threshold=box_threshold,
             text_threshold=text_threshold,
         )
-        print("det")
-        print(detections)
 
         detections.xyxy = torch.from_numpy(detections.xyxy).to(self.device)
         return detections

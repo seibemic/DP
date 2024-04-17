@@ -4,6 +4,7 @@ import cv2
 import os
 import re
 import numpy as np
+import pandas as pd
 
 from src.impl.Frame_Processing import FrameProcessing, DINO_handler
 from src.impl.MTT import TargetTracker
@@ -280,6 +281,22 @@ class VideoMTT:
         roi = road[y_offset:y_offset + height1, x_offset:x_offset + width1]
 
 
+
+
+
+        experiments = "sam"
+        if experiments == "yolo":
+            df = pd.DataFrame(
+                columns=["frame_num", "true_targets", "yolo_detects", "yolo_targets_in_queue", "yolo_targets_displayed"])
+        elif experiments == "sam":
+            df = pd.DataFrame(
+                columns=["frame_num", "true_targets", "sam_detects", "sam_targets_in_queue",
+                         "sam_targets_displayed"])
+        elif experiments == "dino":
+            df = pd.DataFrame(
+                columns=["frame_num", "true_targets", "dino_detects", "dino_targets_in_queue",
+                         "dino_targets_displayed"])
+
         while videoCap.isOpened():
             print("frame: ", frame_num)
             print("================================")
@@ -326,8 +343,9 @@ class VideoMTT:
             try:
                 xyxy, conf, masks, cls = self.filterClasses(bboxes.cls.numpy(), bboxes.xyxy.numpy(), bboxes.conf.numpy(), masks)
             except Exception as e:
-                xyxy = bboxes.xyxy
+                xyxy = bboxes.xyxy.cpu().numpy()
                 masks = masks
+
             masks = self.resize_masks(masks)
 
             frameWithBboxes, z_bboxes_centers = self.get_bboxCenters(xyxy, frameWithSpawnPoints, True)
@@ -348,9 +366,12 @@ class VideoMTT:
 
             prev_masks = []
             act_masks = []
+            displayed_targets = 0
             for i, target in enumerate(self.MTT.trackers):
                 center = (int(target.m[0]), int(target.m[1]))
+                frameWithBboxes = cv2.circle(frameWithBboxes, center, radius=4, color=(0,0,255), thickness=4)
                 if target.w > 0.1:
+                    displayed_targets += 1
                     frameWithBboxes = cv2_confidence_ellipse(center=center, cov_matrix=target.P, image=frameWithBboxes, showCenter=True)
                 if target.objectStats is not None:
                     prev_xyxy.append(target.objectStats.xyxy)
@@ -397,7 +418,11 @@ class VideoMTT:
             output_video_boxes.write(frameWithBboxes)
 
 
-            if frame_num > 0:
+            if frame_num > 35 and frame_num < 80:
+                df.loc[len(df.index)] = [frame_num, 4,len(xyxy),len(self.MTT.trackers),displayed_targets]
+
+            image_show = 1
+            if image_show:# and frame_num > 35 and frame_num < 80:
                 cv2.namedWindow(f"{frame_num}", cv2.WINDOW_NORMAL)
                 # Using resizeWindow()
 
@@ -405,10 +430,18 @@ class VideoMTT:
                 # frameWithBboxes=frameWithBboxes[665:1400, 400:900]
                 cv2.imshow(f"{frame_num}", frameWithBboxes)
                 cv2.waitKey(0)
-
             frame_num += 1
-            if frame_num > 60 and 0:
+            if frame_num > 80:
                 break
+
+        write = 0
+        if write:
+            if experiments == "yolo":
+                df.to_csv("yolo_results.csv")
+            elif experiments == "sam":
+                df.to_csv("yolo_results.csv")
+            elif experiments == "dino":
+                df.to_csv("dino_results.csv")
         videoCap.release()
         output_video_boxes.release()
         output_video_masks.release()

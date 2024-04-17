@@ -29,8 +29,6 @@ class SAM_handler:
         return transformed_boxes
 
     def predict(self, frame, frameDimensions, detections):
-        print("detections:")
-        print(detections)
         transformed_boxes = self.transformBoxes(frameDimensions, detections)
         self.m_predictor.set_image(frame)
         masks, scores, logits = self.m_predictor.predict_torch(
