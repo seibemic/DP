@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.14)  17 APR 2024 19:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.14)  18 APR 2024 22:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1801,13 +1801,13 @@ l.95 ...stance segmentation}{47}{subsection.4.2.2}
 fit-thesis.lof
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.0pt on input line 59.
-)
+ [4
+
+])
 \tf@lof=\write7
 \openout7 = `ctufit-thesis.lof'.
 
- [4
 
-]
 (/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
 fit-thesis.lot)
 \tf@lot=\write8
@@ -1887,7 +1887,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 7.91994pt on input line 76.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 5.93996pt on input line 76.
-<text/chapter_01/imgs/mvn_contour.png, id=607, 578.16pt x 433.62pt>
+<text/chapter_01/imgs/mvn_contour.png, id=635, 578.16pt x 433.62pt>
 File: text/chapter_01/imgs/mvn_contour.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_contour.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_contour.png  used on input li
@@ -1899,7 +1899,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 136.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 (Font)              scaled to size 7.19995pt on input line 136.
-<text/chapter_01/imgs/mvn_3d.png, id=609, 722.7pt x 578.16pt>
+<text/chapter_01/imgs/mvn_3d.png, id=637, 722.7pt x 578.16pt>
 File: text/chapter_01/imgs/mvn_3d.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_3d.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_3d.png  used on input line 14
@@ -1909,7 +1909,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 8.09995pt on input line 146.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 (Font)              scaled to size 8.09995pt on input line 146.
-<text/chapter_01/imgs/gauss_with_marginals.png, id=610, 1084.05pt x 722.7pt>
+<text/chapter_01/imgs/gauss_with_marginals.png, id=638, 1084.05pt x 722.7pt>
 File: text/chapter_01/imgs/gauss_with_marginals.png Graphic file (type png)
 <use text/chapter_01/imgs/gauss_with_marginals.png>
 Package pdftex.def Info: text/chapter_01/imgs/gauss_with_marginals.png  used on
@@ -1917,13 +1917,13 @@ Package pdftex.def Info: text/chapter_01/imgs/gauss_with_marginals.png  used on
 (pdftex.def)             Requested size: 418.25368pt x 278.83032pt.
  [9] [10 <./text/chapter_01/imgs/mvn_contour.png> <./text/chapter_01/imgs/mvn_3
 d.png> <./text/chapter_01/imgs/gauss_with_marginals.png>]
-<text/chapter_01/imgs/mvn_mixture_contour.png, id=640, 578.16pt x 433.62pt>
+<text/chapter_01/imgs/mvn_mixture_contour.png, id=667, 578.16pt x 433.62pt>
 File: text/chapter_01/imgs/mvn_mixture_contour.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_mixture_contour.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_mixture_contour.png  used on 
 input line 183.
 (pdftex.def)             Requested size: 188.21288pt x 141.1564pt.
-<text/chapter_01/imgs/mvn_mixture_3d.png, id=641, 722.7pt x 578.16pt>
+<text/chapter_01/imgs/mvn_mixture_3d.png, id=668, 722.7pt x 578.16pt>
 File: text/chapter_01/imgs/mvn_mixture_3d.png Graphic file (type png)
 <use text/chapter_01/imgs/mvn_mixture_3d.png>
 Package pdftex.def Info: text/chapter_01/imgs/mvn_mixture_3d.png  used on input
@@ -1941,7 +1941,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 6.56995pt on input line 194.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 4.94997pt on input line 194.
-<text/chapter_01/imgs/gaussMix_with_marginals.png, id=642, 1084.05pt x 722.7pt>
+<text/chapter_01/imgs/gaussMix_with_marginals.png, id=669, 1084.05pt x 722.7pt>
 
 File: text/chapter_01/imgs/gaussMix_with_marginals.png Graphic file (type png)
 <use text/chapter_01/imgs/gaussMix_with_marginals.png>
@@ -1951,7 +1951,7 @@ Package pdftex.def Info: text/chapter_01/imgs/gaussMix_with_marginals.png  used
  [11] [12 <./text/chapter_01/imgs/mvn_mixture_contour.png> <./text/chapter_01/i
 mgs/mvn_mixture_3d.png> <./text/chapter_01/imgs/gaussMix_with_marginals.png>] [
 13] [14] [15] [16] [17]
-<./text/chapter_01/imgs/HMM.png, id=701, 714.67pt x 241.90375pt>
+<./text/chapter_01/imgs/HMM.png, id=728, 714.67pt x 241.90375pt>
 File: ./text/chapter_01/imgs/HMM.png Graphic file (type png)
 <use ./text/chapter_01/imgs/HMM.png>
 Package pdftex.def Info: ./text/chapter_01/imgs/HMM.png  used on input line 454
@@ -1993,7 +1993,7 @@ Chapter 3.
 
 
 ] [24]
-<text/chapter_02/imgs/clutter_singleTarget.png, id=775, 722.7pt x 722.7pt>
+<text/chapter_02/imgs/clutter_singleTarget.png, id=802, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_singleTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_singleTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_singleTarget.png  used on
@@ -2004,7 +2004,7 @@ Package pdftex.def Info: text/chapter_02/imgs/clutter_singleTarget.png  used on
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [25]
-<text/chapter_02/imgs/clutter_multiTarget.png, id=782, 722.7pt x 722.7pt>
+<text/chapter_02/imgs/clutter_multiTarget.png, id=809, 722.7pt x 722.7pt>
 File: text/chapter_02/imgs/clutter_multiTarget.png Graphic file (type png)
 <use text/chapter_02/imgs/clutter_multiTarget.png>
 Package pdftex.def Info: text/chapter_02/imgs/clutter_multiTarget.png  used on 
@@ -2032,4 +2032,705 @@ and I'll forget about whatever was undefined.
 ./text/chapter_02/chapter_02.tex:473: Undefined control sequence.
 l.473 ... $|Z_k|$ detection cases $\nu_{D,k}(\codt
                                                   ;z)$ for every $z \in Z_k$...
-The cont
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[37]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 550.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.5pt on input line 550.
+
+
+LaTeX Warning: Float too large for page by 67.65852pt on input line 558.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[38]) [39] [40] [41]
+\openout2 = `text/chapter_03/chapter_03.aux'.
+
+ (./text/chapter_03/chapter_03.tex
+Chapter 4.
+<text/chapter_03/imgs/segmentation-types.png, id=1044, 1890.06125pt x 773.89125
+pt>
+File: text/chapter_03/imgs/segmentation-types.png Graphic file (type png)
+<use text/chapter_03/imgs/segmentation-types.png>
+Package pdftex.def Info: text/chapter_03/imgs/segmentation-types.png  used on i
+nput line 16.
+(pdftex.def)             Requested size: 418.25368pt x 171.24852pt.
+[42
+
+
+
+]
+<text/chapter_03/imgs/CNN.png, id=1056, 893.3375pt x 515.9275pt>
+File: text/chapter_03/imgs/CNN.png Graphic file (type png)
+<use text/chapter_03/imgs/CNN.png>
+Package pdftex.def Info: text/chapter_03/imgs/CNN.png  used on input line 37.
+(pdftex.def)             Requested size: 418.25368pt x 241.557pt.
+ [43 <./text/chapter_03/imgs/segmentation-types.png>] [44 <./text/chapter_03/im
+gs/CNN.png>] [45]
+<text/chapter_03/imgs/YOLO_architecture.png, id=1080, 667.49374pt x 277.035pt>
+File: text/chapter_03/imgs/YOLO_architecture.png Graphic file (type png)
+<use text/chapter_03/imgs/YOLO_architecture.png>
+Package pdftex.def Info: text/chapter_03/imgs/YOLO_architecture.png  used on in
+put line 83.
+(pdftex.def)             Requested size: 418.25368pt x 173.59453pt.
+ [46 <./text/chapter_03/imgs/YOLO_architecture.png>]
+[47] [48] [49]
+<text/chapter_03/imgs/unet.png, id=1144, 959.585pt x 650.43pt>
+File: text/chapter_03/imgs/unet.png Graphic file (type png)
+<use text/chapter_03/imgs/unet.png>
+Package pdftex.def Info: text/chapter_03/imgs/unet.png  used on input line 183.
+
+(pdftex.def)             Requested size: 418.25368pt x 283.50047pt.
+<text/chapter_03/imgs/transformers.png, id=1147, 1324.95pt x 1866.975pt>
+File: text/chapter_03/imgs/transformers.png Graphic file (type png)
+<use text/chapter_03/imgs/transformers.png>
+Package pdftex.def Info: text/chapter_03/imgs/transformers.png  used on input l
+ine 197.
+(pdftex.def)             Requested size: 209.12683pt x 294.67685pt.
+ [50] [51 <./text/chapter_03/imgs/unet.png> <./text/chapter_03/imgs/transformer
+s.png>]
+<text/chapter_03/imgs/multihead.png, id=1172, 278.03876pt x 319.1925pt>
+File: text/chapter_03/imgs/multihead.png Graphic file (type png)
+<use text/chapter_03/imgs/multihead.png>
+Package pdftex.def Info: text/chapter_03/imgs/multihead.png  used on input line
+ 215.
+(pdftex.def)             Requested size: 209.12683pt x 240.08539pt.
+ [52 <./text/chapter_03/imgs/multihead.png>]
+<text/chapter_03/imgs/sam.png, id=1184, 708.6475pt x 153.57375pt>
+File: text/chapter_03/imgs/sam.png Graphic file (type png)
+<use text/chapter_03/imgs/sam.png>
+Package pdftex.def Info: text/chapter_03/imgs/sam.png  used on input line 266.
+(pdftex.def)             Requested size: 418.25368pt x 90.64287pt.
+ [53 <./text/chapter_03/imgs/sam.png>]
+<text/chapter_03/imgs/sam_example.png, id=1197, 660.4675pt x 335.2525pt>
+File: text/chapter_03/imgs/sam_example.png Graphic file (type png)
+<use text/chapter_03/imgs/sam_example.png>
+Package pdftex.def Info: text/chapter_03/imgs/sam_example.png  used on input li
+ne 286.
+(pdftex.def)             Requested size: 418.25368pt x 212.31003pt.
+ [54 <./text/chapter_03/imgs/sam_example.png>]
+Overfull \hbox (10.48183pt too wide) in paragraph at lines 305--307
+[]\T1/ntxtlf/b/n/12 Stable-Diffusion: \T1/ntxtlf/m/n/12 Stable-Diffusion is la-
+tent text-to-image dif-fu-sion model (LDMs)[[]65[]].
+ []
+
+) [55]
+\openout2 = `text/chapter_04/chapter_04.aux'.
+
+ (./text/chapter_04/chapter_04.tex
+Chapter 5.
+[56
+
+
+
+] [57] [58]
+<text/chapter_04/imgs/YOLO_screenshot_2.png, id=1280, 228.855pt x 407.27156pt>
+File: text/chapter_04/imgs/YOLO_screenshot_2.png Graphic file (type png)
+<use text/chapter_04/imgs/YOLO_screenshot_2.png>
+Package pdftex.def Info: text/chapter_04/imgs/YOLO_screenshot_2.png  used on in
+put line 180.
+(pdftex.def)             Requested size: 146.39133pt x 260.52861pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[59]
+<text/chapter_04/imgs/SAM_box.png, id=1294, 773.89125pt x 514.92375pt>
+File: text/chapter_04/imgs/SAM_box.png Graphic file (type png)
+<use text/chapter_04/imgs/SAM_box.png>
+Package pdftex.def Info: text/chapter_04/imgs/SAM_box.png  used on input line 2
+11.
+(pdftex.def)             Requested size: 200.75996pt x 133.57845pt.
+<text/chapter_04/imgs/SAM_box_point.png, id=1295, 777.90625pt x 518.93875pt>
+File: text/chapter_04/imgs/SAM_box_point.png Graphic file (type png)
+<use text/chapter_04/imgs/SAM_box_point.png>
+Package pdftex.def Info: text/chapter_04/imgs/SAM_box_point.png  used on input 
+line 219.
+(pdftex.def)             Requested size: 200.75996pt x 133.92317pt.
+<text/chapter_04/imgs/YOLO_SAM_02.png, id=1297, 228.855pt x 407.27156pt>
+File: text/chapter_04/imgs/YOLO_SAM_02.png Graphic file (type png)
+<use text/chapter_04/imgs/YOLO_SAM_02.png>
+Package pdftex.def Info: text/chapter_04/imgs/YOLO_SAM_02.png  used on input li
+ne 232.
+(pdftex.def)             Requested size: 146.39133pt x 260.52861pt.
+ [60 <./text/chapter_04/imgs/YOLO_screenshot_2.png (PNG copy)>] [61 <./text/cha
+pter_04/imgs/SAM_box.png> <./text/chapter_04/imgs/SAM_box_point.png> <./text/ch
+apter_04/imgs/YOLO_SAM_02.png (PNG copy)>]
+<text/chapter_04/imgs/DINO_example.png, id=1310, 313.17pt x 557.83406pt>
+File: text/chapter_04/imgs/DINO_example.png Graphic file (type png)
+<use text/chapter_04/imgs/DINO_example.png>
+Package pdftex.def Info: text/chapter_04/imgs/DINO_example.png  used on input l
+ine 255.
+(pdftex.def)             Requested size: 146.39133pt x 260.76907pt.
+ [62 <./text/chapter_04/imgs/DINO_example.png (PNG copy)>] [63] [64] [65pdfTeX 
+warning (ext4): destination with the same identifier (name{equation.5.3.28}) ha
+s been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.411 \end{align}
+                 ] [66] [67]) [68] [69]
+\openout2 = `text/chapter_05/chapter_05.aux'.
+
+ (./text/chapter_05/chapter_05.tex
+Chapter 6.
+[70
+
+
+
+] (./text/chapter_05/E1-V1.tex [71]
+<../../../experiments/E1/V1/noPd/staticPd_det.png, id=1410, 723.4227pt x 284.02
+11pt>
+File: ../../../experiments/E1/V1/noPd/staticPd_det.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/staticPd_det.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/staticPd_det.png  used
+ on input line 34.
+(pdftex.def)             Requested size: 418.25368pt x 164.2123pt.
+<../../../experiments/E1/V1/noPd/36.png, id=1411, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/noPd/36.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/36.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/36.png  used on input 
+line 43.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/48.png, id=1412, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/noPd/48.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/48.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/48.png  used on input 
+line 49.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/49.png, id=1413, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/noPd/49.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/49.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/49.png  used on input 
+line 56.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/56.png, id=1414, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/noPd/56.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/56.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/56.png  used on input 
+line 62.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/67.png, id=1415, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/noPd/67.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/67.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/67.png  used on input 
+line 69.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/69.png, id=1416, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/noPd/69.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/69.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/69.png  used on input 
+line 75.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/73.png, id=1417, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/noPd/73.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/73.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/73.png  used on input 
+line 82.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/79.png, id=1418, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/noPd/79.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/79.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/79.png  used on input 
+line 88.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+ [72 <../../../experiments/E1/V1/noPd/staticPd_det.png>] [73 <../../../experime
+nts/E1/V1/noPd/36.png (PNG copy)> <../../../experiments/E1/V1/noPd/48.png (PNG 
+copy)> <../../../experiments/E1/V1/noPd/49.png (PNG copy)> <../../../experiment
+s/E1/V1/noPd/56.png (PNG copy)> <../../../experiments/E1/V1/noPd/67.png (PNG co
+py)> <../../../experiments/E1/V1/noPd/69.png (PNG copy)> <../../../experiments/
+E1/V1/noPd/73.png (PNG copy)> <../../../experiments/E1/V1/noPd/79.png (PNG copy
+)>]
+<../../../experiments/E1/V1/YOLO/yolo_det.png, id=1441, 714.0276pt x 284.0211pt
+>
+File: ../../../experiments/E1/V1/YOLO/yolo_det.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/yolo_det.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/yolo_det.png  used on 
+input line 132.
+(pdftex.def)             Requested size: 418.25368pt x 166.37486pt.
+ [74]
+<../../../experiments/E1/V1/YOLO/36.png, id=1446, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/YOLO/36.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/36.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/36.png  used on input 
+line 141.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/48.png, id=1447, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/YOLO/48.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/48.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/48.png  used on input 
+line 147.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/50.png, id=1448, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/YOLO/50.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/50.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/50.png  used on input 
+line 154.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/56.png, id=1449, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/YOLO/56.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/56.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/56.png  used on input 
+line 160.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/67.png, id=1450, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/YOLO/67.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/67.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/67.png  used on input 
+line 167.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/69.png, id=1451, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/YOLO/69.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/69.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/69.png  used on input 
+line 173.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/73.png, id=1452, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/YOLO/73.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/73.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/73.png  used on input 
+line 180.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/79.png, id=1453, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/YOLO/79.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/79.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/79.png  used on input 
+line 186.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+ [75 <../../../experiments/E1/V1/YOLO/yolo_det.png>] [76 <../../../experiments/
+E1/V1/YOLO/36.png (PNG copy)> <../../../experiments/E1/V1/YOLO/48.png (PNG copy
+)> <../../../experiments/E1/V1/YOLO/50.png (PNG copy)> <../../../experiments/E1
+/V1/YOLO/56.png (PNG copy)> <../../../experiments/E1/V1/YOLO/67.png (PNG copy)>
+ <../../../experiments/E1/V1/YOLO/69.png (PNG copy)> <../../../experiments/E1/V
+1/YOLO/73.png (PNG copy)> <../../../experiments/E1/V1/YOLO/79.png (PNG copy)>]
+<../../../experiments/E1/V1/SAM/sam_det.png, id=1469, 723.4227pt x 284.0211pt>
+File: ../../../experiments/E1/V1/SAM/sam_det.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/sam_det.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/sam_det.png  used on in
+put line 225.
+(pdftex.def)             Requested size: 418.25368pt x 164.2123pt.
+<../../../experiments/E1/V1/SAM/36.png, id=1470, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/SAM/36.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/36.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/36.png  used on input l
+ine 234.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/48.png, id=1471, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/SAM/48.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/48.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/48.png  used on input l
+ine 240.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/53.png, id=1472, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/SAM/53.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/53.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/53.png  used on input l
+ine 247.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/57.png, id=1473, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/SAM/57.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/57.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/57.png  used on input l
+ine 253.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/62.png, id=1474, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/SAM/62.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/62.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/62.png  used on input l
+ine 260.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/69.png, id=1475, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/SAM/69.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/69.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/69.png  used on input l
+ine 266.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/70.png, id=1476, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/SAM/70.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/70.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/70.png  used on input l
+ine 273.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/78.png, id=1477, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/SAM/78.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/78.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/78.png  used on input l
+ine 279.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+ [77 <../../../experiments/E1/V1/SAM/sam_det.png>] [78 <../../../experiments/E1
+/V1/SAM/36.png (PNG copy)> <../../../experiments/E1/V1/SAM/48.png (PNG copy)> <
+../../../experiments/E1/V1/SAM/53.png (PNG copy)> <../../../experiments/E1/V1/S
+AM/57.png (PNG copy)> <../../../experiments/E1/V1/SAM/62.png (PNG copy)> <../..
+/../experiments/E1/V1/SAM/69.png (PNG copy)> <../../../experiments/E1/V1/SAM/70
+.png (PNG copy)> <../../../experiments/E1/V1/SAM/78.png (PNG copy)>]
+<../../../experiments/E1/V1/DINO/dino_det.png, id=1496, 720.5319pt x 284.0211pt
+>
+File: ../../../experiments/E1/V1/DINO/dino_det.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/dino_det.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/dino_det.png  used on 
+input line 319.
+(pdftex.def)             Requested size: 418.25368pt x 164.87103pt.
+<../../../experiments/E1/V1/DINO/36.png, id=1497, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/DINO/36.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/36.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/36.png  used on input 
+line 328.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/48.png, id=1498, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/DINO/48.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/48.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/48.png  used on input 
+line 334.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/54.png, id=1499, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/DINO/54.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/54.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/54.png  used on input 
+line 341.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/58.png, id=1500, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/DINO/58.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/58.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/58.png  used on input 
+line 347.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/67.png, id=1501, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/DINO/67.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/67.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/67.png  used on input 
+line 354.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/69.png, id=1502, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/DINO/69.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/69.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/69.png  used on input 
+line 360.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/73.png, id=1503, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/DINO/73.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/73.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/73.png  used on input 
+line 367.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/78.png, id=1504, 903.375pt x 508.14844pt>
+File: ../../../experiments/E1/V1/DINO/78.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/78.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/78.png  used on input 
+line 373.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+) (./text/chapter_05/E1-V2.tex [79 <../../../experiments/E1/V1/DINO/dino_det.pn
+g>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[80 <../../../experiments/E1/V1/DINO/36.png (PNG copy)> <../../../experiments/E
+1/V1/DINO/48.png (PNG copy)> <../../../experiments/E1/V1/DINO/54.png (PNG copy)
+> <../../../experiments/E1/V1/DINO/58.png (PNG copy)> <../../../experiments/E1/
+V1/DINO/67.png (PNG copy)> <../../../experiments/E1/V1/DINO/69.png (PNG copy)> 
+<../../../experiments/E1/V1/DINO/73.png (PNG copy)> <../../../experiments/E1/V1
+/DINO/78.png (PNG copy)>]
+File: ../../../experiments/E1/V1/noPd/staticPd_det.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/staticPd_det.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/staticPd_det.png  used
+ on input line 34.
+(pdftex.def)             Requested size: 418.25368pt x 164.2123pt.
+ [81]
+File: ../../../experiments/E1/V1/noPd/36.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/36.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/36.png  used on input 
+line 43.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/noPd/48.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/48.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/48.png  used on input 
+line 49.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/noPd/49.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/49.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/49.png  used on input 
+line 56.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/noPd/56.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/56.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/56.png  used on input 
+line 62.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/noPd/67.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/67.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/67.png  used on input 
+line 69.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/noPd/69.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/69.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/69.png  used on input 
+line 75.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/noPd/73.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/73.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/73.png  used on input 
+line 82.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/noPd/79.png Graphic file (type png)
+<use ../../../experiments/E1/V1/noPd/79.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/noPd/79.png  used on input 
+line 88.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+ [82] [83]
+File: ../../../experiments/E1/V1/YOLO/yolo_det.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/yolo_det.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/yolo_det.png  used on 
+input line 132.
+(pdftex.def)             Requested size: 418.25368pt x 166.37486pt.
+ [84]
+File: ../../../experiments/E1/V1/YOLO/36.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/36.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/36.png  used on input 
+line 141.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/YOLO/48.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/48.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/48.png  used on input 
+line 147.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/YOLO/50.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/50.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/50.png  used on input 
+line 154.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/YOLO/56.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/56.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/56.png  used on input 
+line 160.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/YOLO/67.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/67.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/67.png  used on input 
+line 167.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/YOLO/69.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/69.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/69.png  used on input 
+line 173.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/YOLO/73.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/73.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/73.png  used on input 
+line 180.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/YOLO/79.png Graphic file (type png)
+<use ../../../experiments/E1/V1/YOLO/79.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/79.png  used on input 
+line 186.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+ [85] [86]
+File: ../../../experiments/E1/V1/SAM/sam_det.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/sam_det.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/sam_det.png  used on in
+put line 225.
+(pdftex.def)             Requested size: 418.25368pt x 164.2123pt.
+File: ../../../experiments/E1/V1/SAM/36.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/36.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/36.png  used on input l
+ine 234.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/SAM/48.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/48.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/48.png  used on input l
+ine 240.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/SAM/53.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/53.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/53.png  used on input l
+ine 247.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/SAM/57.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/57.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/57.png  used on input l
+ine 253.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/SAM/62.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/62.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/62.png  used on input l
+ine 260.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/SAM/69.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/69.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/69.png  used on input l
+ine 266.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/SAM/70.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/70.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/70.png  used on input l
+ine 273.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/SAM/78.png Graphic file (type png)
+<use ../../../experiments/E1/V1/SAM/78.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/SAM/78.png  used on input l
+ine 279.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+ [87] [88]
+File: ../../../experiments/E1/V1/DINO/dino_det.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/dino_det.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/dino_det.png  used on 
+input line 319.
+(pdftex.def)             Requested size: 418.25368pt x 164.87103pt.
+File: ../../../experiments/E1/V1/DINO/36.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/36.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/36.png  used on input 
+line 328.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/DINO/48.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/48.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/48.png  used on input 
+line 334.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/DINO/54.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/54.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/54.png  used on input 
+line 341.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/DINO/58.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/58.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/58.png  used on input 
+line 347.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/DINO/67.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/67.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/67.png  used on input 
+line 354.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/DINO/69.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/69.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/69.png  used on input 
+line 360.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/DINO/73.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/73.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/73.png  used on input 
+line 367.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+File: ../../../experiments/E1/V1/DINO/78.png Graphic file (type png)
+<use ../../../experiments/E1/V1/DINO/78.png>
+Package pdftex.def Info: ../../../experiments/E1/V1/DINO/78.png  used on input 
+line 373.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+) [89]
+[90]) [91]
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
+275.
+ (/usr/share/texlive/texmf-dist/tex/latex/newtx/t1ntxtt.fd
+File: t1ntxtt.fd 2012/04/20 v3.1
+)
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 10.0pt on input line 275.
+ [92
+
+
+
+]
+[93]
+./ctufit-thesis.tex:276: Misplaced alignment tab character &.
+<argument> ...Quantitative Management (ITQM 2020 &
+                                                   2021): Developing Global ...
+l.276 
+      
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[94] [95] [96]
+\openout2 = `text/medium.aux'.
+
+ (./text/medium.tex
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 12.0pt on input line 12.
+) [97
+
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 279.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 279.
+
+(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/ctu
+fit-thesis.aux
+(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
+t/Introduction.aux)
+(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
+t/chapter_00/chapter_00.aux)
+(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
+t/chapter_01/chapter_01.aux)
+(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
+t/chapter_02/chapter_02.aux)
+(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
+t/chapter_03/chapter_03.aux)
+(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
+t/chapter_04/chapter_04.aux)
+(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
+t/chapter_05/chapter_05.aux)
+(/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/out/tex
+t/medium.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 279.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 279.
+Package rerunfilecheck Info: File `ctufit-thesis.out' has not changed.
+(rerunfilecheck)             Checksum: <no file>.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
+\openout1 = `ctufit-thesis.run.xml'.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 279.
+ ) 
+Here is how much of TeX's memory you used:
+ 38306 strings out of 481239
+ 689532 string characters out of 5920377
+ 1435816 words of memory out of 5000000
+ 52233 multiletter control sequences out of 15000+600000
+ 746689 words of font info for 290 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 60i,23n,70p,1766b,2903s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{table.caption.41} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{appendix*.43} has been referenced but does not exis
+t, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-sc.enc}{/usr/sh
+are/texmf/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/share/texlive/texmf-dist/font
+s/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvip
+s/newtx/ntx-ec-tlf.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</u
+sr/share/texlive/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/share/texmf/fonts/type1/publ
+ic/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvr.pfb></u
+sr/share/texmf/fonts/type1/public/tex-gyre/qtmb.pfb></usr/share/texmf/fonts/typ
+e1/public/tex-gyre/qtmr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmri
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/newtx/txbmiaX.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfo
+nts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
+eX-master/out/ctufit-thesis.pdf (109 pages, 31924262 bytes).
+PDF statistics:
+ 1881 PDF objects out of 2073 (max. 8388607)
+ 1638 compressed objects within 17 object streams
+ 515 named destinations out of 1000 (max. 500000)
+ 840 words of extra memory for PDF output out of 10000 (max. 10000000)
+

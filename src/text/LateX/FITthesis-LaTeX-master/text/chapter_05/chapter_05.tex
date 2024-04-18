@@ -40,8 +40,10 @@ from Equation \eqref{eq:mphd_recursion_update_intesity_misdetect_pd}
 and initial $p_{D,k}(x)$ is provided.
 
 The pruning thresholds are the same for both GM-PHD filters, except filter with dynamic detection probability
-includes second pruning threshold for pruning targets with state \textit{detected} or \textit{hidden}. The common
+includes second pruning threshold for pruning targets with state \textit{detected} or \textit{hidden}. The basic
 pruning threshold is covered in tables as $T_p$, the lowered pruning threshold as $T_l$.
+
+In addition, object detectors' results are dependent on thresholds as well. The Yolo model requires confidence threshold $T_{YOLO}$ for objects visualization. The Grounding DINO model requires two thresholds as it detects objects based on text input. The text input threshold $T_{text}$ and bounding box threshold $T_{bbox}$ for given experiment are included in corresponding parameter settings tables.
 
 The labels above
 the targets are the numerical representations of the state targets: $0=\text{detected}, 1=\text{hidden}, 2=\text{dead}$.
@@ -56,81 +58,16 @@ given by an object detection model. The red ellipses are the covariance matrices
 \section{E1: Traffic without any obstacle}
 The first experiment focuses on comparison of GM-PHD filter with constant detection probability and GM-PHD filter
 with dynamic detection probability with different settings explained in Section \ref{sec:mphd_problemDef}. To analyze,
-if our proposed method works on common scenarios, the video do not include any obstacle, thus the targets are
+if our proposed method works on common scenarios, videos do not include any obstacle, thus the targets are
 constantly visible.
 
-The video is recorded at 29 fps. For simplicity only detections of the right side of the traffic are
-taken into account in this video.
-
-\subsection{V1 -- GM-PHD with constant detection probability}
-The measurements for GM-PHD filter with constant detection probability are obtained by the YOLO object detection
-model. The parameters' values are displayed in Table \ref{tab:E1-V1-S0}.
-\begin{table}[!h]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline
-    $P_{D}$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_p$ \\ \noalign{\hrule height 1.5pt}
-    0.9 & $diag(600,600,600,600)$ & 150 & 0.1 & 0.1\\
-    \hline
-  \end{tabular}
-  \caption{The parameter settings for experiment E1-V1 with constant detection probability.}
-  \label{tab:E1-V1-S0}
-\end{table}
 
 
-\subsection{V1 -- GM-PHD with dynamic detection probability}
-
-\begin{table}[!h]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|c|c|c|}
-    \hline
-    $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$\\ \noalign{\hrule
-    height 1.5pt}
-    0.3 & $diag(600,600,600,600)$ & 150 & 0.1 & 1 & 3 & 0.1 & 0.01\\
-    \hline
-  \end{tabular}
-  \caption{The parameter settings for experiment E1-V1 with dynamic detection probability.}
-  \label{tab:E1-V1-Sx}
-\end{table}
-
-  \subsubsection{S1 -- YOLO + YOLO}
-
-  \subsubsection{S2 -- YOLO + SAM}
-
-  \subsubsection{S3 -- Grounded DINO}
+\input{text/chapter_05/E1-V1}
+\input{text/chapter_05/E1-V2}
 
 
-\subsection{V2 -- GM-PHD with constant detection probability}
-\begin{table}[!h]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline
-    $P_{D}$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_p$ \\ \noalign{\hrule height 1.5pt}
-    0.9 & $diag(600,600,600,600)$ & 150 & 0.1 & 0.1\\
-    \hline
-  \end{tabular}
-  \caption{The parameter settings for experiment E1-V2 with constant detection probability.}
-  \label{tab:E1-V2-S0}
-\end{table}
 
-\subsection{V2 -- GM-PHD with dynamic detection probability}
-\begin{table}[!h]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|c|c|c}
-    \hline
-    $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ \\ \noalign{\hrule height 1.5pt}
-    0.3 & $diag(600,600,600,600)$ & 150 & 0.1 & 1 & 3 & 0.1 & 0.01 \\
-    \hline
-  \end{tabular}
-  \caption{The parameter settings for experiment E1-V2 with dynamic detection probability.}
-  \label{tab:E1-V2-Sx}
-\end{table}
-
-\subsubsection{S1 -- YOLO + YOLO}
-
-\subsubsection{S2 -- YOLO + SAM}
-
-\subsubsection{S3 -- Grounded DINO}
 
 
 \section{E1: paper}

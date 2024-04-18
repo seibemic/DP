@@ -35,7 +35,7 @@ class PHD:
         self.w = ps * self.w
         self.prev_m = self.m
         self.m = A @ self.m
-        if self.xyxy is not None:
+        if self.xyxy is not     None:
             x1, y1, x2, y2 = self.xyxy
             length = np.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
             frame_diag = np.sqrt(frameShape[0] ** 2 + frameShape[1] ** 2)
@@ -58,6 +58,7 @@ class PHD:
             self.pd = self.getPd(frame)
         else:
             self.pd = defaultPd
+        #self.pd = 0.9
     def moveBbox(self, t=1):
         self.xyxy = self.xyxy + t * np.array([self.m[2], self.m[3], self.m[2], self.m[3]])
 

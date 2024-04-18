@@ -251,10 +251,10 @@ class VideoMTT:
         # self.MTT.add_SpawnPoint(np.array([604, 800]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([460, 542]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([281, 542]), w=0.1, cov=P)
-        self.MTT.add_SpawnPoint(np.array([1480, 980]), w=0.1, cov=P)
-        self.MTT.add_SpawnPoint(np.array([1726, 913]), w=0.1, cov=P)
-        self.MTT.add_SpawnPoint(np.array([1752, 771]), w=0.1, cov=P)
-        self.MTT.add_SpawnPoint(np.array([1822, 708]), w=0.1, cov=P)
+        self.MTT.add_SpawnPoint(np.array([118, 291]), w=0.1, cov=P)
+        # self.MTT.add_SpawnPoint(np.array([1726, 913]), w=0.1, cov=P)
+        # self.MTT.add_SpawnPoint(np.array([1752, 771]), w=0.1, cov=P)
+        # self.MTT.add_SpawnPoint(np.array([1822, 708]), w=0.1, cov=P)
 
         #self.MTT.add_SpawnPoint(np.array([790, 420]), w=0.1, cov=P/3)
         #self.MTT.add_SpawnPoint(np.array([872, 420]), w=0.1, cov=P/3)
@@ -284,7 +284,7 @@ class VideoMTT:
 
 
 
-        experiments = "sam"
+        experiments = "dino"
         if experiments == "yolo":
             df = pd.DataFrame(
                 columns=["frame_num", "true_targets", "yolo_detects", "yolo_targets_in_queue", "yolo_targets_displayed"])
@@ -296,6 +296,10 @@ class VideoMTT:
             df = pd.DataFrame(
                 columns=["frame_num", "true_targets", "dino_detects", "dino_targets_in_queue",
                          "dino_targets_displayed"])
+        elif experiments == "nopd":
+            df = pd.DataFrame(
+                columns=["frame_num", "true_targets", "staticPd_detects", "staticPd_targets_in_queue",
+                         "staticPd_targets_displayed"])
 
         while videoCap.isOpened():
             print("frame: ", frame_num)
@@ -325,13 +329,13 @@ class VideoMTT:
             if addObstacle:
                 height, width = frame_obstacles.shape[:2]
                 canvas = np.zeros((height, width, 3), dtype=np.uint8)
-                pts_left = np.array([[0, 0], [0, 600], [1400, 0]], np.int32)
-                cv2.fillPoly(canvas, [pts_left], (255, 255, 255))
-                pts_right = np.array([[width, 0], [width, 600], [width - 1400, 0]], np.int32)
+                # pts_left = np.array([[0, 0], [0, 600], [1400, 0]], np.int32)
+                # cv2.fillPoly(canvas, [pts_left], (255, 255, 255))
+                pts_right = np.array([[width, 0], [width, 600], [width - 2000, 0]], np.int32)
                 cv2.fillPoly(canvas, [pts_right], (255, 255, 255))
-                rect_left = (0, 0,980, 1120)
-                cv2.rectangle(canvas, (rect_left[0], rect_left[1]),
-                              (rect_left[0] + rect_left[2], rect_left[1] + rect_left[3]), (255, 255, 255), -1)
+                # rect_left = (0, 0,980, 1120)
+                # cv2.rectangle(canvas, (rect_left[0], rect_left[1]),
+                #               (rect_left[0] + rect_left[2], rect_left[1] + rect_left[3]), (255, 255, 255), -1)
 
 
                 #frame = cv2.add(frame, canvas)
@@ -418,11 +422,11 @@ class VideoMTT:
             output_video_boxes.write(frameWithBboxes)
 
 
-            if frame_num > 35 and frame_num < 80:
+            if frame_num > 82 and frame_num < 111:
                 df.loc[len(df.index)] = [frame_num, 4,len(xyxy),len(self.MTT.trackers),displayed_targets]
 
             image_show = 1
-            if image_show:# and frame_num > 35 and frame_num < 80:
+            if image_show and frame_num > 82 and frame_num < 111:
                 cv2.namedWindow(f"{frame_num}", cv2.WINDOW_NORMAL)
                 # Using resizeWindow()
 
@@ -431,17 +435,19 @@ class VideoMTT:
                 cv2.imshow(f"{frame_num}", frameWithBboxes)
                 cv2.waitKey(0)
             frame_num += 1
-            if frame_num > 80:
+            if frame_num > 110:
                 break
 
-        write = 0
+        write = 1
         if write:
             if experiments == "yolo":
                 df.to_csv("yolo_results.csv")
             elif experiments == "sam":
-                df.to_csv("yolo_results.csv")
+                df.to_csv("sam_results.csv")
             elif experiments == "dino":
                 df.to_csv("dino_results.csv")
+            elif experiments == "nopd":
+                df.to_csv("noPd_results.csv")
         videoCap.release()
         output_video_boxes.release()
         output_video_masks.release()
