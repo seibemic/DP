@@ -236,7 +236,7 @@ class VideoMTT:
     def run(self, P):
         self.checkClassMembers()
         # videoCap = cv2.VideoCapture(self.m_input_video)
-        videoCap = Stream(self.input_video, 29)
+        videoCap = Stream(self.input_video, 10)
         output_video_boxes = self.get_outputVideoWriter(videoCap, self.output_video + "_boxes.mp4")
         output_video_masks = self.get_outputVideoWriter(videoCap, self.output_video + "_masks.mp4")
         frame_num = 1
@@ -250,19 +250,21 @@ class VideoMTT:
        # self.MTT.add_SpawnPoint(np.array([617, 1050]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([604, 800]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([460, 542]), w=0.1, cov=P)
-        # self.MTT.add_SpawnPoint(np.array([281, 542]), w=0.1, cov=P)
-        self.MTT.add_SpawnPoint(np.array([118, 291]), w=0.1, cov=P)
+        self.MTT.add_SpawnPoint(np.array([26, 260]), w=0.1, cov=P)
+       # self.MTT.add_SpawnPoint(np.array([747, 1290]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([1726, 913]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([1752, 771]), w=0.1, cov=P)
         # self.MTT.add_SpawnPoint(np.array([1822, 708]), w=0.1, cov=P)
 
         #self.MTT.add_SpawnPoint(np.array([790, 420]), w=0.1, cov=P/3)
         #self.MTT.add_SpawnPoint(np.array([872, 420]), w=0.1, cov=P/3)
-        road = cv2.imread("/home/michal/Documents/FIT/DP/dp/src/data/imgs/road2.png", cv2.IMREAD_UNCHANGED)
+        road = cv2.imread("/home/michal/Documents/FIT/DP/dp/src/data/imgs/road4.png", cv2.IMREAD_UNCHANGED)
+        rows, cols, _ = road.shape
+        road = road[0:rows, 0:cols]
         print("road shape:")
         print(road.shape)
-        desired_width = 1120
-        desired_height = 370
+        desired_width = 300#1220#1120
+        desired_height = 600#300#370
 
         # Resize the image
         road = cv2.resize(road, (desired_width, desired_height))
@@ -276,15 +278,15 @@ class VideoMTT:
         alpha_mask_inv = 1.0 - mask_road
         height1, width1, _ = road.shape
         print(road.shape)
-        x_offset = 0  # X coordinate where you want to place image1 in image2
-        y_offset = 350  # Y coordinate where you want to place image1 in image2
+        x_offset = 300  # X coordinate where you want to place image1 in image2
+        y_offset = 120  # Y coordinate where you want to place image1 in image2
         roi = road[y_offset:y_offset + height1, x_offset:x_offset + width1]
 
 
 
 
 
-        experiments = "dino"
+        experiments = "nopd"
         if experiments == "yolo":
             df = pd.DataFrame(
                 columns=["frame_num", "true_targets", "yolo_detects", "yolo_targets_in_queue", "yolo_targets_displayed"])
@@ -309,16 +311,20 @@ class VideoMTT:
                 break
             if frame is None:
                 continue
-
+            # if frame_num <7:
+            #     frame_num = frame_num + 1
+            #     continue
             # frame[300:800,485:740,:] = 255
            # frame = frame[665:1200, 400:900]
-           # frame[y_offset:y_offset+height1, x_offset:x_offset+width1] = road
+           #  frame[y_offset:y_offset+height1, x_offset:x_offset+width1] = road
 
 
             # frame[y_offset:y_offset + height1, x_offset:x_offset + width1] = \
             #     frame[y_offset:y_offset + height1, x_offset:x_offset + width1] * (1 - mask_road) + \
             #     road[:, :, :3] * mask_road
-            addRoad = 0
+
+
+            addRoad = 1
             if addRoad:
                 for c in range(0, 3):
                     frame[y_offset:y_offset + height1, x_offset:x_offset + width1, c] = \
@@ -329,16 +335,18 @@ class VideoMTT:
             if addObstacle:
                 height, width = frame_obstacles.shape[:2]
                 canvas = np.zeros((height, width, 3), dtype=np.uint8)
-                # pts_left = np.array([[0, 0], [0, 600], [1400, 0]], np.int32)
-                # cv2.fillPoly(canvas, [pts_left], (255, 255, 255))
+                pts_left = np.array([[300, 540], [400, 540], [400, 410]], np.int32)
+                cv2.fillPoly(canvas, [pts_left], (255, 255, 255))
                 pts_right = np.array([[width, 0], [width, 600], [width - 2000, 0]], np.int32)
                 cv2.fillPoly(canvas, [pts_right], (255, 255, 255))
-                # rect_left = (0, 0,980, 1120)
+                # rect_left = (0, 0,500, 1920)
                 # cv2.rectangle(canvas, (rect_left[0], rect_left[1]),
                 #               (rect_left[0] + rect_left[2], rect_left[1] + rect_left[3]), (255, 255, 255), -1)
-
-
-                #frame = cv2.add(frame, canvas)
+                #
+                # rect_up = (0, 0, 1080, 640)
+                # cv2.rectangle(canvas, (rect_up[0], rect_up[1]),
+                #               (rect_up[0] + rect_up[2], rect_up[1] + rect_up[3]), (255, 255, 255), -1)
+                frame = cv2.add(frame, canvas)
                 frame_obstacles = cv2.add(frame_obstacles, canvas)
             bboxes, masks = self.frameProcessor.predict(frame_obstacles)
 
@@ -357,6 +365,16 @@ class VideoMTT:
             frameWithBboxes = self.showAllBboxesWithLabels(xyxy+3, frameWithBboxes, color=(0,0,255))
 
             self.MTT.predict()
+            print("--------------after predict-----------------------")
+            for i, target in enumerate(self.MTT.trackers):
+                print("     w: ", target.w)
+                print("     state: ", target.markovChain.get_probs())
+                print("     m: ", target.m)
+                print("     pd: ", target.pd)
+                print("     pk: ", target.pk)
+                print("     P: ", np.diag(target.P))
+
+            print("-------------------------------------")
             self.MTT.update(z_masks_centers, xyxy, masks, frame, frame_num)
             self.MTT.pruneByMaxWeight(0.1)
             self.MTT.mergeTargets()
@@ -396,10 +414,11 @@ class VideoMTT:
                 print("     state: ", target.markovChain.get_probs())
                 print("     m: ", target.m)
                 print("     pd: ", target.pd)
+                print("     pk: ",target.pk)
                 print("     P: ", np.diag(target.P))
 
             frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
-            show = 0
+            show = 1
             if show:
                 if len(prev_xyxy) > 0:
                     frameWithBboxes = self.showAllBboxesWithLabels(prev_xyxy,frameWithBboxes,None,(255,0,0))
@@ -421,12 +440,13 @@ class VideoMTT:
 
             output_video_boxes.write(frameWithBboxes)
 
-
-            if frame_num > 82 and frame_num < 111:
+            start_frame = 0#55#0#83
+            end_frame = 200 #109
+            if frame_num >= start_frame and frame_num < end_frame:
                 df.loc[len(df.index)] = [frame_num, 4,len(xyxy),len(self.MTT.trackers),displayed_targets]
 
             image_show = 1
-            if image_show and frame_num > 82 and frame_num < 111:
+            if image_show and frame_num >= start_frame and frame_num < end_frame:
                 cv2.namedWindow(f"{frame_num}", cv2.WINDOW_NORMAL)
                 # Using resizeWindow()
 
@@ -434,11 +454,23 @@ class VideoMTT:
                 # frameWithBboxes=frameWithBboxes[665:1400, 400:900]
                 cv2.imshow(f"{frame_num}", frameWithBboxes)
                 cv2.waitKey(0)
+            image_save = 0
+            frames = [7, 33, 38, 43, 55, 60, 85, 92]
+            if image_save and frame_num in frames:
+                if experiments == "yolo":
+                    model = "YOLO"
+                elif experiments == "sam":
+                    model = "SAM"
+                elif experiments == "dino":
+                    model = "DINO"
+                elif experiments == "nopd":
+                    model = "noPD"
+                cv2.imwrite(f"../experiments/E2/V3/{model}/{frame_num}.png", frameWithBboxes)
             frame_num += 1
-            if frame_num > 110:
+            if frame_num > end_frame:
                 break
 
-        write = 1
+        write = 0
         if write:
             if experiments == "yolo":
                 df.to_csv("yolo_results.csv")

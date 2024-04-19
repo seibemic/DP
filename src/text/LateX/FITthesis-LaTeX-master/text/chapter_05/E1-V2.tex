@@ -206,7 +206,7 @@ All parameters are included in Table \ref{tab:E1-V2-S2}.
 
 The situation resemble the situation with settings \textit{S1}. Four targets occur in Figure \ref{fig:E1-V2-S2:01}.
 They continue in they path and all targets are tracked successfully with exception, that there do not appear
-additional targets in subsequent frames. New car is initialized in \ref{fig:E1-V2-S2:04}. All targets are focused in
+additional targets in subsequent frames. The YOLO model detects car's shadow and clasify that as a car, which makes another target in \ref{fig:E1-V2-S2:03}. Due to the merging step, this false target did not survive to the subsequent frames. New car is initialized in \ref{fig:E1-V2-S2:04}. All targets are focused in
 last frames.
 
 The number of displayed targets is close to the true number of targets in Graph \ref{gr:E1-V2-S2}. The number of
@@ -269,37 +269,34 @@ smaller error with the true count.
 
 
 \subsubsection{S3 -- Grounded DINO}
-The experiment with settings \textit{S3} uses Grounding DINO object detector and the SAM image segmentation model.
-All used parameters are included in Table \ref{tab:E1-V2-S3}.
+The combination of Grounding DINO and SAM is tested on video \textit{V2} as well. Used parameteres are given in Table \ref{tab:E1-V2-S3}.
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
         \hline
         $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ & $T_{text}$ & $T_{bbox}$\\ \noalign{\hrule
         height 1.5pt}
-        0.3 & $diag(600,600,600,600)$ & 0.1 & 30 & 1 & 3 & 0.1 & 0.01 & 0.3 & 0.3\\
+        0.3 & $diag(100,100,100,100)$ & 0.1 & 30 & 1 & 3 & 0.1 & 0.01 & 0.3 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for experiment E1-V2-S3 with dynamic detection probability.}
     \label{tab:E1-V2-S3}
 \end{table}
 
-Figure \ref{fig:E1-V2-S3} shows the performance of the GM-PHD filter with the dynamic detection probability with
-settings \textit{S3}.
+Figure \ref{fig:E1-V2-S3} expos better object detection. As a result, the tracking of objects is more precise than in other settings.
 \begin{itemize}
-    \item \textbf{\ref{fig:E1-V2-S3:01}:} Due to the different object detection model, there are more cars detected
-    in the scene. Only four cars drove through the spawn points till this moment, so only there objects are counted to the true count.
-    \item \textbf{\ref{fig:E1-V2-S3:02}:} All targets are tracked successfully.
-    \item \textbf{\ref{fig:E1-V2-S3:03}:} Unlike YOLO, Grounding DINO is able to detect the arriving car.
-    \item \textbf{\ref{fig:E1-V2-S3:07}:} The next arriving car is detected and initialized as well.
-    \item \textbf{\ref{fig:E1-V2-S3:08}:} In this frame new problems arises. As cars are far away, closer to each
-    other and the model is still able to detect all cars, we gain too many new targets. For this model, different observation noise is neccessary. Moreover, for these kind of situations, dynamic model and observation noise would be appropriate ssolution.
+    \item \textbf{\ref{fig:E1-V2-S3:01}:} Starting with four tracked targets in frame no. 83.
+    \item \textbf{\ref{fig:E1-V2-S3:02}:} As in experiment E1-V1, the measurement and observation noise covariance seems to be too large for this scenario. The third and fourth car's measurement reaches the validation region of each other. This situation creates new unwanted targets.
+    \item \textbf{\ref{fig:E1-V2-S3:03}:} The exact same situation happens in this frame.
+    \item \textbf{\ref{fig:E1-V2-S3:04}:} Another car reaches the spawning point.
+    \item \textbf{\ref{fig:E1-V2-S3:05}:} Five targets appear in the scene, all of them correctly tracked.
+    \item \textbf{\ref{fig:E1-V2-S3:06}:} The scenario ends with four properly detected and tracked objects.
 \end{itemize}
 
-In graph \ref{gr:E1-V2-S3} we see, that the number of detected objects is far beyond the true count. But the number
-of displayed targets is almost perfect till frame number 66. After that as targets are closer to each other, the number of targets grows rapidly, causing errors to the number of tracked objects.
+Even though two cars driving side by side causes the filter with given parameters modest problems, the merging and pruning step can deal with such situation most of the time, as seen in Graph \ref{gr:E1-V2-S3}. The line showing the number of displayed targets almost copies the line showing the true counts. The graph also shows the problem of two neihbouring targets and the problem of false detections. The peaks in the red line shows these false detections, the filter is able not to be fooled and hold the true number of targets.
 
-This settings outperforms the other settings by far. The great performance of Grounding DINO causes another problems arising from characteristics of the video. The video is taken from an angle, which makes cars smaller as they go. This dynamics do go together well with static measurement and observation noise.
+
+As in experiment \textit{E1-V1}, these settings outperforms the other settings. Moreover, due to the more precise object detection, the filter is able to deal with problems like two targets in the same neighbourhood and false detections. However, settings \textit{S3} is very sensitive to measurement and observation noise setting, thus these covariance matrices have to be set carefully.
 
 \begin{figure}[H]
     \centering
@@ -348,4 +345,6 @@ This settings outperforms the other settings by far. The great performance of Gr
         \caption{Frame number: 109.}
         \label{fig:E1-V2-S3:06}
     \end{subfigure}
+    \caption{Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, the DINO object detector and the SAM image segmentation model.}
+    \label{fig:E1-V2-S3}
 \end{figure}

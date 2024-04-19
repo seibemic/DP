@@ -2,13 +2,13 @@
 \babel@toc {english}{}
 \babel@toc {english}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{{Acknowledgments}}{vi}{chapter*.4}%
+\contentsline {chapter}{{Acknowledgments}}{vii}{chapter*.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\thectufitdeclarationlabel }{vii}{chapter*.5}%
+\contentsline {chapter}{\thectufitdeclarationlabel }{viii}{chapter*.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{{Abstract}}{viii}{chapter*.6}%
+\contentsline {chapter}{{Abstract}}{ix}{chapter*.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Seznam zkratek}{ix}{chapter*.7}%
+\contentsline {chapter}{Seznam zkratek}{x}{chapter*.7}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Introduction}{1}{chapter*.8}%
 \defcounter {refsection}{0}\relax 
@@ -148,22 +148,50 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.5}V2 -- GM-PHD with constant detection probability}{82}{subsection.6.1.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.6}V2 -- GM-PHD with dynamic detection probability}{84}{subsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.1.6}V2 -- GM-PHD with dynamic detection probability}{83}{subsection.6.1.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.6.1}S1 -- YOLO + YOLO}{84}{subsubsection.6.1.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.6.1}S1 -- YOLO + YOLO}{83}{subsubsection.6.1.6.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.6.2}S2 -- YOLO + SAM}{86}{subsubsection.6.1.6.2}%
+\contentsline {subsubsection}{\numberline {6.1.6.2}S2 -- YOLO + SAM}{85}{subsubsection.6.1.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.6.3}S3 -- Grounded DINO}{88}{subsubsection.6.1.6.3}%
+\contentsline {subsubsection}{\numberline {6.1.6.3}S3 -- Grounded DINO}{87}{subsubsection.6.1.6.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}E1: paper}{90}{section.6.2}%
+\contentsline {section}{\numberline {6.2}E2: Traffic with an obstacle}{89}{section.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}E2: settings comparison}{90}{section.6.3}%
+\contentsline {subsection}{\numberline {6.2.1}V3}{89}{subsection.6.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}E3: add obstacle, compare with PHD}{90}{section.6.4}%
+\contentsline {subsection}{\numberline {6.2.2}V3 - GM-PHD filter with constant detection probability}{90}{subsection.6.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.5}E4: comparison of mean vector}{90}{section.6.5}%
+\contentsline {subsection}{\numberline {6.2.3}V3 -- GM-PHD with dynamic detection probability}{92}{subsection.6.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.6}E5: comparison of covariance}{90}{section.6.6}%
+\contentsline {subsubsection}{\numberline {6.2.3.1}S1 -- YOLO + YOLO}{92}{subsubsection.6.2.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Obsah příloh}{96}{appendix*.53}%
+\contentsline {subsubsection}{\numberline {6.2.3.2}S2 -- YOLO + SAM}{94}{subsubsection.6.2.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.2.3.3}S3 -- Grounded DINO}{95}{subsubsection.6.2.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.3}E2: Traffic with an obstacle}{97}{section.6.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.3.1}V3}{97}{subsection.6.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.3.2}V3 - GM-PHD filter with constant detection probability}{98}{subsection.6.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.3.3}V3 -- GM-PHD with dynamic detection probability}{100}{subsection.6.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.3.3.1}S1 -- YOLO + YOLO}{100}{subsubsection.6.3.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.3.3.2}S2 -- YOLO + SAM}{102}{subsubsection.6.3.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.3.3.3}S3 -- Grounded DINO}{103}{subsubsection.6.3.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.4}E1: paper}{105}{section.6.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.5}E2: settings comparison}{105}{section.6.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.6}E3: add obstacle, compare with PHD}{105}{section.6.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.7}E4: comparison of mean vector}{105}{section.6.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.8}E5: comparison of covariance}{105}{section.6.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Obsah příloh}{111}{appendix*.77}%

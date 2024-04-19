@@ -17,6 +17,7 @@ class PHD:
         self.mask = mask
         self.objectStats = objectStats
         self.state = 0
+        self.pk = 0
         if markovChain is None:
             init_dist = np.array([0.4,0.3,0.3])
             self.markovChain = MarkovChain(init_dist)
@@ -24,8 +25,8 @@ class PHD:
         else:
             if not fromMerge:
                 self.markovChain = deepcopy(markovChain)
-                pk = 1
-                self.state = np.argmax(self.markovChain.get_transitionProbs(self.pd, pk))
+                self.pk = 1
+                self.state = np.argmax(self.markovChain.get_transitionProbs(self.pd, self.pk))
             else:
                 self.markovChain = deepcopy(markovChain)
                 self.state = np.argmax(self.markovChain.get_probs())
@@ -58,7 +59,7 @@ class PHD:
             self.pd = self.getPd(frame)
         else:
             self.pd = defaultPd
-        #self.pd = 0.9
+       # self.pd = 0.9
     def moveBbox(self, t=1):
         self.xyxy = self.xyxy + t * np.array([self.m[2], self.m[3], self.m[2], self.m[3]])
 
@@ -66,14 +67,14 @@ class PHD:
         t = 2
         if self.xyxy is not None and self.objectStats is not None and (frame_num - self.objectStats.timestamp) % t == 1:
             self.moveBbox(t)
-        pk = 1
+        self.pk = 1
         if self.objectStats is not None and self.xyxy is not None:
-            pk = self.getPk(self.xyxy, frame)
+            self.pk = self.getPk(self.xyxy, frame)
 
         self.m = self.m
         self.P = self.P_apost
 
-        x = self.markovChain.get_transitionProbs(self.pd, pk)
+        x = self.markovChain.get_transitionProbs(self.pd, self.pk)
 
         self.state = np.argmax(x)
         self.w = (1 - self.pd) * self.w

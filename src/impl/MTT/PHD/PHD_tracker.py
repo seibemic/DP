@@ -9,7 +9,7 @@ class PHDTracker(TargetTracker):
     def __init__(self, F, H, Q, R, ps):
         super().__init__(F, H, Q, R, ps)
         self.T = 10e-5
-        self.U = 8 #4
+        self.U = 4 #4
         self.J_max = 40
 
     def predictBirthTargets(self):
@@ -79,7 +79,7 @@ class PHDTracker(TargetTracker):
     def pruneByMaxWeight(self, w):
         filters_to_stay = []
         for filter in self.trackers:
-            if filter.w > w or (filter.state != 2 and filter.w > w*0.1):
+            if filter.w > w or (filter.state != 2 and filter.w > w*0.00000000001):
                 filters_to_stay.append(filter)
         self.trackers = filters_to_stay
 
@@ -165,27 +165,30 @@ class PHDTracker(TargetTracker):
             OS_mask = None
             OS_w_mix = 0
             OS_xyxy = np.zeros(shape=(4))
-            for t_id in L:
-                OS_mask = np.zeros_like(filters_to_stay[t_id].objectStats.mask)
-                if filters_to_stay[t_id].objectStats is not None and filters_to_stay[t_id].objectStats.timestamp > OS_max_timestamp:
-                    OS_max_timestamp = filters_to_stay[t_id].objectStats.timestamp
-                    OS_frame = filters_to_stay[t_id].objectStats.frame.copy()
-                if filters_to_stay[t_id].objectStats.mask is not None:
-                    OS_mask = filters_to_stay[t_id].objectStats.mask.astype(np.float64) * filters_to_stay[t_id].w
-                    OS_w_mix += filters_to_stay[t_id].w
-                if filters_to_stay[t_id].xyxy is not None:
-                    OS_xyxy += filters_to_stay[t_id].objectStats.xyxy.astype(np.float64) * filters_to_stay[t_id].w
+            if len(filters_to_stay)>0 and filters_to_stay[0].objectStats is not None or 1:
+                for t_id in L:
+                    OS_mask = np.zeros_like(filters_to_stay[t_id].objectStats.mask)
+                    if filters_to_stay[t_id].objectStats is not None and filters_to_stay[t_id].objectStats.timestamp > OS_max_timestamp:
+                        OS_max_timestamp = filters_to_stay[t_id].objectStats.timestamp
+                        OS_frame = filters_to_stay[t_id].objectStats.frame.copy()
+                    if filters_to_stay[t_id].objectStats.mask is not None:
+                        OS_mask = filters_to_stay[t_id].objectStats.mask.astype(np.float64) * filters_to_stay[t_id].w
+                        OS_w_mix += filters_to_stay[t_id].w
+                    if filters_to_stay[t_id].xyxy is not None:
+                        OS_xyxy += filters_to_stay[t_id].objectStats.xyxy.astype(np.float64) * filters_to_stay[t_id].w
 
-            OS_mask /= OS_w_mix
-            OS_mask = np.round(OS_mask)
-            OS_mask = np.clip(OS_mask, 0, 1)
-            OS_mask = np.array(OS_mask, dtype=np.int8)
+                OS_mask /= OS_w_mix
+                OS_mask = np.round(OS_mask)
+                OS_mask = np.clip(OS_mask, 0, 1)
+                OS_mask = np.array(OS_mask, dtype=np.int8)
 
-            OS_xyxy /= OS_w_mix
-            OS = ObjectStats(OS_frame, OS_mask, OS_xyxy, OS_max_timestamp)
+                OS_xyxy /= OS_w_mix
+                OS = ObjectStats(OS_frame, OS_mask, OS_xyxy, OS_max_timestamp)
+            else:
+                OS = None
 
 
-            mixed_filters.append(PHD(w_mix, m_mix, P_mix, pd_mix, xyxy_mix, mask_mix, OS, markov, fromMerge=True))
+            mixed_filters.append(PHD(np.clip(w_mix, a_min=0, a_max=1), m_mix, P_mix, pd_mix, xyxy_mix, mask_mix, OS, markov, fromMerge=True))
 
             removed = np.delete(filters_to_stay, L)
             filters_to_stay = removed.tolist()

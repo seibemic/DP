@@ -14,8 +14,8 @@ if __name__ == '__main__':
                   [0, 1, 0, dt],
                   [0, 0, 1, 0],
                   [0, 0, 0, 1]])
-    Q = np.diag([1., 1., 1., 1.])*0.1
-    R = np.diag([1, 1]) * 30
+    Q = np.diag([1., 1., 1., 1.])*0.01
+    R = np.diag([1, 1]) * 50#100#80
     H = np.diag([1, 1])  # 2x4
     H = np.lib.pad(H, ((0, 0), (0, 2)), 'constant', constant_values=(0))
     Ps = 0.99
@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     of = "/home/michal/Documents/FIT/DP/dp/src/data/output/test01"
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    frameProcessor = FrameProcessing(mode=2, device=device)
+    frameProcessor = FrameProcessing(mode=0, device=device)
     # yolo = YOLOHandler()
 
     # sam = SAM_handler(device = "cpu")
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     input = "/home/michal/Documents/FIT/DP/dp/src/data/input/yt_traffic03.mp4"
     vid = VideoMTT(input_video=input, MTT = MTT, frameProcessor=frameProcessor,  chosen_class_ids=[2], output_video=of)
 
-    d = 100
+    d = 40
     P = np.array([[d, 0, 0, 0],
                   [0, d, 0, 0],
                   [0, 0, d, 0],
