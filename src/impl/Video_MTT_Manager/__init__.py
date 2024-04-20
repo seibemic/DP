@@ -5,6 +5,7 @@ import os
 import re
 import numpy as np
 import pandas as pd
+import random
 
 from src.impl.Frame_Processing import FrameProcessing, DINO_handler
 from src.impl.MTT import TargetTracker
@@ -259,6 +260,28 @@ class VideoMTT:
         #self.MTT.add_SpawnPoint(np.array([790, 420]), w=0.1, cov=P/3)
         #self.MTT.add_SpawnPoint(np.array([872, 420]), w=0.1, cov=P/3)
         road = cv2.imread("/home/michal/Documents/FIT/DP/dp/src/data/imgs/road4.png", cv2.IMREAD_UNCHANGED)
+        alpha_channel = None
+        if road.shape[2] == 4:
+            alpha_channel = road[:, :, 3]
+            road = road[:, :, :3]  # Remove the alpha channel
+
+        # Specify the range (40 to 60) to be added to each color channel
+        value_range = (45,60)#value_range = (45, 60)
+
+        # Add a random value within the specified range to each color channel
+        for y in range(road.shape[0]):
+            for x in range(road.shape[1]):
+                for c in range(3):  # Loop over each color channel (B, G, R)
+                    road[y, x, c] = max(0, road[y, x, c] - random.randint(*value_range))
+
+        # If the image had an alpha channel, reattach it
+        if alpha_channel is not None:
+            road = np.dstack((road, alpha_channel))
+
+
+
+
+
         rows, cols, _ = road.shape
         road = road[0:rows, 0:cols]
         print("road shape:")
@@ -286,7 +309,7 @@ class VideoMTT:
 
 
 
-        experiments = "nopd"
+        experiments = "yolo"
         if experiments == "yolo":
             df = pd.DataFrame(
                 columns=["frame_num", "true_targets", "yolo_detects", "yolo_targets_in_queue", "yolo_targets_displayed"])
@@ -331,14 +354,66 @@ class VideoMTT:
                         (mask_road * road[:, :, c] +
                          alpha_mask_inv * frame[y_offset:y_offset + height1, x_offset:x_offset + width1, c])
             frame_obstacles = frame.copy()
+            print("frame shape: ", frame.shape)
             addObstacle = 1
             if addObstacle:
                 height, width = frame_obstacles.shape[:2]
                 canvas = np.zeros((height, width, 3), dtype=np.uint8)
-                pts_left = np.array([[300, 540], [400, 540], [400, 410]], np.int32)
-                cv2.fillPoly(canvas, [pts_left], (255, 255, 255))
+                # pts_left = np.array([[300, 540], [400, 540], [400, 410]], np.int32)
+                # cv2.fillPoly(canvas, [pts_left], (100, 100, 100))
                 pts_right = np.array([[width, 0], [width, 600], [width - 2000, 0]], np.int32)
                 cv2.fillPoly(canvas, [pts_right], (255, 255, 255))
+
+                polygon = np.array([[164, 720], [300, 720], [300, 540]])
+
+                # Create a mask from the polygon coordinates
+                mask = np.zeros_like(frame)
+                cv2.fillPoly(mask, [polygon], (255, 255, 255))
+
+                x_mean = 45
+                x_range = 5
+
+                # Generate random colors within the specified range for each pixel in the polygon
+                polygon_color = np.zeros_like(frame)
+                for y in range(frame.shape[0]):
+                    for x in range(frame.shape[1]):
+                        if cv2.pointPolygonTest(polygon, (x, y),
+                                                False) >= 0:  # Check if the pixel is inside the polygon
+                            color = [random.randint(x_mean - x_range, x_mean + x_range) for _ in range(3)]
+                            polygon_color[y, x] = color
+
+                frame = cv2.bitwise_and(frame, cv2.bitwise_not(mask))
+                frame = cv2.add(frame,  polygon_color)
+
+
+
+                polygon = np.array([[159, 720], [162, 720], [311, 530],[302, 530]])
+                # Create a mask from the polygon coordinates
+                mask = np.zeros_like(frame)
+                cv2.fillPoly(mask, [polygon], (255, 255, 255))
+
+                # Create a new image with the specified color
+                polygon_color = (42, 42, 42)  # Green color, you can change it to any desired color
+                polygon_image = np.zeros_like(frame)
+                cv2.fillPoly(polygon_image, [polygon], polygon_color)
+
+                # Combine the polygon image with the original frame using the mask
+                result = cv2.bitwise_and(frame, cv2.bitwise_not(mask))  # Exclude the road area
+                frame = cv2.add(result, polygon_image)  # Add the colored polygon area
+
+                polygon = np.array([[162, 720], [172, 720], [314, 530], [305, 530]])
+                # Create a mask from the polygon coordinates
+                mask = np.zeros_like(frame)
+                cv2.fillPoly(mask, [polygon], (255, 255, 255))
+
+                # Create a new image with the specified color
+                polygon_color = (202, 200, 202)  # Green color, you can change it to any desired color
+                polygon_image = np.zeros_like(frame)
+                cv2.fillPoly(polygon_image, [polygon], polygon_color)
+
+                # Combine the polygon image with the original frame using the mask
+                result = cv2.bitwise_and(frame, cv2.bitwise_not(mask))  # Exclude the road area
+                frame = cv2.add(result, polygon_image)  # Add the colored polygon area
                 # rect_left = (0, 0,500, 1920)
                 # cv2.rectangle(canvas, (rect_left[0], rect_left[1]),
                 #               (rect_left[0] + rect_left[2], rect_left[1] + rect_left[3]), (255, 255, 255), -1)
@@ -346,7 +421,7 @@ class VideoMTT:
                 # rect_up = (0, 0, 1080, 640)
                 # cv2.rectangle(canvas, (rect_up[0], rect_up[1]),
                 #               (rect_up[0] + rect_up[2], rect_up[1] + rect_up[3]), (255, 255, 255), -1)
-                frame = cv2.add(frame, canvas)
+               # frame = cv2.add(frame, canvas)
                 frame_obstacles = cv2.add(frame_obstacles, canvas)
             bboxes, masks = self.frameProcessor.predict(frame_obstacles)
 
@@ -392,7 +467,7 @@ class VideoMTT:
             for i, target in enumerate(self.MTT.trackers):
                 center = (int(target.m[0]), int(target.m[1]))
                 frameWithBboxes = cv2.circle(frameWithBboxes, center, radius=4, color=(0,0,255), thickness=4)
-                if target.w > 0.1:
+                if target.w > 0.001:
                     displayed_targets += 1
                     frameWithBboxes = cv2_confidence_ellipse(center=center, cov_matrix=target.P, image=frameWithBboxes, showCenter=True)
                 if target.objectStats is not None:
@@ -428,20 +503,20 @@ class VideoMTT:
                     frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
                 cls = np.zeros(shape=len(prev_masks))
                 print("prev mask len: ", len(prev_masks))
-                if len(prev_masks) > 0:
+                if len(prev_masks) > 0 and 0:
                     frameWithBboxes = self.showAllMasks(prev_masks, frameWithBboxes, (255, 0, 0))
                     # merged_colored_mask = self.merge_masks_colored(prev_masks, cls)
                     # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
                 cls = np.zeros(shape=len(act_masks))
-                if len(act_masks) > 0:
+                if len(act_masks) > 0 and 0:
                     frameWithBboxes = self.showAllMasks(act_masks, frameWithBboxes, color=(0, 0, 255))
                 # merged_colored_mask = self.merge_masks_colored(act_masks, cls)
                 # frameWithBboxes = cv2.addWeighted(frameWithBboxes, 1, merged_colored_mask, 0.7, 0)
 
             output_video_boxes.write(frameWithBboxes)
 
-            start_frame = 0#55#0#83
-            end_frame = 200 #109
+            start_frame = 44#0#83
+            end_frame = 62 #109
             if frame_num >= start_frame and frame_num < end_frame:
                 df.loc[len(df.index)] = [frame_num, 4,len(xyxy),len(self.MTT.trackers),displayed_targets]
 
@@ -454,8 +529,8 @@ class VideoMTT:
                 # frameWithBboxes=frameWithBboxes[665:1400, 400:900]
                 cv2.imshow(f"{frame_num}", frameWithBboxes)
                 cv2.waitKey(0)
-            image_save = 0
-            frames = [7, 33, 38, 43, 55, 60, 85, 92]
+            image_save = 1
+            frames = [44,47,50,54,56,57,58,59]
             if image_save and frame_num in frames:
                 if experiments == "yolo":
                     model = "YOLO"
@@ -465,12 +540,14 @@ class VideoMTT:
                     model = "DINO"
                 elif experiments == "nopd":
                     model = "noPD"
-                cv2.imwrite(f"../experiments/E2/V3/{model}/{frame_num}.png", frameWithBboxes)
+                print(os.path.exists(f"../experiments/E2/V3/{model}"))
+                cv2.imwrite(f"../experiments/E2/V2-2/{model}/{frame_num}.png", frameWithBboxes)
+                print(frame_num, "saved")
             frame_num += 1
             if frame_num > end_frame:
                 break
 
-        write = 0
+        write = 1
         if write:
             if experiments == "yolo":
                 df.to_csv("yolo_results.csv")

@@ -9,7 +9,7 @@ class PHDTracker(TargetTracker):
     def __init__(self, F, H, Q, R, ps):
         super().__init__(F, H, Q, R, ps)
         self.T = 10e-5
-        self.U = 4 #4
+        self.U = 6 #4
         self.J_max = 40
 
     def predictBirthTargets(self):
@@ -79,7 +79,7 @@ class PHDTracker(TargetTracker):
     def pruneByMaxWeight(self, w):
         filters_to_stay = []
         for filter in self.trackers:
-            if filter.w > w or (filter.state != 2 and filter.w > w*0.00000000001):
+            if filter.w > w or (filter.state != 2 and filter.w > w*0.001):
                 filters_to_stay.append(filter)
         self.trackers = filters_to_stay
 

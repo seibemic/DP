@@ -15,7 +15,7 @@ if __name__ == '__main__':
                   [0, 0, 1, 0],
                   [0, 0, 0, 1]])
     Q = np.diag([1., 1., 1., 1.])*0.01
-    R = np.diag([1, 1]) * 50#100#80
+    R = np.diag([1, 1]) * 60#100#80
     H = np.diag([1, 1])  # 2x4
     H = np.lib.pad(H, ((0, 0), (0, 2)), 'constant', constant_values=(0))
     Ps = 0.99

@@ -19,7 +19,7 @@ class PHD:
         self.state = 0
         self.pk = 0
         if markovChain is None:
-            init_dist = np.array([0.4,0.3,0.3])
+            init_dist = np.array([0.3,0.4,0.3])
             self.markovChain = MarkovChain(init_dist)
             self.state = np.argmax(self.markovChain.get_probs())
         else:
@@ -82,8 +82,10 @@ class PHD:
         return self.objectStats.get_maskStatsMean(frame, self.mask)
 
     def getPk(self,xyxy,frame):
-        PK = self.objectStats.get_xyxyStatsMean(frame, xyxy)
+        print("m: ",self.m)
 
+        PK = self.objectStats.get_xyxyStatsMean(frame, xyxy)
+        print("    pk:", PK)
         return PK
     def inGating(self, z, Pg=0.99):
         covInv = np.linalg.inv(self.S)
