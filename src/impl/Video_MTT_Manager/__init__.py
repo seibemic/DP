@@ -237,7 +237,7 @@ class VideoMTT:
     def run(self, P):
         self.checkClassMembers()
         # videoCap = cv2.VideoCapture(self.m_input_video)
-        videoCap = Stream(self.input_video, 10)
+        videoCap = Stream(self.input_video, 14)
         output_video_boxes = self.get_outputVideoWriter(videoCap, self.output_video + "_boxes.mp4")
         output_video_masks = self.get_outputVideoWriter(videoCap, self.output_video + "_masks.mp4")
         frame_num = 1
@@ -272,7 +272,7 @@ class VideoMTT:
         for y in range(road.shape[0]):
             for x in range(road.shape[1]):
                 for c in range(3):  # Loop over each color channel (B, G, R)
-                    road[y, x, c] = max(0, road[y, x, c] - random.randint(*value_range))
+                    road[y, x, c] = min(255, road[y, x, c] + random.randint(*value_range))
 
         # If the image had an alpha channel, reattach it
         if alpha_channel is not None:
@@ -309,7 +309,7 @@ class VideoMTT:
 
 
 
-        experiments = "yolo"
+        experiments = "dino"
         if experiments == "yolo":
             df = pd.DataFrame(
                 columns=["frame_num", "true_targets", "yolo_detects", "yolo_targets_in_queue", "yolo_targets_displayed"])
@@ -370,7 +370,7 @@ class VideoMTT:
                 mask = np.zeros_like(frame)
                 cv2.fillPoly(mask, [polygon], (255, 255, 255))
 
-                x_mean = 45
+                x_mean = 150#45
                 x_range = 5
 
                 # Generate random colors within the specified range for each pixel in the polygon
@@ -393,7 +393,7 @@ class VideoMTT:
                 cv2.fillPoly(mask, [polygon], (255, 255, 255))
 
                 # Create a new image with the specified color
-                polygon_color = (42, 42, 42)  # Green color, you can change it to any desired color
+                polygon_color = (150,150,150)#(42, 42, 42)  # Green color, you can change it to any desired color
                 polygon_image = np.zeros_like(frame)
                 cv2.fillPoly(polygon_image, [polygon], polygon_color)
 
@@ -407,7 +407,8 @@ class VideoMTT:
                 cv2.fillPoly(mask, [polygon], (255, 255, 255))
 
                 # Create a new image with the specified color
-                polygon_color = (202, 200, 202)  # Green color, you can change it to any desired color
+                polygon_color = (255,255,255)#(202, 200, 202)  # Green color, you can change it to any desired color
+
                 polygon_image = np.zeros_like(frame)
                 cv2.fillPoly(polygon_image, [polygon], polygon_color)
 
@@ -493,7 +494,7 @@ class VideoMTT:
                 print("     P: ", np.diag(target.P))
 
             frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
-            show = 1
+            show = 0
             if show:
                 if len(prev_xyxy) > 0:
                     frameWithBboxes = self.showAllBboxesWithLabels(prev_xyxy,frameWithBboxes,None,(255,0,0))
@@ -515,8 +516,8 @@ class VideoMTT:
 
             output_video_boxes.write(frameWithBboxes)
 
-            start_frame = 44#0#83
-            end_frame = 62 #109
+            start_frame = 44#22#0#83
+            end_frame = 58#65 #109
             if frame_num >= start_frame and frame_num < end_frame:
                 df.loc[len(df.index)] = [frame_num, 4,len(xyxy),len(self.MTT.trackers),displayed_targets]
 
@@ -530,7 +531,7 @@ class VideoMTT:
                 cv2.imshow(f"{frame_num}", frameWithBboxes)
                 cv2.waitKey(0)
             image_save = 1
-            frames = [44,47,50,54,56,57,58,59]
+            frames = [44,48,50,53,54,58]
             if image_save and frame_num in frames:
                 if experiments == "yolo":
                     model = "YOLO"
@@ -540,8 +541,8 @@ class VideoMTT:
                     model = "DINO"
                 elif experiments == "nopd":
                     model = "noPD"
-                print(os.path.exists(f"../experiments/E2/V3/{model}"))
-                cv2.imwrite(f"../experiments/E2/V2-2/{model}/{frame_num}.png", frameWithBboxes)
+               # print(os.path.exists(f"../experiments/E2/V2b/{model}"))
+                cv2.imwrite(f"../experiments/E3/V2/{model}/{frame_num}.png", frameWithBboxes)
                 print(frame_num, "saved")
             frame_num += 1
             if frame_num > end_frame:

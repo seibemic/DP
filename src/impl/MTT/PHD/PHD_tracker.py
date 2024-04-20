@@ -79,7 +79,7 @@ class PHDTracker(TargetTracker):
     def pruneByMaxWeight(self, w):
         filters_to_stay = []
         for filter in self.trackers:
-            if filter.w > w or (filter.state != 2 and filter.w > w*0.001):
+            if filter.w > w or (filter.state != 2 and filter.w > w*1): #0.001
                 filters_to_stay.append(filter)
         self.trackers = filters_to_stay
 

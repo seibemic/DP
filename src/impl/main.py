@@ -10,12 +10,18 @@ from src.impl.Frame_Processing import FrameProcessing
 if __name__ == '__main__':
     dt = 1/25*25
 
-    F = np.array([[1, 0, dt, 0],
+    F = np.array([[1, 0, 2*dt, 0],
                   [0, 1, 0, dt],
+                  [0, 0, 1.1, 0],
+                  [0, 0, 0, 1.1]])
+    Q = np.diag([1., 1., 1., 1.])*0.04
+    Q = np.array([[2, 0.5, 0, 0],
+                  [0, 1, 0, 0],
                   [0, 0, 1, 0],
-                  [0, 0, 0, 1]])
-    Q = np.diag([1., 1., 1., 1.])*0.01
-    R = np.diag([1, 1]) * 60#100#80
+                  [0, 0, 0, 1]]) * 0.003
+    R = np.diag([1, 1]) * 120#60#100#80
+    R= np.array([[2,0.5],
+                 [0,1]])*20.
     H = np.diag([1, 1])  # 2x4
     H = np.lib.pad(H, ((0, 0), (0, 2)), 'constant', constant_values=(0))
     Ps = 0.99
@@ -24,7 +30,7 @@ if __name__ == '__main__':
 
     of = "/home/michal/Documents/FIT/DP/dp/src/data/output/test01"
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    frameProcessor = FrameProcessing(mode=0, device=device)
+    frameProcessor = FrameProcessing(mode=2, device=device)
     # yolo = YOLOHandler()
 
     # sam = SAM_handler(device = "cpu")
@@ -37,7 +43,7 @@ if __name__ == '__main__':
     vid = VideoMTT(input_video=input, MTT = MTT, frameProcessor=frameProcessor,  chosen_class_ids=[2], output_video=of)
 
     d = 40
-    P = np.array([[d, 0, 0, 0],
+    P = np.array([[2*d, d/2, 0, 0],
                   [0, d, 0, 0],
                   [0, 0, d, 0],
                   [0, 0, 0, d]])
