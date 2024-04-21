@@ -1,6 +1,6 @@
 \subsection{V1}
-The video is recorded at 29 fps. For simplicity only detections of the right side of the traffic are
-taken into account in this video. In this experiments frames 36-79 of video V1 are shown, as it includes some curios situations.
+The video \textit{V1} is recorded at 29 fps. For simplicity only detections of the right side of the traffic are
+taken into the account in this video. In this experiments frames 36-79 of video \textit{V1} are shown, as it includes some curios situations.
 \subsection{V1 -- GM-PHD with constant detection probability}
 The measurements for GM-PHD filter with constant detection probability are obtained by the YOLO object detection
 model. The parameters' values are displayed in Table \ref{tab:E1-V1-S0}.
@@ -12,17 +12,17 @@ model. The parameters' values are displayed in Table \ref{tab:E1-V1-S0}.
         0.9 & $diag(600,600,600,600)$ & 0.1 & 150 & 0.1 & 0.3\\
         \hline
     \end{tabular}
-    \caption{The parameter settings for experiment E1-V1 with constant detection probability.}
+    \caption{The parameter settings for experiment E1-V1 with the constant detection probability.}
     \label{tab:E1-V1-S0}
 \end{table}
 
 Figure \ref{fig:E1-V1-S0} shows some highlights of the GM-PHD filter with the constant detection probability.
 \begin{itemize}
-    \item \textbf{\ref{fig:E1-V1-S0:01}:} This is the starting frame, where four cars were previously detected, thus they became our observed targets. In the distance we see that one more car was detected by YOLO, but it did not cross any spawning point, so it does not count into observed targets.
-    \item \textbf{\ref{fig:E1-V1-S0:02}:} Another car is approaching to the scene and should be initialized soon. The YOLO model is not able to always detect all desired objects, as it happened here with the left distanced car. As the detection probality is 0.9, this target did not survive the pruning step and is lost now.
-    \item \textbf{\ref{fig:E1-V1-S0:03}:} The previously lost car is detected again, but does not belong to the set of observed targets furthermore.
-    \item \textbf{\ref{fig:E1-V1-S0:04}:} The new car crossed the spawning point, but the YOLO model was not able to detect this kind of car for many frames in a row, thus this car is not tracked at all.
-    \item \textbf{\ref{fig:E1-V1-S0:05}:} Two cars on the right were not detected again. But this time onw of the targets was able to survive, so we continue to track at least one of the cars.
+    \item \textbf{\ref{fig:E1-V1-S0:01}:} This is the starting frame, where four cars have been previously detected, thus they have become our observed targets. In the distance we see that one more car is detected by YOLO, but it have not crossed any spawning point, so it does not count into observed targets set.
+    \item \textbf{\ref{fig:E1-V1-S0:02}:} Another car is approaching to the scene and should be initialized soon. The YOLO model is not able to always detect all desired objects, as it happenes here with the left distanced car. As the detection probality is 0.9, this target has not survived the pruning step and is lost.
+    \item \textbf{\ref{fig:E1-V1-S0:03}:} The previously lost car is detected again, but does not belong to the set of observed targets anymore.
+    \item \textbf{\ref{fig:E1-V1-S0:04}:} The new car has crossed the spawning point, but the YOLO model has not been able to detect this kind of car for many frames in a row, thus this car is not tracked at all.
+    \item \textbf{\ref{fig:E1-V1-S0:05}:} Two cars on the right are not detected again. But this time one of the targets is able to survive, so we continue to track at least one of them.
     \item \textbf{\ref{fig:E1-V1-S0:06}:} The previously undetected cars are detected again and both cars are tracked again.
     \item \textbf{\ref{fig:E1-V1-S0:07}:} Another car arrives to the scene and this time it is successfully detected and initialized.
     \item \textbf{\ref{fig:E1-V1-S0:08}:} Even though all six cars are detected by YOLO, only three targets appear in the scene. One of the targets covers two cars at once so we can guess that four out of six targets are covered by the GM-PHD filter.

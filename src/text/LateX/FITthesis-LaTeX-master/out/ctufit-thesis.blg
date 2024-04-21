@@ -1,17 +1,17 @@
 [0] Config.pm:304> INFO - This is Biber 2.14 (beta)
 [0] Config.pm:307> INFO - Logfile is 'ctufit-thesis.blg'
-[103] biber:322> INFO - === Pá dub 12, 2024, 14:58:00
-[119] Biber.pm:415> INFO - Reading 'ctufit-thesis.bcf'
-[189] Biber.pm:943> INFO - Found 69 citekeys in bib section 0
-[202] Biber.pm:4256> INFO - Processing section 0
-[202] Utils.pm:75> INFO - Globbing data source 'text/bib-database.bib'
-[203] Utils.pm:91> INFO - Globbed data source 'text/bib-database.bib' to text/bib-database.bib
-[213] Biber.pm:4455> INFO - Looking for bibtex format file 'text/bib-database.bib' for section 0
-[216] bibtex.pm:1653> INFO - LaTeX decoding ...
-[292] bibtex.pm:1471> INFO - Found BibTeX data source '/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/text/bib-database.bib'
-[906] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[906] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[906] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[906] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[951] bbl.pm:652> INFO - Writing 'ctufit-thesis.bbl' with encoding 'UTF-8'
-[1000] bbl.pm:755> INFO - Output to ctufit-thesis.bbl
+[47] biber:322> INFO - === Ne dub 21, 2024, 17:01:34
+[56] Biber.pm:415> INFO - Reading 'ctufit-thesis.bcf'
+[95] Biber.pm:943> INFO - Found 71 citekeys in bib section 0
+[103] Biber.pm:4256> INFO - Processing section 0
+[103] Utils.pm:75> INFO - Globbing data source 'text/bib-database.bib'
+[103] Utils.pm:91> INFO - Globbed data source 'text/bib-database.bib' to text/bib-database.bib
+[109] Biber.pm:4455> INFO - Looking for bibtex format file 'text/bib-database.bib' for section 0
+[110] bibtex.pm:1653> INFO - LaTeX decoding ...
+[154] bibtex.pm:1471> INFO - Found BibTeX data source '/home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaTeX-master/text/bib-database.bib'
+[493] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[493] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[493] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[493] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[518] bbl.pm:652> INFO - Writing 'ctufit-thesis.bbl' with encoding 'UTF-8'
+[546] bbl.pm:755> INFO - Output to ctufit-thesis.bbl

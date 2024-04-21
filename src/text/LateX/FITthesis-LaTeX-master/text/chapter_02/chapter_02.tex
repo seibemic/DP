@@ -17,9 +17,9 @@ filter, are commonly
 employed. These algorithms provide robust solutions for associating measurements with existing tracks and updating target state estimates in dynamic scenarios.
 
 Beyond single-target tracking, radar systems often necessitate multi-target tracking approaches. These approaches,
-particularly those based on Random Finite Sets (RFS), offer advanced capabilities for tracking multiple targets simultaneously. RFS-based filters, including the Probability Hypothesis Density (PHD) filter and the Multi-Bernoulli filter, excel in scenarios where the number of targets is uncertain or dynamic.
+particularly those based on Random Finite Sets (RFS), offer advanced capabilities for tracking multiple targets simultaneously. RFS-based filters, including the Probability Hypothesis Density (PHD) filter and the Multi-Bernoulli Mixture (MBM) filter, excel in scenarios where the number of targets is uncertain or dynamic.
 
-In this chapter, we delve into the intricacies of radar-based target tracking algorithms, exploring their theoretical foundations, practical implementations, and performance characteristics. By understanding the diverse range of tracking algorithms available and their respective strengths, we can design and deploy effective tracking systems to meet the demands of modern surveillance and reconnaissance applications.
+In this chapter, we delve into the intricacies of radar-based target tracking algorithms and explore their theoretical foundations, practical implementations, and performance characteristics. By understanding the diverse range of available tracking algorithms and their respective strengths, we can design and deploy effective tracking systems to meet the demands of modern surveillance and applications.
 
 \section{Data association}
 \label{sec:data_association}
@@ -47,24 +47,24 @@ reliable, data association uncertainty is eliminated. However, in cases where a 
 
 \subsection{Validation region}
 \label{sec:validation_region}
-In target tracking scenarios, the process of signal detection provides measurements, from which the appropriate ones
+In target tracking scenarios, the process of signal detection provides measurements from which the appropriate ones
 for inclusion in the target state estimator are chosen. In radar systems, for instance, the signal reflected from the
 target of interest is sought within a specific time interval, determined by the expected range of the target when it
-reflects the transmitted energy. A range gate is established, and detections falling within this gate can be
+reflects the transmitted energy. A range gate is established and detections falling within this gate can be
 associated with the target of interest. These measurements could include informations such as range, azimuth, elevation,
-or direction cosines. For radar or active sonar, we might also measure how fast something is moving toward or away
-from us. For passive sonar, we might look at the direction something's coming from, when it arrives, and the
+or direction cosines. For a radar or an active sonar, we might also measure how fast something is moving towards or away
+from us. For a passive sonar, we might look at the direction somethings coming from, when it arrives, and the
 difference in sounds it makes. And for optical sensors, we might measure the angle it is seen from. By setting up a
 multidimensional gate, the signal from the target is detected efficiently, avoiding the need to search for it across the entire measurement space.
 
-However, while a measurement within the gate is a candidate for association with the target, it is not guaranteed to
+However, while a measurement within the gate is a candidate for an association with the target, it is not guaranteed to
 have originated from the target itself. Thus, the establishment of a validation region becomes necessary. The
 validation region is designed to ensure that the target measurement falls within it with a high probability, known as
-the gate probability, based on the statistical characterization of the predicted measurement. In the event, where more
+the gate probability, based on the statistical characterization of the predicted measurement. In the event where more
 than one detection appears within the gate, association uncertainty arises. With this uncertainty, it is important to
-figure out which measurement really comes from the target and should be used to update our tracking information. This includes things like the target's estimated position and its variability, or more broadly, the key information we need about the target. Measurements outside the validation region can be disregarded, as they are too distant from the predicted measurement and are unlikely to have originated from the target of interest. This scenario typically arises when the gate probability is close to unity, and the statistical model used to define the gate is accurate.
+figure out which measurement really comes from the target and should be used to update our tracking information. This includes factors like the target's estimated position and its variability, or, more broadly, the key information we need about the target. Measurements outside the validation region can be disregarded, as they are too distant from the predicted measurement and are unlikely to have originated from the target of interest. This scenario typically arises when the gate probability is close to unity, and the statistical model used to define the gate is accurate.
 
-Figure \ref{fig:singleTargetInClutter} illustrates a scenario involving multiple validated measurements. The validation region depicted in the
+Figure \ref{fig:singleTargetInClutter} illustrates a scenario that involves multiple validated measurements. The validation region depicted in the
 figure is two-dimensional and takes the form of an ellipse centered at the predicted measurement $\hat{z}$. The
 elliptical shape of the validation region arises from the assumption that the error in the target's predicted
 measurement, known as the innovation, follows a Gaussian distribution. The parameters defining the ellipse are
@@ -79,17 +79,10 @@ total probability theorem to obtain the state estimate in the presence of data a
 
 Under the assumption of a single target, the spurious measurements are considered random interference. A common model for such false measurements assumes that they are uniformly spatially distributed and independent across time, corresponding to residual clutter. Any constant clutter is assumed to have already been removed.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=10cm]{text/chapter_02/imgs/clutter_singleTarget}
-  \caption{Several measurements $z_i$ appeared in the validation region of a single target. $\hat{z}$ is a predicted
-  measurement and none or any of the measurement $z_1 - z_3$ may have originated from the target.}
-  \label{fig:singleTargetInClutter}
-\end{figure}
 
-When several targets as well as clutter or false alarms appear in the same neighbour, the data association becomes
+When several targets, as well as clutter or false alarms, appear in the same neighbourhood, the data association becomes
 even more challenging. Figure \ref{fig:twoTargetsInClutter} shows this scenario, where predicted measurement for the
-targets are close to each other. These predicted points are labeled as $\hat{z_1}$ and $\hat{z_2}$. In this figure
+targets are close to each other. These predicted points are labeled as $\hat{z_1}$ and $\hat{z_2}$. In this figure,
 many association combinations are possible; $z_1$ from target $\hat{z_1}$ or clutter; $z_2$ from target $\hat{z_1}$
 or clutter; $z_4$ from target $\hat{z_2}$ or clutter; $z_3$ from target $\hat{z_1}$ or target $\hat{z_2}$ or clutter. However, if $z_3$ originated from target $\hat{z_1}$, then it is probable, that $z_4$ originated from target $\hat{
     z_2}$.
@@ -101,8 +94,15 @@ A more complex scenario may arise due to the inherent finite resolution capabili
 The discussion highlights the challenges associated with associating measurements to tracks. The complete problem
 involves associating measurements at each time step, updating the track's sufficient statistic, and propagating it to
 the subsequent time step.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{text/chapter_02/imgs/clutter_singleTarget}
+    \caption{Several measurements $z_i$ appeared in the validation region of a single target. $\hat{z}$ is a predicted
+    measurement and none or any of the measurement $z_1 - z_3$ may have originated from the target.}
+    \label{fig:singleTargetInClutter}
+\end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=10cm]{text/chapter_02/imgs/clutter_multiTarget}
     \caption{Several measurements $z_i$ appeared in the validation region of one of targets $\hat{z_1}$ or $\hat{z_2}$. $\hat{z_1}$ and $\hat{z_2}$ are predicted
@@ -112,10 +112,10 @@ the subsequent time step.
 
 
 \section{Single target tracking}
-Single Target Tracking algorithms are specifically designed to track a single target in presence of clutter and other
+Unlike conventional Kalman filter, which is not inherently equipped to handle clutter, single target tracking (STT) algorithms are specifically designed to track a single target in presence of clutter and other
 sources
-of interference. Unlike conventional Kalman filters, which is not inherently equipped to handle clutter. Single Target
-Tracking algorithms incorporate mechanisms to enhance target survivability in cluttered environments.
+of interference. Single target
+tracking algorithms incorporate mechanisms to enhance target survivability in cluttered environments.
 
 One prominent algorithm in the data association category of target tracking is the Probabilistic Data Association filter. The PDA filter addresses the challenge of associating measurements with the correct target while accounting for data association uncertainty. This uncertainty arises from the presence of clutter and the possibility of spurious measurements.
 
@@ -124,7 +124,7 @@ One prominent algorithm in the data association category of target tracking is t
 \label{sec:pda_filter}
 The Probabilistic Data Association algorithm computes the association probabilities for each validated measurement at
 the current time with respect to the target being tracked. This probabilistic or Bayesian information serves as a
-foundation for the Probabilistic Data Association Filter tracking algorithm, which effectively addresses the uncertainty regarding the origin of measurements. In scenarios where the state and measurement equations are linear, the resulting PDAF algorithm operates based on the Kalman Filter. However, if the state or measurement equations are non-linear, the PDAF algorithm is instead based on the Extended Kalman Filter. This adaptation allows the PDAF algorithm to accommodate non-linearity in the system dynamics or measurement processes, ensuring robust performance in diverse tracking scenarios.
+foundation for the Probabilistic Data Association Filter tracking algorithm, which effectively addresses the uncertainty regarding the origin of measurements. In scenarios where the state and measurement equations are linear, the resulting PDAF algorithm operates based on the Kalman Filter. However, if the state or measurement equations are non-linear, the PDAF algorithm is instead based on the Extended Kalman Filter. This adaptation allows the PDAF algorithm to accommodate non-linearity in the system dynamics or measurement processes, ensuring a robust performance in diverse tracking scenarios.
 
 The PDAF algorithm comes with many assumptions:
 \begin{enumerate}
@@ -143,19 +143,18 @@ The PDAF algorithm comes with many assumptions:
         \begin{align}
             p(x_{k-1}|z_{k-1}) &= \mathcal{N}(x_{k-1}; x_{k-1|k-1}, P_{k-1|k-1}). \label{eq:pda_A3}
         \end{align}
-    \item At each time a measurement validation region is set up around the predicted measurement to select the candidate measurements for association to the target of interest.
+    \item Every time a measurement validation region is set up around the predicted measurement to select the candidate measurements for association to the target of interest.
     \item If the target was detected and the corresponding
     measurement fell into the validation region, then,
     according to \eqref{eq:pda_A1_eq2}, at most one of the validated measurements can be target originated.
-    \item The remaining measurements are assumed to be due
-    to false alarms or clutter and are modeled as independent and identically distributed with uniform spatial distribution, and the number of false alarms or clutter points obeys either a Poisson distribution, that is, a spatial Poisson process with known
+    \item The remaining measurements are assumed to be false alarms or clutter and are modeled as independent and identically distributed with uniform spatial distribution. Additionally, the number of false alarms or clutter points obeys either a Poisson distribution, that is, a spatial Poisson process with known
     spatial density $\lambda$, or a diffuse prior.
     \item The target detections occur independently over time
     with known probability $p_D$.
 \end{enumerate}
-All these assumptions make a filter for state estimation, that is almost as simple as Kalman filter, but more effective in the presence of clutter.
+All these assumptions make a filter for state estimation, that is almost as simple as the Kalman filter, but more effective in the presence of clutter.
 
-As well as the Kalman Filter, the PDAF also consists of prediction and update step. Before the update step, two
+As well as the Kalman Filter, the PDAF consists of a prediction and an update step. Before the update step, two
 additional steps occur -- measurement validation and data association.
  \subsubsection{PDAF predict step}
 The prediction step of PDA filter from time $k-1$ to $k$ is as in the standard KF,
@@ -170,8 +169,8 @@ where $P_{k-1|k-1}$ is from the Equation \eqref{eq:pda_A3}. The innovation covar
 \end{align}
 
 \subsubsection{PDAF measurement validation step}
-As discussed in Section \ref{sec:validation_region}, measurements considered to be originated from a given target
-should fall into validation region. This elliptical region is formulated as
+As discussed in Section \ref{sec:validation_region}, measurements considered to have originated from a given target
+should fall into the validation region. This elliptical region is formulated as
 \begin{align}
     \nu(k,\gamma) &= \bigcup_{z \in Z_k}[(z - \hat{z}_{k|k-1})^T S_k^{-1} (z - \hat{z}_{k|k-1})) \leq \gamma], \label {eq:validation_region}
 \end{align}
@@ -179,7 +178,7 @@ where $Z_k$ are all measurements at time $k$, $\gamma>0$ is the gate threshold c
 p_G$, which is the probability, that the region contains the correct measurement if detected and $S_k$ given in \eqref{eq:pda_S} is the covariance of the innovation.
 
 \subsubsection{PDAF data association step}
-The clutter in target tracking is assumed to be Poisson model with spatial density $\lambda$. In PDAF it yields to the association probability for $z_{i,k}$ being the correct measurement as
+Clutter in target tracking is assumed to be a Poisson model with a spatial density $\lambda$. In PDAF it yields to the association probability for $z_{i,k}$ being the correct measurement as
 \begin{align}
     \beta_{i,k} &=
     \begin{cases}
@@ -188,7 +187,7 @@ The clutter in target tracking is assumed to be Poisson model with spatial densi
     \end{cases}
     \label{eq:pda_beta}
 \end{align}
-where $i=0$ stands for case, where none of the measurements is correct, i.e. there is not any measurement in
+where $i=0$ stands for case, where none of the measurements are correct, i.e. there is no measurement in the
 validation region or none of them originate from the target, $p_D$ is the detection probability, $p_G$ is
 the gate
 probability
@@ -201,7 +200,7 @@ of the spatial Poisson clutter process) in the denominator of \eqref{eq:pda_like
 the uniform pdf of the location of false measurement. The Probabilistic Data Association algorithm produces association probabilities that are influenced by the position of the respective innovation on the Gaussian exponential of the likelihood ratio \eqref{eq:pda_likelihood}, in comparison to other innovations.
 
 \subsubsection{PDAF update step}
-The update step equation of update step is formulated as
+The update step equation of the update step is formulated as
 \begin{align}
     \hat{x}_{k|k} &= \hat{x}_{k|k-1} + K_k \nu_k, \label{eq:pda_update_state}
 \end{align}
@@ -225,20 +224,19 @@ and of the innovation term spreads according to
 \begin{align}
     \tilde{P}_k &= K_k (\sum_{i=1}^{m_k} \beta_{i.k} \nu_{i,k} \nu_{i,k}^T - \nu_{k} \nu_{k}^T) K_k^T. \label{eq:pda_covariance_increase}
 \end{align}
-With probability $\beta_{0,k}$ none of the measurement is correct. In such case, there is no update step of the
+With probability $\beta_{0,k}$ none of the measurements are correct. In such case, there is no update step of the
 state estimation. The prediction covariance $P_{k|k-1}$ in \eqref{eq:pda_update_cov_misdetect} has weight $\beta_{0,k}$. There
-is probability $1-\beta_{0,k}$ that correct measurement appears and the update covariance $P_{k|k}^c$ has weight $1-\beta_{0,k}$. However, there is no certainty, which of the validated measurement $z_k$ is correct, so the positive semidefinite covariance matrix increases. This matrix is the result of the measurement origin uncertainty. Note, that in \eqref{eq:pda_covariance_increase} the dependence of the estimation is non-linear. The PDAF is non-linear estimator, while the estimate update in \eqref{eq:pda_update_state} appears linear, but the association probabilities $\beta_{i,k}$ depend on the innovation in \eqref{eq:pda_beta}.
+is a probability $1-\beta_{0,k}$ that correct measurement appears and the update covariance $P_{k|k}^c$ has weight $1-\beta_{0,k}$. However, there is no certainty, which of the validated measurement $z_k$ is correct, so the positive semidefinite covariance matrix increases. This matrix is the result of the measurement origin uncertainty. Note, that in \eqref{eq:pda_covariance_increase} the dependence of the estimation is non-linear. The PDAF is a non-linear estimator, while the estimate update in \eqref{eq:pda_update_state} appears linear, but the association probabilities $\beta_{i,k}$ depend on the innovation in \eqref{eq:pda_beta}.
 
 
 
-\section{Multi target tracking}
+\section{Multi-target tracking}
 In the field of multi-target tracking, there are many different algorithms and approaches. One of the classes is the
 particle filters approach (\cite{Particle_Khan2005, Particle_Gustafsson2002, Particle_Doucet2001,
     nonlinearParticleFilter}). These filters are able to handle non-linear motion, but the computational demands are
 really high. The second class is bayesian filtering, which is usually more effective when it comes to computational
-demands. Moreover there are two different approaches -- data association filters and random finite sets filters
-. The example of data association, which we talked about in Section \ref{sec:data_association}, is the PDA filter (Section \ref{sec:pda_filter}) or the integrated probabilistic data association filter. The updated version of these
-filters, that can handle more targets, especially when two or more targets' validation region is in the same neighbourhood are the joint probabilistic data association filter and the joint integrated probabilistic data association filter. The other family is filters based on random finite sets. Random finite sets statistics are explained in the following section.
+demands. Moreover, there are two different approaches -- data association filters and random finite sets filters. The example of data association, which we mentioned in Section \ref{sec:data_association}, is the PDA filter (Section \ref{sec:pda_filter}) or the integrated probabilistic data association filter. The joint probabilistic data association filter and the joint integrated probabilistic data association filter are the updated versions of these
+filters. They can handle more targets, especially when two or more targets' validation region is in the same neighbourhood. The other family are filters based on random finite sets. Random finite sets statistics are explained in the following section.
 %    \subsection{JPDA filter}
 %    \subsection{IPDA filter}
     \subsection{RFS statistics}
@@ -249,11 +247,11 @@ frameworks rely on explicit associations between measurements and targets, leadi
 Recent advancements introduce Random Finite Set theory as an alternative approach to multi-target tracking. RFS
 theory represents sets with random cardinalities and values, offering a flexible framework for modeling uncertain
 multi-target scenarios. By treating both the multitarget state and sensor measurements as RFS, tracking algorithms
-can capture uncertainties effectively.
+can effectively capture uncertainties .
 
-In scenario with more targets, i.e., multitarget scenario, let $M(k-1)$ be the number of targets at time $k$. At time $k-1$ the target states are $x_{k-1,1}, \dots, x_{k-1,M(k-1)} \in \mathcal{X}$. At the following time step $k$, some of these targets may disappear, some may evolve to their new states and also some new targets may be borned. As a result we have $M(k)$ targets with states $x_{k,1},\dots, x_{k,M(k)} \in \mathcal{X}$. The RFS model formulation ensures, that the order in which the states are listed has no significance. Also, at time $k$, $N(k)$ measurements $z_{k,1},\dots,z_{k,N(k)} \in \mathcal{Z}$ are received by the sensors, but the origins of these measurements are not known and the RFS model again ensures, that the order in which the measurements came, has no significance. Some of these measurements are generated by the targets, some are only false measurements, i.e., clutter.
+In a scenario with more targets, i.e., a multi-target scenario, let $M(k-1)$ be the number of targets at time $k$. At time $k-1$ the target states are $x_{k-1,1}, \dots, x_{k-1,M(k-1)} \in \mathcal{X}$. At the following time step $k$, some of these targets may disappear, some may evolve to their new states and, what is more, some new targets may be born. The result are $M(k)$ targets with states $x_{k,1},\dots, x_{k,M(k)} \in \mathcal{X}$. The RFS model formulation ensures, that the order in which the states are listed has no significance. Also, at time $k$, $N(k)$ measurements $z_{k,1},\dots,z_{k,N(k)} \in \mathcal{Z}$ are received by the sensors, but the origins of these measurements are not known. Furthermore, the RFS model again ensures, that the order in which the measurements came, has no significance. Some of these measurements are generated by the targets, some are only false measurements, i.e., clutter.
 
-The goal of multiple-target tracking is to collectively estimate both the quantity of targets and their respective states using measurements of uncertain origin. Even under ideal circumstances where the sensor detects all targets without clutter, single-target filtering techniques are inadequate due to the absence of information regarding the origin of each observation.
+The goal of multi-target tracking is to collectively estimate both the quantity of targets and their respective states using measurements of uncertain origin. Even under ideal circumstances where the sensor detects all targets without clutter, single-target filtering techniques are inadequate due to the absence of information regarding the origin of each observation.
 
 Given the absence of inherent ordering within the sets of target states and measurements at a specific time, they can be naturally depicted as finite sets, denoted as
 \begin{align}
@@ -262,11 +260,11 @@ Given the absence of inherent ordering within the sets of target states and meas
 \end{align}
 where $\mathcal{F}(\mathcal{X})$ and $\mathcal{F}(\mathcal{Z})$ are collections of all finite subsets of $\mathcal{X}$ and $\mathcal{Z}$, respectively. In the random finite set approach, we consider the sets of targets and measurements, denoted as $X_k$ and $Z_k$ respectively, as the state and observation. This perspective allows us to frame the multi-target tracking problem as a filtering task with a state space $\mathcal{F}(\mathcal{X})$ and an observation space $\mathcal{F}(\mathcal{Z})$.
 
-In a scenario with a single target, uncertainty is typically represented using random vectors to model the state $x_k$ and the measurement $z_k$. Similarly, in a multi-target scenario, we represent uncertainty by using random finite sets to model the multie-target state $X_k$ and the multi-target measurement $Z_k$. An RFS $X$ is essentially a random variable that takes on finite sets of values, described by a discrete probability distribution and a set of joint probability densities. The distribution specifies the number of elements in $X$, while the densities describe the distribution of these elements.
+In a scenario with a single target, the uncertainty is typically represented using random vectors to model the state $x_k$ and the measurement $z_k$. Similarly, in a multi-target scenario, we represent uncertainty by using random finite sets to model the multi-target state $X_k$ and the multi-target measurement $Z_k$. An RFS $X$ is essentially a random variable that takes on finite sets of values, described by a discrete probability distribution and a set of joint probability densities. The distribution specifies the number of elements in $X$, while the densities describe the distribution of these elements.
 
-We now delve into an RFS-based model for the evolution of the multi-target state, taking into account target motion,
+We now delve into an RFS-based model for the evolution of the multi-target state, taking into account the target motion,
 birth and death. Given a multi-target state $X_{k-1}$ at time $k-1$, each individual target $x_{k-1} \in X_{k-1}$
-either remains present at time $k$ with probability $p_{S,k}(x_{k-1})$ or disappears with probability $1 - p_{S,k}(x_{k-1})$. If the target continues to exist, the probability density of transitioning from state $x_{k-1}$ to $x_k$ is denoted by $f_{k|k-1}(x_k|x_{k-1})$. Consequently, for each state $x_{k-1} \in X_{k-1}$ at time $k-1$, its behavior in the subsequent time step is modeled as the RFS
+either remains present at time $k$ with a probability $p_{S,k}(x_{k-1})$ or disappears with a probability $1 - p_{S,k}(x_{k-1})$. If the target continues to exist, the probability density of transitioning from state $x_{k-1}$ to $x_k$ is denoted by $f_{k|k-1}(x_k|x_{k-1})$. Consequently, for each state $x_{k-1} \in X_{k-1}$ at time $k-1$, its behavior in the subsequent time step is modeled as the RFS
 \begin{align}
     S_{k|k-1}(x_{k-1}),
 \end{align}
@@ -276,8 +274,8 @@ target, denoted by $\emptyset$, implying the target's demise.
 
 The occurrence of a new target at time $k$ can originate from two possibilities: spontaneous births, which are independent of any existing target, or the spawning from a target present at time $k-1$.
 
-Given a multi-target state $X_{k-1}$ at time $k-1$, the state $X_k$ at time $k$ is formulated as the union of
-surviving targets, newly spawned targets, and spontaneously borned targets
+Given a multi-target state $X_{k-1}$ at time $k-1$, the state $X_k$ at time $k$ is formulated as a union of
+surviving targets, newly spawned targets, and spontaneously born targets
 
 \begin{align}
     X_k &= \left[\bigcup_{\zeta \in X_{k-1}}S_{k|k-1}(\zeta) \right] \cup \left[ \bigcup_{\zeta \in X_{k-1}} B_{k|k-1}(\zeta) \right] \cup \Gamma_k, \label{eq:rfs_state_union}
@@ -304,11 +302,9 @@ originated from targets and clutter
 The RFSs are assumed to be independent of each other and the actual form of $K_k$ is problem dependent.
 
 
-Finite Set Statistics (FISST) is fundamental within the RFS framework, providing a systematic way to apply RFS theory
+Finite Set Statistics (FISST) is fundamental within the RFS framework, providing a systematic way to apply the RFS theory
 to multi-target tracking. FISST extends Bayesian filtering techniques to multi-target scenarios, enabling rigorous
-estimation of multi-target states in the presence of clutter and data association uncertainties. Datailed
-descriptions, informations and equations can be found in \cite{FISSTgoodman1997}. In this book, for sake of interest
-, we can find out that for a function $f=\partial F_{(\cdot)}(T)$ the set integral over a subset $S \subset E$ is
+estimation of multi-target states in the presence of clutter and data association uncertainties. Detailed information, descriptions, and equations can be found in \cite{FISSTgoodman1997}. In this book, for the sake of interest, it can be found that for a function $f=\partial F_{(\cdot)}(T)$ the set integral over a subset $S \subset E$ is
 defined as
 \begin{align}
     \int_{S}f(X)\partial X &\equiv \sum_{i=0}^{\infty} \frac{1}{i!}\int_{S^i} f({x_1,\dots,x_i})\lambda_K^i(dx_1\dots dx_i),
@@ -321,9 +317,9 @@ where $E$ and $\mathcal{T}$ are closed and bounded subsets of $R^n$ \cite{VoRFS2
 
         \subsection{PHD filter}
 \label{sec:phdfilter}
-The PHD filter serves as an approximation devised to tackle the computational complexity inherent in the multi-target Bayes filter. Instead of tracking the complete posterior density of multi-target states over time, the PHD filter focuses on propagating the posterior intensity, which represents the first-order statistical moment of the posterior multi-target state \cite{mahler}. This operational strategy draws parallels with the constant gain Kalman filter, which tracks the first moment (mean) of the single-target state \cite{VoMaPHD2006}.
+The PHD filter serves as an approximation devised to tackle the computational complexity inherent in the multi-target Bayes' filter. Instead of tracking the complete posterior density of multi-target states over time, the PHD filter focuses on propagating the posterior intensity, which represents the first-order statistical moment of the posterior multi-target state \cite{mahler}. This operational strategy draws parallels with the constant gain Kalman filter, which tracks the first moment (mean) of the single-target state \cite{VoMaPHD2006}.
 
-For a Random finite set $X$ on $\mathcal{X}$ with probability distribution $P$, its first-order moment is a
+For a Random finite set $X$ on $\mathcal{X}$ with a probability distribution $P$, its first-order moment is a
 non-negative function $\nu$ on $\mathcal{X}$, known as the intensity. This function satisfies the property that for
 each region $S \subseteq \mathcal{X}$ \cite{daley2003}
 \begin{align}
@@ -332,18 +328,18 @@ each region $S \subseteq \mathcal{X}$ \cite{daley2003}
 
 In essence, the integral of $\nu$ over any region $S$ yields the expected number of elements of $X$ within $S$.
 Consequently, the total mass $\hat{N} = \int \nu(x)dx$ represents the expected number of elements of $X$. The local
-maxima of the intensity $\nu$ correspond to points in $\mathcal{X}$ with the highest local concentration of expected
+maxima of the intensity $\nu$ correspond to the points in $\mathcal{X}$ with the highest local concentration of expected
 number of elements, which can then be utilized to generate estimates for the elements of $X$. The simplest approach involves rounding $\hat{N}$ and selecting the resulting number of highest peaks from the intensity. In the tracking domain, this intensity is also referred to as the probability hypothesis density.
 
-An important subclass of RFSs, known as Poisson RFSs, is characterized entirely by their intensities. An RFS $X$ is
+An important subclass of RFSs, known as Poisson RFSs, is characterized entirely by its intensities. An RFS $X$ is
 considered Poisson if its cardinality distribution $Pr(|X| = n)$ follows a Poisson distribution with mean $\hat{N}$,
 and for any finite cardinality, the elements $x \in X$ are independently and identically distributed according to
-the probability density $\nu(\cdot)/N$. In the context of the multi-target tracking problem, it is common practice
+the probability density $\nu(\cdot)/N$. In the context of the multi-target tracking problem, it is a common practice
 to model the clutter RFS [denoted as $\mathcal{K}_k$ in \eqref{eq:rfs_measurement_union}] and the birth RFSs [$\Gamma
 _k $
 and $B_{k|k-1}(x_{k-1})$ in \eqref{eq:rfs_state_union}] as Poisson RFSs.
 
-To formulate PHD filter, let first denote multi-target state and measurement models with
+To formulate the PHD filter, let us first denote the multi-target state and measurement models with
 \begin{align}
     \gamma_k(\cdot) \quad & \text{intensity of the births RFS $\Gamma_k$ at time k;} \\
     \beta_{k|k-1}(\cdot|\zeta) \quad & \text{intensity of the RFS $B_{k|k-1}(\zeta)$ spawned at time $k$ by a target} \notag \\
@@ -365,7 +361,7 @@ Assumptions \ref{as:phd_1} and \ref{as:phd_2} are very common in several trackin
 there is no spawning and RFSs $X_{k-1}$ and $\Gamma_k$ are Poisson.
 
             \subsubsection{PHD filter recursion}
-Let assume a target state $x$ described by an intensity function $\nu(x)$. At time $k$, the prediction of the prior intensity $\nu_{k-1}(x)$ is given by
+Assume a target state $x$ described by an intensity function $\nu(x)$. At time $k$, the prediction of the prior intensity $\nu_{k-1}(x)$ is given by
 \begin{align}
     \nu_{k|k-1}(x) &= \int p_{S,k}(\zeta)\phi_{k|k-1}(x|\zeta)\nu_{k-1}(\zeta)d\zeta \notag \\
         &+ \int \beta_{k|k-1}(x|\zeta) \nu_{k-1}(\zeta)d\zeta + \nu_{\gamma,k}(x),
@@ -381,12 +377,12 @@ The predicted intensity $\nu_{k|k-1}$ is then updated by the measurement set $Z_
 where $g_k(\cdot|\cdot)$ is the likelihood function, $p_{D,k}(\cdot)$ is the probability of detection, and $\kappa_k(\cdot)$ is the clutter density.
 
 Equations \eqref{eq:phdPrior} and \eqref{eq:phdPosterior} show that the PHD filter avoids the combinatorial
-ineffectivity awakening from the unknown association of measurements with correct targets. The posterior intensity is
-a function of a single-target state space $\mathcal{X}$, thus the recursion is more computationally effective than \eqref{eq:chapman_kolmogorov_predict} and \eqref{eq:bayes_update} that in the case of the PHD filter operates on $\mathcal{F(X)}$. But in general it is not possible to come up with a closed-form solution for the PHD recursion.
+ineffectiveness awakening from the unknown association of measurements with correct targets. The posterior intensity is
+a function of a single-target state space $\mathcal{X}$, thus the recursion is more computationally effective than \eqref{eq:chapman_kolmogorov_predict} and \eqref{eq:bayes_update} that in the case of the PHD filter operates on $\mathcal{F(X)}$. Although, in general, it is not possible to come up with a closed-form solution for the PHD recursion.
 
         \subsubsection{GM-PHD for linear models}
 \label{sec:gmphdFilter}
-In this section we delve into details of multi-target linear PHD Gaussian models. With PHD recursions \eqref{eq:phdPrior} and \eqref{eq:phdPosterior} it is achievable to get an efficient multi-target closed-form solution for multi-target algorithms. This solution proposed by Vo and Ma in \cite{VoMaPHD2006} requires additional assumptions to the already proposed ones. Not only standard linear Gaussian model for each targets are assumed, but also the linear Gausssian multi-target model includes assumptions on the death, birth and detections.
+In this section we delve into details of multi-target linear PHD Gaussian models. With PHD recursions \eqref{eq:phdPrior} and \eqref{eq:phdPosterior} it is achievable to get an efficient multi-target closed-form solution for multi-target algorithms. This solution proposed by Vo and Ma in \cite{VoMaPHD2006} requires additional assumptions to the already proposed ones. A standard linear Gaussian model for each of the targets is assumed and the linear Gausssian multi-target model includes assumptions on the death, birth and detections.
 \begin{enumerate}[start=4]
     \item  Each target follows a linear Gaussian dynamical model and the sensor has a linear Gaussian measurement model, i.e., \label{as:phd_4}
         \begin{align}
@@ -409,7 +405,7 @@ where $J_{\gamma,k}, w_{\gamma,k}^{(i)}, m_{\gamma,k}^{(i)}, P_{\gamma,k}^{(i)},
 
 Assumptions \ref{as:phd_4} and \ref{as:phd_5} are very common and used in various tracking algorithms \cite{bar1988tracking}, but the closed-form solution allows for state- and time-dependent $p_{S,k}$ and $p_{D,k}$. This convenience is used in the practical part of this thesis.
 
-The means $m_{\gamma,k}^{(i)}$ in assumption \ref{as:phd_6} are the peaks of the spontaneous birth intensity in \eqref{eq:phd_birth_intensity}. These are the points with highest concentrations of the expected number of spontaneous births, meaning they represent places like airports or other places with highest probability target appearance. $P_{\gamma,k}^{(i)}$ is the covariance matrix that regulate the spread of the birth intensity. The weight $w_{\gamma, k}^{(i)}$ gives the expected number of new targets originating from $m_{\gamma,k}^{(i)}$. Similary in \eqref{eq:phd_spawning_intensity} with addition, that the peak $F_{\beta,k-1}^{(j)}\zeta + d_{\beta,k-1}^{(j)}$ is an affine function of $\zeta$. This spawned target can be pictured as a new target spawned in the neighborhood of another target with previous state $\zeta$. This can be, for example, a smaller ship detached from its mother ship.
+The means $m_{\gamma,k}^{(i)}$ in assumption \ref{as:phd_6} are the peaks of the spontaneous birth intensity in \eqref{eq:phd_birth_intensity}. These are the points with highest concentrations of the expected number of spontaneous births, meaning they represent places like airports or other places with highest probability target appearance. $P_{\gamma,k}^{(i)}$ is the covariance matrix that regulates the spread of the birth intensity. The weight $w_{\gamma, k}^{(i)}$ gives the expected number of new targets originating from $m_{\gamma,k}^{(i)}$. Similary in \eqref{eq:phd_spawning_intensity} with addition, that the peak $F_{\beta,k-1}^{(j)}\zeta + d_{\beta,k-1}^{(j)}$ is an affine function of $\zeta$. This spawned target can be pictured as a new target spawned in the neighborhood of another target with previous state $\zeta$. This can be, for example, a smaller ship detached from its mother ship.
 
         \subsubsection{GM-PHD recursion for linear models}
 In this section we delve into Gaussian mixture probability hypothesis density filter recursion for the linear Gaussian multi-target model and its closed-form solution to the \eqref{eq:phdPrior} and \eqref{eq:phdPosterior}. Suppose, that with assumptions \ref{as:phd_4}-\ref{as:phd_6} the posterior intensity at time $k-1$ is a Gaussian mixture of the form
@@ -464,21 +460,19 @@ where
 \end{align}
 
 
-Equations \eqref{eq:phd_linear_model_state}, \eqref{eq:phd_ps}, and \eqref{eq:phd_birth_intensity} - \eqref{eq
-:phd_recursion_posterior} are inserted into the PHD prediction Equation \eqref{eq:phdPrior}, and then replacing
+Equations \eqref{eq:phd_linear_model_state}, \eqref{eq:phd_ps}, and \eqref{eq:phd_birth_intensity} - \eqref{eq:phd_recursion_posterior} are inserted into the PHD prediction Equation \eqref{eq:phdPrior}, and then replacing
 integrals of the type \eqref{eq:phd_integral_Gaussian} with suitable Gaussian functions. Similarly, Formulations \eqref{eq:recursion_predict_intensity2}, \eqref{eq:recursion_update_intesity} are established by substituting Equations \eqref{eq:phd_linear_model_measurements}, \eqref{eq:phd_pd}, and \eqref{eq:recursion_predict_intensity2} into the PHD update Equation \eqref{eq:phdPosterior}, and subsequently replacing integrals resembling Form \eqref{eq:phd_integral_Gaussian} and products of Gaussians resembling Form \eqref{eq:phd_integral_Gaussian_measurement} with appropriate Gaussian functions.
 
 If we comply prior intensity $\nu_0$ as a Gaussian mixture, then all following predicted intensities $\nu_{k|k-1}$ and posterior intensities $\nu_k$ are also Gaussian mixtures and the recursion holds. Formulations \eqref{eq:phd_recursion_posterior} and \eqref{eq:phd_recursion_predict} give a closed-form guidance for computing the means, covariances and weights of $\nu_k$ from $\nu_{k|k-1}$ after a new set of measurements is available.
 
-The intensity $\nu_{k|k-1}$ in \eqref{eq:phd_recursion_predict} includes three intensities $\nu_{S,k|k-1}, \nu_{\neta,k|k-1} \text{ and } \gamma_k$. These intensities represent existing targets, spawned targets and spontaneous births. The updated intensity $\nu_k$ consists a misdetection case $(1-p_{D,k})\nu_{k|k-1}$ and $|Z_k|$ detection cases $\nu_{D,k}(\codt;z)$ for every $z \in Z_k$. The GM-PHD recursion prediction step thus follows Kalman prediction step and the GM-PHD update step follows Kalman update step.
+The intensity $\nu_{k|k-1}$ in \eqref{eq:phd_recursion_predict} includes three intensities $\nu_{S,k|k-1}, \nu_{\neta,k|k-1} \text{ and } \gamma_k$. These intensities represent existing targets, spawned targets and spontaneous births. The updated intensity $\nu_k$ consists of a misdetection case $(1-p_{D,k})\nu_{k|k-1}$ and $|Z_k|$ detection cases $\nu_{D,k}(\codt;z)$ for every $z \in Z_k$. The GM-PHD recursion prediction step thus follows the Kalman prediction step and the GM-PHD update step follows the Kalman update step.
 
 By summing the weights of $\nu_{k|k-1}$ and $\nu_k$ we can get the expected number of targets $\tilde{N}_{k|k-1}$ and $\tilde{N}_k$, respectively,
 \begin{align}
     \tilde{N}_{k|k-1} &=\tilde{N}_{k-1} \left( p_{S,k} + \sum_{j=1}^{J_{\beta,k}} w_{\beta,k}^{(j)} \right) + \sum_{j=1}^{J_{\gamma,k}} w_{\gamma,k}^{(j)} \\
     \tilde{N}_k &= \tilde{N}_{k|k-1} (1 - p_{D,k}) + \sum_{z \in Z_k} \sum_{j=1}^{J_{k|k-1}} w_k^{(j)}(z),
 \end{align}
-where $\tilde{N}_{k|k-1}$ is the expected number of targets after the prediction step, which is the sum of surviving
-, spawning and born targets. Similary, $\tilde{N}_k$ is the expected number of targets after the update step, which is the sum of the updated number of targets plus the mean number of targets
+where $\tilde{N}_{k|k-1}$ is the expected number of targets after the prediction step, which is the sum of surviving, spawning and born targets. Similary, $\tilde{N}_k$ is the expected number of targets after the update step, which is the sum of the updated number of targets plus the mean number of targets
 that are not detected.
 
 The GM-PHD filter pseudo-algorithm is provided in the Algorithm \ref{alg:phd}.

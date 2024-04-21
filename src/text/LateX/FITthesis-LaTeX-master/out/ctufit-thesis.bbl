@@ -172,6 +172,214 @@
       \verb 10.1109/TAES.2003.1261119
       \endverb
     \endentry
+    \entry{EKF}{book}{}
+      \name{author}{1}{}{%
+        {{hash=963cde8996bb8a1e23f1af9ee534b5af}{%
+           family={Jazwinski},
+           familyi={J\bibinitperiod},
+           given={A.H.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Dover Publications}%
+      }
+      \strng{namehash}{963cde8996bb8a1e23f1af9ee534b5af}
+      \strng{fullhash}{963cde8996bb8a1e23f1af9ee534b5af}
+      \strng{bibnamehash}{963cde8996bb8a1e23f1af9ee534b5af}
+      \strng{authorbibnamehash}{963cde8996bb8a1e23f1af9ee534b5af}
+      \strng{authornamehash}{963cde8996bb8a1e23f1af9ee534b5af}
+      \strng{authorfullhash}{963cde8996bb8a1e23f1af9ee534b5af}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780486462745}
+      \field{series}{Dover Books on Electrical Engineering Series}
+      \field{title}{Stochastic Processes and Filtering Theory}
+      \field{year}{2007}
+    \endentry
+    \entry{UKF}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4d970a698b1a95a744e062b40d63acf3}{%
+           family={Julier},
+           familyi={J\bibinitperiod},
+           given={S.J.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9742c3d48a7a72fc4a306264f44ad3d9}{%
+           family={Uhlmann},
+           familyi={U\bibinitperiod},
+           given={J.K.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{35de1a223c7aa5caeca1d7e14b633e66}
+      \strng{fullhash}{35de1a223c7aa5caeca1d7e14b633e66}
+      \strng{bibnamehash}{35de1a223c7aa5caeca1d7e14b633e66}
+      \strng{authorbibnamehash}{35de1a223c7aa5caeca1d7e14b633e66}
+      \strng{authornamehash}{35de1a223c7aa5caeca1d7e14b633e66}
+      \strng{authorfullhash}{35de1a223c7aa5caeca1d7e14b633e66}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the IEEE}
+      \field{number}{3}
+      \field{title}{Unscented filtering and nonlinear estimation}
+      \field{volume}{92}
+      \field{year}{2004}
+      \field{pages}{401\bibrangedash 422}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1109/JPROC.2003.823141
+      \endverb
+    \endentry
+    \entry{bar1988tracking}{book}{}
+      \name{author}{2}{}{%
+        {{hash=ee3cd1febaf910c21ba784456c15ea05}{%
+           family={Bar-Shalom},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=508d6e5b10f8f9ebb9a9795678d1ed96}{%
+           family={Fortmann},
+           familyi={F\bibinitperiod},
+           given={T.E.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{31b274825c0efd0d0e4ea47c6e8a093b}
+      \strng{fullhash}{31b274825c0efd0d0e4ea47c6e8a093b}
+      \strng{bibnamehash}{31b274825c0efd0d0e4ea47c6e8a093b}
+      \strng{authorbibnamehash}{31b274825c0efd0d0e4ea47c6e8a093b}
+      \strng{authornamehash}{31b274825c0efd0d0e4ea47c6e8a093b}
+      \strng{authorfullhash}{31b274825c0efd0d0e4ea47c6e8a093b}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780120797608}
+      \field{series}{Mathematics in science and engineering}
+      \field{title}{Tracking and Data Association}
+      \field{year}{1988}
+    \endentry
+    \entry{VoMaPHD2006}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bb34db010e1640643cab40651cb76e40}{%
+           family={Vo},
+           familyi={V\bibinitperiod},
+           given={B.-N.},
+           giveni={B\bibinithyphendelim N\bibinitperiod}}}%
+        {{hash=28e6cd48705f075b6d3f98e0a6158b55}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={W.-K.},
+           giveni={W\bibinithyphendelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{f730feb30b5f4769fa6bfe709397e914}
+      \strng{fullhash}{f730feb30b5f4769fa6bfe709397e914}
+      \strng{bibnamehash}{f730feb30b5f4769fa6bfe709397e914}
+      \strng{authorbibnamehash}{f730feb30b5f4769fa6bfe709397e914}
+      \strng{authornamehash}{f730feb30b5f4769fa6bfe709397e914}
+      \strng{authorfullhash}{f730feb30b5f4769fa6bfe709397e914}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Signal Processing}
+      \field{number}{11}
+      \field{title}{The Gaussian Mixture Probability Hypothesis Density Filter}
+      \field{volume}{54}
+      \field{year}{2006}
+      \field{pages}{4091\bibrangedash 4104}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1109/TSP.2006.881190
+      \endverb
+    \endentry
+    \entry{Mahler2011cphd}{article}{}
+      \name{author}{3}{}{%
+        {{hash=b545bb6453a6f2c6bb2b9b8861b9c000}{%
+           family={Mahler},
+           familyi={M\bibinitperiod},
+           given={Ronald\bibnamedelimb P.\bibnamedelimi S.},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=5da61a1566beea20521b30b86e50fe72}{%
+           family={Vo},
+           familyi={V\bibinitperiod},
+           given={Ba-Tuong},
+           giveni={B\bibinithyphendelim T\bibinitperiod}}}%
+        {{hash=56666126241776b487d266d0e4e38555}{%
+           family={Vo},
+           familyi={V\bibinitperiod},
+           given={Ba-Ngu},
+           giveni={B\bibinithyphendelim N\bibinitperiod}}}%
+      }
+      \strng{namehash}{0c6295d56e2711735e5609c59a16b1e9}
+      \strng{fullhash}{0c6295d56e2711735e5609c59a16b1e9}
+      \strng{bibnamehash}{0c6295d56e2711735e5609c59a16b1e9}
+      \strng{authorbibnamehash}{0c6295d56e2711735e5609c59a16b1e9}
+      \strng{authornamehash}{0c6295d56e2711735e5609c59a16b1e9}
+      \strng{authorfullhash}{0c6295d56e2711735e5609c59a16b1e9}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Signal Processing}
+      \field{number}{8}
+      \field{title}{CPHD Filtering With Unknown Clutter Rate and Detection Profile}
+      \field{volume}{59}
+      \field{year}{2011}
+      \field{pages}{3497\bibrangedash 3513}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1109/TSP.2011.2128316
+      \endverb
+    \endentry
+    \entry{GarciaPMBM2018}{article}{}
+      \name{author}{4}{}{%
+        {{hash=c753c783ad42bd8f733a4d13acb28249}{%
+           family={García-Fernández},
+           familyi={G\bibinithyphendelim F\bibinitperiod},
+           given={Ángel\bibnamedelima F.},
+           giveni={Á\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=0ec53a07aa8c1dfdf9a98691b0db5fad}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={Jason\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=c05133e988a1fdd0824323cac5ca90e4}{%
+           family={Granström},
+           familyi={G\bibinitperiod},
+           given={Karl},
+           giveni={K\bibinitperiod}}}%
+        {{hash=b2715cc508f0dd34c65f2ed72f4e7bb1}{%
+           family={Svensson},
+           familyi={S\bibinitperiod},
+           given={Lennart},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{939beb1c7977595f51bbf8b6b3b45753}
+      \strng{fullhash}{7d551a34e3f8d89009ff4b720229d09d}
+      \strng{bibnamehash}{7d551a34e3f8d89009ff4b720229d09d}
+      \strng{authorbibnamehash}{7d551a34e3f8d89009ff4b720229d09d}
+      \strng{authornamehash}{939beb1c7977595f51bbf8b6b3b45753}
+      \strng{authorfullhash}{7d551a34e3f8d89009ff4b720229d09d}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Aerospace and Electronic Systems}
+      \field{number}{4}
+      \field{title}{Poisson Multi-Bernoulli Mixture Filter: Direct Derivation and Implementation}
+      \field{volume}{54}
+      \field{year}{2018}
+      \field{pages}{1883\bibrangedash 1901}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1109/TAES.2018.2805153
+      \endverb
+    \endentry
     \entry{milan2016}{article}{}
       \name{author}{5}{}{%
         {{hash=a2755b6237e8539dcb507043b9ceeb20}{%
@@ -233,8 +441,8 @@
       \strng{authorbibnamehash}{90a46cd888fd69b2b162c5bd80b5a396}
       \strng{authornamehash}{90a46cd888fd69b2b162c5bd80b5a396}
       \strng{authorfullhash}{90a46cd888fd69b2b162c5bd80b5a396}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{17th International Conference on Information Fusion (FUSION)}
@@ -242,45 +450,6 @@
       \field{year}{2014}
       \field{pages}{1\bibrangedash 7}
       \range{pages}{7}
-    \endentry
-    \entry{Mahler2011cphd}{article}{}
-      \name{author}{3}{}{%
-        {{hash=b545bb6453a6f2c6bb2b9b8861b9c000}{%
-           family={Mahler},
-           familyi={M\bibinitperiod},
-           given={Ronald\bibnamedelimb P.\bibnamedelimi S.},
-           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-        {{hash=5da61a1566beea20521b30b86e50fe72}{%
-           family={Vo},
-           familyi={V\bibinitperiod},
-           given={Ba-Tuong},
-           giveni={B\bibinithyphendelim T\bibinitperiod}}}%
-        {{hash=56666126241776b487d266d0e4e38555}{%
-           family={Vo},
-           familyi={V\bibinitperiod},
-           given={Ba-Ngu},
-           giveni={B\bibinithyphendelim N\bibinitperiod}}}%
-      }
-      \strng{namehash}{0c6295d56e2711735e5609c59a16b1e9}
-      \strng{fullhash}{0c6295d56e2711735e5609c59a16b1e9}
-      \strng{bibnamehash}{0c6295d56e2711735e5609c59a16b1e9}
-      \strng{authorbibnamehash}{0c6295d56e2711735e5609c59a16b1e9}
-      \strng{authornamehash}{0c6295d56e2711735e5609c59a16b1e9}
-      \strng{authorfullhash}{0c6295d56e2711735e5609c59a16b1e9}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Signal Processing}
-      \field{number}{8}
-      \field{title}{CPHD Filtering With Unknown Clutter Rate and Detection Profile}
-      \field{volume}{59}
-      \field{year}{2011}
-      \field{pages}{3497\bibrangedash 3513}
-      \range{pages}{17}
-      \verb{doi}
-      \verb 10.1109/TSP.2011.2128316
-      \endverb
     \endentry
     \entry{Vo2013Robust}{article}{}
       \name{author}{4}{}{%
@@ -311,8 +480,8 @@
       \strng{authorbibnamehash}{7196202c2dc68b5c19104037a3d6ac8e}
       \strng{authornamehash}{c56774f2057d00f5b723dd527d10ed4f}
       \strng{authorfullhash}{7196202c2dc68b5c19104037a3d6ac8e}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Journal of Selected Topics in Signal Processing}
@@ -355,8 +524,8 @@
       \strng{authorbibnamehash}{263afe1f4db37d6731d7a4c99dacd00f}
       \strng{authornamehash}{27edb6266a3a38b97028c63ec652fa60}
       \strng{authorfullhash}{263afe1f4db37d6731d7a4c99dacd00f}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Vehicular Technology}
@@ -404,8 +573,8 @@
       \strng{authorbibnamehash}{1f4b0f2609555240de16717964eee894}
       \strng{authornamehash}{b4a09c0a43ca44a7010725bb58a9b55a}
       \strng{authorfullhash}{1f4b0f2609555240de16717964eee894}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Signal Processing}
@@ -541,8 +710,8 @@
       \strng{authorbibnamehash}{75d4db6f7a53233b6e97e80b7bbdce9f}
       \strng{authornamehash}{75d4db6f7a53233b6e97e80b7bbdce9f}
       \strng{authorfullhash}{75d4db6f7a53233b6e97e80b7bbdce9f}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Vehicular Technology}
@@ -595,8 +764,8 @@
       \strng{authorbibnamehash}{e1b53df289014de61ce81433e59569c2}
       \strng{authornamehash}{3436b8b0a46a0fa244a58f42f3c68e41}
       \strng{authorfullhash}{e1b53df289014de61ce81433e59569c2}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2023 5th International Conference on Electronic Engineering and Informatics (EEI)}
@@ -606,84 +775,6 @@
       \range{pages}{5}
       \verb{doi}
       \verb 10.1109/EEI59236.2023.10212903
-      \endverb
-    \endentry
-    \entry{GarciaPMBM2018}{article}{}
-      \name{author}{4}{}{%
-        {{hash=c753c783ad42bd8f733a4d13acb28249}{%
-           family={García-Fernández},
-           familyi={G\bibinithyphendelim F\bibinitperiod},
-           given={Ángel\bibnamedelima F.},
-           giveni={Á\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
-        {{hash=0ec53a07aa8c1dfdf9a98691b0db5fad}{%
-           family={Williams},
-           familyi={W\bibinitperiod},
-           given={Jason\bibnamedelima L.},
-           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-        {{hash=c05133e988a1fdd0824323cac5ca90e4}{%
-           family={Granström},
-           familyi={G\bibinitperiod},
-           given={Karl},
-           giveni={K\bibinitperiod}}}%
-        {{hash=b2715cc508f0dd34c65f2ed72f4e7bb1}{%
-           family={Svensson},
-           familyi={S\bibinitperiod},
-           given={Lennart},
-           giveni={L\bibinitperiod}}}%
-      }
-      \strng{namehash}{939beb1c7977595f51bbf8b6b3b45753}
-      \strng{fullhash}{7d551a34e3f8d89009ff4b720229d09d}
-      \strng{bibnamehash}{7d551a34e3f8d89009ff4b720229d09d}
-      \strng{authorbibnamehash}{7d551a34e3f8d89009ff4b720229d09d}
-      \strng{authornamehash}{939beb1c7977595f51bbf8b6b3b45753}
-      \strng{authorfullhash}{7d551a34e3f8d89009ff4b720229d09d}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Aerospace and Electronic Systems}
-      \field{number}{4}
-      \field{title}{Poisson Multi-Bernoulli Mixture Filter: Direct Derivation and Implementation}
-      \field{volume}{54}
-      \field{year}{2018}
-      \field{pages}{1883\bibrangedash 1901}
-      \range{pages}{19}
-      \verb{doi}
-      \verb 10.1109/TAES.2018.2805153
-      \endverb
-    \endentry
-    \entry{VoMaPHD2006}{article}{}
-      \name{author}{2}{}{%
-        {{hash=bb34db010e1640643cab40651cb76e40}{%
-           family={Vo},
-           familyi={V\bibinitperiod},
-           given={B.-N.},
-           giveni={B\bibinithyphendelim N\bibinitperiod}}}%
-        {{hash=28e6cd48705f075b6d3f98e0a6158b55}{%
-           family={Ma},
-           familyi={M\bibinitperiod},
-           given={W.-K.},
-           giveni={W\bibinithyphendelim K\bibinitperiod}}}%
-      }
-      \strng{namehash}{f730feb30b5f4769fa6bfe709397e914}
-      \strng{fullhash}{f730feb30b5f4769fa6bfe709397e914}
-      \strng{bibnamehash}{f730feb30b5f4769fa6bfe709397e914}
-      \strng{authorbibnamehash}{f730feb30b5f4769fa6bfe709397e914}
-      \strng{authornamehash}{f730feb30b5f4769fa6bfe709397e914}
-      \strng{authorfullhash}{f730feb30b5f4769fa6bfe709397e914}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Signal Processing}
-      \field{number}{11}
-      \field{title}{The Gaussian Mixture Probability Hypothesis Density Filter}
-      \field{volume}{54}
-      \field{year}{2006}
-      \field{pages}{4091\bibrangedash 4104}
-      \range{pages}{14}
-      \verb{doi}
-      \verb 10.1109/TSP.2006.881190
       \endverb
     \endentry
     \entry{BulutEastimation2011}{article}{}
@@ -710,8 +801,8 @@
       \strng{authorbibnamehash}{d2f827c79a0f0172f6c9648d57d71989}
       \strng{authornamehash}{d2f827c79a0f0172f6c9648d57d71989}
       \strng{authorfullhash}{d2f827c79a0f0172f6c9648d57d71989}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-1-4419-9833-0}
@@ -991,8 +1082,8 @@
       \strng{authorbibnamehash}{05c66bfa5c754f958d8b238b486d22b9}
       \strng{authornamehash}{05c66bfa5c754f958d8b238b486d22b9}
       \strng{authorfullhash}{05c66bfa5c754f958d8b238b486d22b9}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9780792346746}
@@ -1024,8 +1115,8 @@
       \strng{authorbibnamehash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
       \strng{authornamehash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
       \strng{authorfullhash}{41a583c3f0d01ccd4de2e7de5d9ef82b}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2003 Proceedings of the International Conference on Radar (IEEE Cat. No.03EX695)}
@@ -1060,44 +1151,13 @@
       \strng{authorbibnamehash}{dd0f8d3aa66e3ecd82897c35dac52181}
       \strng{authornamehash}{dd0f8d3aa66e3ecd82897c35dac52181}
       \strng{authorfullhash}{dd0f8d3aa66e3ecd82897c35dac52181}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{11}
       \field{title}{{An introduction to the theory of point processes}}
       \field{year}{2003}
-    \endentry
-    \entry{bar1988tracking}{book}{}
-      \name{author}{2}{}{%
-        {{hash=ee3cd1febaf910c21ba784456c15ea05}{%
-           family={Bar-Shalom},
-           familyi={B\bibinithyphendelim S\bibinitperiod},
-           given={Y.},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=508d6e5b10f8f9ebb9a9795678d1ed96}{%
-           family={Fortmann},
-           familyi={F\bibinitperiod},
-           given={T.E.},
-           giveni={T\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Academic Press}%
-      }
-      \strng{namehash}{31b274825c0efd0d0e4ea47c6e8a093b}
-      \strng{fullhash}{31b274825c0efd0d0e4ea47c6e8a093b}
-      \strng{bibnamehash}{31b274825c0efd0d0e4ea47c6e8a093b}
-      \strng{authorbibnamehash}{31b274825c0efd0d0e4ea47c6e8a093b}
-      \strng{authornamehash}{31b274825c0efd0d0e4ea47c6e8a093b}
-      \strng{authorfullhash}{31b274825c0efd0d0e4ea47c6e8a093b}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9780120797608}
-      \field{series}{Mathematics in science and engineering}
-      \field{title}{Tracking and Data Association}
-      \field{year}{1988}
     \endentry
     \entry{HoOGDalal2005}{inproceedings}{}
       \name{author}{2}{}{%
@@ -1250,8 +1310,8 @@
       \strng{authorbibnamehash}{adf8b831f6f3ced1a6b683e78a3e0828}
       \strng{authornamehash}{d15935475e24f123c8e78483c529a902}
       \strng{authorfullhash}{adf8b831f6f3ced1a6b683e78a3e0828}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1877-0509}
@@ -1295,8 +1355,8 @@
       \strng{authorbibnamehash}{25317aa10282a4a31c271050ed66c455}
       \strng{authornamehash}{af79567ad619fcbc7afdcd5151a42613}
       \strng{authorfullhash}{25317aa10282a4a31c271050ed66c455}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2017 IEEE International Conference on Computer Vision (ICCV)}
@@ -1310,8 +1370,8 @@
       \keyw{Feature extraction;Image segmentation;Object detection;Semantics;Quantization (signal);Robustness}
     \endentry
     \entry{IBM}{misc}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IBM}
       \field{title}{What is image segmentation?}
@@ -1356,8 +1416,8 @@
       \strng{authornamehash}{4c9093705c2d81c64ebf3509f96715c5}
       \strng{authorfullhash}{9147daa2f6a058d5b8880ff5cf38abd6}
       \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2014 IEEE Conference on Computer Vision and Pattern Recognition}
@@ -1595,8 +1655,8 @@
       \strng{authorbibnamehash}{27178abb012aae870555129e4dbbd921}
       \strng{authornamehash}{eb9203f2ece2b33a3d19e6c99b8b1ade}
       \strng{authorfullhash}{27178abb012aae870555129e4dbbd921}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
@@ -1646,8 +1706,8 @@
       \strng{authorbibnamehash}{1090f4ca7dd2965f3ecad1bf79c3de88}
       \strng{authornamehash}{29deb13465eb9c095cfd6b09a64bec45}
       \strng{authorfullhash}{1090f4ca7dd2965f3ecad1bf79c3de88}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
@@ -1702,8 +1762,8 @@
       \strng{authorbibnamehash}{34bc56bb6c803ac7ee5c65c34ac756b5}
       \strng{authornamehash}{58f78df58afc1ee4151e7765d25e88b6}
       \strng{authorfullhash}{34bc56bb6c803ac7ee5c65c34ac756b5}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
@@ -1753,8 +1813,8 @@
       \strng{authorbibnamehash}{a57e1e0e38feea515a27f7343088b4b6}
       \strng{authornamehash}{b971395b83e552a7057f35c7ac7b698c}
       \strng{authorfullhash}{a57e1e0e38feea515a27f7343088b4b6}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
@@ -1779,8 +1839,8 @@
       \strng{authorbibnamehash}{4c9490b4888796e772e507d10bb89b3f}
       \strng{authornamehash}{4c9490b4888796e772e507d10bb89b3f}
       \strng{authorfullhash}{4c9490b4888796e772e507d10bb89b3f}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Systems, Man, and Cybernetics}
@@ -1808,8 +1868,8 @@
       \strng{authorbibnamehash}{fa344b67077711bfaa0525254de2977a}
       \strng{authornamehash}{fa344b67077711bfaa0525254de2977a}
       \strng{authorfullhash}{fa344b67077711bfaa0525254de2977a}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
@@ -1998,8 +2058,8 @@
       \strng{authorbibnamehash}{f23ccc5160c62c7866172335b2c76e11}
       \strng{authornamehash}{f23ccc5160c62c7866172335b2c76e11}
       \strng{authorfullhash}{f23ccc5160c62c7866172335b2c76e11}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
@@ -2044,8 +2104,8 @@
       \strng{authorbibnamehash}{c0db6e31d214cb90a9557639a905cee8}
       \strng{authornamehash}{f4c73e3374bcf7706b0553e62f2cbdd0}
       \strng{authorfullhash}{c0db6e31d214cb90a9557639a905cee8}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
@@ -2108,8 +2168,8 @@
       \strng{authorbibnamehash}{f82970bbd2bdd7a002d2af62b743d5cc}
       \strng{authornamehash}{7cc810834e9ba19dd5f8b0a37be3172d}
       \strng{authorfullhash}{f82970bbd2bdd7a002d2af62b743d5cc}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CL}
@@ -2218,8 +2278,8 @@
       \strng{authorbibnamehash}{a09df9f123146b8e2c7f1134c9496932}
       \strng{authornamehash}{a09df9f123146b8e2c7f1134c9496932}
       \strng{authorfullhash}{a09df9f123146b8e2c7f1134c9496932}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.LG}
@@ -2254,8 +2314,8 @@
       \strng{authorbibnamehash}{64b59fe385c16f700edc83b345cd0c7c}
       \strng{authornamehash}{64b59fe385c16f700edc83b345cd0c7c}
       \strng{authorfullhash}{64b59fe385c16f700edc83b345cd0c7c}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.LG}
@@ -2335,8 +2395,8 @@
       \strng{authorbibnamehash}{35aa6f56cd021270d387680af0c2260a}
       \strng{authornamehash}{692138df0ed19b3bc1376656faef591c}
       \strng{authorfullhash}{35aa6f56cd021270d387680af0c2260a}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
@@ -2381,8 +2441,8 @@
       \strng{authorbibnamehash}{4ccabcfdf9c34f3d9a88fdca5bb95dd5}
       \strng{authornamehash}{5dfe27d1029735fc218d60ace71cfb1d}
       \strng{authorfullhash}{4ccabcfdf9c34f3d9a88fdca5bb95dd5}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
@@ -2420,8 +2480,8 @@
       \strng{authorbibnamehash}{a8692c505f8cc4c4daa5496d9430ba8c}
       \strng{authornamehash}{a8692c505f8cc4c4daa5496d9430ba8c}
       \strng{authorfullhash}{a8692c505f8cc4c4daa5496d9430ba8c}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2016 Fourth International Conference on 3D Vision (3DV)}
@@ -2644,8 +2704,8 @@
       \strng{authorbibnamehash}{b3a8e231d9cb4040f3e46c2c87cc12a8}
       \strng{authornamehash}{1e111710e62c780c00a2a220eea65959}
       \strng{authorfullhash}{b3a8e231d9cb4040f3e46c2c87cc12a8}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
@@ -2725,8 +2785,8 @@
       \strng{authorbibnamehash}{94d15137f9392feedc0511a92ec652f4}
       \strng{authornamehash}{5688944933ae339d571bc96a201bc3f0}
       \strng{authorfullhash}{94d15137f9392feedc0511a92ec652f4}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
@@ -2771,8 +2831,8 @@
       \strng{authorbibnamehash}{c1e635e3f33ee547be2644eb3d687673}
       \strng{authornamehash}{349136285677176640b3a6d69c98def0}
       \strng{authorfullhash}{c1e635e3f33ee547be2644eb3d687673}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
@@ -2817,8 +2877,8 @@
       \strng{authorbibnamehash}{dd2b1726bbefda3a7195678e766574cc}
       \strng{authornamehash}{07ec1ca3232b974679f29a3f59d39b43}
       \strng{authorfullhash}{dd2b1726bbefda3a7195678e766574cc}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
@@ -2869,8 +2929,8 @@
       \strng{authorbibnamehash}{7c60550ceaa354c78f0559967a7da8a3}
       \strng{authornamehash}{f360b09a47ca9b76d05644f804c66ffd}
       \strng{authorfullhash}{7c60550ceaa354c78f0559967a7da8a3}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
@@ -2935,8 +2995,8 @@
       \strng{authorbibnamehash}{ad78781efb85e76910186002bd6b9e66}
       \strng{authornamehash}{2f2de9ca8ebae3ff879334a8f9ccb0f6}
       \strng{authorfullhash}{ad78781efb85e76910186002bd6b9e66}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CV}
