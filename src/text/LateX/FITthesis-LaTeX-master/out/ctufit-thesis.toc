@@ -190,4 +190,4 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {6.3.2.1}S3 -- Grounded SAM}{103}{subsubsection.6.3.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Obsah příloh}{111}{appendix*.72}%
+\contentsline {chapter}{Obsah příloh}{112}{appendix*.74}%

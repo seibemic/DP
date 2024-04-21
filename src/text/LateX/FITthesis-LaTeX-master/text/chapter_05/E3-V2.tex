@@ -13,26 +13,26 @@ The state space CVM model is employed with transition matrix
 \begin{align}
     F_k &=
     \begin{bmatrix}
-        1 & 0 & 2*\Delta & 0\\
+        1 & 0 & 2\Delta & 0\\
         0 & 1 & 0 & \Delta \\
         0 & 0 & 1.1 & 0 \\
         0 & 0 & 0 & 1.1
-    \end{bmatrix}
-
+    \end{bmatrix},
 \end{align}
+where $\Delta = 1$,
 and process covariance matrix
 \begin{align}
     Q_k &=
     \begin{bmatrix}
         2 & 0.5 & 0 & 0\\
-        0 & 1 & 0 & \Delta \\
+        0 & 1 & 0 & 0 \\
         0 & 0 & 1 & 0 \\
         0 & 0 & 0 & 1
     \end{bmatrix}
-    * 0.003,
+    * 0.003.
     \label{eq:exp_E3-V2_Q}
 \end{align}
-where $\Delta = 1$
+
 The observation covariance matrix is reformulated as
 \begin{align}
     R_k &=
@@ -75,19 +75,26 @@ Note in Table \ref{tab:\Ex-\Vs-\Set}, that the standard pruning threshold $T_p$ 
     \label{tab:\Ex-\Vs-\Set}
 \end{table}
 
-In Figure \ref{fig:\Ex-\Vs-\Set} we can see the tracking performance of the GM-PHD filter with settings \textit{S1} on traffic situation with an added obstacle.
+The adjust models project in Figures \ref{fig:\Ex-\Vs-\Set_1} and \ref{fig:\Ex-\Vs-\Set_2}. The spawning point has
+ellipsoidal shape, as well as the covariances showing the uncertainty given by the covariance matrix $P$. Two cars
+are observed in the sequence. Let us call the car driving in the right highway line in the direction of travel $C_R$
+and the left car as $C_L$.
+
 \begin{itemize}
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:01}:} This sequence starts with frame no. 44. Due to the targets' close postions, more than 2 targets appears in the place where only two true targets are present.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:02}:} The targets enter under the obstacle.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:03}:} The first frame with misdetected objects. The targets are already in \textit{hidden state}.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:04}:} The targets' predicted positions are already behind the true targets' positions.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:05}:} As the predicted covariance grows, the targets merged into a single one. The cars are clearly seen, but the YOLO model does not detect them.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:06}:} The cars are detected and initialized by the target. The predicted black bounding box still interfers with the added obstacle, thus the target is considered as hidden.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:07}:} In this frame, the predicted black bounding box moves to the area with natural traffic line. The false target is in \textit{dead} state and is removed immediately.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:08}:} The targets continue in their paths with correct positions.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:01}:} Two targets come closer to the obstacle. Both cars are successfully
+    detected and initialized.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:02}:} The target $C_R$ is detected for the last time before the obstacle.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:03}:} The object detector is still able to detect $C_L$. However, its
+    position is already under the obstacle, thus both targets are in \textit{hidden} state.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:04}:} Both targets are still hidden, the effect of changed models is obvious. The covariances are elongated in the direction of travel and do not interfer outside of the traffic line.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:05}:} There was not paying
+    much attention for fine tuning the model parameters for this experiment. Still the means of predicted positions
+    are almost at the right spot. Both cars are detected again, thus the filter get its measurements.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:06}:} The false additional target is removed, both targets are tracked with
+    small ellipsoidal covariances.
 \end{itemize}
 
-In this experiment, we have demonstrated, that if an obstacle differs from the targets' background scene, the pruning given by the Markov process works exceptionally well. The downside of this approaches lies in additional settings of further parameters.
+
 \begin{figure}[H]
     \centering
     \begin{subfigure}{\textwidth}
@@ -137,3 +144,61 @@ In this experiment, we have demonstrated, that if an obstacle differs from the t
     \label{fig:\Ex-\Vs-\Set_2}
 \end{figure}
 
+
+Table \ref{tab:\Ex-\Vs-\Set_pd} displays values of detection probability of targets $C_L$ and $C_R$ in corresponding
+frames. If the targets are visible in the scene, the detection probability is large. Once the targets are hidden
+behind the obstacle, the detection probability rapidly drops. The value of the probability is about 0.1 from frame $
+50$ to $54$. The effect of this low detection probability is projected in Table \ref{tab:\Ex-\Vs-\Set_w}. The targets'
+weight is slowly decreasing, sustaining the targets' existence in period without any measurement.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Frame number & $C_L$ & $C_R$ \\ \noalign{\hrule height 1.5pt}
+        44 & 0.934 & 0.861 \\
+        \hline
+        48 & 0.731 & 0.880\\
+        \hline
+        50 & 0.115 & 0.455\\
+        \hline
+        53 & 0.096 & 0.134\\
+        \hline
+        54 & 0.366 & 0.115 \\
+        \hline
+        58 & 0.924 & 0.940\\
+        \hline
+    \end{tabular}
+    \caption{The evolution of detection probabilities of targets $C_L$ and $C_R$.}
+    \label{tab:\Ex-\Vs-\Set_pd}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Frame number & $C_L$ & $C_R$ \\ \noalign{\hrule height 1.5pt}
+        44 & 0.997 & 0.998 \\
+        \hline
+        48 & 0.998 & 0.999\\
+        \hline
+        50 & 0.872 & 0.970\\
+        \hline
+        53 & 0.628 & 0.618\\
+        \hline
+        54 & 0.998 & 0.541 \\
+        \hline
+        58 & 0.999 & 0.999\\
+        \hline
+    \end{tabular}
+    \caption{The evolution of weights of targets $C_L$ and $C_R$.}
+    \label{tab:\Ex-\Vs-\Set_w}
+\end{table}
+
+This experiment illustrates that even in scenarios with challenging conditions, such as angled recordings, it is
+possible to configure the model using prior scene knowledge in a manner that enables the filter to effectively handle
+obstacles obstructing the camera view.
+Moreover, these model settings are capable of addressing the necessity for dynamically setting the noise covariances.
+Tables \ref{tab:\Ex-\Vs-\Set_pd} and \ref{tab:\Ex-\Vs-\Set_w} demonstrate the effect of dynamic detection probability on targets' weights.
+Note that targets
+in Figures \ref{fig:\Ex-\Vs-\Set_1} and \ref{fig:\Ex-\Vs-\Set_2} are correctly in \textit{hidden} state, thus if the
+obstacle would be larger, due to possibility of changing the pruning threshold for targets in \textit{detected} and \textit{hidden} state, the targets might survive for long period. This additional threshold possibility does not allow to create other false targets that would appear if the standard pruning threshold is lowered.
