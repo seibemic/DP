@@ -60,60 +60,60 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{73}{figure.caption.29}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Development chart of number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{73}{figure.caption.29}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with constant detection probability.\relax }}{74}{figure.caption.30}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with constant detection probability.\relax }}{74}{figure.caption.30}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{76}{figure.caption.32}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{76}{figure.caption.32}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability and YOLO only.\relax }}{77}{figure.caption.33}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with dynamic detection probability and YOLO only.\relax }}{77}{figure.caption.33}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{78}{figure.caption.35}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{78}{figure.caption.35}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{79}{figure.caption.36}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with the dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{79}{figure.caption.36}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{80}{figure.caption.38}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{80}{figure.caption.38}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and the Grounded DINO model.\relax }}{81}{figure.caption.39}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and the Grounded SAM model.\relax }}{81}{figure.caption.39}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Development chart of the number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{82}{figure.caption.41}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{83}{figure.caption.41}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with constant detection probability.\relax }}{83}{figure.caption.42}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the constant detection probability.\relax }}{83}{figure.caption.42}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{84}{figure.caption.44}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{85}{figure.caption.44}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability and YOLO only.\relax }}{85}{figure.caption.45}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and YOLO only.\relax }}{86}{figure.caption.45}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{86}{figure.caption.47}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{87}{figure.caption.47}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{87}{figure.caption.48}%
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{88}{figure.caption.48}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.15}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{88}{figure.caption.50}%
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{89}{figure.caption.50}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.16}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, the DINO object detector and the SAM image segmentation model.\relax }}{89}{figure.caption.51}%
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the DINO object detector and the SAM image segmentation model.\relax }}{90}{figure.caption.51}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.17}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{91}{figure.caption.53}%
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{92}{figure.caption.53}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.18}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with constant detection probability.\relax }}{91}{figure.caption.54}%
+\contentsline {figure}{\numberline {6.18}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with constant detection probability.\relax }}{92}{figure.caption.54}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.19}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{93}{figure.caption.56}%
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{94}{figure.caption.56}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.20}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability and YOLO only.\relax }}{93}{figure.caption.57}%
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability and YOLO only.\relax }}{94}{figure.caption.57}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.21}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{94}{figure.caption.59}%
+\contentsline {figure}{\numberline {6.21}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{95}{figure.caption.59}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.22}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{95}{figure.caption.60}%
+\contentsline {figure}{\numberline {6.22}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{96}{figure.caption.60}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.23}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{96}{figure.caption.62}%
+\contentsline {figure}{\numberline {6.23}{\ignorespaces Development chart of number of detected targets, targets in filter's queue, displayed targets and true targets' count.\relax }}{97}{figure.caption.62}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.24}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, the DINO object detector and the SAM image segmentation model.\relax }}{97}{figure.caption.63}%
+\contentsline {figure}{\numberline {6.24}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, the DINO object detector and the SAM image segmentation model.\relax }}{98}{figure.caption.63}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.25}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability and YOLO only.\relax }}{99}{figure.caption.65}%
+\contentsline {figure}{\numberline {6.25}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and YOLO only.\relax }}{100}{figure.caption.65}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.26}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability and YOLO only.\relax }}{101}{figure.caption.67}%
+\contentsline {figure}{\numberline {6.26}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability and YOLO only.\relax }}{102}{figure.caption.67}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.27}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, Grounded SAM and adjusted models -- part 1.\relax }}{104}{figure.caption.69}%
+\contentsline {figure}{\numberline {6.27}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, Grounded SAM and adjusted models -- part 1.\relax }}{105}{figure.caption.69}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.28}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, Grounded SAM and adjusted models -- part 2.\relax }}{105}{figure.caption.70}%
+\contentsline {figure}{\numberline {6.28}{\ignorespaces Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, Grounded SAM and adjusted models -- part 2.\relax }}{106}{figure.caption.70}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

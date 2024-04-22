@@ -441,16 +441,16 @@ class VideoMTT:
             frameWithBboxes = self.showAllBboxesWithLabels(xyxy+3, frameWithBboxes, color=(0,0,255))
 
             self.MTT.predict()
-            print("--------------after predict-----------------------")
-            for i, target in enumerate(self.MTT.trackers):
-                print("     w: ", target.w)
-                print("     state: ", target.markovChain.get_probs())
-                print("     m: ", target.m)
-                print("     pd: ", target.pd)
-                print("     pk: ", target.pk)
-                print("     P: ", np.diag(target.P))
-
-            print("-------------------------------------")
+            # print("--------------after predict-----------------------")
+            # for i, target in enumerate(self.MTT.trackers):
+            #     print("     w: ", target.w)
+            #     print("     state: ", target.markovChain.get_probs())
+            #     print("     m: ", target.m)
+            #     print("     pd: ", target.pd)
+            #     print("     pk: ", target.pk)
+            #     print("     P: ", np.diag(target.P))
+            #
+            # print("-------------------------------------")
             self.MTT.update(z_masks_centers, xyxy, masks, frame, frame_num)
             self.MTT.pruneByMaxWeight(0.1)
             self.MTT.mergeTargets()
@@ -517,7 +517,7 @@ class VideoMTT:
             output_video_boxes.write(frameWithBboxes)
 
             start_frame = 44#22#0#83
-            end_frame = 58#65 #109
+            end_frame = 59#65 #109
             if frame_num >= start_frame and frame_num < end_frame:
                 df.loc[len(df.index)] = [frame_num, 4,len(xyxy),len(self.MTT.trackers),displayed_targets]
 
@@ -530,7 +530,7 @@ class VideoMTT:
                 # frameWithBboxes=frameWithBboxes[665:1400, 400:900]
                 cv2.imshow(f"{frame_num}", frameWithBboxes)
                 cv2.waitKey(0)
-            image_save = 1
+            image_save = 0
             frames = [44,48,50,53,54,58]
             if image_save and frame_num in frames:
                 if experiments == "yolo":
@@ -548,7 +548,7 @@ class VideoMTT:
             if frame_num > end_frame:
                 break
 
-        write = 1
+        write = 0
         if write:
             if experiments == "yolo":
                 df.to_csv("yolo_results.csv")

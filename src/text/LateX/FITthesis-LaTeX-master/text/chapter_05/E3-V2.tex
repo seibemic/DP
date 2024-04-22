@@ -1,14 +1,14 @@
 \section{E3: Changing the model}
 \renewcommand{\Ex}{E3}
-Up to this point, all experiments have employed the observation and state space models outlined in the introduction of the Experiments section (see \ref{sec:experiments}). However, using these models in scenarios presented by videos \textit{V1, V2, V3} comes with several disadvantages. The state space model assumes uniform position uncertainty in all directions for targets. Additionally, the videos are not captured from a bird's-eye view but from an angled perspective. This camera angle causes detected targets to appear smaller when they are farther away and larger when they are closer to the camera. Consequently, this effect alters the actual movement model of the targets, which our current model does not account for.
+Up to this point, all experiments have employed the observation and state-space models outlined in the introduction of the Experiments section (see \ref{sec:experiments}). However, using these models in scenarios presented by videos \textit{V1, V2, V3} comes with several disadvantages. The state-space model assumes an uniform position uncertainty in all directions for targets. Additionally, the videos are not captured from a bird's-eye point of view but from an angled perspective. This camera angle causes detected targets to appear smaller when they are farther away and larger when they are closer to the camera. Consequently, this effect alters the actual movement model of the targets, which our current model does not account for.
 
 
 Considering the videos utilized in this study, we can leverage prior knowledge regarding potential targets, such as cars, movement patterns. It is established that cars are inclined to move in the direction of the road rather than backwards or sideways.
 \subsection{V2}
 \renewcommand{\Vs}{V2}
-For this experiment video \textit{V2} with the added crossing road as an obstacle is used. The video is observed at the rate 14 fps.
+For this experiment the video \textit{V2} with the added crossing road as an obstacle is used. The video is observed at the rate 14 fps.
 
-The state space CVM model is employed with transition matrix
+The state space CVM model is employed with the transition matrix
 
 \begin{align}
     F_k &=
@@ -55,13 +55,13 @@ The spawning point providing nearby targets with initial covariance matrix $P$ i
     \end{bmatrix}. \label{eq:exp_E3-V2_P}
 \end{align}
 
-These model formulations ensure that the noise covariance takes an ellipsoidal shape rather than a circular one. These ellipses are oriented in the direction of the road, indicating that uncertainty increases more in alignment with the road's direction. This implies a lower probability of a car being positioned next to the road in the subsequent time step.
-\subsection{V2b -- GM-PHD with dynamic detection probability}
+These model formulations ensure that the target's covariance takes an ellipsoidal shape rather than a circular one. These ellipses are oriented in the direction of the road, indicating that uncertainty increases more in alignment with the road's direction. This implies a lower probability of a car being positioned next to the road in the subsequent time step.
+\subsection{V2b -- GM-PHD with the dynamic detection probability}
 The GM-PHD filter with the dynamic detection probability is analysed only in this experiment. The best performing settings are used - \textit{S3}, i.e., grounded SAM.
 
 \subsubsection{S3 -- Grounded SAM}
 \renewcommand{\Set}{S3}
-Note in Table \ref{tab:\Ex-\Vs-\Set}, that the standard pruning threshold $T_p$ is the same as the lowered pruning threshold $T_l$. Due to the better model settings and dynamic detection probability, it is not neccesarry to lower the pruning threshold for targets in \textit{detected} and \textit{hidden} state.
+Note in Table \ref{tab:\Ex-\Vs-\Set}, that the standard pruning threshold $T_p$ is the same as the lowered pruning threshold $T_l$. Due to the better model settings and the dynamic detection probability, it is not neccesarry to lower the pruning threshold for targets in \textit{detected} and \textit{hidden} state.
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
@@ -71,7 +71,7 @@ Note in Table \ref{tab:\Ex-\Vs-\Set}, that the standard pruning threshold $T_p$ 
         0.3 & see \ref{eq:exp_E3-V2_P} & see \ref{eq:exp_E3-V2_Q} & see \ref{eq:exp_E3-V2_R} & 0.6 & 3 & 0.1 & 0.1 & 0.3 & 0.3\\
         \hline
     \end{tabular}
-    \caption{The parameter settings for experiment {\Ex-\Vs-\Set} with dynamic detection probability.}
+    \caption{The parameter settings for Experiment {\Ex-\Vs-\Set} with the dynamic detection probability.}
     \label{tab:\Ex-\Vs-\Set}
 \end{table}
 
@@ -81,17 +81,12 @@ are observed in the sequence. Let us call the car driving in the right highway l
 and the left car as $C_L$.
 
 \begin{itemize}
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:01}:} Two targets come closer to the obstacle. Both cars are successfully
-    detected and initialized.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:02}:} The target $C_R$ is detected for the last time before the obstacle.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:03}:} The object detector is still able to detect $C_L$. However, its
-    position is already under the obstacle, thus both targets are in \textit{hidden} state.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:04}:} Both targets are still hidden, the effect of changed models is obvious. The covariances are elongated in the direction of travel and do not interfer outside of the traffic line.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:05}:} There was not paying
-    much attention for fine tuning the model parameters for this experiment. Still the means of predicted positions
-    are almost at the right spot. Both cars are detected again, thus the filter get its measurements.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:06}:} The false additional target is removed, both targets are tracked with
-    small ellipsoidal covariances.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:01}:} Two targets approach the obstacle. Both cars are successfully detected and initialized.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:02}:} Target $C_R$ is detected for the final time before reaching the obstacle.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:03}:} The object detector still manages to detect $C_L$, but its position is now beneath the obstacle, resulting in both targets being classified as \textit{hidden}.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:04}:} Both targets remain hidden, showcasing the effect of the altered models. Notably, the covariances are elongated in the direction of travel and do not extend beyond the traffic line.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:05}:} Despite minimal fine-tuning of the model parameters for this experiment, the predicted mean positions are nearly accurate. Both cars are detected once more, allowing the filter to obtain measurements.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:06}:} The additional false target is removed, and both targets are tracked with small ellipsoidal covariances.
 \end{itemize}
 
 
@@ -116,7 +111,7 @@ and the left car as $C_L$.
         \caption{Frame number: 50.}
         \label{fig:\Ex-\Vs-\Set:03}
     \end{subfigure}
-    \caption{Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, Grounded SAM and adjusted models -- part 1.}
+    \caption{Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, Grounded SAM and adjusted models -- part 1.}
     \label{fig:\Ex-\Vs-\Set_1}
 \end{figure}
 \begin{figure}[H]
@@ -140,58 +135,55 @@ and the left car as $C_L$.
         \caption{Frame number: 58.}
         \label{fig:\Ex-\Vs-\Set:06}
     \end{subfigure}
-    \caption{Image sequence of tracked objects using GM-PHD filter with dynamic detection probability, Grounded SAM and adjusted models -- part 2.}
+    \caption{Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, Grounded SAM and adjusted models -- part 2.}
     \label{fig:\Ex-\Vs-\Set_2}
 \end{figure}
 
 
-Table \ref{tab:\Ex-\Vs-\Set_pd} displays values of detection probability of targets $C_L$ and $C_R$ in corresponding
+Table \ref{tab:\Ex-\Vs-\Set_pd_w} displays values of detection probabilities of targets $C_L$ and $C_R$ in corresponding
 frames. If the targets are visible in the scene, the detection probability is large. Once the targets are hidden
 behind the obstacle, the detection probability rapidly drops. The value of the probability is about 0.1 from frame $
-50$ to $54$. The effect of this low detection probability is projected in Table \ref{tab:\Ex-\Vs-\Set_w}. The targets'
+50$ to $54$. The effect of this low detection probability is projected in Table \ref{tab:\Ex-\Vs-\Set_pd_w} as well. The targets'
 weight is slowly decreasing, sustaining the targets' existence in period without any measurement.
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{|c|c|c|c|c|}
         \hline
-        Frame number & $C_L$ & $C_R$ \\ \noalign{\hrule height 1.5pt}
-        44 & 0.934 & 0.861 \\
+        & \multicolumn{2}{|c|}{Detection probabilities} & \multicolumn{2}{|c|}{Targets' weights} \\ \noalign{\hrule height 1.5pt}
+        Frame number & $p_{D,k}(C_L)$ & $p_{D,k}(C_{R})$ & $w_{k}(C_L)$ & $w_{k}(C_R)$\\ \noalign{\hrule height 1.5pt}
+        44 & 0.934 & 0.861 & 1 & 1\\
         \hline
-        48 & 0.731 & 0.880\\
+        45 & 0.920 & 0.881 & 1 & 1\\
         \hline
-        50 & 0.115 & 0.455\\
+        46 & 0.891 & 0.908 & 1 & 1\\
         \hline
-        53 & 0.096 & 0.134\\
+        47 & 0.900 & 0.802 & 1 & 1\\
         \hline
-        54 & 0.366 & 0.115 \\
+        48 & 0.879 & 0.728 & 1 & 1\\
         \hline
-        58 & 0.924 & 0.940\\
+        49 & 0.677 & 0.534 & 1 & 1\\
         \hline
-    \end{tabular}
-    \caption{The evolution of detection probabilities of targets $C_L$ and $C_R$.}
-    \label{tab:\Ex-\Vs-\Set_pd}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|}
+        50 & 0.457 & 0.114 & 1 & 0.876\\
         \hline
-        Frame number & $C_L$ & $C_R$ \\ \noalign{\hrule height 1.5pt}
-        44 & 0.997 & 0.998 \\
+        51 & 0.135 & 0.929 & 0.855 & 0.786\\
         \hline
-        48 & 0.998 & 0.999\\
+        52 & 0.138 & 0.088 & 0.730 & 0.710\\
         \hline
-        50 & 0.872 & 0.970\\
+        53 & 0.142 & 0.098 & 0.619 & 0.634\\
         \hline
-        53 & 0.628 & 0.618\\
+        54 & 0.132 & 0.294 & 0.532 & 0.823\\
         \hline
-        54 & 0.998 & 0.541 \\
+        55 & 0.321 & 0.422 & 1 & 1\\
         \hline
-        58 & 0.999 & 0.999\\
+        56 & 0.865 & 0.898 & 1 & 1\\
+        \hline
+        57 & 0.934 & 0.922 & 1 & 1\\
+        \hline
+        58 & 0.941 & 0.924& 1 & 1\\
         \hline
     \end{tabular}
-    \caption{The evolution of weights of targets $C_L$ and $C_R$.}
-    \label{tab:\Ex-\Vs-\Set_w}
+    \caption{The evolution of detection probabilities and weights of targets $C_L$ and $C_R$.}
+    \label{tab:\Ex-\Vs-\Set_pd_w}
 \end{table}
 
 This experiment illustrates that even in scenarios with challenging conditions, such as angled recordings, it is

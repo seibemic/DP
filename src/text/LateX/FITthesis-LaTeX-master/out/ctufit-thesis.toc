@@ -132,9 +132,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.1}V1}{71}{subsection.6.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.2}V1 -- GM-PHD with constant detection probability}{71}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.2}V1 -- GM-PHD with the constant detection probability}{71}{subsection.6.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.3}V1 -- GM-PHD with dynamic detection probability}{74}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.3}V1 -- GM-PHD with the dynamic detection probability}{74}{subsection.6.1.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {6.1.3.1}S1 -- YOLO + YOLO}{75}{subsubsection.6.1.3.1}%
 \defcounter {refsection}{0}\relax 
@@ -144,48 +144,48 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.4}V2}{81}{subsection.6.1.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.5}V2 -- GM-PHD with constant detection probability}{82}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.5}V2 -- GM-PHD with the constant detection probability}{82}{subsection.6.1.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.6}V2 -- GM-PHD with dynamic detection probability}{83}{subsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.1.6}V2 -- GM-PHD with the dynamic detection probability}{84}{subsection.6.1.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.6.1}S1 -- YOLO + YOLO}{83}{subsubsection.6.1.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.6.1}S1 -- YOLO + YOLO}{84}{subsubsection.6.1.6.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.6.2}S2 -- YOLO + SAM}{85}{subsubsection.6.1.6.2}%
+\contentsline {subsubsection}{\numberline {6.1.6.2}S2 -- YOLO + SAM}{86}{subsubsection.6.1.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.6.3}S3 -- Grounded DINO}{87}{subsubsection.6.1.6.3}%
+\contentsline {subsubsection}{\numberline {6.1.6.3}S3 -- Grounded SAM}{88}{subsubsection.6.1.6.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}E2: Traffic with an obstacle}{89}{section.6.2}%
+\contentsline {section}{\numberline {6.2}E2: Traffic with an obstacle}{90}{section.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.1}V3}{89}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.1}V3}{90}{subsection.6.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.2}V3 - GM-PHD filter with constant detection probability}{90}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.2}V3 - GM-PHD filter with constant detection probability}{91}{subsection.6.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.3}V3 -- GM-PHD with dynamic detection probability}{92}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.3}V3 -- GM-PHD with dynamic detection probability}{93}{subsection.6.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.3.1}S1 -- YOLO + YOLO}{92}{subsubsection.6.2.3.1}%
+\contentsline {subsubsection}{\numberline {6.2.3.1}S1 -- YOLO + YOLO}{93}{subsubsection.6.2.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.3.2}S2 -- YOLO + SAM}{94}{subsubsection.6.2.3.2}%
+\contentsline {subsubsection}{\numberline {6.2.3.2}S2 -- YOLO + SAM}{95}{subsubsection.6.2.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.3.3}S3 -- Grounded DINO}{95}{subsubsection.6.2.3.3}%
+\contentsline {subsubsection}{\numberline {6.2.3.3}S3 -- Grounded DINO}{96}{subsubsection.6.2.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.4}V2a}{97}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.4}V2a}{98}{subsection.6.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.5}V2a -- GM-PHD with dynamic detection probability}{97}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {6.2.5}V2a -- GM-PHD with the dynamic detection probability}{98}{subsection.6.2.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.5.1}S1 -- YOLO + YOLO}{98}{subsubsection.6.2.5.1}%
+\contentsline {subsubsection}{\numberline {6.2.5.1}S1 -- YOLO + YOLO}{99}{subsubsection.6.2.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.6}V2b}{99}{subsection.6.2.6}%
+\contentsline {subsection}{\numberline {6.2.6}V2b}{100}{subsection.6.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.7}V2b -- GM-PHD with dynamic detection probability}{100}{subsection.6.2.7}%
+\contentsline {subsection}{\numberline {6.2.7}V2b -- GM-PHD with the dynamic detection probability}{101}{subsection.6.2.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.7.1}S1 -- YOLO + YOLO}{100}{subsubsection.6.2.7.1}%
+\contentsline {subsubsection}{\numberline {6.2.7.1}S1 -- YOLO + YOLO}{101}{subsubsection.6.2.7.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}E3: Changing the model}{101}{section.6.3}%
+\contentsline {section}{\numberline {6.3}E3: Changing the model}{102}{section.6.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.1}V2}{102}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.1}V2}{103}{subsection.6.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.2}V2b -- GM-PHD with dynamic detection probability}{103}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.2}V2b -- GM-PHD with dynamic detection probability}{104}{subsection.6.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.3.2.1}S3 -- Grounded SAM}{103}{subsubsection.6.3.2.1}%
+\contentsline {subsubsection}{\numberline {6.3.2.1}S3 -- Grounded SAM}{104}{subsubsection.6.3.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Obsah příloh}{112}{appendix*.74}%
+\contentsline {chapter}{Obsah příloh}{113}{appendix*.73}%
