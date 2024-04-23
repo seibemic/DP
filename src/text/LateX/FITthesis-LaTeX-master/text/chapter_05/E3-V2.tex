@@ -1,12 +1,16 @@
 \section{E3: Changing the model}
 \renewcommand{\Ex}{E3}
-Up to this point, all experiments have employed the observation and state-space models outlined in the introduction of the Experiments section (see \ref{sec:experiments}). However, using these models in scenarios presented by videos \textit{V1, V2, V3} comes with several disadvantages. The state-space model assumes an uniform position uncertainty in all directions for targets. Additionally, the videos are not captured from a bird's-eye point of view but from an angled perspective. This camera angle causes detected targets to appear smaller when they are farther away and larger when they are closer to the camera. Consequently, this effect alters the actual movement model of the targets, which our current model does not account for.
+Up to this point, all experiments have employed the observation and state-space models outlined in the introduction
+of the Experiments section (see \ref{sec:experiments}). However, using these models in scenarios presented by videos \textit{V1, V2, V3} comes with several disadvantages. The state-space model assumes an uniform position uncertainty in all directions for targets. Additionally, the videos are not captured from a bird's-eye point of view, but from an angled perspective. This camera angle causes the detected targets to appear smaller when they are further away, and larger when they are closer to the camera. Consequently, this effect alters the actual movement model of the targets, which our current model does not account for.
 
 
-Considering the videos utilized in this study, we can leverage prior knowledge regarding potential targets, such as cars, movement patterns. It is established that cars are inclined to move in the direction of the road rather than backwards or sideways.
+Considering the videos utilized in this study, we can leverage prior knowledge regarding the movement patterns of the potential targets. It is established that cars are inclined to move in the
+direction
+of the road rather than backwards or sideways.
 \subsection{V2}
 \renewcommand{\Vs}{V2}
-For this experiment the video \textit{V2} with the added crossing road as an obstacle is used. The video is observed at the rate 14 fps.
+For this experiment, the video \textit{V2} with the added crossing road as an obstacle is used. The video is observed
+at the rate 14 fps.
 
 The state space CVM model is employed with the transition matrix
 
@@ -61,7 +65,8 @@ The GM-PHD filter with the dynamic detection probability is analysed only in thi
 
 \subsubsection{S3 -- Grounded SAM}
 \renewcommand{\Set}{S3}
-Note in Table \ref{tab:\Ex-\Vs-\Set}, that the standard pruning threshold $T_p$ is the same as the lowered pruning threshold $T_l$. Due to the better model settings and the dynamic detection probability, it is not neccesarry to lower the pruning threshold for targets in \textit{detected} and \textit{hidden} state.
+In Table \ref{tab:\Ex-\Vs-\Set}, note that the standard pruning threshold $T_p$ is the same as the lowered pruning
+threshold $T_l$. Due to the better model settings and the dynamic detection probability, it is not neccesarry to lower the pruning threshold for targets in \textit{detected} and \textit{hidden} state.
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
@@ -75,8 +80,9 @@ Note in Table \ref{tab:\Ex-\Vs-\Set}, that the standard pruning threshold $T_p$ 
     \label{tab:\Ex-\Vs-\Set}
 \end{table}
 
-The adjust models project in Figures \ref{fig:\Ex-\Vs-\Set_1} and \ref{fig:\Ex-\Vs-\Set_2}. The spawning point has
-ellipsoidal shape, as well as the covariances showing the uncertainty given by the covariance matrix $P$. Two cars
+The adjusted models project in Figures \ref{fig:\Ex-\Vs-\Set_1} and \ref{fig:\Ex-\Vs-\Set_2}. The spawning point, as
+well as the covariances given by the covariance matrix $P$, has
+an ellipsoidal shape showing the uncertainty. Two cars
 are observed in the sequence. Let us call the car driving in the right highway line in the direction of travel $C_R$
 and the left car as $C_L$.
 
@@ -86,7 +92,7 @@ and the left car as $C_L$.
     \item \textbf{\ref{fig:\Ex-\Vs-\Set:03}:} The object detector still manages to detect $C_L$, but its position is now beneath the obstacle, resulting in both targets being classified as \textit{hidden}.
     \item \textbf{\ref{fig:\Ex-\Vs-\Set:04}:} Both targets remain hidden, showcasing the effect of the altered models. Notably, the covariances are elongated in the direction of travel and do not extend beyond the traffic line.
     \item \textbf{\ref{fig:\Ex-\Vs-\Set:05}:} Despite minimal fine-tuning of the model parameters for this experiment, the predicted mean positions are nearly accurate. Both cars are detected once more, allowing the filter to obtain measurements.
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:06}:} The additional false target is removed, and both targets are tracked with small ellipsoidal covariances.
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:06}:} The additional false target is removed and both targets are tracked with small ellipsoidal covariances.
 \end{itemize}
 
 
@@ -140,10 +146,14 @@ and the left car as $C_L$.
 \end{figure}
 
 
-Table \ref{tab:\Ex-\Vs-\Set_pd_w} displays values of detection probabilities of targets $C_L$ and $C_R$ in corresponding
+Table \ref{tab:\Ex-\Vs-\Set_pd_w} and Graph \ref{gr:\Ex-\Vs-\Set} display the values of the detection probabilities
+of targets $
+C_L$
+and $C_R$ in
+corresponding
 frames. If the targets are visible in the scene, the detection probability is large. Once the targets are hidden
 behind the obstacle, the detection probability rapidly drops. The value of the probability is about 0.1 from frame $
-50$ to $54$. The effect of this low detection probability is projected in Table \ref{tab:\Ex-\Vs-\Set_pd_w} as well. The targets'
+50$ to $54$. The effect of this low detection probability is projected in Table \ref{tab:\Ex-\Vs-\Set_pd_w} and Graph \ref{gr:\Ex-\Vs-\Set} as well. The targets'
 weight is slowly decreasing, sustaining the targets' existence in period without any measurement.
 \begin{table}[H]
     \centering
@@ -165,7 +175,7 @@ weight is slowly decreasing, sustaining the targets' existence in period without
         \hline
         50 & 0.457 & 0.114 & 1 & 0.876\\
         \hline
-        51 & 0.135 & 0.929 & 0.855 & 0.786\\
+        51 & 0.135 & 0.129 & 0.855 & 0.786\\
         \hline
         52 & 0.138 & 0.088 & 0.730 & 0.710\\
         \hline
@@ -186,11 +196,19 @@ weight is slowly decreasing, sustaining the targets' existence in period without
     \label{tab:\Ex-\Vs-\Set_pd_w}
 \end{table}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{../../../experiments/\Ex/\Vs/DINO/pd_w_evolution}
+    \caption{The evolution of targets' detection probabilities and weights.}
+    \label{gr:\Ex-\Vs-\Set}
+\end{figure}
+
 This experiment illustrates that even in scenarios with challenging conditions, such as angled recordings, it is
 possible to configure the model using prior scene knowledge in a manner that enables the filter to effectively handle
 obstacles obstructing the camera view.
 Moreover, these model settings are capable of addressing the necessity for dynamically setting the noise covariances.
-Tables \ref{tab:\Ex-\Vs-\Set_pd} and \ref{tab:\Ex-\Vs-\Set_w} demonstrate the effect of dynamic detection probability on targets' weights.
+Table \ref{tab:\Ex-\Vs-\Set_pd_w} and Graph \ref{gr:\Ex-\Vs-\Set} demonstrate the effect of the dynamic detection probability
+on targets' weights.
 Note that targets
-in Figures \ref{fig:\Ex-\Vs-\Set_1} and \ref{fig:\Ex-\Vs-\Set_2} are correctly in \textit{hidden} state, thus if the
-obstacle would be larger, due to possibility of changing the pruning threshold for targets in \textit{detected} and \textit{hidden} state, the targets might survive for long period. This additional threshold possibility does not allow to create other false targets that would appear if the standard pruning threshold is lowered.
+in Figures \ref{fig:\Ex-\Vs-\Set_1} and \ref{fig:\Ex-\Vs-\Set_2} are correctly in \textit{hidden} state. Thus, if the
+obstacle would be larger, due to possibility of changing the pruning threshold for targets in \textit{detected} and \textit{hidden} state, the targets might survive even longer. This additional threshold possibility does not allow the creation of other false targets that would appear if the standard pruning threshold was lowered.

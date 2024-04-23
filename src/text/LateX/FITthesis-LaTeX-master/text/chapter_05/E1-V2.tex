@@ -1,11 +1,12 @@
 \subsection{V2}
-Video \textit{V2} is recorded at 29 fps. Only cars driving from the left to the right are detected and tracked. In this
+Video \textit{V2} is recorded at 29 fps. Only the cars driving from the left to the right are detected and tracked. In
+the following
 experiments
 frames 83-109 of the
 video \textit{V2} are
 analyzed.
 \subsection{V2 -- GM-PHD with the constant detection probability}
-The measurements for GM-PHD filter with the constant detection probability are obtained by the YOLO object detection
+The measurements for the GM-PHD filter with the constant detection probability are obtained by the YOLO object detection
 model. The parameters' values are displayed in Table \ref{tab:E1-V2-S0}.
 \begin{table}[!h]
     \centering
@@ -15,7 +16,7 @@ model. The parameters' values are displayed in Table \ref{tab:E1-V2-S0}.
         0.9 & $diag(100,100,100,100)$ & 0.1 & 30 & 0.1 & 0.3\\
         \hline
     \end{tabular}
-    \caption{The parameter settings for the Experiment E1-V2 with the constant detection probability.}
+    \caption{The parameter settings for Experiment E1-V2 with the constant detection probability.}
     \label{tab:E1-V2-S0}
 \end{table}
 
@@ -27,15 +28,18 @@ Figure \ref{fig:E1-V2-S0} displays the performance of the GM-PHD filter with the
     frame size. This size discrepancy contributes to a phenomenon where targets in a close proximity share
     measurements, resulting in the appearance of additional targets in the scene.
     \item \textbf{\ref{fig:E1-V2-S0:03}:} Despite the YOLO model failing to detect the fourth car, the target persists within the tracking system.
-    \item \textbf{\ref{fig:E1-V2-S0:04}:} The previously undetected car is successfully identified once more, and tracking of the target continues. Additionally, another car approaches the spawning point.
-    \item \textbf{\ref{fig:E1-V2-S0:05}:} Regrettably, the car within the spawning area remains undetected, likely due to its weight being insufficient to ensure survival. Concurrently, the first car exits the scene.
+    \item \textbf{\ref{fig:E1-V2-S0:04}:} The previously undetected car is successfully identified once more, and
+    the tracking of the target continues. Additionally, another car approaches the spawning point.
+    \item \textbf{\ref{fig:E1-V2-S0:05}:} Regrettably, the car within the spawning area remains undetected and
+    has not survived, probably
+    due to its weight being insufficient to ensure survival. Concurrently, the first car exits the scene.
     \item \textbf{\ref{fig:E1-V2-S0:06}:} Subsequently, the car at the spawning point is detected once again and remains sufficiently close to be initialized as a target. The scene concludes with four true objects and four accurately tracked targets.
 \end{itemize}
 
 
 The GM-PHD filter with the constant detection probability is accurate in scenarios, where the object detector does not
 miss detections regularly. Graph \ref{gr:E1-V2-S0} shows that the number of displayed targets is close enough
-to the true count. Even false detections created by YOLO does not mislead the filter.
+to the true count. Even false detections created by YOLO did not mislead the filter.
 
 
 \begin{figure}[H]
@@ -94,12 +98,13 @@ to the true count. Even false detections created by YOLO does not mislead the fi
 
 
 \subsection{V2 -- GM-PHD with the dynamic detection probability}
-Experiments on the video \textit{V2} using the GM-PHD filter with the dynamic detection probability and different
+Experiments carried out on the video \textit{V2} using the GM-PHD filter with the dynamic detection probability and
+different
 settings
 are
 demonstrated in following sections.
 \subsubsection{S1 -- YOLO + YOLO}
-This experiment uses settings \textit{S1}, where the YOLO model provides with both object detection bboxes and
+This experiment uses settings \textit{S1}, where the YOLO model provides both object detection bboxes and
 segmentation masks.
 The parameter settings are shown in Table \ref{tab:E1-V2-S1}.
 \begin{table}[H]
@@ -117,24 +122,34 @@ The parameter settings are shown in Table \ref{tab:E1-V2-S1}.
 
 Figure \ref{fig:E1-V2-S1} shows the performance of the GM-PHD filter with the dynamic detection probability with settings \textit{S1}.
 \begin{itemize}
-    \item \textbf{\ref{fig:E1-V2-S1:01}:} Similar to the previous experiment, the initial frame features four cars
-    that have been previously detected. However, a distant car is detected but remains unitialized as it has not yet
-    crossed any spawning point.
-    \item \textbf{\ref{fig:E1-V2-S1:02}:} By the frame 48, the car on the left is not detected, mirroring the
-    previous experiment. However, owing to the high detection probability and the adjusted pruning, the target manages
-    to persist.
-    \item \textbf{\ref{fig:E1-V2-S1:03}:} Despite previous misdetections, the previously undetected car is once again identified, allowing the target to persist even amidst prior detection errors.
-    \item \textbf{\ref{fig:E1-V2-S1:04}:} A new car crosses the spawning point, yet the YOLO model consistently fails to detect it over numerous consecutive frames, resulting in its non-initialization.
-    \item \textbf{\ref{fig:E1-V2-S1:05}:} Two cars on the right evade detection once more, yet their respective targets endure.
-    \item \textbf{\ref{fig:E1-V2-S1:06}:} Previously undetected cars are once again identified, and both targets receive measurements, augmenting their weight.
+    \item \textbf{\ref{fig:E1-V2-S1:01}:} Analogously to the previous analysis, four targets have surpassed the
+    spawning point and are tracked by the GM-PHD filter. The targets' presence in the close proximity results in an
+    additional false targets' existence.
+    \item \textbf{\ref{fig:E1-V2-S1:02}:} The problem of targets' neighbouring persists.
+    \item \textbf{\ref{fig:E1-V2-S1:03}:} Moreover, the YOLO model classifies the targets' shadows as another cars,
+    causing the initialization of extra targets.
+    \item \textbf{\ref{fig:E1-V2-S1:04}:} A new car crosses the spawning point, yet the YOLO model fails to detect it.
+    \item \textbf{\ref{fig:E1-V2-S1:05}:} The new car has been previously detected and initialized. The two
+    neighbouring cars still generate additional false targets.
+    \item \textbf{\ref{fig:E1-V2-S1:06}:} Finally, there appear only two targets representing the two cars. The other
+    two
+    cars are tracked properly.
 \end{itemize}
 
-The Graph \ref{gr:E1-V2-S1} presents a better performance of the GM-PHD filter. Even though not all the targets are
-displayed when present, most of the time, there are more targets in the filter's queue with weight lower than the
-displaying threshold.
-Upon receiving measurements, these targets experience an increase in weight, subsequently reappearing in the scene display.
+The Graph \ref{gr:E1-V2-S1} depicts a similar performance of the GM-PHD filter with the dynamic detection probability as
+the GM-PHD filter with the constant detection probability. The number of displayed targets exceeds the true number of
+targets due to already presented reasons.
 
-The alignment of the displayed targets with the true target count is noteworthy, but additionally, the queue of targets awaiting display surpasses the true count. This provides us with awareness of potential targets that may manifest in the scene.
+
+The improved ability of the target's survival resulted in a slightly decreased the overall tracking performance. The
+YOLO model
+has been able to detect tracked objects meticulously, which leads to needlessness of the dynamic detection
+probability
+and modified pruning method enabling enhanced targets' ability to survive.
+
+However, the goal of this experiment is to examine the tracking capability of the GM-PHD filter with the proposed
+dynamic
+detection probability in common flawless scenarios. This experiment verifies the method to be sufficient.
 
 \begin{figure}[H]
     \centering
@@ -195,7 +210,7 @@ The alignment of the displayed targets with the true target count is noteworthy,
 
 
 \subsubsection{S2 -- YOLO + SAM}
-As in experiment \textit{E1}, the next settings employs settings \textit{S2} with the YOLO object detector and the SAM
+As in experiment \textit{E1}, the next settings employs \textit{S2} with the YOLO object detector and the SAM
 segmentation model.
 All parameters are included in Table \ref{tab:E1-V2-S2}.
 \begin{table}[H]
@@ -212,18 +227,19 @@ All parameters are included in Table \ref{tab:E1-V2-S2}.
 \end{table}
 
 
-The situation resemble the situation with settings \textit{S1}. Four targets occur in Figure \ref{fig:E1-V2-S2:01}.
-They continue in their path and all targets are tracked successfully with one exception. There do not appear
-additional targets in subsequent frames. The YOLO model detects car's shadow and clasify it as another car, which makes
-added target in \ref{fig:E1-V2-S2:03}. Due to the merging step, this false target do not survive to the subsequent
-frames. A new car is initialized in \ref{fig:E1-V2-S2:04}. All targets are tracked in
+The situation resembles the situation with settings \textit{S1}. Four targets occur in Figure \ref{fig:E1-V2-S2:01}.
+They continue in their path while all targets are tracked successfully with one exception. No additional targets appear
+in the subsequent frames. The YOLO model detects a car's shadow and clasifies it as an another car, which makes
+the added target in \ref{fig:E1-V2-S2:03}. Due to the merging step, this false target does not survive to the subsequent
+frames. A new car is initialized in \ref{fig:E1-V2-S2:04}. All targets are tracked in the
 last frames.
 
 The number of displayed targets is close to the true number of targets in Graph \ref{gr:E1-V2-S2}. The number of
-detected targets exceeds the number of true targets for almost whole time, due to the presence of false
+detected targets exceeds the number of true targets for majority of the time, due to the presence of false
 detections.
 
-Settings \textit{S2} exhibit a slight improvement over settings \textit{S1}, reflected in the reduced error between the number of displayed targets and the true count.
+Settings \textit{S2} exhibit a slight improvement over settings \textit{S1}, which is reflected in the reduced error
+between the number of displayed targets and the true count.
 
 \begin{figure}[H]
     \centering
@@ -280,7 +296,7 @@ Settings \textit{S2} exhibit a slight improvement over settings \textit{S1}, ref
 
 
 \subsubsection{S3 -- Grounded SAM}
-The combination of Grounding DINO and SAM is tested in the video \textit{V2} as well. Used parameteres are given in
+The combination of Grounding DINO and SAM is tested using the video \textit{V2} as well. Used parameteres are given in
 Table \ref{tab:E1-V2-S3}.
 \begin{table}[H]
     \centering
@@ -296,7 +312,7 @@ Table \ref{tab:E1-V2-S3}.
 \end{table}
 
 Figure \ref{fig:E1-V2-S3} reveals a better object detection. As a result, the tracking of objects is more precise than
-in other settings.
+in the other settings.
 \begin{itemize}
     \item \textbf{\ref{fig:E1-V2-S3:01}:} Starting with four tracked targets in the frame no. 83.
     \item \textbf{\ref{fig:E1-V2-S3:02}:} As in Experiment E1-V1, the motion and observation noise covariances
@@ -308,17 +324,20 @@ in other settings.
     \item \textbf{\ref{fig:E1-V2-S3:06}:} The scenario ends with four properly detected and tracked objects.
 \end{itemize}
 
-Even though two cars driving side by side causes the filter with given parameters modest problems, the merging and
-the pruning steps can deal with such situations most of the time, as seen in Graph \ref{gr:E1-V2-S3}. The line showing
+Even though the two cars driving side by side cause the filter with given parameters a few modest problems, the merging
+and
+the pruning steps can usually deal with such situations, as seen in Graph \ref{gr:E1-V2-S3}. The line
+showing
 the number of displayed targets almost copies the line showing the true counts. The graph also shows the problem of
-two neihbouring targets and the problem of false detections. The peaks in the red line shows these false detections,
-the filter is able to not to be fooled and holds the true number of targets.
+two neighbouring targets and the problem of false detections. The peaks in the red line show these false detections,
+the filter remains unaffected and holds the true number of targets.
 
 
-As in Experiment \textit{E1-V1}, these settings outperforms the other settings variations. Moreover, due to the more
+As in Experiment \textit{E1-V1}, this setting outperform the other settings variations. Moreover, due to the more
 precise
-object detection, the filter is able to deal with problems like two targets in the same neighbourhood and false
-detections. However, settings \textit{S3} is very sensitive to motion and observation noise settings, thus
+object detection, the filter is able to deal with problems such as two targets appearing in the same neighbourhood or
+false
+detections. However, settings \textit{S3} is very sensitive to motion and observation noise parametrization, thus
 these covariance matrices have to be set carefully.
 
 \begin{figure}[H]

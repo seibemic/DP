@@ -48,14 +48,31 @@ object advanced image processing techniques} % replace with the title of your th
 \ctufitauthorsurnames{Seibert} % replace with your surname(s) / family name(s)
 \ctufitauthorgivennames{Michal} % replace with your first name(s) / given name(s)
 \ctufitsupervisor{doc.\,Ing.\,Dedecius Kamil,\,Ph.D.} % replace with name of your supervisor/advisor (include academic degrees)
-\ctufitdepartment{Katedra aplikované matematiky} % replace with the department of your defence
+\ctufitdepartment{Department of Applied Mathematics} % replace with the department of your defence
 \ctufityear{2024} % replace with the year of your defence
-\ctufitdeclarationplace{Praze} % replace with the place where you sign the declaration
+\ctufitdeclarationplace{Prague} % replace with the place where you sign the declaration
 \ctufitdeclarationdate{\today} % replace with the date of signature of the declaration
-\ctufitabstractCZE{Fill in abstract of this thesis in Czech language. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue.}
-\ctufitabstractENG{Fill in abstract of this thesis in English language. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue.}
-\ctufitkeywordsCZE{enter, comma, separated, list, of, keywords, in, CZECH}
-\ctufitkeywordsENG{enter, comma, separated, list, of, keywords, in, ENGLISH}
+\ctufitabstractCZE{Tato práce se zaměřuje na problém sledování cílů se zašuměnými měřeními v prostředí s obsahem falešných cílů. Algoritmy pro sledování více cílů s nejistotou v počtu cílů a nejistotou v jejich přežití jsou mnohdy
+citlivé na správné nastavení parametrů vzhledem k prostředí. Jedním z klíčových parametrů je pravděpodobnost detekce,
+  která se mnohdy uvažuje konstantní. V této práci je představena metoda pro odhad této pravděpodobnosti pro každý
+  cíl v každém časovém okamžiku při sledování cílů na video záznamech. K získání měření od cílů je použito pokročilých metod umělé inteligence pro zpracování obrazu, jejichž výstupy jsou využity k vypočtení pravěpodobnosti detekce. K analýze funkčnosti použitého řešení je využito Gaussian mixture probability hypothesis density (GM-PHD) filtru,
+  který patří mezi základní algoritmy pro sledování více cílů, založeném na statistice konečných náhodných množin. Vhodnost
+  použitého řešení je poté diskutována spolu s limitacemi a potenciálními budoucími možnostmi dalšího vylepšení.}
+\ctufitabstractENG{This thesis focuses on the problem of multi-target tracking with noisy measurements in a cluttered
+environment. Algorithms for tracking multiple targets with the uncertainty in the number of targets and their
+survival are often
+sensitive to the correct setting of parameters relative to the environment. One of the key parameters is the detection
+probability, which is often set as a constatnt. In this work, a method to estimate this probability for each target at
+any time step is demonstrated through tracking objects on video footages. Advanced deep-learning algorithms for image
+processing are utilized to provide targets' measurements. Outputs of these methods are then exploited to calculate the
+detection probability. To analyse the capability of the proposed method, the Gaussian mixture probability hypothesis
+density (GM-PHD) filter is used. This filter falls among fundamental random finite sets statistics based multi-target
+algorithms. The appropriateness of the proposed method is then discussed with regards to its limitations and possible
+future improvements.}
+\ctufitkeywordsCZE{Gaussian mixture probability hypothesis density filter, sledovávání více cílů, zpracování obrazu,
+  pravděpodobnost detekce, konečné náhodné množiny, Markovský proces}
+\ctufitkeywordsENG{Gaussian mixture probability hypothesis density filter,, multi-target tracking, image processing,
+  detection probability, random finite sets, Markov process}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END FILL IN
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -168,7 +185,19 @@ object advanced image processing techniques} % replace with the title of your th
 % This is a place to thank people for helping you. It is common to thank your supervisor.
 %%%%%%%%%%%%%%%%%%%
 \begin{acknowledgmentpage}
-	Chtěl bych poděkovat především sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue.
+  \large
+	In the form of this thesis, I would like to express my heartfelt thanks and gratitude to many people who supported
+  me during my studies at Faculty of Information Technology.
+
+  First of all let me say thank you to doc.\,Ing.\,Dedecius Kamil,\,Ph.D. not only for his expert guidance during writing this work, but also for introducing me
+  to the topic of multi-target tracking, which has been a refreshing and exceptionally pleasing new problem to me, and
+  for his immense support throughout my masters studies.
+
+  Furthermore, I would like to express my gratitude to my fabulous family, who supported me the most during my whole
+  study and has always encouraged me in rough periods.
+
+  Last, but not least, my greatest thanks belongs to my lovely and supporting girlfriend, who has bravely withstood
+  with me throughout my studies and always aided me to overcome challenging moments.
 \end{acknowledgmentpage} 
 %%%%%%%%%%%%%%%%%%%
 % ACKNOWLEDGMENT END
@@ -183,9 +212,14 @@ object advanced image processing techniques} % replace with the title of your th
 % ENG: choose one of approved texts of the declaration. DO NOT CREATE YOUR OWN. Find the approved texts at https://courses.fit.cvut.cz/SFE/download/index.html#_documents (document Declaration for FT in English)
 % CZE/SLO: Vyberte jedno z fakultou schvalenych prohlaseni. NEVKLADEJTE VLASTNI TEXT. Schvalena prohlaseni najdete zde: https://courses.fit.cvut.cz/SZZ/dokumenty/index.html#_dokumenty (prohlášení do ZP)
 \begin{declarationpage}
-FILL IN ACCORDING TO THE INSTRUCTIONS. VYPLŇTE V SOULADU S POKYNY. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Pellentesque pretium lectus id turpis.
+  I hereby declare that the presented thesis is my own work and that I have cited all sources of
+  information in accordance with the Guideline for adhering to ethical principles when elaborating an
+  academic final thesis.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Pellentesque pretium lectus id turpis.
+  I acknowledge that my thesis is subject to the rights and obligations stipulated by the Act No.
+  121/2000 Coll., the Copyright Act, as amended, in particular the fact that the Czech Technical
+  University in Prague has the right to conclude a licence agreement on the utilization of this thesis as
+  a school work pursuant of Section 60 (1) of the Act.
 \end{declarationpage}
 %%%%%%%%%%%%%%%%%%%
 % DECLARATION END
@@ -230,18 +264,34 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hen
 % OR REMOVE ENTIRELY
 % List the abbreviations in lexicography order.
 %%%%%%%%%%%%%%%%%%%
-\chapter{Seznam zkratek}
+\chapter{List of abbreviations}
 	
 \begin{tabular}{rl}
-DFA & Deterministic Finite Automaton\\
-FA & Finite Automaton\\
-LPS & Labelled Prüfer Sequence\\
-NFA & Nondeterministic Finite Automaton\\
-NPS & Numbered Prüfer Sequence\\
-XML & Extensible Markup Language\\
-XPath & XML Path Language\\
-XSLT & eXtensible Stylesheet Language Transformations\\
-W3C & World Wide Web Consortium
+  STT & Single target tracking \\
+MTT & Multi-target tracking \\
+KF & Kalman filter \\
+EKF & Extended Kalman filter \\
+UKF & Unscented Kalman filter \\
+PF & Particle filter \\
+PDA  & Probabilistic Data Association \\
+IPDA & Joint Probabilistic Data Association\\
+JPDA  & Joint Probabilistic Data Association \\
+MMSE & minimum mean square error \\
+RFS & Random Finite Set \\
+  FISST & Finite Set Statistics \\
+MHT &   Multiple Hypothesis Tracker \\
+PHD & Probability Hypothesis Density \\
+  GM-PHD & Gaussian Mixture Probability Hypothesis Density \\
+CPHD & Cardinalized Probability Hypothesis Density \\
+PMBM & Poisson multi-Bernoulli mixture \\
+YOLO & You Only Look Once \\
+GMM & Gaussian mixture model \\
+  MD & Mahalanobis distance \\
+CVM & Constant velocity model \\
+CAM & Constant acceleration model \\
+HMM & Hidden Markov Model \\
+  CNN & Convolutional neural network \\
+  SAM &Segment Anything Model \\
 \end{tabular}
 %%%%%%%%%%%%%%%%%%%
 % ABBREVIATIONS END
@@ -255,13 +305,14 @@ W3C & World Wide Web Consortium
 %%%%%%%%%%%%%%%%%%%
 \large
 \include{text/Introduction} % include `text.tex' from `text/' subdirectory
-\include{text/chapter_00/chapter_00}
+%\include{text/chapter_00/chapter_00}
 \include{text/chapter_01/chapter_01}
 \include{text/chapter_02/chapter_02}
 \include{text/chapter_03/chapter_03}
 \include{text/chapter_04/chapter_04}
 \include{text/chapter_05/chapter_05}
 
+\include{text/coclusion}
 \appendix\appendixinit % do not remove these two commands
 
 

@@ -11,43 +11,129 @@
 	
 %\end{chapterabstract}
 %\section{Preface to multi target tracking}
+Multi-target tracking (MTT), a fundamental aspect of surveillance and monitoring systems, has undergone significant advancements in recent years, transforming it into a critical field with diverse applications across various domains.
+The scope of MTT extends beyond mere tracking, encompassing tasks such as object detection, identification, and trajectory prediction. The primary goal is to maintain a comprehensive situational awareness, providing invaluable information for decision-making processes in various applications, ranging from defense and surveillance to autonomous systems and robotics.
+This section provides an overview of the evolution, applications, significance, and current research focus of multi-target tracking.
+\section{Evolution and development of multi-target tracking}
+Multi-target tracking has undergone a significant evolution since its inception in the early 20th century, driven by
+the need to track multiple objects in increasingly complex scenarios. Initially rooted in the radar technology
+developed during World War II \cite{bar1995} for single-target detection, MTT algorithms have since evolved to address a diverse range of tracking challenges.
 
+The historical development of MTT can be traced throughout several key milestones. In the 1970s and 1980s, basic
+tracking algorithms emerged, laying the foundation for subsequent advancements. The integration of probabilistic
+techniques, notably the Kalman filter \cite{kalmanFilter}, in the 1970s marked a significant improvement in tracking accuracy. However, as tracking scenarios became more non-linear and non-Gaussian, traditional methods revealed limitations, prompting a transition to data-driven approaches.
 
-%
-%\begin{definition}[Optional label]
-%definition
-%\end{definition}
+By the early 2000s, MTT entered an era of a data-driven innovation. Particle filters \cite{nonlinearParticleFilter}
+gained popularity for their ability to handle nonlinear and non-Gaussian scenarios, albeit with increased
+computational complexity. Concurrently, the attention was directed towards an efficient data association, leading to
+the development of filters such as the Joint Probabilistic Data Association (JPDA) \cite{brekke} and Random Finite Set (RFS) \cite{mahler} based methods.
 
-%\begin{example}
-%example
-%\end{example}
+Today, the landscape of MTT algorithms is characterized by diversity, with approaches tailored to specific tracking challenges. Two main categories dominate: association-based methods and RFS-based methods.
 
-%\begin{theorem}
-%theorem
-%\end{theorem}
+Association-based methods focus on linking measurements to existing tracks or creating new tracks. This category includes well-established algorithms such as the Kalman filter and its variants (Extended Kalman Filter \cite{EKF}, Unscented Kalman Filter \cite{UKF}), as well as more advanced methods like the Joint Probabilistic Association (JPDA) filter and the Multiple Hypothesis Tracker (MHT) \cite{bar1988tracking}, which address clutter and uncertainty in tracking scenarios.
 
-%\begin{proof}
-%proof
-%\end{proof}
+In contrast, RFS-based methods offer a probabilistic framework to simultaneously model multiple target states.
+Operating on sets of possible target states, these methods provide a comprehensive representation of uncertainty and variability in tracking scenarios. Examples include the Probability Hypothesis Density (PHD) filter \cite{VoMaPHD2006}, Cardinalized Probability Hypothesis Density (CPHD) filter \cite{Mahler2011cphd}, and Poisson multi-Bernoulli mixture (PMBM) filter \cite{GarciaPMBM2018}, which offer scalability and flexibility in complex tracking environments.
 
-%\begin{corollary}
-%corollary
-%\end{corollary}
+The future of MTT lies in the synergistic integration of association-based and RFS-based methods to overcome current challenges and address emerging needs in real-world tracking applications. By leveraging the strengths of both paradigms, researchers aim to achieve breakthroughs in tracking accuracy, efficiency, and scalability, paving the way for transformative advancements in multi-target tracking technology.
+%The roots of MTT can be traced back to the early 20th century when radar technology emerged during World War II \cite{bar1995}. Initially developed for single-target detection, radar systems laid the groundwork for subsequent advancements in multi-target tracking. As scenarios evolved and became more complex, the need for advanced tracking capabilities grew, prompting the development of more sophisticated algorithms.
 
-%\begin{proposition}
-%proposition
-%\end{proposition}
+%The 1970s and 1980s witnessed the emergence of basic tracking algorithms, marking the initial forays into the field. Subsequent decades saw the integration of probabilistic techniques, such as the Kalman filter \cite{kalmanFilter}, which significantly enhanced tracking accuracy. The 2000s marked the transition to data-driven approaches, with particle filters gaining popularity due to their ability to handle non-linear and non-Gaussian tracking scenarios \cite{nonlinearParticleFilter}. However, due to the high computational complexity of particle filters, much attention is paid to data association filters such as JPDA \cite{brekke} or RFS based filters \cite{mahler}.
 
-%\begin{note}
-%note
-%\end{note}
+\section{Applications of multi-target tracking}
+The versatility of MTT is reflected in its diverse applications across various domains. In defense, MTT plays a
+pivotal role in monitoring and tracking multiple targets simultaneously, aiding in threat assessment, target
+prioritization, and distinguishing between different targets.
 
-%\begin{remark}
-%remark
-%\end{remark}
+The advent of autonomous systems, particularly in vehicles, has heightened the importance of MTT in predicting and
+tracking the movements of pedestrians, vehicles, and other obstacles. This application enhances the safety and
+efficiency of autonomous vehicles by providing a real-time awareness of the surrounding environment \cite{milan2016}.
 
-%\begin{lemma}
-%lemma
-%\end{lemma}
+Surveillance systems rely on multi-target tracking for monitoring activities in crowded environments and identifying
+suspicious behavior.
 
+Moreover, in fields such as robotics, defense, healthcare monitoring, and wildlife preservation, multi-target
+tracking systems contribute significantly to the enhancement of situational awareness, enabling a real-time
+decision-making, which improves resource allocation efficiency and supports various mission-critical tasks.
+
+%        \subsection{Research interests}
+%Contemporary research in multi-target tracking is characterized by a strong emphasis on addressing %key challenges to further enhance the performance and robustness of tracking systems. Researchers %are exploring innovative approaches to improve data association accuracy, handle complex motion %patterns, mitigate effects of occlusions and clutter in the environment, optimize computational %efficiency, and enhance detection probabilities.
+
+%State-of-the-art techniques such as probabilistic modeling for uncertainty quantification %\cite{bar1995}, optimization algorithms for track association optimization, and sensor fusion for %integrating information from multiple sources are being leveraged to push the boundaries of multi-%target tracking capabilities.
+
+%\section{Multi target algorithms}
+%The field of multi-target tracking is marked by a rich and diverse landscape of algorithms, each tailored to address specific challenges inherent in tracking multiple objects. These algorithms can be broadly categorized into association-based methods and Random Finite Set (RFS) based methods, each offering unique advantages and trade-offs.
+
+%Association-based methods form a foundational category in multi-target tracking, emphasizing the linking of measurements to existing tracks or the creation of new tracks. The well-established Kalman filter and its variants, such as the Extended Kalman Filter (EKF) and Unscented Kalman Filter (UKF), fall under this category. More advanced methods considering clutter such as Probabilistic Association (PDA) filter, Joint Probabilistic Association (JPDA) filter or Multiple Hypothesis Tracker (MHT) filter are another examples of filters from this category.
+
+%In contrast to association-based methods, Random Finite Set (RFS) based methods provide a probabilistic framework to model multiple target states simultaneously. These methods operate on sets of possible target states, allowing for a more comprehensive representation of uncertainty and variability in tracking scenarios. The Probability Hypothesis Density (PHD) filter, Cardinalized Probability Hypothesis Density (CPHD) or Poisson multi-Bernoulli mixture (PMBM) filter are prominent examples of an RFS-based approach.
+
+\section{Research interests}
+Contemporary research in multi-target tracking is characterized by a strong emphasis on addressing key challenges to
+further enhance the performance and robustness of tracking systems. Current research focus is on problems such as:
+\begin{itemize}
+  \item \textbf{Data Association in complex environment:}  Handling scenarios with high target density, occlusions, and clutter remains a complex issue. Robust methods for accurate and efficient data association in crowded and dynamic environments are still actively researched.
+  \item \textbf{Handling non-linear and non-Gaussian dynamics:}  Real-world scenarios often exhibit non-linear and
+  non-Gaussian characteristics. Improving the tracking algorithms to effectively handle these complexities, possibly
+  through the integration of advanced probabilistic models, is an ongoing area of research.
+  \item \textbf{Real-time processing and computational efficiency:} Many MTT algorithms, especially those with high computational demands, face challenges in meeting real-time processing requirements. Efficient algorithms that strike a balance between computational complexity and tracking accuracy are continuously sought.
+  \item \textbf{Sensor fusion and heterogeneous data integration:} Integrating information from various sensors, each
+  with its own characteristics and limitations, remains a persistent challenge. Developing robust methods for sensor
+  fusion
+  to improve tracking accuracy and reliability is an active research area.
+  \item \textbf{Handling variability in target behavior:} Targets in real-world scenarios may exhibit diverse and unpredictable behaviors. Adapting tracking algorithms to handle varying target speeds, accelerations, and maneuvers remains an unsolved problem.
+  \item \textbf{Online learning and adaptive algorithms:} Designing algorithms that can adapt and learn online as
+  they encounter new scenarios or dynamic changes in the environment is a topical issue. Adaptive tracking
+  systems that can continuously improve their performance without extensive retraining are sought after.
+\end{itemize}
+
+As we will see later in this work, all Gaussian filters that take clutter into consideration rely on an accurate
+setting
+of certain
+parameters like a motion model or a measurement model. Moreover, recursion requires an estimation of parameters such as
+the survival probability and the detection probability. This thesis focuses on tracking targets in video
+data and takes advantage of image processing model YOLO (You Only Look Once). Due to this combination, we are able to
+estimate the detection probability in time and enhance the tracking capability of the filter.
+
+%%%%%%%%%%%%%%%%%%%%%
+% Převzato z článku %
+%%%%%%%%%%%%%%%%%%%%%
+The probabilistic formulation of the RFS-based filters and the inherent Bayesian processing of available information allow to accommodate the uncertainty arising from the presence of false detections, missed detections, and data association ambiguities. Nevertheless, a fundamental challenge persists: The performance of the filters is highly sensitive to the accurate setting of the target detection probability. This quantity, representing the likelihood of correctly identifying and associating observations with actual targets, is a critical parameter. It has a substantial impact on the Bayesian updating of the prior information.
+However, in real-world scenarios, the sensor performance is susceptible to various environmental conditions. Adverse weather, occlusions, or just the nature of the current scenario can lead to variations in detection probabilities. A mismatch between assumed and actual detection probabilities can result in a suboptimal tracking performance, leading to missed detections, false alarms, or inaccurate target state estimates \cite{Hendeby2014Gaussian}.
+
+The RFS-based formulation of the PHD or (P)MBM filters naturally takes the uncertainty about the detection probability into account \cite{Hendeby2014Gaussian}. The update formulae involve it as a function of the target state. In the figurative sense, this allows to model it as a function of the spatial and temporal properties of the environment.
+Still, two difficulties arise. First, the (Gaussian) filters are analytically tractable only if the detection probabilities are scalar numbers. Second, the nature of the detection probabilities differs from scenario to scenario.
+
+In general, several methods have been proposed to deal with unknown detection probabilities. A Gaussian-beta modeling of a slowly-varying detection profile in the Cardinalized PHD filter is reported in \cite{Mahler2011cphd}; its alternative for MBM filters follows in \cite{Vo2013Robust}, and for PMBM filter in \cite{Kong2021Robust}. In \cite{Li2018PHD}, the authors propose to overcome some deficiencies in the CPHD filter \cite{Mahler2011cphd} by different clutter/detection probability models. Another variant was recently proposed in \cite{wei2023BGMPHD}. A track-state augmentation with an amplitude offset-based prediction of the detection probability appeared in \cite{Hanusa2013Track}, however, this method suffers difficulties in multistatic fields. An automatic identification system-based sensor performance assessment for clutter-free environments is developed in \cite{Horn2013Near}. A recent paper \cite{Wei2022Trajectory} deals with the unknown detection profile in the trajectory PHD/CPHD filters. There, the algorithm learns from the history of the unknown target detection probability.
+
+As we track objects in video data, it allows us to avoid the generic solutions and focus on the peculiarities
+associated with this specific data type. In particular, an advantage of YOLO is taken, offering a high-performance
+real-time object detection with high accuracy and efficiency \cite{yanYolo2023}. Its ability to simultaneously
+predict multiple bounding boxes and class probabilities within an image is used, providing a streamlined and
+efficient approach to object detection. However, YOLO-based multi-target tracking systems can still be compromised
+under conditions such as adverse weather, low lighting, or in scenarios with occlusions. Sensors may encounter difficulties in accurately detecting and localizing targets, leading to gaps or errors in the tracking process.
+
+\section{Structure}
+The structure of this thesis is as follows:
+\begin{description}
+  \item[Chapter 1] provides the theoretical background necessary for understanding the multi-target problem.
+  This chapter follows up Bayesian inference, multivariate Gaussian distributions, mixtures and state-space models.
+  Next follows the intersection of discussed concepts and linking them in the possibilities of use in the form of a
+  Kalman filter.
+
+  \item[Chapter 2] is dedicated to the target tracking problem itself. In this part, we explain terms as clutter or
+  validation region and baseline formulations for single target tracking are presented. Next comes the overview of
+  RFS-based
+  methods and, especially, an explanation of the PHD filter and its recursion for linear Gaussian models.
+
+  \item[Chapter 3] discusses the topic of object detection and segmentation techniques algorithms with additional
+  details
+  dedicated to image processing models used in this work.
+
+  \item[Chapter 4] explains the problem of the dynamic detection probability in multi-target tracking. In this
+  chapter, we
+  propose a method to estimate the detection probability using deep-learning image processing models.
+  \item[Chapter 5] includes experiments that analyze the capability of the proposed method to estimate the detection
+  probability.
+\end{description}
 

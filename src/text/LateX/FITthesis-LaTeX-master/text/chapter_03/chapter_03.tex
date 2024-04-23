@@ -97,11 +97,13 @@ The distinction between various types of image segmentation tasks hinges on how 
 
 In the realm of computer vision, semantic classes are broadly categorized into two types, each requiring distinct segmentation techniques for accurate results.
 \begin{itemize}
-  \item \textit{Items} represent classes of objects characterized by identifiable shapes, such as car, tree, or person. These classes typically consist of discrete instances with consistent sizes and distinguishable constituent parts. For instance, all cars have wheels, which are distinct from the car itself.
-  \item \textit{Background} refers to semantic classes with amorphous shapes and variable sizes, like sky, water, or grass
-  . Unlike \textit{items}, \textit{background} lacks clearly defined, countable individual instances and does not possess distinct parts. For example, both a single blade of grass and an entire field of grass fall under the category of grass.
+  \item \textit{Items} represent classes of objects characterized by identifiable shapes, such as a car, a tree, or a
+  person. These classes typically consist of discrete instances with consistent sizes and distinguishable constituent parts. For instance, all cars have wheels, which are distinct from the car itself.
+  \item \textit{Background} refers to semantic classes with amorphous shapes and variable sizes, like sky, water, or grass. Unlike \textit{items}, \textit{background} lacks clearly defined, countable individual instances and does not possess distinct parts. For example, both a single blade of grass and an entire field of grass fall under the category of grass.
 \end{itemize}
-In certain image contexts, some classes can straddle the line between being considered \textit{items} or \textit{background}. For instance, a large gathering of people might be interpreted either as multiple people -- each being a clearly shaped, countable thing, or as a singular, indistinct person.
+In certain image contexts, some classes can straddle the line between being considered \textit{items} or \textit{
+  background}. For instance, a large gathering of people might be interpreted either as multiple people -- each being
+a clearly shaped, countable object, or as a singular, indistinct person.
 
 While much of the focus in object detection typically centers on \textit{items} classes, it is crucial to recognize that \textit{background}, such as sky, walls, floors, and ground constitutes the bulk of our visual environment. \textit{Background} serves as a crucial contextual information for identifying \textit{items}. For instance, a metallic object on the road is likely a car, while a blue background behind an object is indicative of water, if it is a boat, or sky, if it is a plane. This interplay between \textit{background} and \textit{items} holds a particular significance for deep learning models.
 
@@ -110,22 +112,32 @@ Semantic segmentation represents the most straightforward form of the image segm
 
 Unlike more nuanced segmentation techniques, semantic segmentation treats all pixels uniformly as \textit{background} without distinguishing between \textit{background} and \textit{items}. This means that it does not differentiate between different types of objects within the same class.
 
-For instance, imagine a semantic segmentation model trained to analyze urban scenes. It would generate segmentation masks outlining the boundaries of various classes of \textit{items} and \textit{background}. However, it would not differentiate between individual instances of the same class. For example, if there are multiple trees in a forest, the model would likely treat them as one continuous tree segment rather than recognizing each individual tree separately.
+For instance, imagine a semantic segmentation model trained to analyze urban scenes. It would generate segmentation
+masks outlining the boundaries of various classes of \textit{items} and \textit{background}. However, it would not
+differentiate between the individual instances of the same class. For example, if there are multiple trees in a
+forest, the model would likely treat them as a one continuous tree segment rather than recognizing each individual tree
+separately.
 
 \subsection{Instance segmentation}
-Instance segmentation represents a departure from the approach of semantic segmentation. While semantic segmentation focuses solely on assigning semantic classes to each pixel without distinguishing between individual instances, instance segmentation precisely outlines the shape of each separate object instance within an image.
+Instance segmentation represents a departure from the approach of semantic segmentation. While semantic segmentation
+focuses solely on assigning semantic classes to each pixel without distinguishing between individual instances,
+the instance segmentation precisely outlines the shape of each separate object instance within an image.
 
 In essence, instance segmentation segregates \textit{items} from \textit{background}, disregarding the latter, and can be viewed as a more sophisticated version of object detection. Instead of providing rough bounding boxes, instance segmentation furnishes precise segmentation masks for each object instance.
 
-This task poses greater challenges compared to semantic segmentation. Even when instances of the same class overlap or touch each other, instance segmentation models must accurately separate and delineate the shape of each instance. In contrast, semantic segmentation models may simply group them together.
+This task possesses greater challenges compared to semantic segmentation. Even when the instances of the same class
+overlap
+or touch each other, instance segmentation models must accurately separate and delineate the shape of each instance. In contrast, semantic segmentation models may simply group them together.
 
-Instance segmentation algorithms typically adopt either a two-stage or one-shot methodology to address the task.
+Instance segmentation algorithms typically adopt either a two-stage or a one-shot methodology to address the task.
 
 Two-stage models, exemplified by Region-based Convolutional Neural Networks \cite{RCNN2014}, initially conduct conventional object detection to produce bounding boxes for each potential instance. Subsequently, they refine segmentation and classification within these bounding boxes to precisely delineate each object instance.
 
-Conversely, one-shot models, such as YOLO, streamline the process by simultaneously performing object detection, classification, and segmentation. This approach enables real-time instance segmentation.
+Conversely, one-shot models, such as YOLO, streamline the process by simultaneously performing object detection,
+classification, and segmentation. This approach enables a real-time instance segmentation.
 
-While one-shot methods boast faster processing speeds, they often sacrifice some accuracy. On the other hand, two-stage approaches prioritize accuracy but may be slower due to the additional refinement steps.
+While one-shot methods boast faster processing speeds, they often sacrifice some accuracy. On the other hand, two
+-stage approaches prioritize accuracy, but may be slower due to the additional refinement steps.
 
   \subsection{Panoptic segmentation}
 Panoptic segmentation represents a synthesis of semantic and instance segmentation methodologies, offering a comprehensive understanding of an image.
@@ -134,9 +146,15 @@ In panoptic segmentation, each pixel receives both a semantic label and an insta
 
 This approach provides computer vision systems with a complete and cohesive interpretation of an image, combining the benefits of both semantic and instance segmentation. However, achieving panoptic segmentation consistently and efficiently presents significant computational challenges. Despite its evident appeal, realizing panoptic segmentation in a manner that balances accuracy and computational efficiency remains a formidable task.
 
-The challenge in achieving panoptic segmentation lies in reconciling the conflicting approaches of semantic and instance segmentation models. Semantic segmentation treats all pixels uniformly as \textit{background}, disregarding individual instances of objects, while instance segmentation focuses solely on isolating individual objects, ignoring \textit{background}. Integrating these methodologies proves difficult as neither model can effectively take on the responsibilities of the other.
+The challenge in achieving panoptic segmentation lies in reconciling the conflicting approaches of semantic and
+instance segmentation models. Semantic segmentation treats all pixels uniformly as \textit{background}, disregarding
+individual instances of objects, while instance segmentation focuses solely on isolating individual objects, ignoring \textit{background}. Integrating these methodologies can pose a challenge as neither of the models can effectively take on the responsibilities of the other.
 
-Early attempts at panoptic segmentation involved combining separate semantic and instance segmentation models, followed by a post-processing phase to merge their outputs. However, this approach encountered two significant drawbacks: it demanded substantial computational resources and struggled with inconsistencies between the data produced by the semantic segmentation network and that produced by the instance segmentation network.
+Early attempts at panoptic segmentation involved combining separate semantic and instance segmentation models,
+followed by a post-processing phase to merge their outputs. However, these attempts encountered two significant
+drawbacks: it
+demanded substantial computational resources and struggled with inconsistencies between the data produced by the
+semantic segmentation network and those produced by the instance segmentation network.
 
 Recent advancements in panoptic segmentation architectures aim to overcome these limitations through a more unified deep learning approach. Many of these architectures utilize a common backbone network, such as a feature pyramid network (FPN) \cite{FPNLin2017}, to extract features from the input image. These features are then fed into parallel branches, such as a foreground branch and a background branch, or a semantic head and an instance head. The outputs from each branch are merged using a weighted system to produce the final segmentation. Notable proposed architectures include EfficientPS \cite{mohan2020efficientps}, OANet \cite{zhang2019oanet}, PanopticFPN \cite{kirillov2019panoptic}, UPSNet \cite{xiong2019upsnet}, SOGNet \cite{yang2019sognet}, BGRNet \cite{wu2020bidirectional}, AUNet \cite{sun2019aunet} and others.
 
@@ -145,12 +163,15 @@ Traditional image segmentation techniques leverage pixel color values and relate
 
 Some common traditional image segmentation techniques include:
 \begin{enumerate}
-  \item \textbf{Thresholding:} Thresholding methods create binary images by classifying pixels based on whether their intensity exceeds or falls below a predetermined threshold value. Otsu's method is frequently used to identify the threshold value that minimizes intra-class variation \cite{otsu1979}.
+  \item \textbf{Thresholding:} Thresholding methods create binary images by classifying pixels based on whether
+  their intensity exceeds or falls below a predetermined threshold value. Otsu's method is frequently used to identify the threshold value that minimizes intra-class variation \cite{otsu1979}.
   \item \textbf{Histograms:} Histograms plot the frequency of specific pixel values in an image and are often employed to define thresholds. For instance, histograms can infer background pixel values, aiding in the isolation of object pixels.
   \item \textbf{Edge detection:} Edge detection techniques identify object boundaries or classes by detecting abrupt changes in brightness or contrast \cite{Edgedet1986}.
   \item \textbf{Watersheds:} Watershed algorithms \cite{Watershed1991} convert images to grayscale and generate a topographic map where each pixel's elevation is determined by its brightness. Regions, boundaries, and objects can be inferred from the formation of valleys, ridges, and catchment basins.
   \item \textbf{Region-based segmentation:} Region-growing algorithms \cite{RCNN2016} initiate segmentation with one or more seed pixels, progressively grouping neighboring pixels with similar characteristics. These algorithms can be either agglomerative or divisive.
-  \item \textbf{Clustering-based segmentation:} Clustering algorithms \cite{ClusteringSeg1979}, an unsupervised learning technique, partition visual data into clusters of pixels with similar values. One popular variant is K-means clustering, where k represents the number of clusters. In this method, pixel values are treated as data points, and $k$ random points are selected as the centroids of clusters. Each pixel is then assigned to the nearest centroid based on similarity. Centroids are iteratively relocated to the mean of each cluster until convergence, resulting in stabilized clusters.
+  \item \textbf{Clustering-based segmentation:} Clustering algorithms \cite{ClusteringSeg1979}, an unsupervised
+  learning technique, split visual data into clusters of pixels with similar values. One popular variant is the K-means
+  clustering, where $k$ represents the number of clusters. In this method, pixel values are treated as data points, and $k$ random points are selected as the centroids of clusters. Each pixel is then assigned to the nearest centroid based on similarity. Centroids are iteratively relocated to the mean of each cluster until convergence, resulting in stabilized clusters.
 \end{enumerate}
 
 \subsection{Deep learning image segmentation}
@@ -164,13 +185,16 @@ Some prominent deep learning models utilized in image segmentation include:
   \item \textbf{Fully Convolutional Networks:} FCNs \cite{FCNLong2015}, commonly employed for semantic segmentation, are a
   variant
   of
-  convolutional neural networks characterized by flexible layers. In FCNs, an encoder network processes visual input through convolutional layers to extract pertinent features for segmentation or classification. The compressed feature data is then passed through decoder layers to upsample and reconstruct the input image along with segmentation masks.
+  convolutional neural networks characterized by flexible layers. In FCNs, an encoder network processes a visual input
+  through convolutional layers to extract pertinent features for segmentation or classification. The compressed
+  feature data are then passed through decoder layers to upsample and reconstruct the input image along with
+  segmentation masks.
   \item \textbf{U-Nets:} U-Nets \cite{ronneberger2015unet} adapt the FCN architecture to mitigate data loss during downsampling by
   incorporating skip connections. These connections enable the preservation of finer details by selectively bypassing
   certain convolutional layers as information propagates through the network. The name U-Net derives from the shape 
   of diagrams illustrating its layered arrangement (see Figure \ref{fig:unet_architecture}).
   \item \textbf{Deeplab:} Similar to U-Nets, Deeplab modifies the FCN architecture \cite{Deeplab2018}. In addition to utilizing skip
-  connections, Deeplab employs dilated (or "atrous") convolution to produce larger output maps without requiring additional computational resources.
+  connections, Deeplab employs dilated convolution to produce larger output maps without requiring additional computational resources.
   \item \textbf{Mask R-CNNs:} Mask R-CNNs stand out as a leading model for instance segmentation \cite{MaskRCNN2017}. These models
   integrate a region proposal network (RPN), responsible for generating bounding boxes for potential instances, with an FCN-based "mask head" that produces segmentation masks within each confirmed bounding box.
   \item \textbf{Transformers:} Inspired by the success of transformer models \cite{vaswani2023attention} in natural language processing,
@@ -200,12 +224,13 @@ processes the input sequence, while the decoder generates the output sequence.
 
 \begin{itemize}
   \item \textbf{Encoder:} The encoder is composed of a stack of $N=6$ identical layers. Each layer has two
-  sub-layers. The first is a multi-head self-attention mechanism (Figure \ref{fig:transformer_multihead}), and the second is positionwise fully
+  sub-layers. The first is a multi-head self-attention mechanism (Figure \ref{fig:transformer_multihead}), and the
+  second is a position-wise fully
   connected feed-forward network. There is a residual connection \cite{DeepResidual2016} around each of two sub-layers, followed by normalization \cite{ba2016layer}: the output of each sub-layer is $LayerNorm(x + Sublayer(x))$, where $Sublayer(x)$ is the function implemented by the sub-layer
   itself.
   \item \textbf{Decoder:} The decoder is also composed of a stack of $N=6$ identical layers. In addition to the two
   sub-layers in each encoder layer, the decoder inserts a third sub-layer, which performs multi-head
-  attention over the output of the encoder stack. Similar to the encoder, there is residual connections
+  attention over the output of the encoder stack. Similar to the encoder, there are residual connections
   around each of the sub-layers, followed by layer normalization.
 \end{itemize}
 
@@ -219,9 +244,12 @@ processes the input sequence, while the decoder generates the output sequence.
 
 The core of the Transformer architecture lies in its self-attention mechanism \cite{vaswani2023attention}. This mechanism enables each token in the input sequence to attend to every other token, learning contextual relationships and dependencies. By computing attention scores between all pairs of tokens and taking weighted sums of their embeddings, the Transformer can effectively capture long-range dependencies and dependencies between distant tokens.
 
-To enhance the expressiveness of self-attention, Transformers employ multi-head attention mechanisms. Instead of computing attention once, multi-head attention computes attention multiple times in parallel, each with its set of learnable parameters. This allows the model to attend to different aspects of the input sequence simultaneously, facilitating richer representations and improved performance.
+To enhance the expressiveness of self-attention, Transformers employ multi-head attention mechanisms. Instead of
+computing attention once, the multi-head attention computes it multiple times in parallel, each with its set of
+learnable parameters. This allows the model to attend to different aspects of the input sequence simultaneously, facilitating richer representations and improved performance.
 
-Unlike sequential models, Transformers do not inherently encode the positional information of tokens. To address this limitation, positional encoding is added to the input embeddings to convey the position of each token in the sequence. This positional information is crucial for the Transformer to distinguish between tokens with the same content but different positions within the sequence.
+Unlike sequential models, Transformers do not inherently encode the positional information of tokens. To address this
+limitation, positional encoding is added to the input embeddings to convey the position of each token in the sequence. This positional information is crucial for the Transformer to distinguish between tokens with the same content, but different positions within the sequence.
 
 In addition to self-attention layers, Transformers incorporate feedforward neural networks within each layer. These FNNs consist of multiple fully connected layers with non-linear activation functions, enabling the model to capture complex interactions and transformations within the input data
 \begin{align}
@@ -229,13 +257,15 @@ In addition to self-attention layers, Transformers incorporate feedforward neura
 \end{align}
 where $W$ are weights and $b$ stands for bias.
 
-To stabilize training and facilitate gradient flow, Transformers employ layer normalization and residual connections within each layer. Layer normalization normalizes the activations across feature dimensions, while residual connections enable the direct flow of gradients through the network, mitigating the vanishing gradient problem.
+To stabilize training and facilitate the gradient flow, Transformers employ a layer normalization and residual
+connections
+within each layer. Layer normalization normalizes the activations across feature dimensions, while residual connections enable the direct flow of gradients through the network, mitigating the vanishing gradient problem.
 
 During training, Transformers are optimized using backpropagation and gradient-based optimization algorithms, such as
 Adam \cite{kingma2017adam} or SGD \cite{rakhlin2012making}, to minimize a predefined loss function. By iteratively updating the
 parameters of the model based on
 the disparity between the predicted outputs and the ground truth labels, Transformers learn to encode and generate
-meaningful representations of input sequences, enabling them to excel in various NLP tasks and more recently
+meaningful representations of input sequences. That enables them to excel in various NLP tasks and, more recently, in
 image processing tasks.
 
 
@@ -249,16 +279,25 @@ image processing tasks.
 %Despite significant advancements, object detection and segmentation still face several challenges. These include handling scale variations, occlusions, cluttered backgrounds, and fine-grained object attributes. Additionally, achieving real-time performance while maintaining high accuracy remains a critical goal for many applications.
 
   \subsection{Segment Anything}
-To get the best possible results in practical part of this thesis, it is necessary to use powerful, yet fast image
+To get the state-of-art results in the practical part of this thesis, it is necessary to use a powerful, yet fast
+image
 segmentation model. The Segment Anything (SAM) model represents a significant advancement in image segmentation,
-introducing a novel approach to tackling the challenges in this field \cite{SAM2023}. SAM is designed to address the need for
+introducing an innovative approach to tackle the challenges in this field \cite{SAM2023}. SAM is designed to address
+the need
+for
 efficient and effective segmentation models that can generalize to diverse tasks and data distributions, even in zero-shot scenarios.
 
 The SAM project introduces a new task, model, and dataset for image segmentation. It leverages a promptable model
-architecture to achieve impressive zero-shot performance on diverse segmentation tasks. This task involves generating valid segmentation masks given any segmentation prompt. A prompt can include spatial or textual information indicating what to segment in an image. SAM ensures the output mask is reasonable for at least one interpretation of the prompt, handling ambiguity effectively.
+architecture to achieve an almost flawless zero-shot performance on diverse segmentation tasks. This task involves
+generating valid segmentation masks given any segmentation prompt. A prompt can include spatial or textual
+information indicating what to segment in an image. SAM ensures, that the output mask is reasonable for at least one
+interpretation of the prompt, handling the ambiguity effectively.
 
 SAM's architecture comprises three main components: an image encoder, a prompt encoder, and a mask decoder (Figure \ref{fig:sam_architecture}). The
-image encoder processes input images using a Vision Transformer, while the prompt encoder handles various types of prompts, including points, boxes, and text. The mask decoder efficiently generates segmentation masks based on the input image and prompt embeddings. SAM is designed for real-time performance, enabling interactive use with low latency.
+image encoder processes input images using a Vision Transformer, while the prompt encoder handles various types of
+prompts, including points, boxes, and text. The mask decoder efficiently generates segmentation masks based on the
+input image and prompt embeddings. SAM is designed for a real-time performance, enabling an interactive use with low
+latency.
 
 \begin{figure}[h]
   \centering
@@ -269,41 +308,46 @@ image encoder processes input images using a Vision Transformer, while the promp
 
 SAM addresses ambiguity by predicting multiple output masks for a single prompt. It efficiently ranks these masks based on confidence scores, allowing it to produce accurate segmentations even in complex scenarios.
 
-Efficiency is a core consideration in SAM's design. The model's components are optimized for fast execution, enabling it to run in a web browser on CPU with a runtime of approximately 50ms. This real-time performance facilitates seamless interaction with the model for prompt-based segmentation tasks.
+Efficiency is a core consideration in SAM's design. The model's components are optimized for a fast execution,
+enabling it to run in a web browser on CPU with a runtime of approximately 50ms. This real-time performance
+facilitates a seamless interaction with the model for prompt-based segmentation tasks.
 
-SAM is trained using the linear combination of focal loss \cite{FocalLoss2020} and dice loss \cite{DiceLoss2016}, tailored for the
+SAM is trained using the linear combination of the focal loss \cite{FocalLoss2020} and the dice loss \cite{DiceLoss2016},
+tailored for the
 promptable segmentation
 task. It simulates an interactive setup during training, sampling prompts to ensure robustness and adaptability.
 
 SAM's contributions include the development of a promptable segmentation task, a novel model architecture optimized
-for real-time performance, and a large-scale dataset (SA-1B) comprising over 1 billion masks and 11 million images.
-The model's zero-shot capabilities and efficient design make it a valuable tool for various segmentation tasks, with
+for a real-time performance, and a large-scale dataset (SA-1B) comprising over 1 billion masks and 11 million images.
+The model's zero-shot capabilities and an efficient design make it a valuable tool for various segmentation tasks, with
 potential applications across diverse domains. The example of segmented images are shown in Figure \ref{fig:sam_example}.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{text/chapter_03/imgs/sam_example}
-  \caption{The demonstration of SAM's strength. These masks were annotated fully automatically by SAM and are part of
+  \caption{The demonstration of SAM's performance. These masks were annotated fully automatically by SAM and are part of
   the SA-1B dataset. (Source \cite{SAM2023})}
   \label{fig:sam_example}
 \end{figure}
 
 \subsection{Grounded Segment Anything}
-Even though the SAM model with text prompt was not released yet, many other projects occur recently and combines
-other models with SAM. One of such project is Grounded Segment Anything \cite{ren2024grounded}. This project connects
-image processing models Grounding DINO \cite{liu2023grounding} as an open-set object detector and SAM \cite{SAM2023} as 
-an object segmentation model. Moreover, to enhance to performance and usability of Grounded SAM, other powerful 
+Even though the SAM model with text prompt was not released yet, many other projects have recently occurred, combining
+other models with SAM. One of such projects is Grounded Segment Anything \cite{ren2024grounded}. This project connects
+image processing models, Grounding DINO \cite{liu2023grounding} as an open-set object detector, and SAM \cite{SAM2023} as
+an object segmentation model. Moreover, to enhance to performance and usability of Grounded SAM, other deep-learning
 models are used.
 \begin{itemize}
-  \item \textbf{BLIP:} BLIP is Vision-Language Pre-training (VLP) framework which transfers flexibly to both vision
-  -language understanding and generation tasks \cite{li2022blip}. VLP frameworks aim to improve performance of
+  \item \textbf{BLIP:} BLIP is a Vision-Language Pre-training (VLP) framework which transfers flexibly to both vision
+  -language understanding and generation tasks \cite{li2022blip}. VLP frameworks aim to improve the performance of
   downstream vision and language tasks by pretraining the model on large-scale image-text pairs.
   \item \textbf{Recognize Anything:} Recognize Anything Model (RAM) is a string foundation model for image tagging \cite{zhang2023recognize}. RAM makes
   a substantial step for large models in computer vision,
   demonstrating the zero-shot ability to recognize any common category with high accuracy.
-  \item \textbf{Stable-Diffusion:} Stable-Diffusion is latent text-to-image diffusion model (LDMs)\cite{
-    rombach2022highresolution}. LDMs enhance the efficiency and flexibility of diffusion models (DMs) by training them in the latent space of pretrained autoencoders. By leveraging powerful denoising autoencoders, LDMs achieve state-of-the-art results in tasks such as image inpainting, class-conditional image synthesis, and super-resolution while significantly reducing computational requirements.
-  \item \textbf{OSX:} OSX is a one-stage pipeline for expressive whole-body mesh recovery from single images \cite{
-    OSX2023}. OSX employs a Component Aware Transformer (CAT) consisting of a global body encoder and a local face/hand decoder. By leveraging a feature-level upsample-crop scheme and keypoint-guided deformable attention, OSX achieves precise estimation of face and hand parameters while maintaining connection coherence.
+  \item \textbf{Stable-Diffusion:} Stable-Diffusion is a latent text-to-image diffusion model (LDMs) \cite{rombach2022highresolution}. LDMs enhance the efficiency and flexibility of diffusion models (DMs) by training
+  them in the latent space of pretrained autoencoders. By leveraging powerful denoising autoencoders, LDMs achieve
+  state-of-the-art results in tasks such as image inpainting, class-conditional image synthesis, or super-resolution, while significantly reducing computational requirements.
+  \item \textbf{OSX:} OSX is a one-stage pipeline for an expressive whole-body mesh recovery from single images \cite{
+    OSX2023}. OSX employs a Component Aware Transformer (CAT) consisting of a global body encoder and a local face/hand decoder. By leveraging the feature-level upsample-crop scheme and the keypoint-guided deformable attention, OSX
+  achieves a precise estimation of face and hand parameters while maintaining connection coherence.
 \end{itemize}
-Grounded DINO also offers cooperation of SAM and other models: Visual ChatGPT \cite{wu2023visual}, RAM++ \cite{huang2023openset}, VoxelNeXt \cite{chen2023voxelnext} and more.
+Grounded SAM also offers cooperation of SAM and other models: Visual ChatGPT \cite{wu2023visual}, RAM++ \cite{huang2023openset}, VoxelNeXt \cite{chen2023voxelnext} and more.

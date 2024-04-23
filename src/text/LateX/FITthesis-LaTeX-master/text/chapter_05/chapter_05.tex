@@ -1,16 +1,20 @@
 \chapter{Experiments}
 \label{sec:experiments}
 In order to demonstrate the efficacy of the proposed method for estimating the detection probability, numerous experiments were conducted. This section meticulously examines each of these experiments, delineating the selected parameters and conducting a comparative analysis against the GM-PHD filter with constant detection probability.
-Experiments were examined using a combination of video footage.
+Experiments were performed using a combination of video footage.
 \begin{itemize}
   \item \textbf{V1:} This video shot by a camera from a highway was downloaded from YouTube. The link of this video: \href{https://www.youtube.com/watch?v=KBsqQez-O4w&t=30s&ab_channel=NickMartinez}{youtube.com}
-  \item \textbf{V2:} The next video comes from YouTube as well. It captures a common traffic. The link of this video: \href{https://www.youtube.com/watch?v=7WFYiZersNc&ab_channel=AbdulMunaim}{youtube.com}
-  \item \textbf{V3:} To get a video of a traffic with an obstacle in the view of the camera, we recorded a video on
-  our own.
+  \item \textbf{V2:} The source of the next video is YouTube as well. It captures a common traffic. The link of this
+  video: \href{https://www.youtube.com/watch?v=7WFYiZersNc&ab_channel=AbdulMunaim}{youtube.com}
+  \item \textbf{V3:} To get a video of a traffic with an obstacle in the view of the camera, we recorded our own video.
  % \item \textbf{V4:} Another video, we recorded, with a slightly different scenario.
 \end{itemize}
-
-In all experiments as a state space model, CVM model is used, i.e., the state $x_k = [p_{x,k},p_{y,k},v_{x,k},v_{y,k}]^T$ of each target consists of two-dimensional position $(p_{x,k},p_{y,k})$ and velocity $(v_{x,k},v_{y,k})$. The measurement is the center of the mask of the detected object, which is typically noisy. The survival probability of the targets $p_{S,k} = 0.99$. A state evolution model \eqref{eq:phd_linear_model_state} is employed with
+ The CVM model is used as a state-space model in all experiments, i.e., the state $x_k = [p_{x
+,k},
+p_{y
+,k},v_{x
+,k},v_{y,
+k}]^T$ of each target consists of two-dimensional position $(p_{x,k},p_{y,k})$ and velocity $(v_{x,k},v_{y,k})$. The measurement is the center of the mask of the detected object, which is typically noisy. The survival probability of the targets $p_{S,k} = 0.99$. A state evolution model \eqref{eq:phd_linear_model_state} is employed with
 \begin{align}
   F_k &=
   \begin{bmatrix}
@@ -35,30 +39,28 @@ the $2\times 2$ identity and zero matrices, respectively.
 The standard deviation $\sigma_{\epsilon}$ is displayed in tables as well.
 
 Since the experiments compare the proposed method for estimating the dynamic detection probability with the constant
-detection probability, each table contains additional information about the necessary parameters. For experiment using the constant
+detection probability, each table contains additional information about the necessary parameters. For experiments that
+use the constant
 detection probability, tables carry the value of the probability. For the dynamic detection probability, values of $T_H, T_C$
 from Equation \eqref{eq:mphd_recursion_update_intesity_misdetect_pd}
 and initial $p_{D,k}(x)$ are provided.
 
-The pruning thresholds are the same for both GM-PHD filters, however, experiments applying filter with the dynamic detection probability, tables
-include the second pruning threshold for pruning targets with state \textit{detected} or \textit{hidden}. The basic
+The pruning thresholds are the same for both GM-PHD filters, however, in the experiments that apply a filter with the
+dynamic detection probability, tables
+include the second pruning threshold for pruning targets with \textit{detected} or \textit{hidden} state. The basic
 pruning threshold is covered in tables as $T_p$, the lowered pruning threshold as $T_l$.
 
-In addition, object detectors' results are dependent on thresholds as well. The Yolo model requires confidence threshold $T_{YOLO}$ for objects visualization. The Grounding DINO model requires two thresholds as it detects objects based on a text input. The text input threshold $T_{text}$ and bounding box (bbox) threshold $T_{bbox}$ for given experiment are included in corresponding parameter settings tables.
+In addition, object detectors' results are dependent on thresholds as well. The YOLO model requires confidence
+threshold $T_{YOLO}$ for objects visualization. The Grounding DINO model requires two thresholds as it detects objects based on a text input. The text input threshold $T_{text}$ and bounding box (bbox) threshold $T_{bbox}$ for given experiment are included in corresponding parameter settings tables.
 
 The labels above
 the targets are the numerical representations of the state targets: $0=\text{detected}, 1=\text{hidden}, 2=\text{dead}$.
 
-The means of the birth places are roughly in the middle of the traffic lanes and its confidence ellipses of size three standard
+The means of the birth places are roughly in the middle of the traffic lines and its confidence ellipses of size of
+three standard
 deviations are bounded by blue ellipses. The red bounding boxes in figures represent bounding
 boxes given by an object detection model. The red ellipses are the covariance matrices of the targets.
 
-
-\section{E1: Traffic without any obstacle}
-The first experiment focuses on comparison of GM-PHD filter with the constant detection probability and GM-PHD filter
-with the dynamic detection probability with different settings explained in Section \ref{sec:mphd_problemDef}. To analyze,
-if our proposed method works in common scenarios, videos do not include any obstacle, thus the targets are
-constantly visible.
 
 
 

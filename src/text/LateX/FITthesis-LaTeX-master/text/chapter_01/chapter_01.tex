@@ -356,8 +356,10 @@ One common application of the constant velocity model in MTT is in the design of
 
 Moreover, the constant velocity model can be seamlessly integrated into recursive Bayesian filters, such as the Kalman filter, for state estimation in MTT. By incorporating the constant velocity model into the state-space representation of the tracking problem, Kalman filter-based algorithms can effectively fuse measurement information with dynamic predictions to estimate the most likely trajectories of targets over time.
     \subsection{Constant acceleration model}
-The Constant Acceleration Model (CAM) stands as a sophisticated extension of the state-space model in multi-target
-tracking, offering a more comprehensive representation of target motion dynamics. Unlike simpler models such as the Constant Velocity Model, which assumes a constant velocity for targets over time, the CAM acknowledges the potential for changes in target acceleration, allowing for more accurate and flexible trajectory estimation. This section delves into the conceptual basis, mathematical formulation, and practical implications of the Constant Acceleration Model in the context of MTT.
+The constant acceleration model (CAM) stands as a sophisticated extension of the state-space model in multi-target
+tracking, offering a more comprehensive representation of target motion dynamics. Unlike simpler models such as the
+constant velocity model, which assumes a constant velocity for targets over time, the CAM acknowledges the potential
+for changes in target acceleration, allowing for more accurate and flexible trajectory estimation. This section delves into the conceptual basis, mathematical formulation, and practical implications of the Constant Acceleration Model in the context of MTT.
 
 In MTT scenarios, targets often exhibit varying degrees of acceleration due to factors such as changes in speed,
 direction, or environmental influences. Ignoring these accelerative effects can lead to biased trajectory estimates and diminished tracking accuracy. The CAM addresses this limitation by incorporating an additional acceleration component into the state-space model, enabling more faithful representation of target motion dynamics. By accounting for changes in acceleration, the CAM provides MTT algorithms with a greater flexibility and adaptability in tracking targets with non-uniform motion profiles.
