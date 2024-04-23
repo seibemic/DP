@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  23 APR 2024 19:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  23 APR 2024 19:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3123,7 +3123,7 @@ e1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
 fonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
 Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (128 pages, 175695993 bytes).
+eX-master/out/ctufit-thesis.pdf (128 pages, 175696003 bytes).
 PDF statistics:
  2274 PDF objects out of 2487 (max. 8388607)
  1913 compressed objects within 20 object streams
