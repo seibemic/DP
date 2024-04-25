@@ -7,9 +7,9 @@ if our proposed method works in common scenarios, videos do not include any obst
 constantly visible.
 
 \subsection{V1}
-The video \textit{V1} is recorded at 29 fps. For simplicity, only the detections of the right side of the traffic are
-taken into the account. This experiment shows frames 36-79 of the video \textit{V1}, as they
-includes some interesting situations.
+The video \textit{V1} is recorded at 29 fps. For simplicity, only the detections of the right side of the traffic lanes are
+taken into the account. Figures in Experiments E1-V1 -- E1-V3 show frames 36-79 of the video \textit{V1}, as they
+include some interesting situations.
 \subsection{V1 -- GM-PHD with the constant detection probability}
 The measurements for the GM-PHD filter with the constant detection probability are obtained by the YOLO object detection
 model. The parameters' values are displayed in Table \ref{tab:E1-V1-S0}.
@@ -18,7 +18,7 @@ model. The parameters' values are displayed in Table \ref{tab:E1-V1-S0}.
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
         $P_{D}$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_p$ & $T_{YOLO}$ \\ \noalign{\hrule height 1.5pt}
-        0.9 & $diag(600,600,600,600)$ & 0.1 & 150 & 0.1 & 0.3\\
+        0.9 & $\diag(600,600,600,600)$ & 0.1 & 150 & 0.1 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment E1-V1 with the constant detection probability.}
@@ -28,7 +28,7 @@ model. The parameters' values are displayed in Table \ref{tab:E1-V1-S0}.
 Figure \ref{fig:E1-V1-S0} shows some highlights of the GM-PHD filter with the constant detection probability.
 \begin{itemize}
     \item \textbf{\ref{fig:E1-V1-S0:01}:} This frame marks the initial state, where four cars have been previously
-    identified, thus constituting our observed targets. In the distance, YOLO detects another car; which, however,
+    identified, thus representing our observed targets. In the distance, YOLO detects another car; which, however,
     has not yet crossed any spawning point, so it is not included in the observed targets set.
     \item \textbf{\ref{fig:E1-V1-S0:02}:} A new car approaches the scene and is expected to be initialized soon. The
     YOLO model, although overall reliable, occasionally misses certain objects, as demonstrated here with the
@@ -47,7 +47,7 @@ Figure \ref{fig:E1-V1-S0} shows some highlights of the GM-PHD filter with the co
     scene. One of the targets encompasses two cars simultaneously, indicating that the GM-PHD filter effectively covers four out of the six targets.
 \end{itemize}
 
-In Graph \ref{gr:E1-V1-S0} it is clearly seen that even though the number of targets is increasing, the misdetection
+In Figure \ref{gr:E1-V1-S0} it is clearly seen that even though the number of targets is increasing, the misdetection
 of the YOLO model causes the targets' loss. The "All targets in set" line is fully covered by the blue line, thus the
 targets are permanently lost and can not be reborn by a measurement.
 
@@ -123,7 +123,7 @@ object detector and if YOLO is not able to detect all the desired objects, targe
 \end{figure}
 
 \subsection{V1 -- GM-PHD with the dynamic detection probability}
-Following experiments test the GM-PHD filter with the dynamic detection probability and the modified pruning in the
+The following experiments test the GM-PHD filter with the dynamic detection probability and the modified pruning in the
 video \textit{V1}.
 \subsubsection{S1 -- YOLO + YOLO}
 This experiment enhances settings \textit{S1}, i.e, the YOLO model provides both object detection bboxes and
@@ -135,7 +135,7 @@ The parameter settings are shown in Table \ref{tab:E1-V1-S1}.
         \hline
         $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ & $T_{YOLO}$ \\ \noalign{\hrule
         height 1.5pt}
-        0.3 & $diag(600,600,600,600)$ & 0.1 & 150 & 1 & 3 & 0.1 & 0.01 & 0.3\\
+        0.3 & $\diag(600,600,600,600)$ & 0.1 & 150 & 1 & 3 & 0.1 & 0.01 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment E1-V1-S1 with the dynamic detection probability.}
@@ -165,7 +165,7 @@ settings \textit{S1}.
 \end{itemize}
 
 
-The graph presented in \ref{gr:E1-V1-S1} showcases the enhanced performance of the GM-PHD filter. While all
+The graph presented in Figure \ref{gr:E1-V1-S1} shows the enhanced performance of the GM-PHD filter. While all
 targets do not immediately appear in the scene upon detection, they often still exist in the queue of targets
 whose weights
 have
@@ -257,7 +257,7 @@ The parameter configurations can be found in Table \ref{tab:E1-V1-S2}.
         \hline
         $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ & $T_{YOLO}$ \\ \noalign{\hrule
         height 1.5pt}
-        0.3 & $diag(600,600,600,600)$ & 0.1 & 150 & 1 & 3 & 0.1 & 0.01 & 0.3\\
+        0.3 & $\diag(600,600,600,600)$ & 0.1 & 150 & 1 & 3 & 0.1 & 0.01 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment E1-V1-S2 with the dynamic detection probability.}
@@ -270,7 +270,7 @@ This sequence is very similar to the previous experiment. There are four targets
 tracked successfully the whole time. In the frame \ref{fig:E1-V1-S2:06} two of the targets are not detected, but both
 survive. The YOLO model is not able to detect the fifth car, but it is initialized later due to the other target.
 
-The graph \ref{gr:E1-V1-S2} shows a better stability in keeping the number of tracked targets. This might be caused by
+Figure \ref{gr:E1-V1-S2} shows a better stability in keeping the number of tracked targets. This might be caused by
 the fact,
 that the object detection YOLO model gives slightly different results than the object detection YOLO model with
 segmentation capabilities. Furthermore, the "All targets in set" orange line, representing the number of targets in the
@@ -359,7 +359,7 @@ All used parameters are included in Table \ref{tab:E1-V1-S3}.
         \hline
         $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ & $T_{text}$ & $T_{bbox}$\\ \noalign{\hrule
         height 1.5pt}
-        0.3 & $diag(600,600,600,600)$ & 0.1 & 150 & 1 & 3 & 0.1 & 0.01 & 0.3 & 0.3\\
+        0.3 & $\diag(600,600,600,600)$ & 0.1 & 150 & 1 & 3 & 0.1 & 0.01 & 0.3 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment E1-V1-S3 with the dynamic detection probability.}
@@ -385,7 +385,7 @@ Figure \ref{fig:E1-V1-S3} shows the performance of the GM-PHD filter with the dy
     solution.
 \end{itemize}
 
-Graph \ref{gr:E1-V1-S3} shows, that the number of detected objects is far beyond the true count. Nevertheless,
+Figure \ref{gr:E1-V1-S3} shows, that the number of detected objects is far beyond the true count. Nevertheless,
 the number of displayed targets is almost on spot till the frame 66. As the targets get closer to each
 other, the
 number of targets grows rapidly, causing errors to the number of tracked objects.

@@ -22,7 +22,7 @@ Parameter settings are embodied in Table \ref{tab:\Ex-\Vs-\Set}.
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
         $P_{D}$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_p$ & $T_{YOLO}$ \\ \noalign{\hrule height 1.5pt}
-        0.9 & $diag(500,500,500,500)$ & 0.1 & 100 & 0.1 & 0.3\\
+        0.9 & $\diag(500,500,500,500)$ & 0.1 & 100 & 0.1 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment {\Ex-\Vs} with the constant detection probability.}
@@ -46,7 +46,7 @@ Figure \ref{fig:\Ex-\Vs-\Set} shows some highlights of the GM-PHD filter with th
     The filter merged these two targets into a single one.
 \end{itemize}
 
-According to Graph \ref{gr:\Ex-\Vs-\Set}, the filter is able to track the targets admirably. However, the graph also
+According to Figure \ref{gr:\Ex-\Vs-\Set}, the filter is able to track the targets successfully. However, the graph also
 shows the weakness of this approach. The peaks displaying the target's loss are clearly present.
 
 With the second spawn point enabling targets to reborn, the GM-PHD filter is able to track all the targets accurately.
@@ -134,7 +134,7 @@ The parameter settings are shown in Table \ref{tab:\Ex-\Vs-\Set}.
         \hline
         $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ & $T_{YOLO}$ \\ \noalign{\hrule
         height 1.5pt}
-        0.3 & $diag(500,500,500,500)$ & 0.1 & 100 & 2 & 3 & 0.1 & 0.0001 & 0.3\\
+        0.3 & $\diag(500,500,500,500)$ & 0.1 & 100 & 2 & 3 & 0.1 & 0.0001 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment {\Ex-\Vs-\Set} with the dynamic detection probability.}
@@ -159,8 +159,8 @@ Figure \ref{fig:\Ex-\Vs-\Set} shows the performance of the GM-PHD filter with th
     from the camera, static motion and observation noises. The third target also survives the misdetection period.
 \end{itemize}
 
-The displayed targets line in Graph \ref{gr:\Ex-\Vs-\Set} is almost the same as in previous experiment. However, the
-orange line shows, that the filter is still informed about all potential targets. As seen in \ref{fig:\Ex-\Vs-\Set} the hidden targets are not lost, their weights are just too small to be displayed.
+The displayed targets line in Figure \ref{gr:\Ex-\Vs-\Set} is almost the same as in previous experiment. However, the
+orange line shows, that the filter is still informed about all potential targets. As seen in Figure \ref{fig:\Ex-\Vs-\Set}, the hidden targets are not lost, their weights are just too small to be displayed.
 
 The performance of the GM-PHD filter with the dynamic detection probability might seem to be very similar to the
 constant detection probability at first glance. But the targets are not removed when hidden. Moreover, the targets' track history is not lost.
@@ -243,7 +243,7 @@ All parameters are included in Table \ref{tab:\Ex-\Vs-\Set}.
         \hline
         $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ & $T_{YOLO}$ \\ \noalign{\hrule
         height 1.5pt}
-        0.3 & $diag(500,500,500,500)$ & 0.1 & 100 & 2 & 3 & 0.1 & 0.0001 & 0.3\\
+        0.3 & $\diag(500,500,500,500)$ & 0.1 & 100 & 2 & 3 & 0.1 & 0.0001 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment {\Ex-\Vs-\Set} with the dynamic detection probability.}
@@ -251,17 +251,17 @@ All parameters are included in Table \ref{tab:\Ex-\Vs-\Set}.
 \end{table}
 
 
-The scenario in \ref{fig:\Ex-\Vs-\Set} is nearly identical as in the experiment with settings \textit{S1}. All targets
+The scenario in Figure \ref{fig:\Ex-\Vs-\Set} is nearly identical as in the experiment with settings \textit{S1}. All targets
 are
 tracked properly and none of them is lost.
 
-The Graph \ref{gr:\Ex-\Vs-\Set} shows the true difference between settings \textit{S1} and \textit{S2}. The blue line
+Figure \ref{gr:\Ex-\Vs-\Set} shows the true difference between settings \textit{S1} and \textit{S2}. The blue line
 deflects less from the true count. In situation where the targets are hidden, the number of the targets in the filters'
-queue (orange line) copies the true count line. Only from frame no. 80, the orange line shows some errors, due to the
+queue (orange line) copies the true count line. Only from the frame no. 80, the orange line shows some errors, due to the
 targets' appearance in the same neighborhood.
 
 The settings \textit{S2} again shows a slightly improved performance over settings \textit{S1}. The overall
-performance can be seen in Graph \ref{gr:\Ex-\Vs-\Set}.
+performance can be seen in Figure \ref{gr:\Ex-\Vs-\Set}.
 
 \begin{figure}[H]
     \centering
@@ -350,7 +350,7 @@ is able to detect the hidden objects behind the light pole, thus the advantage o
 not apparent. All targets are tracked precisely and no misdetection is present.
 
 Till the frame no. 85, the number of displayed targets (blue line) and the number of targets in filter's queue (
-orange line) exactly copies the true number of target's line in Graph \ref{gr:\Ex-\Vs-\Set}. It is, of course,
+orange line) exactly copies the true number of target's line in Figure \ref{gr:\Ex-\Vs-\Set}. It is, of course,
 influenced
 by the employment of the enhanced object detector, which has maneged to detect semi-hidden targets. The incresing and
 decreasing number

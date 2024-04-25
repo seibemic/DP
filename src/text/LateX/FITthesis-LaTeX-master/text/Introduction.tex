@@ -31,7 +31,7 @@ the development of filters such as the Joint Probabilistic Data Association (JPD
 Today, the landscape of MTT algorithms is characterized by diversity, with approaches tailored to specific tracking challenges. Two main categories dominate: association-based methods and RFS-based methods.
 
 Association-based methods focus on linking measurements to existing tracks or crea\-ting new tracks. This category
-includes well-established algorithms such as the Kalman filter and its variants (Extended Kalman Filter \cite{EKF}, Unscented Kalman Filter \cite{UKF}), as well as more advanced methods like the Joint Probabilistic Association (JPDA) filter and the Multiple Hypothesis Tracker (MHT) \cite{bar1988tracking}, which address clutter and uncertainty in tracking scenarios.
+includes well-established algorithms such as the Kalman filter and its variants (Extended Kalman Filter \cite{EKF}, Unscented Kalman Filter \cite{UKF}), as well as more advanced methods like the Joint Probabilistic Association (JPDA) filter and the Multiple Hypothesis Tracker (MHT) \cite{basicMHT}, which address clutter and uncertainty in tracking scenarios.
 
 In contrast, RFS-based methods offer a probabilistic framework to simultaneously model multiple target states.
 Operating on sets of possible target states, these me\-thods provide a comprehensive representation of uncertainty and
@@ -93,7 +93,7 @@ As we will see later in this work, all Gaussian filters that take clutter into c
 setting
 of a motion model or a measurement model. Moreover, recursion requires an estimation of parameters such as
 the survival probability and the detection probability. This thesis focuses on tracking targets in video
-data and takes advantage of image processing model YOLO (You Only Look Once). Due to this combination, we are able to
+data and takes advantage of image processing model YOLO (You Only Look Once) \cite{yanYolo2023}. Due to this combination, we are able to
 estimate the detection probability in time and enhance the tracking capability of the filter.
 
 %%%%%%%%%%%%%%%%%%%%%

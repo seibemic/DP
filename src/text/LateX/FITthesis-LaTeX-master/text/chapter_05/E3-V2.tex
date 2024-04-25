@@ -1,7 +1,7 @@
 \section{E3: Changing the model}
 \renewcommand{\Ex}{E3}
 Up to this point, all experiments have employed the observation and state-space models outlined in the introduction
-of the Experiments section (see \ref{sec:experiments}). However, using these models in scenarios presented by videos \textit{V1, V2, V3} comes with several disadvantages. The state-space model assumes an uniform position uncertainty in all directions for targets. Additionally, the videos are not captured from a bird's-eye point of view, but from an angled perspective. This camera angle causes the detected targets to appear smaller when they are further away, and larger when they are closer to the camera. Consequently, this effect alters the actual movement model of the targets, which our current model does not account for.
+of the Experiments section (see Section \ref{sec:experiments}). However, using these models in scenarios presented by videos \textit{V1, V2, V3} comes with several disadvantages. The state-space model assumes an uniform position uncertainty in all directions for targets. Additionally, the videos are not captured from a bird's-eye point of view, but from an angled perspective. This camera angle causes the detected targets to appear smaller when they are further away, and larger when they are closer to the camera. Consequently, this effect alters the actual movement model of the targets, which our current model does not account for.
 
 
 Considering the videos utilized in this study, we can leverage prior knowledge regarding the movement patterns of the potential targets. It is established that cars are inclined to move in the
@@ -29,11 +29,11 @@ and process covariance matrix
     Q_k &=
     \begin{bmatrix}
         2 & 0.5 & 0 & 0\\
-        0 & 1 & 0 & 0 \\
+        0.5 & 1 & 0 & 0 \\
         0 & 0 & 1 & 0 \\
         0 & 0 & 0 & 1
     \end{bmatrix}
-    * 0.003.
+    \cdot 0.003.
     \label{eq:exp_E3-V2_Q}
 \end{align}
 
@@ -42,9 +42,9 @@ The observation covariance matrix is reformulated as
     R_k &=
     \begin{bmatrix}
         2 & 0.5 \\
-        0 & 1
+        0.5 & 1
     \end{bmatrix}
-    * 20.
+    \cdot 20.
     \label{eq:exp_E3-V2_R}
 \end{align}
 
@@ -53,7 +53,7 @@ The spawning point providing nearby targets with initial covariance matrix $P$ i
     P_k &=
     \begin{bmatrix}
         80 & 20 & 0 & 0 \\
-        0 & 40 & 0 & 0 \\
+        20 & 40 & 0 & 0 \\
         0 & 0 & 40 & 0 \\
         0 & 0 & 0 & 40
     \end{bmatrix}. \label{eq:exp_E3-V2_P}
@@ -73,7 +73,7 @@ threshold $T_l$. Due to the better model settings and the dynamic detection prob
         \hline
         $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ & $T_{text}$ & $T_{bbox}$\\ \noalign{\hrule
         height 1.5pt}
-        0.3 & see \ref{eq:exp_E3-V2_P} & see \ref{eq:exp_E3-V2_Q} & see \ref{eq:exp_E3-V2_R} & 0.6 & 3 & 0.1 & 0.1 & 0.3 & 0.3\\
+        0.3 & see Eq. \ref{eq:exp_E3-V2_P} & see Eq. \ref{eq:exp_E3-V2_Q} & see Eq. \ref{eq:exp_E3-V2_R} & 0.6 & 3 & 0.1 & 0.1 & 0.3 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment {\Ex-\Vs-\Set} with the dynamic detection probability.}
@@ -146,7 +146,7 @@ and the left car as $C_L$.
 \end{figure}
 
 
-Table \ref{tab:\Ex-\Vs-\Set_pd_w} and Graph \ref{gr:\Ex-\Vs-\Set} display the values of the detection probabilities
+Table \ref{tab:\Ex-\Vs-\Set_pd_w} and Figure \ref{gr:\Ex-\Vs-\Set} display the values of the detection probabilities
 of targets $
 C_L$
 and $C_R$ in
@@ -154,7 +154,7 @@ corresponding
 frames. If the targets are visible in the scene, the detection probability is large. Once the targets are hidden
 behind the obstacle, the detection probability rapidly drops. The value of the probability is about 0.1 from frame $
 50$ to $54$. The effect of this low detection probability is projected in Table \ref{tab:\Ex-\Vs-\Set_pd_w} and Graph \ref{gr:\Ex-\Vs-\Set} as well. The targets'
-weight is slowly decreasing, sustaining the targets' existence in period without any measurement.
+weights are slowly decreasing, sustaining the targets' existence in period without any measurement.
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}

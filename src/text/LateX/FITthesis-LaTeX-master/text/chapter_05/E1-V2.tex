@@ -13,7 +13,7 @@ model. The parameters' values are displayed in Table \ref{tab:E1-V2-S0}.
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
         $P_{D}$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_p$ & $T_{YOLO}$ \\ \noalign{\hrule height 1.5pt}
-        0.9 & $diag(100,100,100,100)$ & 0.1 & 30 & 0.1 & 0.3\\
+        0.9 & $\diag(100,100,100,100)$ & 0.1 & 30 & 0.1 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment E1-V2 with the constant detection probability.}
@@ -38,7 +38,7 @@ Figure \ref{fig:E1-V2-S0} displays the performance of the GM-PHD filter with the
 
 
 The GM-PHD filter with the constant detection probability is accurate in scenarios, where the object detector does not
-miss detections regularly. Graph \ref{gr:E1-V2-S0} shows that the number of displayed targets is close enough
+miss detections regularly. Figure \ref{gr:E1-V2-S0} shows that the number of displayed targets is close enough
 to the true count. Even false detections created by YOLO did not mislead the filter.
 
 
@@ -113,7 +113,7 @@ The parameter settings are shown in Table \ref{tab:E1-V2-S1}.
         \hline
         $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ & $T_{YOLO}$ \\ \noalign{\hrule
         height 1.5pt}
-        0.3 & $diag(600,600,600,600)$ & 0.1 & 30 & 1 & 3 & 0.1 & 0.01 & 0.3\\
+        0.3 & $\diag(600,600,600,600)$ & 0.1 & 30 & 1 & 3 & 0.1 & 0.01 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment E1-V2-S1 with the dynamic detection probability.}
@@ -125,25 +125,26 @@ Figure \ref{fig:E1-V2-S1} shows the performance of the GM-PHD filter with the dy
     \item \textbf{\ref{fig:E1-V2-S1:01}:} Analogously to the previous analysis, four targets have surpassed the
     spawning point and are tracked by the GM-PHD filter. The targets' presence in the close proximity results in an
     additional false targets' existence.
-    \item \textbf{\ref{fig:E1-V2-S1:02}:} The problem of targets' neighbouring persists.
+    \item \textbf{\ref{fig:E1-V2-S1:02}:} The problem of targets' neighboring persists.
     \item \textbf{\ref{fig:E1-V2-S1:03}:} Moreover, the YOLO model classifies the targets' shadows as another cars,
     causing the initialization of extra targets.
     \item \textbf{\ref{fig:E1-V2-S1:04}:} A new car crosses the spawning point, yet the YOLO model fails to detect it.
-    \item \textbf{\ref{fig:E1-V2-S1:05}:} The new car has been previously detected and initialized. The two
+    \item \textbf{\ref{fig:E1-V2-S1:05}:} The new car has been previously detected and
+    initialized. The two
     neighbouring cars still generate additional false targets.
     \item \textbf{\ref{fig:E1-V2-S1:06}:} Finally, there appear only two targets representing the two cars. The other
     two
     cars are tracked properly.
 \end{itemize}
 
-The Graph \ref{gr:E1-V2-S1} depicts a similar performance of the GM-PHD filter with the dynamic detection probability as
+Figure \ref{gr:E1-V2-S1} depicts a similar performance of the GM-PHD filter with the dynamic detection probability as
 the GM-PHD filter with the constant detection probability. The number of displayed targets exceeds the true number of
 targets due to already presented reasons.
 
 
 The improved ability of the target's survival resulted in a slightly decreased the overall tracking performance. The
 YOLO model
-has been able to detect tracked objects meticulously, which leads to needlessness of the dynamic detection
+has been able to detect tracked objects flawlessly, which leads to needlessness of the dynamic detection
 probability
 and modified pruning method enabling enhanced targets' ability to survive.
 
@@ -219,7 +220,7 @@ All parameters are included in Table \ref{tab:E1-V2-S2}.
         \hline
         $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ & $T_{YOLO}$ \\ \noalign{\hrule
         height 1.5pt}
-        0.3 & $diag(100,100,100,100)$ & 0.1 & 30 & 1 & 3 & 0.1 & 0.01 & 0.3\\
+        0.3 & $\diag(100,100,100,100)$ & 0.1 & 30 & 1 & 3 & 0.1 & 0.01 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment E1-V2-S2 with the dynamic detection probability.}
@@ -230,11 +231,12 @@ All parameters are included in Table \ref{tab:E1-V2-S2}.
 The situation resembles the situation with settings \textit{S1}. Four targets occur in Figure \ref{fig:E1-V2-S2:01}.
 They continue in their path while all targets are tracked successfully with one exception. No additional targets appear
 in the subsequent frames. The YOLO model detects a car's shadow and clasifies it as an another car, which makes
-the added target in \ref{fig:E1-V2-S2:03}. Due to the merging step, this false target does not survive to the subsequent
-frames. A new car is initialized in \ref{fig:E1-V2-S2:04}. All targets are tracked in the
+the added target in Figure \ref{fig:E1-V2-S2:03}. Due to the merging step, this false target does not survive to the subsequent
+frames. A new car is initialized in Figure \ref{fig:E1-V2-S2:04}. All targets are tracked in the
 last frames.
 
-The number of displayed targets is close to the true number of targets in Graph \ref{gr:E1-V2-S2}. The number of
+The number of displayed targets is close to the true number of targets in Figure
+\ref{gr:E1-V2-S2}. The number of
 detected targets exceeds the number of true targets for majority of the time, due to the presence of false
 detections.
 
@@ -304,7 +306,7 @@ Table \ref{tab:E1-V2-S3}.
         \hline
         $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ & $T_{text}$ & $T_{bbox}$\\ \noalign{\hrule
         height 1.5pt}
-        0.3 & $diag(100,100,100,100)$ & 0.1 & 30 & 1 & 3 & 0.1 & 0.01 & 0.3 & 0.3\\
+        0.3 & $\diag(100,100,100,100)$ & 0.1 & 30 & 1 & 3 & 0.1 & 0.01 & 0.3 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment E1-V2-S3 with the dynamic detection probability.}
@@ -326,7 +328,7 @@ in the other settings.
 
 Even though the two cars driving side by side cause the filter with given parameters a few modest problems, the merging
 and
-the pruning steps can usually deal with such situations, as seen in Graph \ref{gr:E1-V2-S3}. The line
+the pruning steps can usually deal with such situations, as seen in Figure \ref{gr:E1-V2-S3}. The line
 showing
 the number of displayed targets almost copies the line showing the true counts. The graph also shows the problem of
 two neighbouring targets and the problem of false detections. The peaks in the red line show these false detections,

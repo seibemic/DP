@@ -196,12 +196,12 @@ can also be the center of a bounding box provided by the YOLO model.
 
 However, for our purposes, it is not recommended
 to use the combination of both inputs, as SAM is able to produce multiple masks for an object. For example, if we
-denote, that we want to segment a whole person by a bounding box, one of the output masks can be just his jacket, as it
+denote that we want to segment a whole person by a bounding box, one of the output masks can be just his jacket, as it
 makes a
 valid segmentation mask. Combining these two inputs can, therefore, produce this undesirable output. Another
 example of
 such
-behaviour
+behavior
 is shown in the Figure \ref{fig:sam_examples}
 \begin{figure}[htbp]
   \centering
@@ -230,7 +230,8 @@ The cooperation of these two models is demonstrated in Figure \ref{fig:yolo_sam_
   \centering
   \includegraphics[width=0.35\linewidth]{text/chapter_04/imgs/YOLO_SAM_02}
   \caption{The cooperation of YOLO and SAM models. The YOLO provides bounding boxes of objects, which are inputs to
-  SAM. The SAM model then makes segmented masks of these objects.}
+  SAM. The SAM model then makes segmented masks of these objects. This figure was taken in
+  Kartouzská street, Prague.}
   \label{fig:yolo_sam_seg}
 \end{figure}
 
@@ -253,7 +254,8 @@ SAM uses these bounding boxes to segment objects and creates segmentation binary
   \centering
   \includegraphics[width=0.35\linewidth]{text/chapter_04/imgs/DINO_example}
   \caption{The result of the Grounded SAM model. Grounding DINO marks objects with bounding boxes and SAM segments
-  objects inside these bboxes. Marked objects are founded by Grounding DINO with text input \textit{person, car}.}
+  objects inside these bboxes. Marked objects are founded by Grounding DINO with text input \textit{person, car}. This figure was taken in
+  Kartouzská street, Prague.}
   \label{fig:GroundedSAM}
 \end{figure}
 
@@ -269,10 +271,8 @@ point estimate of $p_{D}(x)$ at time $k$ on the similarity of the subsequent fra
       \sigma_j\left[h_i\left(M(x; k|k-1) \!\circ\! D_k\right),
         h_i\left(M(x; k-1) \!\circ\! D_k\right)\right]}{\|S_c\| \cdot \|H\|}, \label{eq:similarity}
   \end{align}
-
-where $D_k$ is the frame in the given color spectrum, $h_i(\cdot)$ is a color histogram made from given color spectrum
-, $A\circ B$ is the Hadamard product, $M(\cdot, \cdot)$ is the object binary mask, and $\sigma_j[\cdot, \cdot]$ is
-the given similarity of two vectors. The $\|\cdot\|$ values in the denominator represent the set size. The whole
+where $D_k$ is the frame in the given color spectrum, $h_i(\cdot)$ is a color histogram made from given color spectrum, $A\circ B$ is the Hadamard product, $M(\cdot, \cdot)$ is the object binary mask, and $\sigma_j[\cdot, \cdot]$ is
+the given similarity of two vectors. $\|\cdot\|$ denotes the set size. The whole
 fraction is, in fact, the mean value across all color spectra and similarity functions.
 
 There are many color spectra to consider, each providing certain benefits and downsides. The list of color spectra used
@@ -319,7 +319,7 @@ We apply a range of similarity functions, each with its unique advantages and li
   elements is more significant than their values. Additionally, it treats all elements equally, disregarding their
   magnitudes, which can be a limitation in certain contexts. The intersection is formulated
     \begin{align}
-      S_{inter}[A,B] &= \frac{\sum_{i=1}^{\|A\|} min(A_i, B_i) }{\sum_{i=1}^{\|B\|} B_i},
+      S_{inter}[A,B] &= \frac{\sum_{i=1}^{\|A\|} \min(A_i, B_i) }{\sum_{i=1}^{\|B\|} B_i},
     \end{align}
     where $\|\cdot\|$ denotes the set size.
   \item \textbf{Pearson correlation coefficient} -- Correlation measures the linear relationship between two
@@ -328,9 +328,9 @@ We apply a range of similarity functions, each with its unique advantages and li
   data. Moreover, correlation assumes a linear relationship between variables, which may not always hold true, and it
   is susceptible to outliers and non-linear relationships, potentially  affecting its reliability in certain scenarios. In this work, we calculate the correlation between corresponding elements in sets $A, B$ as
     \begin{align}
-      S_{corr}[A,B] &= \frac{cov(A,B)}{\sigma_A \sigma_B},
+      S_{corr}[A,B] &= \frac{\operatorname{cov}(A,B)}{\sigma_A \sigma_B},
     \end{align}
-    where $cov$ is the covariance and $\sigma_{(\cdot)}$ is the standard deviation,
+    where $\operatorname{cov}$ is the covariance and $\sigma_{(\cdot)}$ is the standard deviation,
 \end{itemize}
 
 For simplicity, let us denote the fraction in \eqref{eq:similarity} as $S_c$. This value represents the "average"
@@ -383,7 +383,7 @@ computational resources are allocated judiciously, striking a balance between ac
 Recall that sensors in our work are represented by cameras. Naturally, the detecting algorithms are unable to
 recognize an object hidden by an obstacle. These obstacles may differ not only in size but also in color. In
 situations where the color of an obstacle closely matches the surrounding scene, the likelihood of detection remains
-sufficiently high, increasing the risk that the target may not survive even though it is only hidden. In order to suppress this phenomenon, we introduce a method for modified pruning along with standard pruning and merging techniques \cite{VoMaPHD2006}.
+sufficiently high, increasing the risk that the target may not survive even though it is only hidden. In order to suppress this phenomenon, we introduce a method for modified pruning along with the standard pruning and merging techniques \cite{VoMaPHD2006}.
 
 The most deployed generic method for pruning consists of removing targets with weights below some predefined threshold. Nonetheless, as mentioned before, targets with some history may only be hidden, and it is not desired to remove these targets from the scene. To overcome this issue, we assign each target a tag that represents the state in which the target is likely to occur,
 \begin{equation}
@@ -420,7 +420,7 @@ where
 $D_k(\cdot)$ is a part of a frame within the bounding box given by $B(\cdot)$. With this approach, when a target is most likely in the \textit{hidden} state, the pruning threshold is heuristically lowered to prevent the target removal.
 
 In summary, first we define a birth place in a scene. We call this birth place a spawn point (SP). It is possible to
-define more spawn points in a scene, depending on the situation. If a target crosses this spawn point, it is
+define more spawn points in a scene, depending on the situation. If a target appears at this spawn point, it is
 initialized, and since it is the first time the target has been seen, the detection probability is a predefined
 constant. In the
 next time step, suppose that the target is detected and there is one measurement (originating from this target) in the
@@ -431,17 +431,16 @@ we first predict the target's position and covariance
 matrix, we move the target's mask detected at time $k-1$ to $k$ by its velocity (in case of the CVM model). Then the
 predicted mask color properties are compared to the mask made from the new measurement from time $k$. If nothing
 unpredictable happens, both masks should occur on a very similar position, thus the color masks' properties should be
-very similar. It such case, the detection probability is very likely to be high, lowering the weight of the
+very similar. In such case, the detection probability is very likely to be high, lowering the weight of the
 misdetection-born target. As the weight is small, the target is likely to be removed during the pruning step.
 
 If the previously detected target is hidden behind an obstacle and the object detector does not provide any
 measurement, only misdetection-born target arises. In such case, the mask from the time when the target was lastly
 detected is compared to the predicted mask that now also contains the obstacle's color properties. Due to using
-cameras as
-a sensor, frames at high frame rate are produced. It is not desired to lower fps to something like 1 fps, as a lot of
-information are lost. We lower the fps to 10-20 fps to enhance the dynamics of the scene. However, in a such short time
+camera as
+a sensor, frames at high frame rate are produced. To prevent the loss of significant information, lowering the fps to a minimal rate is not desirable. We lower the fps to 10-30 fps to enhance the dynamics of the scene. However, in a such short time
 period, the target, e.g. a car, does not move enough. The predicted mask then intersects with the lastly
-detected target's mask by a considerably huge amount. That is why we define a hidden probability $p_{H,k}$ and modify
+detected target's mask by a considerably huge amount. That is why we define a probability of the target to be hidden (\textit{hidden probability}, $p_{H,k}$) and modify
 the pruning of components. As the masks are likely to intersect, the detection probability is likely to be high in
 the first couple of frames, where the target is hidden. It is essential for the target to survive through this time
 period. The hidden probability is based on the color properties of bounding boxes from the time the target was lastly
@@ -451,7 +450,7 @@ bounding box reveals the color properties of the obstacle, that are likely to be
 target
 when it was lastly detected. Then, the hidden probability should be low and the target's state should be in a hidden
 state,
-based on \ref{eq:mphd_transition_matrix}, therefore the pruning threshold is lowered. After the target overtakes the
+based on \eqref{eq:mphd_transition_matrix}, therefore the pruning threshold is lowered. After the target overtakes the
 obstacle,
 it should appear in a scene and be detected again. If it does not and the color properties of a scene given by the
 moving
@@ -466,7 +465,7 @@ targets that appear in the same neighbourhood. This procedure is especially usef
 occur in a validation region of a target. If at least some of these measurements originate from clutter, the target
 count increases rapidly due to the
 GM-PHD recursion, increasing the computational requirements. To prevent this issue,
-the target merging technique is necessary.
+the target merging technique is \linebreak necessary.
 In the GM-PHD filter, each target carries three variables: the target's weight $w$, mean $m$ and a covariance matrix $P$.
 Merging these values of multiple filters is straightforward and is described in \cite{VoMaPHD2006} and Section \ref{sec:phd_pruning_and_merging}. However, in our modified GM-PHD filter, each target also holds these information:
 \begin{itemize}
@@ -480,13 +479,13 @@ Merging these values of multiple filters is straightforward and is described in 
   the update
   step. In order to inialize current mask, it must have been initialized by a measurement in
   the past. The mask is shifted according to \eqref{eq:mphd_recursion_update_intesity_misdetect_M_shifted}.
-  \item Data structure \textbf{Object Stats:} Every new target born in the update step of the GM-PHD filter by a
-  measurement $z$ from a target with a previous state $\xi$, contains a data structure \textit{Object Statss}. This
+  \item \textbf{Object Stats:} Every new target born in the update step of the GM-PHD filter by a
+  measurement $z$ from a target with a previous state $\xi$, contains a data structure \textit{Object Stats}. This
   structure is composed of many variables determining the target's history. These variable arise in the update step from
   a measurement and are useful for calculating the dynamic detection probability in Equations
   \eqref{eq:mphd_recursion_update_intesity_misdetect_pd} - \eqref{eq:mphd_recursion_update_intesity_misdetect_pH}.
       \begin{itemize}
-        \item \textbf{Bounding box position:} This variable in Object stats represents a bounding box from the time
+        \item \textbf{Bounding box position:} This variable in \textit{Object stats} represents a bounding box from the time
         the target was lastly detected. To calculate $p_{H,k}$ in
         \eqref{eq:mphd_recursion_update_intesity_misdetect_pH}, this and the current bbox are compared.
         \item \textbf{Mask:} This variable represents the target's mask from the time the target was lastly detected. In \eqref{eq:mphd_recursion_update_intesity_misdetect_pd} and \eqref{eq:mphd_recursion_update_intesity_misdetect_z_pd} this mask is compared to the current mask
@@ -505,7 +504,7 @@ Merging these values of multiple filters is straightforward and is described in 
         first.
         \item \textbf{Result matrix:} The result matrix is an ongoing outcome of a previous result matrix and a
         transition
-        matrix, i.e, result matrix $R_k = R_{k-1} P^{k-k_0}$, where $k_0$ is the time the target was born,
+        matrix, i.e, the result matrix $R_k = R_{k-1} P^{k-k_0}$, where $k_0$ is the time the target was born,
         $R_0 = I_3$ and $I_n$ is the identity matrix of the shape $n\times n$.
       \end{itemize}
 \end{itemize}
@@ -517,7 +516,7 @@ The current bounding box merging is straightforward as $(x_1,y_1)$ and $(x_2,y_2
 averaged using the targets' weight. Let us define a set $L$, which represents a subset of targets to merge into a single
 target. Then a resulting target's bbox
 \begin{align}
-  \tilde{B}_k^{(l)} &= \frac{\sum_{i \in L} B_k^{(i)} * w_k^{(i)}}{\sum_{i \in L}{w_k^{(i)}}},
+  \tilde{B}_k^{(l)} &= \frac{\sum_{i \in L} B_k^{(i)} \cdot w_k^{(i)}}{\sum_{i \in L}{w_k^{(i)}}},
 \end{align}
 where $w_k^{(i)}$, is the weight of a target $i$ is the weighted mean of targets in subset $L$. The same procedure is
 applied to the bounding box in \textit{Object Stats}, i.e., the previous bbox.
@@ -527,23 +526,23 @@ masks of targets in the subset $L$ are converted into \textit{float} data type, 
 and
 divided by the sum of these weights. To get the resulting binary mask, each element of mask
 \begin{align}
-  \tilde{M}_k^{(l)} &= \frac{\sum_{i \in L} M_k^{(i)} * w_k^{(i)}}{\sum_{i \in L}{w_k^{(i)}}}
+  \tilde{M}_k^{(l)} &= \frac{\sum_{i \in L} M_k^{(i)} \cdot w_k^{(i)}}{\sum_{i \in L}{w_k^{(i)}}}
 \end{align}
 is rounded either to zero or one and the mask is converted to the binary data type.
 
 We have not experimented with complicated merging of frames and time stamps, only argument maxima is used for both
 values, i.e,
 \begin{align}
-  \tilde{t}_k^{(l)} &= max_{i \in L} t_k^{(i)}, \\
+  \tilde{t}_k^{(l)} &= \max_{i \in L} t_k^{(i)}, \\
   \tilde{D}_k^{(l)} &= D_k^{(\tilde{t}_k^{(l)})}.
 \end{align}
 
 As the initial distribution is the same for every target, the resulting merged target's initial distribution is only a
 copy of any target in $L$.
 
-The result matrix merging procedure is similar to the bounding box distribution. The result matrix
+The result matrix merging procedure is similar to the bounding box distribution. The resulting matrix
 \begin{align}
-  \tilde{N}_k^{(l)} &= \frac{\sum_{i \in L} N_k^{(i)} * w_k^{(i)}}{\sum_{i \in L}{w_k^{(i)}}}
+  \tilde{N}_k^{(l)} &= \frac{\sum_{i \in L} N_k^{(i)} \cdot w_k^{(i)}}{\sum_{i \in L}{w_k^{(i)}}}
 \end{align}
 is the "average" result matrix of targets in subset $L$.
 

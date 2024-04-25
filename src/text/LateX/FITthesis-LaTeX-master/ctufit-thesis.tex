@@ -113,8 +113,11 @@ future improvements.}
 %%%%%%%%%%%%%%%%%%%%%%
 \usepackage{dirtree}
 \usepackage{lipsum,tikz}
-\usepackage[style=ieee]{biblatex} %iso-numeric
+\usepackage[style=ieee]{biblatex}
+\DeclareFieldFormat[book,misc, article]{series}{#1}
+\DeclareFieldFormat[book,misc, article]{volume}{#1}
 \addbibresource{text/bib-database.bib}
+
 \usepackage{listings} % typesetting of sources
 %\usepackage[newfloat]{minted}\captionsetup[listing]{position=top} % typesetting of sources
 \usepackage{csquotes}
@@ -312,6 +315,7 @@ HMM & Hidden Markov Model \\
 \include{text/chapter_04/chapter_04}
 \include{text/chapter_05/chapter_05}
 
+%\input{text/bib-database}
 \include{text/coclusion}
 \appendix\appendixinit % do not remove these two commands
 

@@ -6,7 +6,7 @@ disposing any object detection system of the capability to capture targets. To s
 artificially
 add a road crossing the main highway line in the video \textit{V2}. Although it is evident that the added road does
 not belong to the scene, its color characteristics closely resemble those of the natural highway line. Furthermore,
-the video playback's frame rate is decreased to 10 fps.
+the video playback frame rate is decreased to 10 fps.
 
 \subsection{V2a -- GM-PHD with the dynamic detection probability}
 Based on the prior experiments, it is deemed unproductive to assess the GM-PHD filter under the constant detection
@@ -22,7 +22,7 @@ The parameter settings are shown in Table \ref{tab:\Ex-\Vs-\Set}.
         \hline
         $P_{D,k}(x)$ & $P$ & $\sigma_{\upsilon}$ & $\sigma_{\epsilon}$ & $T_H$ & $T_d$ & $T_p$ & $T_l$ & $T_{YOLO}$ \\ \noalign{\hrule
         height 1.5pt}
-        0.3 & $diag(40,40,40,40)$ & 0.04 & 120 & 0.5 & 3 & 0.1 & 0.001 & 0.3\\
+        0.3 & $\diag(40,40,40,40)$ & 0.04 & 120 & 0.5 & 3 & 0.1 & 0.001 & 0.3\\
         \hline
     \end{tabular}
     \caption{The parameter settings for Experiment {\Ex-\Vs-\Set} with the dynamic detection probability.}
@@ -31,9 +31,9 @@ The parameter settings are shown in Table \ref{tab:\Ex-\Vs-\Set}.
 
 In Figure \ref{fig:\Ex-\Vs-\Set} we can see the tracking performance of the GM-PHD filter with settings \textit{S1}
 on the traffic situation with an added obstacle. For this experiment, two additional bounding boxes are displayed.
-The blue bbox represents the place, the target has been lastly detected in. The black bbox is the moving bbox from \eqref{eq:mphd_bbox_shift}. The color characterics of the scene given by these two bounding boxes are compared to calculate $p_{H,k}$ in \eqref{eq:mphd_recursion_update_intesity_misdetect_pH}.
+The blue bbox represents the place, the target has been lastly detected in. The black bbox is the moving bbox from Equation \eqref{eq:mphd_bbox_shift}. The color characterics of the scene given by these two bounding boxes are compared to calculate $p_{H,k}$ in \eqref{eq:mphd_recursion_update_intesity_misdetect_pH}.
 \begin{itemize}
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:01}:} The tracking starts with frame no. 47. There are two cars next to each
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:01}:} The tracking starts with the frame no. 47. There are two cars next to each
     other. At this moment, the cars are coming close to the obstacle.
     \item \textbf{\ref{fig:\Ex-\Vs-\Set:02}:} The targets are obscured and remain undetected, with their state labeled as \textit{hidden}.
     \item \textbf{\ref{fig:\Ex-\Vs-\Set:03}:} Given the characteristics of the scene, the targets' positions lag slightly behind their true positions.

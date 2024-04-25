@@ -1,12 +1,12 @@
 \chapter{Experiments}
 \label{sec:experiments}
-In order to demonstrate the efficacy of the proposed method for estimating the detection probability, numerous experiments were conducted. This section meticulously examines each of these experiments, delineating the selected parameters and conducting a comparative analysis against the GM-PHD filter with constant detection probability.
-Experiments were performed using a combination of video footage.
+In order to demonstrate the efficacy of the proposed method for estimating the detection probability, numerous experiments were conducted. This section meticulously exa\-mines each of these experiments, delineating the selected parameters and conducting a comparative analysis against the GM-PHD filter with constant detection probability.
+Experiments were performed using a three video footage.
 \begin{itemize}
   \item \textbf{V1:} This video shot by a camera from a highway was downloaded from YouTube. The link of this video: \href{https://www.youtube.com/watch?v=KBsqQez-O4w&t=30s&ab_channel=NickMartinez}{youtube.com}
-  \item \textbf{V2:} The source of the next video is YouTube as well. It captures a common traffic. The link of this
+  \item \textbf{V2:} The source of the next video is from YouTube as well. It captures a common traffic. The link of this
   video: \href{https://www.youtube.com/watch?v=7WFYiZersNc&ab_channel=AbdulMunaim}{youtube.com}
-  \item \textbf{V3:} To get a video of a traffic with an obstacle in the view of the camera, we recorded our own video.
+  \item \textbf{V3:} To get a video of a traffic with an obstacle in the view of the camera, we recorded our own video. This video has been taken in Kartouzská street, Prague.
  % \item \textbf{V4:} Another video, we recorded, with a slightly different scenario.
 \end{itemize}
  The CVM model is used as a state-space model in all experiments, i.e., the state $x_k = [p_{x
@@ -14,7 +14,7 @@ Experiments were performed using a combination of video footage.
 p_{y
 ,k},v_{x
 ,k},v_{y,
-k}]^T$ of each target consists of two-dimensional position $(p_{x,k},p_{y,k})$ and velocity $(v_{x,k},v_{y,k})$. The measurement is the center of the mask of the detected object, which is typically noisy. The survival probability of the targets $p_{S,k} = 0.99$. A state evolution model \eqref{eq:phd_linear_model_state} is employed with
+k}]^T$ of each target consists of two-dimensional position $(p_{x,k},p_{y,k})$ and velocity $(v_{x,k},v_{y,k})$. The measurement is the center of the mask of the detected object, which is typically noisy. The survival probability of the targets $p_{S,k} = 0.99$. The state evolution model \eqref{eq:phd_linear_model_state} is employed with
 \begin{align}
   F_k &=
   \begin{bmatrix}
@@ -28,21 +28,19 @@ k}]^T$ of each target consists of two-dimensional position $(p_{x,k},p_{y,k})$ a
   \end{bmatrix},
 \end{align}
 where $I_n$ and $0_n$ denote the $n\times n$ identity and zero matrices respectively and $\Delta = 1$ is the sampling
-period.
-
-For every experiment, different parameters for the model have to be applied. Parameters like $P, \sigma_{\upsilon}$
-are displayed in corresponding tables.
+period. For every experiment, different parameters for the model have to be applied. Parameters like $P, \sigma_{\upsilon}$
+are displayed in the corresponding tables.
 
 The measurement follows the observation model \eqref{eq:phd_linear_model_measurements} with $H_k = [I_2, 0_2]$, $R_k
 = \sigma_{\epsilon}^2I_2$, where $ \sigma_{\epsilon}$ is the standard deviation of the measurement noise.  $I_2$ and $0_2$ stand for
 the $2\times 2$ identity and zero matrices, respectively.
-The standard deviation $\sigma_{\epsilon}$ is displayed in tables as well.
+The standard deviation $\sigma_{\epsilon}$ is displayed in the tables as well.
 
 Since the experiments compare the proposed method for estimating the dynamic detection probability with the constant
 detection probability, each table contains additional information about the necessary parameters. For experiments that
 use the constant
 detection probability, tables carry the value of the probability. For the dynamic detection probability, values of $T_H, T_C$
-from Equation \eqref{eq:mphd_recursion_update_intesity_misdetect_pd}
+from Equation \eqref{eq:mphd_recursion_update_intesity_misdetect_pd},
 and initial $p_{D,k}(x)$ are provided.
 
 The pruning thresholds are the same for both GM-PHD filters, however, in the experiments that apply a filter with the
@@ -50,13 +48,11 @@ dynamic detection probability, tables
 include the second pruning threshold for pruning targets with \textit{detected} or \textit{hidden} state. The basic
 pruning threshold is covered in tables as $T_p$, the lowered pruning threshold as $T_l$.
 
-In addition, object detectors' results are dependent on thresholds as well. The YOLO model requires confidence
+In addition, object detectors' results are dependent on thresholds as well. The YOLO model requires the confidence
 threshold $T_{YOLO}$ for objects visualization. The Grounding DINO model requires two thresholds as it detects objects based on a text input. The text input threshold $T_{text}$ and bounding box (bbox) threshold $T_{bbox}$ for given experiment are included in corresponding parameter settings tables.
 
 The labels above
-the targets are the numerical representations of the state targets: $0=\text{detected}, 1=\text{hidden}, 2=\text{dead}$.
-
-The means of the birth places are roughly in the middle of the traffic lines and its confidence ellipses of size of
+the targets in the figures are the numerical representations of the state targets: $0=\text{detected}, 1=\text{hidden}, 2=\text{dead}$. The means of the birth places are roughly in the middle of the traffic lines and its confidence ellipses of size of
 three standard
 deviations are bounded by blue ellipses. The red bounding boxes in figures represent bounding
 boxes given by an object detection model. The red ellipses are the covariance matrices of the targets.
