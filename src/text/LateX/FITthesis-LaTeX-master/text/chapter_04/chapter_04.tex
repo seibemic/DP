@@ -8,11 +8,11 @@ measurements
 from an image.
 
 Note, that in all target tracking algorithms for cluttered environments and targets
-birth and dead possibilities, there is a parameter called detection probability ($p_D$). As its name
-suggests, this parameter expresses a probability that the target is detected in particular time. It is also commonly
+birth and dead possibilities, there is a parameter called the detection probability ($p_D$). As its name
+suggests, this parameter expresses a probability that the target is detected in the particular time. It is also commonly
 used
 as a
-time and state independent scalar. The desired outcome is to enhance the performance of multi-target
+time- and state-independent scalar. The desired outcome is to enhance the performance of multi-target
 algorithms
 in video data
 in scenarios, where the targets may be hidden by an obstacle, and reduce impacts of a misdetection of a sensor.
@@ -21,12 +21,12 @@ is appropriate to have a dynamic time- and state-varying detection probability.
 \section{Problem definition}
 \label{sec:mphd_problemDef}
 In the practical part of this thesis, three different settings of object detection and segmentation can be found.
-We choose Probabilist Hypothesis Density filter as a multi-target tracking algorithm, as it is on the simpler side of
-RFS-based methods. Furthermore, it is computationally very effective in comparison with filters such as the CPHD or the
+We choose Probability Hypothesis Density filter as a multi-target tracking algorithm, as it is a simpler
+RFS-based method. PHD filter is computationally very effective in comparison with filters such as the CPHD or the
 PMBM filter,
 which may seem as a more appropriate option for this task. However, these more complicated filters have high
 computational demands, which
-are not appropriate when used in video streams. Provided settings are:
+are not adequate when used in video streams. Provided settings are:
 \begin{enumerate}
   \item \textbf{S1: YOLO + PHD} -- Yolo itself can produce an object segmentation mask with lower accuracy, but with
   greater
@@ -40,9 +40,8 @@ are not appropriate when used in video streams. Provided settings are:
 
 
 \subsection{The modified GM-PHD filter}
-To modify the GM-PHD filter for our use case, a few assumptions have to be defined. These assumptions are very
-similar to the
-assumptions of the PHD filter and the GM-PHD filter in Section \ref{sec:phdfilter} and \ref{sec:gmphdFilter}.
+To modify the GM-PHD filter for our use case, a few assumptions have to be introduced. These assumptions are very
+similar to the ones of the PHD filter and the GM-PHD filter in Section \ref{sec:phdfilter} and \ref{sec:gmphdFilter}.
 \begin{enumerate}
   \item Each target evolves and generates observations independently of each other. \label{as:mphd_1}
   \item Clutter is Poisson and independent of target-originated measurements. \label{as:mphd_2}
@@ -53,14 +52,13 @@ assumptions of the PHD filter and the GM-PHD filter in Section \ref{sec:phdfilte
     f_{k|k-1}(x|\xi) &= \mathcal{N}(x; F_{k-1}\xi, Q_{k-1}),\\
     g_k(z|x) &= \mathcal{N}(z;H_kx, R_k),
   \end{align}
-  where $\mathcal{N}(\cdot;m,P)$ is a Gaussian density with mean $m$, covariance $P$, $F_{k-1}$ is the state
-  transition matrix, $Q_{k-1}$ is the process noise covariance, $H_k$ is the observation matrix and $R_k$ is the observation noise covariance.
-  \item The survival probability is state independent, i.e.,
+  where $\mathcal{N}(\cdot;\cdot,\cdot)$ is a Gaussian density, $Q_{k-1}$ is the process noise covariance, $H_k$ is the observation matrix and $R_k$ is the observation noise covariance.
+  \item The survival probability is state-independent, i.e.,
   \begin{align}
     p_{S,k}(x) &= p_{S,k}.
   \end{align}
     \label{as:mphd_5}
-  \item The detection probability is state dependent, i.e.,
+  \item The detection probability is state-dependent, i.e.,
     \begin{align}
       p_{D,k}(x) &= 
       \begin{cases}
@@ -69,15 +67,15 @@ assumptions of the PHD filter and the GM-PHD filter in Section \ref{sec:phdfilte
       \end{cases}
     \end{align}
     \label{as:mphd_6}
-  \item The intensity of the birth RFS is Gaussian mixture of the form
+  \item The intensity of the birth RFS is a Gaussian mixture of the form
   \begin{align}
-    \gamma_k(x) &= \sum_{i=1}^{J_{\gamma,k}}w_{\gamma,k}^{(i)} \mathcal{N}(x; m_{\gamma.k}^{(i)}, P_{\gamma,k}^{(i)}).
+    \gamma_k(x) &= \sum_{i=1}^{J_{\gamma,k}}w_{\gamma,k}^{(i)} \mathcal{N}\left(x; m_{\gamma.k}^{(i)}, P_{\gamma,k}^{(i
+    )}\right).
     \label{eq:mphd_intensity}
   \end{align}
   \label{as:mphd_7}
 \end{enumerate}
-
-Note, that the assumption \ref{as:mphd_1} may be ambiguous, as the states of each of the targets are often
+Note, that the assumption \ref{as:mphd_1} may be questionable, as the states of each of the targets are often
 dependently
 evolving.
 Imagine,
@@ -86,14 +84,14 @@ well. Meaning, they are affected by another target.
 The assumption \ref{as:mphd_2} is reasonable, especially if we consider that the clutter rate should be very low in
 our
 scenarios.
-The survival probability is state independent as in the GM-PHD filter and should be set high, as the targets are
+The survival probability is state-independent as in the GM-PHD filter and should be set high, as the targets are
 expected
 to survive to the next time step.
-The detection probability is state dependent and equal to $p_{D,k}$, i.e., predefined threshold, in situation when
-the target is detected for the first time. Otherwise, if the target evolved from the previous state $\xi$, the
+The detection probability is state-dependent and equal to $p_{D,k}$, i.e., a predefined threshold, in situation when
+the target is detected for the first time. Otherwise, if the target has evolved from the previous state $\xi$, the
 detection probability is calculated according to Section \ref{sec:dynamic_pd}.
 Assumption \ref{as:mphd_7} contains only intensity of the birth RFS, the spawn intensity RFS is left out.
-Nevertheless it still can fluently be added to the assumption
+Nevertheless, it still can be easily added to the assumption
 and equations afterwards.
 
 \subsubsection{The modified PHD recursions}
@@ -155,10 +153,10 @@ where
   \kappa_{k}^{(j)}(z) &= P_{k}^{(j)} H_k^T(H_k P_{k|k-1}^{(j)} H_k^T + R_k)^{-1}. \label{eq
   :mphd_recursion_update_intesity_detect_K}
 \end{align}
-The dynamically estimated detection probability in \ref{eq:mphd_recursion_update_intesity} follows from one of two
+The dynamically estimated detection probability in \eqref{eq:mphd_recursion_update_intesity} follows from one of two
 possible scenarios described in Section \ref{sec:dynamic_pd}.
 \subsection{S1: YOLO + PHD}
-It is possible to fine tune YOLO model on personalised datasets to either improve the performance in the
+It is possible to fine-tune YOLO model on personalised datasets to either improve the performance in the
 detection of
 pretrained classes, or to train the model for detecting other classes. With over 70 pretrained class instances, it is
 not necessary to fine tune our YOLO model for the experiments in this work. The model also detects all class
@@ -170,7 +168,7 @@ and
 precision. This is caused by a reduced image resolution which is $640x640$ pixels. To fit the YOLO output
 to our
 frame,
-this output needs to be resized back to our desired frame size. This resizing causes the imperfections. However, the
+this output needs to be resized back to our desired frame size. This resizing causes some imperfections. However, the
 precision
 to pixel level is not always necessary in our scenarios, thus this setting is, in most cases, sufficient
 enough. The advantage of this approach is that it runs quickly enough with CPU only. The example of
@@ -179,7 +177,8 @@ object segmentation YOLO model is shown in the Figure \ref{fig:yolo_seg}.
   \centering
   \includegraphics[width=0.35\linewidth]{text/chapter_04/imgs/YOLO_screenshot_2}
   \caption{YOLO segmentation example. This picture shows all detected objects the YOLO model is trained for and also
-  the segmented objects' masks. These masks are imperfect, but often sufficient enough.}
+  the segmented objects' masks. These masks are imperfect, but often sufficient enough. This figure was taken in
+  Kartouzská street, Prague.}
   \label{fig:yolo_seg}
 \end{figure}
 

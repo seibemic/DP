@@ -20,37 +20,39 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.1}{\ignorespaces The parameter settings for Experiment E1-V1 with the constant detection probability.\relax }}{71}{table.caption.28}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.2}{\ignorespaces The parameter settings for Experiment E1-V1-S1 with the dynamic detection probability.\relax }}{75}{table.caption.31}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces The parameter settings for Experiment E1-V1 with the constant detection probability.\relax }}{71}{table.caption.27}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.3}{\ignorespaces The parameter settings for Experiment E1-V1-S2 with the dynamic detection probability.\relax }}{78}{table.caption.34}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces The parameter settings for Experiment E1-V1-S1 with the dynamic detection probability.\relax }}{75}{table.caption.30}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.4}{\ignorespaces The parameter settings for Experiment E1-V1-S3 with the dynamic detection probability.\relax }}{80}{table.caption.37}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces The parameter settings for Experiment E1-V1-S2 with the dynamic detection probability.\relax }}{78}{table.caption.33}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.5}{\ignorespaces The parameter settings for Experiment E1-V2 with the constant detection probability.\relax }}{82}{table.caption.40}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces The parameter settings for Experiment E1-V1-S3 with the dynamic detection probability.\relax }}{80}{table.caption.36}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.6}{\ignorespaces The parameter settings for Experiment E1-V2-S1 with the dynamic detection probability.\relax }}{84}{table.caption.43}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces The parameter settings for Experiment E1-V2 with the constant detection probability.\relax }}{82}{table.caption.39}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.7}{\ignorespaces The parameter settings for Experiment E1-V2-S2 with the dynamic detection probability.\relax }}{86}{table.caption.46}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces The parameter settings for Experiment E1-V2-S1 with the dynamic detection probability.\relax }}{84}{table.caption.42}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.8}{\ignorespaces The parameter settings for Experiment E1-V2-S3 with the dynamic detection probability.\relax }}{88}{table.caption.49}%
+\contentsline {table}{\numberline {6.7}{\ignorespaces The parameter settings for Experiment E1-V2-S2 with the dynamic detection probability.\relax }}{86}{table.caption.45}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.9}{\ignorespaces The parameter settings for Experiment {E2-V3} with the constant detection probability.\relax }}{91}{table.caption.52}%
+\contentsline {table}{\numberline {6.8}{\ignorespaces The parameter settings for Experiment E1-V2-S3 with the dynamic detection probability.\relax }}{88}{table.caption.48}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.10}{\ignorespaces The parameter settings for Experiment {E2-V3-S1} with the dynamic detection probability.\relax }}{93}{table.caption.55}%
+\contentsline {table}{\numberline {6.9}{\ignorespaces The parameter settings for Experiment {E2-V3} with the constant detection probability.\relax }}{91}{table.caption.51}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.11}{\ignorespaces The parameter settings for Experiment {E2-V3-S2} with the dynamic detection probability.\relax }}{95}{table.caption.58}%
+\contentsline {table}{\numberline {6.10}{\ignorespaces The parameter settings for Experiment {E2-V3-S1} with the dynamic detection probability.\relax }}{93}{table.caption.54}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.12}{\ignorespaces The parameter settings for Experiment {E2-V3-S3} with the dynamic detection probability.\relax }}{96}{table.caption.61}%
+\contentsline {table}{\numberline {6.11}{\ignorespaces The parameter settings for Experiment {E2-V3-S2} with the dynamic detection probability.\relax }}{95}{table.caption.57}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.13}{\ignorespaces The parameter settings for Experiment {E2-V2a-S1} with the dynamic detection probability.\relax }}{99}{table.caption.64}%
+\contentsline {table}{\numberline {6.12}{\ignorespaces The parameter settings for Experiment {E2-V3-S3} with the dynamic detection probability.\relax }}{96}{table.caption.60}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.14}{\ignorespaces The parameter settings for Experiment {E2-V2b-S1} with the dynamic detection probability.\relax }}{101}{table.caption.66}%
+\contentsline {table}{\numberline {6.13}{\ignorespaces The parameter settings for Experiment {E2-V2a-S1} with the dynamic detection probability.\relax }}{99}{table.caption.63}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.15}{\ignorespaces The parameter settings for Experiment {E3-V2-S3} with the dynamic detection probability.\relax }}{104}{table.caption.68}%
+\contentsline {table}{\numberline {6.14}{\ignorespaces The parameter settings for Experiment {E2-V2b-S1} with the dynamic detection probability.\relax }}{101}{table.caption.65}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.16}{\ignorespaces The evolution of detection probabilities and weights of targets $C_L$ and $C_R$.\relax }}{107}{table.caption.71}%
+\contentsline {table}{\numberline {6.15}{\ignorespaces The parameter settings for Experiment {E3-V2-S3} with the dynamic detection probability.\relax }}{104}{table.caption.67}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.16}{\ignorespaces The evolution of detection probabilities and weights of targets $C_L$ and $C_R$.\relax }}{107}{table.caption.70}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 

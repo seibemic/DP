@@ -12,109 +12,111 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Examples of plots of multivariate Gaussian distribution.\relax }}{10}{figure.caption.9}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Gaussian distribution with corresponding marginals.\relax }}{10}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of plots of multivariate Gaussian distribution.\relax }}{10}{figure.caption.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Examples of plots of multivariate Gaussian mixture distribution. There are three components in figures with means $\{[0, 0], [3, 3], [-3, -1]\}$. Note that the density of peaks is very low, because the sum has to be equal $1$.\relax }}{12}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Gaussian distribution with corresponding marginals.\relax }}{10}{figure.caption.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Gaussian mixture distribution with means $\{[0,0], [2,2]\}$, weights $\{[0.6, 0.4]\}$ and corresponding marginals.\relax }}{12}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Examples of plots of multivariate Gaussian mixture distribution. There are three components in figures with means $\{[0, 0], [3, 3], [-3, -1]\}$. Note that the density of peaks is very low, because the sum has to be equal $1$.\relax }}{12}{figure.caption.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Demonstration of the course of the hidden Markov process.\relax }}{18}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Gaussian mixture distribution with means $\{[0,0], [2,2]\}$, weights $\{[0.6, 0.4]\}$ and corresponding marginals.\relax }}{12}{figure.caption.11}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Demonstration of the course of the hidden Markov process.\relax }}{18}{figure.caption.12}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Several measurements $z_i$ appeared in the validation region of a single target. $\hat {z}$ is a predicted measurement and none or any of the measurement $z_1 - z_3$ may have originated from the target.\relax }}{26}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Several measurements $z_i$ appeared in the validation region of a single target. $\hat {z}$ is a predicted measurement and none or any of the measurement $z_1 - z_3$ may have originated from the target.\relax }}{26}{figure.caption.13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Several measurements $z_i$ appeared in the validation region of one of targets $\hat {z_1}$ or $\hat {z_2}$. $\hat {z_1}$ and $\hat {z_2}$ are predicted measurements and none or any of the measurement $z_1 - z_3$ may have originated from the target $\hat {z_1}$ and none or any of the measurement $z_3 - z_4$ may have originated from the target $\hat {z_2}$.\relax }}{27}{figure.caption.15}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Image detection and segmentation task types. (Source: \href {https://techvidvan.com/tutorials/image-segmentation-machine-learning/}{techvidvan.com}.)\relax }}{43}{figure.caption.16}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces CNN architecture example. (Source \href {https://learnopencv.com/understanding-convolutional-neural-networks-cnn/}{learnopencv.com})\relax }}{44}{figure.caption.17}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Yolo architecture proposed in \cite {YOLORedmon2016} has 24 convolutinal layers followed by 2 fully connected layers. Convolutional layers were pretrained on the ImageNet classificator at half resolution (224 x 224 input image) and the doubled the resolution for detection. (Source \cite {YOLORedmon2016}.)\relax }}{46}{figure.caption.18}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.4}{\ignorespaces U-net architecture (example for 32x32 pixels in the lowest resolution). (Source \cite {ronneberger2015unet})\relax }}{51}{figure.caption.19}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Transformer architecture. (Source \cite {vaswani2023attention})\relax }}{51}{figure.caption.20}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Multi-head attention. (Source \cite {vaswani2023attention})\relax }}{52}{figure.caption.21}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.7}{\ignorespaces SAM architecture (Source \cite {SAM2023})\relax }}{54}{figure.caption.22}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.8}{\ignorespaces The demonstration of SAM's performance. These masks were annotated fully automatically by SAM and are part of the SA-1B dataset. (Source \cite {SAM2023})\relax }}{54}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Several measurements $z_i$ appeared in the validation region of one of targets $\hat {z}_1$ or $\hat {z}_2$. $\hat {z}_1$ and $\hat {z}_2$ are predicted measurements and none or any of the measurement $z_1 - z_3$ may have originated from the target $\hat {z}_1$ and none or any of the measurement $z_3 - z_4$ may have originated from the target $\hat {z}_2$.\relax }}{27}{figure.caption.14}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces YOLO segmentation example. This picture shows all detected objects the YOLO model is trained for and also the segmented objects' masks. These masks are imperfect, but often sufficient enough.\relax }}{60}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Image detection and segmentation task types. (Source: \href {https://techvidvan.com/tutorials/image-segmentation-machine-learning/}{techvidvan.com}.)\relax }}{43}{figure.caption.15}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Comparison of using only a bounding box vs combination of a bounding box and a point as an input for SAM.\relax }}{61}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces CNN architecture example. (Source \href {https://learnopencv.com/understanding-convolutional-neural-networks-cnn/}{learnopencv.com})\relax }}{44}{figure.caption.16}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces The cooperation of YOLO and SAM models. The YOLO provides bounding boxes of objects, which are inputs to SAM. The SAM model then makes segmented masks of these objects.\relax }}{61}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Yolo architecture proposed in \cite {YOLORedmon2016} has 24 convolutinal layers followed by 2 fully connected layers. Convolutional layers were pretrained on the ImageNet classificator at half resolution (224 x 224 input image) and the doubled the resolution for detection. (Source \cite {YOLORedmon2016}.)\relax }}{46}{figure.caption.17}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces The result of the Grounded SAM model. Grounding DINO marks objects with bounding boxes and SAM segments objects inside these bboxes. Marked objects are founded by Grounding DINO with text input \textit {person, car}.\relax }}{62}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces U-net architecture (example for 32x32 pixels in the lowest resolution). (Source \cite {ronneberger2015unet})\relax }}{51}{figure.caption.18}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Transformer architecture. (Source \cite {vaswani2023attention})\relax }}{51}{figure.caption.19}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Multi-head attention. (Source \cite {vaswani2023attention})\relax }}{52}{figure.caption.20}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces SAM architecture (Source \cite {SAM2023})\relax }}{54}{figure.caption.21}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The demonstration of SAM's performance. These masks were annotated fully automatically by SAM and are part of the SA-1B dataset. (Source \cite {SAM2023})\relax }}{54}{figure.caption.22}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Development chart of number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{73}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces YOLO segmentation example. This picture shows all detected objects the YOLO model is trained for and also the segmented objects' masks. These masks are imperfect, but often sufficient enough. This figure was taken in Kartouzská street, Prague.\relax }}{60}{figure.caption.23}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with constant detection probability.\relax }}{74}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Comparison of using only a bounding box vs combination of a bounding box and a point as an input for SAM.\relax }}{61}{figure.caption.24}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{76}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The cooperation of YOLO and SAM models. The YOLO provides bounding boxes of objects, which are inputs to SAM. The SAM model then makes segmented masks of these objects.\relax }}{61}{figure.caption.25}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with dynamic detection probability and YOLO only.\relax }}{77}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces The result of the Grounded SAM model. Grounding DINO marks objects with bounding boxes and SAM segments objects inside these bboxes. Marked objects are founded by Grounding DINO with text input \textit {person, car}.\relax }}{62}{figure.caption.26}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{78}{figure.caption.35}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{79}{figure.caption.36}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Development chart of number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{73}{figure.caption.28}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{80}{figure.caption.38}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the constant detection probability.\relax }}{74}{figure.caption.29}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and the Grounded SAM model.\relax }}{81}{figure.caption.39}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{76}{figure.caption.31}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{83}{figure.caption.41}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and YOLO only.\relax }}{77}{figure.caption.32}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the constant detection probability.\relax }}{83}{figure.caption.42}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{78}{figure.caption.34}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{85}{figure.caption.44}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{79}{figure.caption.35}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and YOLO only.\relax }}{86}{figure.caption.45}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{80}{figure.caption.37}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{87}{figure.caption.47}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and the Grounded SAM model.\relax }}{81}{figure.caption.38}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{88}{figure.caption.48}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{83}{figure.caption.40}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{89}{figure.caption.50}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the constant detection probability.\relax }}{83}{figure.caption.41}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the DINO object detector and the SAM image segmentation model.\relax }}{90}{figure.caption.51}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and the true targets' count.\relax }}{85}{figure.caption.43}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{92}{figure.caption.53}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and YOLO only.\relax }}{86}{figure.caption.44}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the constant detection probability.\relax }}{92}{figure.caption.54}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{87}{figure.caption.46}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{94}{figure.caption.56}%
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{88}{figure.caption.47}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and YOLO only.\relax }}{94}{figure.caption.57}%
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{89}{figure.caption.49}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{95}{figure.caption.59}%
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the DINO object detector and the SAM image segmentation model.\relax }}{90}{figure.caption.50}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.22}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{96}{figure.caption.60}%
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{92}{figure.caption.52}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{97}{figure.caption.62}%
+\contentsline {figure}{\numberline {6.18}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the constant detection probability.\relax }}{92}{figure.caption.53}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.24}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the DINO object detector and the SAM image segmentation model.\relax }}{98}{figure.caption.63}%
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{94}{figure.caption.55}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.25}{\ignorespaces Image sequence of the tracked objects using the GM-PHD filter with the dynamic detection probability and YOLO only.\relax }}{100}{figure.caption.65}%
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and YOLO only.\relax }}{94}{figure.caption.56}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and YOLO only.\relax }}{102}{figure.caption.67}%
+\contentsline {figure}{\numberline {6.21}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{95}{figure.caption.58}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, Grounded SAM and adjusted models -- part 1.\relax }}{105}{figure.caption.69}%
+\contentsline {figure}{\numberline {6.22}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the YOLO object detector and the SAM image segmentation model.\relax }}{96}{figure.caption.59}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.28}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, Grounded SAM and adjusted models -- part 2.\relax }}{106}{figure.caption.70}%
+\contentsline {figure}{\numberline {6.23}{\ignorespaces Development chart of the number of detected targets, targets in the filter's queue, displayed targets and true targets' count.\relax }}{97}{figure.caption.61}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.29}{\ignorespaces The evolution of targets' detection probabilities and weights.\relax }}{107}{figure.caption.72}%
+\contentsline {figure}{\numberline {6.24}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, the DINO object detector and the SAM image segmentation model.\relax }}{98}{figure.caption.62}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.25}{\ignorespaces Image sequence of the tracked objects using the GM-PHD filter with the dynamic detection probability and YOLO only.\relax }}{100}{figure.caption.64}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.26}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability and YOLO only.\relax }}{102}{figure.caption.66}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.27}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, Grounded SAM and adjusted models -- part 1.\relax }}{105}{figure.caption.68}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.28}{\ignorespaces Image sequence of tracked objects using the GM-PHD filter with the dynamic detection probability, Grounded SAM and adjusted models -- part 2.\relax }}{106}{figure.caption.69}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.29}{\ignorespaces The evolution of targets' detection probabilities and weights.\relax }}{107}{figure.caption.71}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 

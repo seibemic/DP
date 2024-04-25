@@ -18,13 +18,16 @@ instance segmentation. Figure \ref{fig:seg_type} shows the differences between t
 \end{figure}
 
 The development of the object detection algorithms has progressed significantly over the years, driven by advances in deep
-learning, dataset availability and computational power. Traditional object detection methods relied on handcrafted
+learning, dataset availability, and computational power. Traditional object detection methods relied on handcrafted
 features and machine learning algorithms, such as sliding window-based classifiers, histogram of oriented gradients (HOG) \cite{HoOGDalal2005}, and Haar cascades \cite{HaarCascadesLi2016}. While proving effective in certain scenarios, these methods often lacked robustness and scalability, particularly in complex and cluttered scenes.
 
-With the advent of deep learning, convolutional neural networks (CNNs) improved the field of object detection. CNNs are
+With the advent of deep learning, convolutional neural networks (CNNs) improved the field of object detection. These
+networks are
 capable of automatically learning hierarchical representations of data, making them well suited for image analysis
 tasks. The rise of CNN-based approaches has led to significant improvements in object detection accuracy and efficiency.
-At its core, a convolutional neural network is comprised of multiple layers, each designed to perform specific operations on input data, typically images. The fundamental layers in a CNN include convolutional layers, pooling layers, and fully connected layers.
+At its core, a convolutional neural network is comprised of multiple layers, each designed to perform specific
+operations on input data, typically images. The fundamental layers in an architecture include convolutional layers,
+pooling layers, and fully connected layers.
 \begin{enumerate}
   \item \textbf{Convolutional layers:} These layers are responsible for extracting features from the input data. They consist of filters (also called kernels) that slide across the input image, performing a mathematical operation known as convolution. Each filter detects certain patterns or features, such as edges, textures, or shapes. By convolving the filters with the input image, the CNN can capture hierarchical representations of features, starting from simple edges and gradients to more complex structures.
   \item \textbf{Pooling layers:} Pooling layers are interspersed between convolutional layers to reduce the spatial dimensions of the feature maps while retaining important information. Common pooling operations include max pooling and average pooling, which downsample the feature maps by taking the maximum or average value within each pooling region. This downsampling helps in reducing the computational complexity and in controlling the overfitting by enforcing the spatial invariance.
@@ -75,7 +78,7 @@ This loss function is optimized during training using labeled datasets to learn 
 
 The evolution of YOLO over successive versions underscores its adaptability to diverse use cases and computational environments. While early iterations prioritized speed, subsequent iterations like YOLOv4 and YOLOv5 aim to enhance accuracy without compromising real-time performance \cite{YoloVersions2022}. This flexibility in the model selection empowers users to tailor YOLO to their specific requirements, whether it be for surveillance systems demanding rapid detection or autonomous vehicles requiring a precise object localization.
 
-Compared to the traditional object detection methodologies such as region-based convolutional neural networks (R-CNN) \cite{MaskRCNN2017} and single-shot detectors (SSD), YOLO stands out for its simplicity and efficiency. By eliminating the need for complex post-processing steps and leveraging a unified architecture for object detection (see Figure \ref{fig:yoloArchitecture} for YOLO architecture), YOLO achieves a fine balance between speed and accuracy. This versatility extends YOLO's applicability across a myriad of domains, including but not limited to autonomous driving, industrial automation, healthcare imaging, and augmented reality.
+Compared to the traditional object detection methodologies such as region-based convolutional neural networks (R-CNN) \cite{MaskRCNN2017} and single-shot detectors (SSD), YOLO stands out for its simplicity and efficiency. By eliminating the need for complex post-processing steps and leveraging a unified architecture for object detection (see Figure \ref{fig:yoloArchitecture} for YOLO architecture), YOLO achieves a fine balance between speed and accuracy. This versatility extends YOLO's applicability across a myriad of domains, including, but not limited to, autonomous driving, industrial automation, healthcare imaging, and augmented reality.
 
 \begin{figure}
   \centering
@@ -92,7 +95,9 @@ The methods employed for the image segmentation vary from straightforward heuris
 
 With its versatility and practical applications, image segmentation finds widespread use across artificial intelligence scenarios. Its applications span from assisting medical diagnoses through imaging to enabling automation in robotics and self-driving vehicles. Furthermore, it plays a crucial role in tasks such as identifying objects within satellite imagery.
 
-There are three main task types in image segmentation: semantic segmentation, instance segmentation and panoptic segmentation \cite{IBM}.
+There are three main task types in image segmentation \cite{IBM}: semantic segmentation \cite{SemanticSegmentationGuo2022},
+instance segmentation \cite{yanYolo2023} and panoptic
+segmentation \cite{mohan2020efficientps}.
 The distinction between various types of image segmentation tasks hinges on how they handle semantic classes, which are specific categories assigned to individual pixels within an image.
 
 In the realm of computer vision, semantic classes are broadly categorized into two types, each requiring distinct segmentation techniques for accurate results.
@@ -131,7 +136,8 @@ or touch each other, instance segmentation models must accurately separate and d
 
 Instance segmentation algorithms typically adopt either a two-stage or a one-shot methodology to address the task.
 
-Two-stage models, exemplified by Region-based Convolutional Neural Networks \cite{RCNN2014}, initially conduct conventional object detection to produce bounding boxes for each potential instance. Subsequently, they refine segmentation and classification within these bounding boxes to precisely delineate each object instance.
+Two-stage models, exemplified by Region-Based Convolutional Neural Networks \cite{RCNN2014}, initially conduct
+conventional object detection to produce bounding boxes for each potential instance. Subsequently, they refine segmentation and classification within these bounding boxes to precisely delineate each object instance.
 
 Conversely, one-shot models, such as YOLO, streamline the process by simultaneously performing object detection,
 classification, and segmentation. This approach enables a real-time instance segmentation.
@@ -148,11 +154,13 @@ This approach provides computer vision systems with a complete and cohesive inte
 
 The challenge in achieving panoptic segmentation lies in reconciling the conflicting approaches of semantic and
 instance segmentation models. Semantic segmentation treats all pixels uniformly as \textit{background}, disregarding
-individual instances of objects, while instance segmentation focuses solely on isolating individual objects, ignoring \textit{background}. Integrating these methodologies can pose a challenge as neither of the models can effectively take on the responsibilities of the other.
+individual instances of objects, while instance segmentation focuses solely on isolating individual objects, ignoring
+the \textit{background}. Integrating these methodologies can pose a challenge as neither of the models can effectively
+take on the responsibilities of the other.
 
 Early attempts at panoptic segmentation involved combining separate semantic and instance segmentation models,
 followed by a post-processing phase to merge their outputs. However, these attempts encountered two significant
-drawbacks: it
+drawbacks: It
 demanded substantial computational resources and struggled with inconsistencies between the data produced by the
 semantic segmentation network and those produced by the instance segmentation network.
 
@@ -170,7 +178,7 @@ Some common traditional image segmentation techniques include:
   \item \textbf{Watersheds:} Watershed algorithms \cite{Watershed1991} convert images to grayscale and generate a topographic map where each pixel's elevation is determined by its brightness. Regions, boundaries, and objects can be inferred from the formation of valleys, ridges, and catchment basins.
   \item \textbf{Region-based segmentation:} Region-growing algorithms \cite{RCNN2016} initiate segmentation with one or more seed pixels, progressively grouping neighboring pixels with similar characteristics. These algorithms can be either agglomerative or divisive.
   \item \textbf{Clustering-based segmentation:} Clustering algorithms \cite{ClusteringSeg1979}, an unsupervised
-  learning technique, split visual data into clusters of pixels with similar values. One popular variant is the K-means
+  learning technique, split visual data into clusters of pixels with similar values. One popular variant is the k-means
   clustering, where $k$ represents the number of clusters. In this method, pixel values are treated as data points, and $k$ random points are selected as the centroids of clusters. Each pixel is then assigned to the nearest centroid based on similarity. Centroids are iteratively relocated to the mean of each cluster until convergence, resulting in stabilized clusters.
 \end{enumerate}
 
@@ -209,7 +217,7 @@ Some prominent deep learning models utilized in image segmentation include:
 \end{figure}
 
 \subsubsection{Transformers}
-As we use Transformer model in our work, we briefly demonstrate Transformers' architecture and how they work.
+As we use the Transformer model in this work, we briefly demonstrate theirs architecture and how they work.
 Transformers consist of a stack of identical layers, typically comprising an encoder and a decoder (Figure \ref{fig:transformer_architecture}). The
 encoder
 processes the input sequence, while the decoder generates the output sequence.
@@ -290,7 +298,7 @@ efficient and effective segmentation models that can generalize to diverse tasks
 The SAM project introduces a new task, model, and dataset for image segmentation. It leverages a promptable model
 architecture to achieve an almost flawless zero-shot performance on diverse segmentation tasks. This task involves
 generating valid segmentation masks given any segmentation prompt. A prompt can include spatial or textual
-information indicating what to segment in an image. SAM ensures, that the output mask is reasonable for at least one
+information indicating what to segment in an image. SAM ensures that the output mask is reasonable for at least one
 interpretation of the prompt, handling the ambiguity effectively.
 
 SAM's architecture comprises three main components: an image encoder, a prompt encoder, and a mask decoder (Figure \ref{fig:sam_architecture}). The
@@ -350,4 +358,5 @@ models are used.
     OSX2023}. OSX employs a Component Aware Transformer (CAT) consisting of a global body encoder and a local face/hand decoder. By leveraging the feature-level upsample-crop scheme and the keypoint-guided deformable attention, OSX
   achieves a precise estimation of face and hand parameters while maintaining connection coherence.
 \end{itemize}
-Grounded SAM also offers cooperation of SAM and other models: Visual ChatGPT \cite{wu2023visual}, RAM++ \cite{huang2023openset}, VoxelNeXt \cite{chen2023voxelnext} and more.
+Grounded SAM also offers cooperation of SAM and other models: Visual ChatGPT \cite{wu2023visual}, RAM++
+\cite{huang2023openset}, VoxelNeXt \cite{chen2023voxelnext}, and more.
