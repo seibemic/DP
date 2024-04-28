@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.14)  28 APR 2024 21:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.14)  28 APR 2024 23:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3012,28 +3012,21 @@ E3/V2/DINO/54.png (PNG copy)> <../../../experiments/E3/V2/DINO/58.png (PNG copy
 )>]
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 9.0pt on input line 195.
-
-
-./text/chapter_05/E3-V2.tex:201: LaTeX Error: File `../../../experiments/E3/V2/
-DINO/pd_w_evolution' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.201 .../experiments/\Ex/\Vs/DINO/pd_w_evolution}
-                                                  
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-)) [107]
+<../../../experiments/E3/V2/DINO/pd_w_evolution.png, id=1988, 867.24pt x 289.08
+pt>
+File: ../../../experiments/E3/V2/DINO/pd_w_evolution.png Graphic file (type png
+)
+<use ../../../experiments/E3/V2/DINO/pd_w_evolution.png>
+Package pdftex.def Info: ../../../experiments/E3/V2/DINO/pd_w_evolution.png  us
+ed on input line 201.
+(pdftex.def)             Requested size: 418.25368pt x 139.41846pt.
+) [107 <../../../experiments/E3/V2/DINO/pd_w_evolution.png>]) [108]
 \openout2 = `text/coclusion.aux'.
 
- (./text/coclusion.tex
+
+(./text/coclusion.tex
 Chapter 7.
-) [108
+) [109
 
 
 
@@ -3045,12 +3038,12 @@ File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 10.0pt on input line 331.
- [109
+ [110
 
 
 
 ]
-[110]
+[111]
 ./ctufit-thesis.tex:332: Misplaced alignment tab character &.
 <argument> ...Quantitative Management (ITQM 2020 &
                                                    2021): Developing Global ...
@@ -3063,13 +3056,13 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[111] [112] [113]
+[112] [113] [114]
 \openout2 = `text/medium.aux'.
 
  (./text/medium.tex
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 12.0pt on input line 16.
-) [114
+) [115
 
 
 ]
@@ -3104,10 +3097,10 @@ Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 335.
  ) 
 Here is how much of TeX's memory you used:
- 39247 strings out of 481239
- 720133 string characters out of 5920377
+ 39228 strings out of 481239
+ 719704 string characters out of 5920377
  1452989 words of memory out of 5000000
- 53060 multiletter control sequences out of 15000+600000
+ 53052 multiletter control sequences out of 15000+600000
  737105 words of font info for 282 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,23n,70p,1692b,3474s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3129,10 +3122,10 @@ t/fonts/type1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type
 fonts/txsyb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.p
 fb>
 Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (127 pages, 48197502 bytes).
+eX-master/out/ctufit-thesis.pdf (128 pages, 48242664 bytes).
 PDF statistics:
- 2284 PDF objects out of 2487 (max. 8388607)
- 1927 compressed objects within 20 object streams
- 573 named destinations out of 1000 (max. 500000)
- 1326 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2290 PDF objects out of 2487 (max. 8388607)
+ 1930 compressed objects within 20 object streams
+ 574 named destinations out of 1000 (max. 500000)
+ 1331 words of extra memory for PDF output out of 10000 (max. 10000000)
 
