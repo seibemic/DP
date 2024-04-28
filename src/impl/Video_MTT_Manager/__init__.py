@@ -516,7 +516,7 @@ class VideoMTT:
 
             output_video_boxes.write(frameWithBboxes)
 
-            start_frame = 0#44#22#0#83
+            start_frame = 40#44#22#0#83
             end_frame = 1500#59#65 #109
             if frame_num >= start_frame and frame_num < end_frame:
                 df.loc[len(df.index)] = [frame_num, 4,len(xyxy),len(self.MTT.trackers),displayed_targets]
