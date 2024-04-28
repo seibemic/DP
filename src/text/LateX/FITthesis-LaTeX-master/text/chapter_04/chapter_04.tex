@@ -9,7 +9,7 @@ from an image.
 
 Note, that in all target tracking algorithms for cluttered environments and targets
 birth and dead possibilities, there is a parameter called the detection probability ($p_D$). As its name
-suggests, this parameter expresses a probability that the target is detected in a particular time. It is also commonly
+suggests, this parameter expresses a probability that the target is detected in \linebreak a particular time. It is also commonly
 used
 as a
 time- and state-independent scalar. The desired outcome is to enhance the performance of multi-target
@@ -435,7 +435,7 @@ detected is compared to the predicted mask that now also contains the obstacle's
 a camera as
 a sensor, frames at high frame rate are produced. To prevent the loss of significant information, lowering the fps to a minimal rate is not desirable. We lower the fps to 10-30 fps to enhance the dynamics of the scene. However, in a such short time
 period, the target, e.g. a car, does not move enough. The predicted mask then intersects with the lastly
-detected target's mask by a considerably huge amount. That is why we define a probability of the target to be hidden (\textit{hidden probability}, $p_{H,k}$) and modify
+detected target's mask by a considerably huge amount. That is why we define \linebreak a probability of the target to be hidden (\textit{hidden probability}, $p_{H,k}$) and modify
 the pruning of components. As the masks are likely to intersect, the detection probability is likely to be high in
 the first couple of frames, where the target is hidden. It is essential for the target to survive through this time
 period. The hidden probability is based on the color properties of bounding boxes from the time the target was lastly
@@ -451,13 +451,13 @@ it should appear in a scene and be detected again. If it does not and the color 
 moving
 bounding box differ from the ones captured when the target was lastly detected, the hidden probability is high and the
 target is
-in a dead state. The pruning threshold is not lowered and the detection probability is low, so the target is removed
+in \linebreak a dead state. The pruning threshold is not lowered and the detection probability is low, so the target is removed
 during the pruning step.
 \section{Merging in GM-PHD filter with dynamic detection probability}
 Another way to lower the computational demands and to potentially increase the robustness of a filter is through
 merging of the
 targets that appear in the same neighbourhood. This procedure is especially useful in situations when many measurements
-occur in a validation region of a target. If at least some of these measurements originate from clutter, the target
+occur in \linebreak a validation region of a target. If at least some of these measurements originate from clutter, the target
 count increases rapidly due to the
 GM-PHD recursion, increasing the computational requirements. To prevent this issue,
 the target merging technique is \linebreak necessary.
@@ -516,7 +516,7 @@ target. Then a resulting target's bbox
 where $w_k^{(i)}$, is the weight of a target $i$ is the weighted mean of targets in subset $L$. The same procedure is
 applied to the bounding box in \textit{Object Stats}, i.e., the previous bbox.
 
-The merging of masks is slightly complicated, as we merge targets' masks into a single "average" mask. First, binary
+The merging of masks is slightly complicated, as we merge targets' masks into \linebreak a single "average" mask. First, binary
 masks of targets in the subset $L$ are converted into \textit{float} data type, then multiplied with targets' weight
 and
 divided by the sum of these weights. To get the resulting binary mask, each element of mask

@@ -4,7 +4,7 @@ Target tracking plays a pivotal role in surveillance systems, such as radars, wh
 estimate the 
 trajectory,
 position, and other
-characteristics of moving objects within a surveillance area. Derived from the foundational principles of the Kalman filter, target tracking algorithms are tailored to the specific requirements and challenges inherent in radar applications.
+characteristics of moving objects within a surveillance area. Derived from the foundational principles \linebreak of the Kalman filter, target tracking algorithms are tailored to the specific requirements and challenges inherent in radar applications.
 
 Radar-based target tracking encounters various complexities, including survivability and the presence of
 multiple targets in the same area. Survivability concerns the algorithm's ability to maintain
@@ -62,10 +62,10 @@ reliable, data association uncertainty is eliminated. However, in cases where a 
 \label{sec:validation_region}
 In target tracking scenarios, the process of signal detection provides measurements from which the appropriate ones
 for inclusion in the target state estimator are chosen. In radar systems, for instance, the signal reflected from the
-target of interest is sought within a specific time interval, determined by the expected range of the target when it
+target of interest is sought within \linebreak a specific time interval, determined by the expected range of the target when it
 reflects the transmitted energy. A range gate is established and detections falling within this gate can be
 associated with the target of interest. These measurements could include informations such as range, azimuth, elevation,
-or direction cosines. For a radar or an active sonar, we might also measure how fast something is moving towards or away
+or direction cosines. For a radar or \linebreak an active sonar, we might also measure how fast something is moving towards or away
 from us. For a passive sonar, we might look at the direction somethings coming from, when it arrives, and the
 difference in sounds it makes. And for optical sensors, we might measure the angle it is seen from. By setting up a
 multidimensional gate, the signal from the target is detected efficiently, avoiding the need to search for it across the entire measurement space.
@@ -78,7 +78,7 @@ than one detection appears within the gate, association uncertainty arises. With
 figure out which measurement really comes from the target and should be used to update our tracking information. This includes factors like the target's estimated position and its variability, or, more broadly, the key information we need about the target. Measurements outside the validation region can be disregarded, as they are too distant from the predicted measurement and are unlikely to have originated from the target of interest. This scenario typically arises when the gate probability is close to unity, and the statistical model used to define the gate is accurate.
 
 Figure \ref{fig:singleTargetInClutter} illustrates a scenario that involves multiple validated measurements. The validation region depicted in the
-figure is two-dimensional and takes the form of an ellipse centered at the predicted measurement $\hat{z}$. The
+figure is two-dimensional and takes the form of \linebreak an ellipse centered at the predicted measurement $\hat{z}$. The
 elliptical shape of the validation region arises from the assumption that the error in the target's predicted
 measurement, known as the innovation, follows a Gaussian distribution. The parameters defining the ellipse are
 determined by the covariance matrix $S$ of the innovation.
@@ -175,7 +175,7 @@ The PDA algorithm comes with many assumptions:
     measurement fell into the validation region, then,
     according to \eqref{eq:pda_A1_eq2}, at most one of the validated measurements can be target-originated.
     \item The remaining measurements are assumed to be false alarms or clutter and are modeled as independent and identically distributed with uniform spatial distribution. Additionally, the number of false alarms or clutter points obeys either a Poisson distribution, that is, a spatial Poisson process with known
-    spatial density $\lambda$, or a diffuse prior.
+    spatial density $\lambda$, or \linebreak a diffuse prior.
     \item The target detections occur independently over time
     with known probability $p_D$.
 \end{enumerate}
@@ -277,7 +277,7 @@ family are filters based on random finite sets. Random finite sets statistics ar
     \subsection{RFS statistics}
 Multi-target tracking presents challenges in estimating the states of multiple dynamic objects over time, complicated
 by varying target counts, cluttered sensor measurements, and data association ambiguity. Traditional tracking
-frameworks rely on explicit associations between measurements and targets, leading to computational complexities, particularly in scenarios with high target densities and clutter rates.
+frameworks rely on explicit \linebreak associations between measurements and targets, leading to computational complexities, particularly in scenarios with high target densities and clutter rates.
 
 Recent advancements introduce Random Finite Set (RFS) theory as an alternative approach to multi-target tracking. RFS
 theory represents sets with random cardinalities and values, offering a flexible framework for modeling uncertain
@@ -448,7 +448,7 @@ where $J_{\gamma,k}, w_{\gamma,k}^{(i)}, m_{\gamma,k}^{(i)}, P_{\gamma,k}^{(i)},
 
 Assumptions \ref{as:phd_4} and \ref{as:phd_5} are very common and used in various tracking algorithms \cite{bar1988tracking}, but the closed-form solution allows for state- and time-dependent $p_{S,k}$ and $p_{D,k}$. This convenience is used in the practical part of this thesis.
 
-The means $m_{\gamma,k}^{(i)}$ in assumption \ref{as:phd_6} are the peaks of the spontaneous birth intensity in \eqref{eq:phd_birth_intensity}. These are the points with highest concentrations of the expected number of spontaneous births, meaning they represent places like airports or other places with highest probability target appearance. $P_{\gamma,k}^{(i)}$ is the covariance matrix that regulates the spread of the birth intensity. The weight $w_{\gamma, k}^{(i)}$ gives the expected number of new targets originating from $m_{\gamma,k}^{(i)}$. Similary in \eqref{eq:phd_spawning_intensity} with addition, that the peak $F_{\beta,k-1}^{(j)}\zeta + d_{\beta,k-1}^{(j)}$ is an affine function of $\zeta$. This spawned target can be pictured as a new target spawned in the neighborhood of another target with previous state $\zeta$. This can be, for example, a smaller ship detached from its mother ship.
+The means $m_{\gamma,k}^{(i)}$ in assumption \ref{as:phd_6} are the peaks of the spontaneous birth intensity in \eqref{eq:phd_birth_intensity}. These are the points with highest concentrations of the expected number of spontaneous births, meaning they represent places like airports or other places with highest probability target appearance. $P_{\gamma,k}^{(i)}$ is the covariance matrix that regulates the spread of the birth intensity. The weight $w_{\gamma, k}^{(i)}$ gives the expected number of new targets originating from $m_{\gamma,k}^{(i)}$. Similary in \eqref{eq:phd_spawning_intensity} with addition, that the peak $F_{\beta,k-1}^{(j)}\zeta + d_{\beta,k-1}^{(j)}$ is an affine function of $\zeta$. This spawned target can be pictured as a new target spawned in the neighborhood of another target with previous state $\zeta$. This can be, for example, \linebreak a smaller ship detached from its mother ship.
 
         \subsubsection{GM-PHD recursion for linear models}
 In this section we delve into Gaussian mixture probability hypothesis density filter recursion for the linear Gaussian multi-target model and its closed-form solution to the \eqref{eq:phdPrior} and \eqref{eq:phdPosterior}. Suppose, that with assumptions \ref{as:phd_4}-\ref{as:phd_6} the posterior intensity at time $k-1$ is a Gaussian mixture of the form
@@ -605,7 +605,7 @@ exponential increase of Gaussian components
 \end{align}
 where $J_{k-1}$ is the number of Gaussian components of the intensity $\nu_{k-1}$.
 
-To resolve this issue, many techniques can be applied. The simplest one is to remove components with a low weight to the next timestep. This can be done by predefining a threshold. Only targets with a higher weight than this threshold continue to survive.
+To resolve this issue, many techniques can be applied. The simplest one is to remove components with a low weight to the next timestep. This can be done by predefining \linebreak a threshold. Only targets with a higher weight than this threshold continue to survive.
 
 The next possibility is keeping a certain number of targets and removing the ones with the lowest weight. However,
 some of the Gausssian components can appear so close together, that they can be merged into a single component. Such

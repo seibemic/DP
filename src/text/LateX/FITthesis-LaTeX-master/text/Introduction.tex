@@ -103,10 +103,10 @@ The probabilistic formulation of the RFS-based filters and the inherent Bayesian
 However, in real-world scenarios, the sensor performance is susceptible to various environmental conditions. Adverse weather, occlusions, or just the nature of the current scenario can lead to variations in detection probabilities. A mismatch between assumed and actual detection probabilities can result in a suboptimal tracking performance, leading to missed detections, false alarms, or inaccurate target state estimates \cite{Hendeby2014Gaussian}.
 
 The RFS-based formulation of the PHD or (P)MBM filters naturally takes the uncertainty about the detection
-probability into account \cite{Hendeby2014Gaussian}. The update formulas involve it as a function of the target state. In the figurative sense, this allows to model it as a function of the spatial and temporal properties of the environment.
+probability into account \cite{Hendeby2014Gaussian}. The update formulas involve it as a function of the target state. In the figurative sense, this allows to model it as \linebreak a function of the spatial and temporal properties of the environment.
 Still, two difficulties arise. First, the (Gaussian) filters are analytically tractable only if the detection probabilities are scalar numbers. Second, the nature of the detection probabilities differs from scenario to scenario.
 
-In general, several methods have been proposed to deal with unknown detection probabilities. A Gaussian-beta modeling of a slowly-varying detection profile in the Cardinalized PHD filter is reported in \cite{Mahler2011cphd}; its alternative for MBM filters follows in \cite{Vo2013Robust}, and for PMBM filter in \cite{Kong2021Robust}. In \cite{Li2018PHD}, the authors propose to overcome some deficiencies in the CPHD filter \cite{Mahler2011cphd} by different clutter/detection probability models. Another variant was recently proposed in \cite{wei2023BGMPHD}. A track-state augmentation with an amplitude offset-based prediction of the detection probability appeared in \cite{Hanusa2013Track}, however, this method suffers difficulties in multistatic fields. An automatic identification system-based sensor performance assessment for clutter-free environments is developed in \cite{Horn2013Near}. A recent paper \cite{Wei2022Trajectory} deals with the unknown detection profile in the trajectory PHD/CPHD filters. There, the algorithm learns from the history of the unknown target detection probability.
+In general, several methods have been proposed to deal with unknown detection probabilities. A Gaussian-beta modeling of a slowly-varying detection profile in the Cardinalized PHD filter is reported in \cite{Mahler2011cphd}; its alternative for MBM filters follows in \cite{Vo2013Robust}, and for PMBM filter in \cite{Kong2021Robust}. In \cite{Li2018PHD}, the authors propose to overcome some deficiencies in the CPHD filter \cite{Mahler2011cphd} by different clutter/detection probability models. Another variant was recently proposed in \cite{wei2023BGMPHD}. A track-state augmentation with \linebreak an amplitude offset-based prediction of the detection probability appeared in \cite{Hanusa2013Track}, however, this method suffers difficulties in multistatic fields. An automatic identification system-based sensor performance assessment for clutter-free environments is developed in \cite{Horn2013Near}. A recent paper \cite{Wei2022Trajectory} deals with the unknown detection profile in the trajectory PHD/CPHD filters. There, the algorithm learns from the history of the unknown target detection probability.
 
 As we track objects in video data, it allows us to avoid the generic solutions and focus on the peculiarities
 associated with this specific data type. In particular, an advantage of YOLO is taken, offering a high-performance
@@ -120,13 +120,13 @@ The structure of this thesis is as follows:
 \begin{description}
   \item[Chapter 2] provides the theoretical background necessary for understanding the multi-target problem.
   This chapter follows up Bayesian inference, multivariate Gaussian distributions, mixtures, and state-space models.
-  Next follows the intersection of discussed concepts and linking them in the possibilities of use in the form of a
+  Next follows the intersection of discussed concepts and linking them in the possibilities of use in the form of \linebreak a
   Kalman filter.
 
   \item[Chapter 3] is dedicated to the target tracking problem itself. In this part, we explain terms as clutter or
   validation region and baseline formulations for single target tracking are presented. Next comes the overview of
   RFS-based
-  methods and, especially, an explanation of the PHD filter and its recursion for linear Gaussian models.
+  methods and, especially, \linebreak an explanation of the PHD filter and its recursion for linear Gaussian models.
 
   \item[Chapter 4] discusses the topic of object detection and segmentation techniques algorithms with additional
   details

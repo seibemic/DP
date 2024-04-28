@@ -58,8 +58,6 @@ class ObjectStats:
     def get_cosineSimilarity(self, hist1, hist2, print_result=False):
         assert len(hist1) == len(hist2)
         cos_sim = np.zeros(shape=(hist1.shape[0]))
-        np.save("hist1.npy", hist1)
-        np.save("hist2.npy", hist2)
         th = 1e-20
         for i, val in enumerate(hist1):
             cos_sim[i] = (hist2[i]+th) @ (val+th) / (np.linalg.norm((hist2[i]+th)) * np.linalg.norm((val)+th))

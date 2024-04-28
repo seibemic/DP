@@ -259,7 +259,7 @@ class VideoMTT:
 
         #self.MTT.add_SpawnPoint(np.array([790, 420]), w=0.1, cov=P/3)
         #self.MTT.add_SpawnPoint(np.array([872, 420]), w=0.1, cov=P/3)
-        road = cv2.imread("/home/michal/Documents/FIT/DP/dp/src/data/imgs/road4.png", cv2.IMREAD_UNCHANGED)
+        road = cv2.imread("../data/imgs/road4.png", cv2.IMREAD_UNCHANGED)
         alpha_channel = None
         if road.shape[2] == 4:
             alpha_channel = road[:, :, 3]
@@ -284,8 +284,8 @@ class VideoMTT:
 
         rows, cols, _ = road.shape
         road = road[0:rows, 0:cols]
-        print("road shape:")
-        print(road.shape)
+        # print("road shape:")
+        # print(road.shape)
         desired_width = 300#1220#1120
         desired_height = 600#300#370
 
@@ -300,7 +300,7 @@ class VideoMTT:
         mask_road = road[:, :, 3] / 255.0
         alpha_mask_inv = 1.0 - mask_road
         height1, width1, _ = road.shape
-        print(road.shape)
+        # print(road.shape)
         x_offset = 300  # X coordinate where you want to place image1 in image2
         y_offset = 120  # Y coordinate where you want to place image1 in image2
         roi = road[y_offset:y_offset + height1, x_offset:x_offset + width1]
@@ -354,7 +354,7 @@ class VideoMTT:
                         (mask_road * road[:, :, c] +
                          alpha_mask_inv * frame[y_offset:y_offset + height1, x_offset:x_offset + width1, c])
             frame_obstacles = frame.copy()
-            print("frame shape: ", frame.shape)
+            # print("frame shape: ", frame.shape)
             addObstacle = 1
             if addObstacle:
                 height, width = frame_obstacles.shape[:2]
@@ -481,7 +481,7 @@ class VideoMTT:
 
                     print(f"target {i}:")
                 if target.mask is not None:
-                    print(f"    mask mean: ", np.mean(frame[target.mask.nonzero()]))
+                    # print(f"    mask mean: ", np.mean(frame[target.mask.nonzero()]))
                     act_masks.append(target.mask)
 
                 if target.objectStats is not None:
@@ -503,7 +503,7 @@ class VideoMTT:
                     # frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, predicted_pd)
                     frameWithBboxes = self.showAllLabels(frameWithBboxes, predicted_xyxy, states)
                 cls = np.zeros(shape=len(prev_masks))
-                print("prev mask len: ", len(prev_masks))
+                # print("prev mask len: ", len(prev_masks))
                 if len(prev_masks) > 0 and 0:
                     frameWithBboxes = self.showAllMasks(prev_masks, frameWithBboxes, (255, 0, 0))
                     # merged_colored_mask = self.merge_masks_colored(prev_masks, cls)
@@ -516,8 +516,8 @@ class VideoMTT:
 
             output_video_boxes.write(frameWithBboxes)
 
-            start_frame = 44#22#0#83
-            end_frame = 59#65 #109
+            start_frame = 0#44#22#0#83
+            end_frame = 1500#59#65 #109
             if frame_num >= start_frame and frame_num < end_frame:
                 df.loc[len(df.index)] = [frame_num, 4,len(xyxy),len(self.MTT.trackers),displayed_targets]
 
