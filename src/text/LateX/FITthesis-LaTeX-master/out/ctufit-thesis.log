@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  28 APR 2024 23:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.17)  29 APR 2024 00:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2170,54 +2170,54 @@ Package pdftex.def Info: ../../../experiments/E1/V1/noPd/staticPd_det.png  used
  on input line 61.
 (pdftex.def)             Requested size: 418.25368pt x 164.2123pt.
  [72]
-<../../../experiments/E1/V1/noPd/36.png, id=1565, 697.60625pt x 392.46625pt>
+<../../../experiments/E1/V1/noPd/36.png, id=1565, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/noPd/36.png Graphic file (type png)
 <use ../../../experiments/E1/V1/noPd/36.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/noPd/36.png  used on input 
 line 72.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/noPd/48.png, id=1566, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/48.png, id=1566, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/noPd/48.png Graphic file (type png)
 <use ../../../experiments/E1/V1/noPd/48.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/noPd/48.png  used on input 
 line 78.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/noPd/49.png, id=1567, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/49.png, id=1567, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/noPd/49.png Graphic file (type png)
 <use ../../../experiments/E1/V1/noPd/49.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/noPd/49.png  used on input 
 line 85.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/noPd/56.png, id=1568, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/56.png, id=1568, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/noPd/56.png Graphic file (type png)
 <use ../../../experiments/E1/V1/noPd/56.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/noPd/56.png  used on input 
 line 91.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/noPd/67.png, id=1569, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/67.png, id=1569, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/noPd/67.png Graphic file (type png)
 <use ../../../experiments/E1/V1/noPd/67.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/noPd/67.png  used on input 
 line 98.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/noPd/69.png, id=1570, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/69.png, id=1570, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/noPd/69.png Graphic file (type png)
 <use ../../../experiments/E1/V1/noPd/69.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/noPd/69.png  used on input 
 line 104.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/noPd/73.png, id=1571, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/73.png, id=1571, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/noPd/73.png Graphic file (type png)
 <use ../../../experiments/E1/V1/noPd/73.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/noPd/73.png  used on input 
 line 111.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/noPd/79.png, id=1572, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/noPd/79.png, id=1572, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/noPd/79.png Graphic file (type png)
 <use ../../../experiments/E1/V1/noPd/79.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/noPd/79.png  used on input 
 line 117.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
  [73 <../../../experiments/E1/V1/noPd/staticPd_det.png>] [74 <../../../experime
 nts/E1/V1/noPd/36.png (PNG copy)> <../../../experiments/E1/V1/noPd/48.png (PNG 
 copy)> <../../../experiments/E1/V1/noPd/49.png (PNG copy)> <../../../experiment
@@ -2233,54 +2233,54 @@ Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/yolo_det.png  used on
 input line 180.
 (pdftex.def)             Requested size: 418.25368pt x 166.37486pt.
  [75]
-<../../../experiments/E1/V1/YOLO/36.png, id=1599, 697.60625pt x 392.46625pt>
+<../../../experiments/E1/V1/YOLO/36.png, id=1599, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/YOLO/36.png Graphic file (type png)
 <use ../../../experiments/E1/V1/YOLO/36.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/36.png  used on input 
 line 191.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/YOLO/48.png, id=1600, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/48.png, id=1600, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/YOLO/48.png Graphic file (type png)
 <use ../../../experiments/E1/V1/YOLO/48.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/48.png  used on input 
 line 197.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/YOLO/50.png, id=1601, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/50.png, id=1601, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/YOLO/50.png Graphic file (type png)
 <use ../../../experiments/E1/V1/YOLO/50.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/50.png  used on input 
 line 204.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/YOLO/56.png, id=1602, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/56.png, id=1602, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/YOLO/56.png Graphic file (type png)
 <use ../../../experiments/E1/V1/YOLO/56.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/56.png  used on input 
 line 210.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/YOLO/67.png, id=1603, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/67.png, id=1603, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/YOLO/67.png Graphic file (type png)
 <use ../../../experiments/E1/V1/YOLO/67.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/67.png  used on input 
 line 217.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/YOLO/69.png, id=1604, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/69.png, id=1604, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/YOLO/69.png Graphic file (type png)
 <use ../../../experiments/E1/V1/YOLO/69.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/69.png  used on input 
 line 223.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/YOLO/73.png, id=1605, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/73.png, id=1605, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/YOLO/73.png Graphic file (type png)
 <use ../../../experiments/E1/V1/YOLO/73.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/73.png  used on input 
 line 230.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/YOLO/79.png, id=1606, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/YOLO/79.png, id=1606, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/YOLO/79.png Graphic file (type png)
 <use ../../../experiments/E1/V1/YOLO/79.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/YOLO/79.png  used on input 
 line 236.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
  [76 <../../../experiments/E1/V1/YOLO/yolo_det.png>] [77 <../../../experiments/
 E1/V1/YOLO/36.png (PNG copy)> <../../../experiments/E1/V1/YOLO/48.png (PNG copy
 )> <../../../experiments/E1/V1/YOLO/50.png (PNG copy)> <../../../experiments/E1
@@ -2293,54 +2293,54 @@ File: ../../../experiments/E1/V1/SAM/sam_det.png Graphic file (type png)
 Package pdftex.def Info: ../../../experiments/E1/V1/SAM/sam_det.png  used on in
 put line 287.
 (pdftex.def)             Requested size: 418.25368pt x 164.2123pt.
-<../../../experiments/E1/V1/SAM/36.png, id=1623, 697.60625pt x 392.46625pt>
+<../../../experiments/E1/V1/SAM/36.png, id=1623, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/SAM/36.png Graphic file (type png)
 <use ../../../experiments/E1/V1/SAM/36.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/SAM/36.png  used on input l
 ine 298.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/SAM/48.png, id=1624, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/48.png, id=1624, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/SAM/48.png Graphic file (type png)
 <use ../../../experiments/E1/V1/SAM/48.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/SAM/48.png  used on input l
 ine 304.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/SAM/53.png, id=1625, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/53.png, id=1625, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/SAM/53.png Graphic file (type png)
 <use ../../../experiments/E1/V1/SAM/53.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/SAM/53.png  used on input l
 ine 311.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/SAM/57.png, id=1626, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/57.png, id=1626, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/SAM/57.png Graphic file (type png)
 <use ../../../experiments/E1/V1/SAM/57.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/SAM/57.png  used on input l
 ine 317.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/SAM/62.png, id=1627, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/62.png, id=1627, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/SAM/62.png Graphic file (type png)
 <use ../../../experiments/E1/V1/SAM/62.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/SAM/62.png  used on input l
 ine 324.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/SAM/69.png, id=1628, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/69.png, id=1628, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/SAM/69.png Graphic file (type png)
 <use ../../../experiments/E1/V1/SAM/69.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/SAM/69.png  used on input l
 ine 330.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/SAM/70.png, id=1629, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/70.png, id=1629, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/SAM/70.png Graphic file (type png)
 <use ../../../experiments/E1/V1/SAM/70.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/SAM/70.png  used on input l
 ine 337.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/SAM/78.png, id=1630, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/SAM/78.png, id=1630, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/SAM/78.png Graphic file (type png)
 <use ../../../experiments/E1/V1/SAM/78.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/SAM/78.png  used on input l
 ine 343.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
  [78 <../../../experiments/E1/V1/SAM/sam_det.png>] [79 <../../../experiments/E1
 /V1/SAM/36.png (PNG copy)> <../../../experiments/E1/V1/SAM/48.png (PNG copy)> <
 ../../../experiments/E1/V1/SAM/53.png (PNG copy)> <../../../experiments/E1/V1/S
@@ -2354,54 +2354,54 @@ File: ../../../experiments/E1/V1/DINO/dino_det.png Graphic file (type png)
 Package pdftex.def Info: ../../../experiments/E1/V1/DINO/dino_det.png  used on 
 input line 399.
 (pdftex.def)             Requested size: 418.25368pt x 164.87103pt.
-<../../../experiments/E1/V1/DINO/36.png, id=1654, 697.60625pt x 392.46625pt>
+<../../../experiments/E1/V1/DINO/36.png, id=1654, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/DINO/36.png Graphic file (type png)
 <use ../../../experiments/E1/V1/DINO/36.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/DINO/36.png  used on input 
 line 411.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/DINO/48.png, id=1655, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/48.png, id=1655, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/DINO/48.png Graphic file (type png)
 <use ../../../experiments/E1/V1/DINO/48.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/DINO/48.png  used on input 
 line 417.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/DINO/54.png, id=1656, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/54.png, id=1656, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/DINO/54.png Graphic file (type png)
 <use ../../../experiments/E1/V1/DINO/54.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/DINO/54.png  used on input 
 line 424.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/DINO/58.png, id=1657, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/58.png, id=1657, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/DINO/58.png Graphic file (type png)
 <use ../../../experiments/E1/V1/DINO/58.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/DINO/58.png  used on input 
 line 430.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/DINO/67.png, id=1658, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/67.png, id=1658, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/DINO/67.png Graphic file (type png)
 <use ../../../experiments/E1/V1/DINO/67.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/DINO/67.png  used on input 
 line 437.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/DINO/69.png, id=1659, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/69.png, id=1659, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/DINO/69.png Graphic file (type png)
 <use ../../../experiments/E1/V1/DINO/69.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/DINO/69.png  used on input 
 line 443.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/DINO/73.png, id=1660, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/73.png, id=1660, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/DINO/73.png Graphic file (type png)
 <use ../../../experiments/E1/V1/DINO/73.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/DINO/73.png  used on input 
 line 450.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
-<../../../experiments/E1/V1/DINO/78.png, id=1661, 697.60625pt x 392.46625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V1/DINO/78.png, id=1661, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V1/DINO/78.png Graphic file (type png)
 <use ../../../experiments/E1/V1/DINO/78.png>
 Package pdftex.def Info: ../../../experiments/E1/V1/DINO/78.png  used on input 
 line 456.
-(pdftex.def)             Requested size: 200.75996pt x 112.94395pt.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
 ) (./text/chapter_05/E1-V2.tex [80 <../../../experiments/E1/V1/DINO/dino_det.pn
 g>] [81 <../../../experiments/E1/V1/DINO/36.png (PNG copy)> <../../../experimen
 ts/E1/V1/DINO/48.png (PNG copy)> <../../../experiments/E1/V1/DINO/54.png (PNG c
@@ -2417,42 +2417,42 @@ Package pdftex.def Info: ../../../experiments/E1/V2/noPd/staticPd_det.png  used
  on input line 47.
 (pdftex.def)             Requested size: 418.25368pt x 164.2123pt.
  [82]
-<../../../experiments/E1/V2/noPd/83.png, id=1685, 553.06625pt x 311.1625pt>
+<../../../experiments/E1/V2/noPd/83.png, id=1685, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/noPd/83.png Graphic file (type png)
 <use ../../../experiments/E1/V2/noPd/83.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/noPd/83.png  used on input 
 line 59.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/noPd/90.png, id=1686, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/noPd/90.png, id=1686, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/noPd/90.png Graphic file (type png)
 <use ../../../experiments/E1/V2/noPd/90.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/noPd/90.png  used on input 
 line 65.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/noPd/95.png, id=1687, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/noPd/95.png, id=1687, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/noPd/95.png Graphic file (type png)
 <use ../../../experiments/E1/V2/noPd/95.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/noPd/95.png  used on input 
 line 72.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/noPd/102.png, id=1688, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/noPd/102.png, id=1688, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/noPd/102.png Graphic file (type png)
 <use ../../../experiments/E1/V2/noPd/102.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/noPd/102.png  used on input
  line 78.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/noPd/105.png, id=1689, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/noPd/105.png, id=1689, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/noPd/105.png Graphic file (type png)
 <use ../../../experiments/E1/V2/noPd/105.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/noPd/105.png  used on input
  line 85.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/noPd/110.png, id=1690, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/noPd/110.png, id=1690, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/noPd/110.png Graphic file (type png)
 <use ../../../experiments/E1/V2/noPd/110.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/noPd/110.png  used on input
  line 91.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
 
 [83 <../../../experiments/E1/V2/noPd/staticPd_det.png> <../../../experiments/E1
 /V2/noPd/83.png (PNG copy)> <../../../experiments/E1/V2/noPd/90.png (PNG copy)>
@@ -2467,42 +2467,42 @@ Package pdftex.def Info: ../../../experiments/E1/V2/YOLO/yolo_det.png  used on
 input line 157.
 (pdftex.def)             Requested size: 418.25368pt x 164.2123pt.
  [84]
-<../../../experiments/E1/V2/YOLO/83.png, id=1712, 553.06625pt x 311.1625pt>
+<../../../experiments/E1/V2/YOLO/83.png, id=1712, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/YOLO/83.png Graphic file (type png)
 <use ../../../experiments/E1/V2/YOLO/83.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/YOLO/83.png  used on input 
 line 168.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/YOLO/89.png, id=1713, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/YOLO/89.png, id=1713, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/YOLO/89.png Graphic file (type png)
 <use ../../../experiments/E1/V2/YOLO/89.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/YOLO/89.png  used on input 
 line 174.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/YOLO/94.png, id=1714, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/YOLO/94.png, id=1714, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/YOLO/94.png Graphic file (type png)
 <use ../../../experiments/E1/V2/YOLO/94.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/YOLO/94.png  used on input 
 line 181.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/YOLO/98.png, id=1715, 528.97626pt x 297.11pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/YOLO/98.png, id=1715, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/YOLO/98.png Graphic file (type png)
 <use ../../../experiments/E1/V2/YOLO/98.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/YOLO/98.png  used on input 
 line 187.
-(pdftex.def)             Requested size: 200.75996pt x 112.75789pt.
-<../../../experiments/E1/V2/YOLO/103.png, id=1716, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/YOLO/103.png, id=1716, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/YOLO/103.png Graphic file (type png)
 <use ../../../experiments/E1/V2/YOLO/103.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/YOLO/103.png  used on input
  line 194.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/YOLO/109.png, id=1717, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/YOLO/109.png, id=1717, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/YOLO/109.png Graphic file (type png)
 <use ../../../experiments/E1/V2/YOLO/109.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/YOLO/109.png  used on input
  line 200.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
  [85 <../../../experiments/E1/V2/YOLO/yolo_det.png>] [86 <../../../experiments/
 E1/V2/YOLO/83.png (PNG copy)> <../../../experiments/E1/V2/YOLO/89.png (PNG copy
 )> <../../../experiments/E1/V2/YOLO/94.png (PNG copy)> <../../../experiments/E1
@@ -2514,42 +2514,42 @@ File: ../../../experiments/E1/V2/SAM/sam_det.png Graphic file (type png)
 Package pdftex.def Info: ../../../experiments/E1/V2/SAM/sam_det.png  used on in
 put line 248.
 (pdftex.def)             Requested size: 418.25368pt x 164.2123pt.
-<../../../experiments/E1/V2/SAM/83.png, id=1734, 553.06625pt x 311.1625pt>
+<../../../experiments/E1/V2/SAM/83.png, id=1734, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/SAM/83.png Graphic file (type png)
 <use ../../../experiments/E1/V2/SAM/83.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/SAM/83.png  used on input l
 ine 258.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/SAM/89.png, id=1735, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/SAM/89.png, id=1735, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/SAM/89.png Graphic file (type png)
 <use ../../../experiments/E1/V2/SAM/89.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/SAM/89.png  used on input l
 ine 264.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/SAM/94.png, id=1736, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/SAM/94.png, id=1736, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/SAM/94.png Graphic file (type png)
 <use ../../../experiments/E1/V2/SAM/94.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/SAM/94.png  used on input l
 ine 271.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/SAM/98.png, id=1737, 528.97626pt x 297.11pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/SAM/98.png, id=1737, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/SAM/98.png Graphic file (type png)
 <use ../../../experiments/E1/V2/SAM/98.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/SAM/98.png  used on input l
 ine 277.
-(pdftex.def)             Requested size: 200.75996pt x 112.75789pt.
-<../../../experiments/E1/V2/SAM/103.png, id=1738, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/SAM/103.png, id=1738, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/SAM/103.png Graphic file (type png)
 <use ../../../experiments/E1/V2/SAM/103.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/SAM/103.png  used on input 
 line 284.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/SAM/109.png, id=1739, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/SAM/109.png, id=1739, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/SAM/109.png Graphic file (type png)
 <use ../../../experiments/E1/V2/SAM/109.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/SAM/109.png  used on input 
 line 290.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
  [87 <../../../experiments/E1/V2/SAM/sam_det.png>] [88 <../../../experiments/E1
 /V2/SAM/83.png (PNG copy)> <../../../experiments/E1/V2/SAM/89.png (PNG copy)> <
 ../../../experiments/E1/V2/SAM/94.png (PNG copy)> <../../../experiments/E1/V2/S
@@ -2562,42 +2562,42 @@ File: ../../../experiments/E1/V2/DINO/dino_det.png Graphic file (type png)
 Package pdftex.def Info: ../../../experiments/E1/V2/DINO/dino_det.png  used on 
 input line 347.
 (pdftex.def)             Requested size: 418.25368pt x 164.2123pt.
-<../../../experiments/E1/V2/DINO/83.png, id=1760, 553.06625pt x 311.1625pt>
+<../../../experiments/E1/V2/DINO/83.png, id=1760, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/DINO/83.png Graphic file (type png)
 <use ../../../experiments/E1/V2/DINO/83.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/DINO/83.png  used on input 
 line 357.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/DINO/89.png, id=1761, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/DINO/89.png, id=1761, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/DINO/89.png Graphic file (type png)
 <use ../../../experiments/E1/V2/DINO/89.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/DINO/89.png  used on input 
 line 363.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/DINO/94.png, id=1762, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/DINO/94.png, id=1762, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/DINO/94.png Graphic file (type png)
 <use ../../../experiments/E1/V2/DINO/94.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/DINO/94.png  used on input 
 line 370.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/DINO/98.png, id=1763, 528.97626pt x 297.11pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/DINO/98.png, id=1763, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/DINO/98.png Graphic file (type png)
 <use ../../../experiments/E1/V2/DINO/98.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/DINO/98.png  used on input 
 line 376.
-(pdftex.def)             Requested size: 200.75996pt x 112.75789pt.
-<../../../experiments/E1/V2/DINO/103.png, id=1764, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/DINO/103.png, id=1764, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/DINO/103.png Graphic file (type png)
 <use ../../../experiments/E1/V2/DINO/103.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/DINO/103.png  used on input
  line 383.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E1/V2/DINO/109.png, id=1765, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E1/V2/DINO/109.png, id=1765, 903.375pt x 508.14844pt>
 File: ../../../experiments/E1/V2/DINO/109.png Graphic file (type png)
 <use ../../../experiments/E1/V2/DINO/109.png>
 Package pdftex.def Info: ../../../experiments/E1/V2/DINO/109.png  used on input
  line 389.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
 ) (./text/chapter_05/E2-V3.tex [89 <../../../experiments/E1/V2/DINO/dino_det.pn
 g>] [90 <../../../experiments/E1/V2/DINO/83.png (PNG copy)> <../../../experimen
 ts/E1/V2/DINO/89.png (PNG copy)> <../../../experiments/E1/V2/DINO/94.png (PNG c
@@ -2612,54 +2612,54 @@ Package pdftex.def Info: ../../../experiments/E2/V3/noPd/staticPd_det.png  used
  on input line 57.
 (pdftex.def)             Requested size: 418.25368pt x 164.2123pt.
  [91]
-<../../../experiments/E2/V3/noPd/7.png, id=1793, 375.4025pt x 668.4975pt>
+<../../../experiments/E2/V3/noPd/7.png, id=1793, 313.17pt x 557.83406pt>
 File: ../../../experiments/E2/V3/noPd/7.png Graphic file (type png)
 <use ../../../experiments/E2/V3/noPd/7.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/noPd/7.png  used on input l
 ine 67.
-(pdftex.def)             Requested size: 96.19655pt x 171.29594pt.
-<../../../experiments/E2/V3/noPd/33.png, id=1794, 375.4025pt x 668.4975pt>
+(pdftex.def)             Requested size: 96.19655pt x 171.35207pt.
+<../../../experiments/E2/V3/noPd/33.png, id=1794, 313.17pt x 557.83406pt>
 File: ../../../experiments/E2/V3/noPd/33.png Graphic file (type png)
 <use ../../../experiments/E2/V3/noPd/33.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/noPd/33.png  used on input 
 line 73.
-(pdftex.def)             Requested size: 96.19655pt x 171.29594pt.
-<../../../experiments/E2/V3/noPd/38.png, id=1795, 375.4025pt x 668.4975pt>
+(pdftex.def)             Requested size: 96.19655pt x 171.35207pt.
+<../../../experiments/E2/V3/noPd/38.png, id=1795, 313.17pt x 557.83406pt>
 File: ../../../experiments/E2/V3/noPd/38.png Graphic file (type png)
 <use ../../../experiments/E2/V3/noPd/38.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/noPd/38.png  used on input 
 line 79.
-(pdftex.def)             Requested size: 96.19655pt x 171.29594pt.
-<../../../experiments/E2/V3/noPd/43.png, id=1796, 375.4025pt x 668.4975pt>
+(pdftex.def)             Requested size: 96.19655pt x 171.35207pt.
+<../../../experiments/E2/V3/noPd/43.png, id=1796, 313.17pt x 557.83406pt>
 File: ../../../experiments/E2/V3/noPd/43.png Graphic file (type png)
 <use ../../../experiments/E2/V3/noPd/43.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/noPd/43.png  used on input 
 line 85.
-(pdftex.def)             Requested size: 96.19655pt x 171.29594pt.
-<../../../experiments/E2/V3/noPd/55.png, id=1797, 375.4025pt x 668.4975pt>
+(pdftex.def)             Requested size: 96.19655pt x 171.35207pt.
+<../../../experiments/E2/V3/noPd/55.png, id=1797, 313.17pt x 557.83406pt>
 File: ../../../experiments/E2/V3/noPd/55.png Graphic file (type png)
 <use ../../../experiments/E2/V3/noPd/55.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/noPd/55.png  used on input 
 line 92.
-(pdftex.def)             Requested size: 96.19655pt x 171.29594pt.
-<../../../experiments/E2/V3/noPd/60.png, id=1798, 375.4025pt x 668.4975pt>
+(pdftex.def)             Requested size: 96.19655pt x 171.35207pt.
+<../../../experiments/E2/V3/noPd/60.png, id=1798, 313.17pt x 557.83406pt>
 File: ../../../experiments/E2/V3/noPd/60.png Graphic file (type png)
 <use ../../../experiments/E2/V3/noPd/60.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/noPd/60.png  used on input 
 line 98.
-(pdftex.def)             Requested size: 96.19655pt x 171.29594pt.
-<../../../experiments/E2/V3/noPd/85.png, id=1799, 375.4025pt x 668.4975pt>
+(pdftex.def)             Requested size: 96.19655pt x 171.35207pt.
+<../../../experiments/E2/V3/noPd/85.png, id=1799, 313.17pt x 557.83406pt>
 File: ../../../experiments/E2/V3/noPd/85.png Graphic file (type png)
 <use ../../../experiments/E2/V3/noPd/85.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/noPd/85.png  used on input 
 line 104.
-(pdftex.def)             Requested size: 96.19655pt x 171.29594pt.
-<../../../experiments/E2/V3/noPd/92.png, id=1800, 375.4025pt x 668.4975pt>
+(pdftex.def)             Requested size: 96.19655pt x 171.35207pt.
+<../../../experiments/E2/V3/noPd/92.png, id=1800, 313.17pt x 557.83406pt>
 File: ../../../experiments/E2/V3/noPd/92.png Graphic file (type png)
 <use ../../../experiments/E2/V3/noPd/92.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/noPd/92.png  used on input 
 line 110.
-(pdftex.def)             Requested size: 96.19655pt x 171.29594pt.
+(pdftex.def)             Requested size: 96.19655pt x 171.35207pt.
  [92 <../../../experiments/E2/V3/noPd/staticPd_det.png> <../../../experiments/E
 2/V3/noPd/7.png (PNG copy)> <../../../experiments/E2/V3/noPd/33.png (PNG copy)>
  <../../../experiments/E2/V3/noPd/38.png (PNG copy)> <../../../experiments/E2/V
@@ -2674,54 +2674,54 @@ Package pdftex.def Info: ../../../experiments/E2/V3/YOLO/yolo_det.png  used on
 input line 170.
 (pdftex.def)             Requested size: 418.25368pt x 166.37486pt.
  [93]
-<../../../experiments/E2/V3/YOLO/7.png, id=1824, 346.29375pt x 616.3025pt>
+<../../../experiments/E2/V3/YOLO/7.png, id=1824, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/YOLO/7.png Graphic file (type png)
 <use ../../../experiments/E2/V3/YOLO/7.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/YOLO/7.png  used on input l
 ine 180.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/YOLO/33.png, id=1825, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/YOLO/33.png, id=1825, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/YOLO/33.png Graphic file (type png)
 <use ../../../experiments/E2/V3/YOLO/33.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/YOLO/33.png  used on input 
 line 186.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/YOLO/38.png, id=1826, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/YOLO/38.png, id=1826, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/YOLO/38.png Graphic file (type png)
 <use ../../../experiments/E2/V3/YOLO/38.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/YOLO/38.png  used on input 
 line 192.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/YOLO/43.png, id=1827, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/YOLO/43.png, id=1827, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/YOLO/43.png Graphic file (type png)
 <use ../../../experiments/E2/V3/YOLO/43.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/YOLO/43.png  used on input 
 line 198.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/YOLO/58.png, id=1828, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/YOLO/58.png, id=1828, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/YOLO/58.png Graphic file (type png)
 <use ../../../experiments/E2/V3/YOLO/58.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/YOLO/58.png  used on input 
 line 205.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/YOLO/60.png, id=1829, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/YOLO/60.png, id=1829, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/YOLO/60.png Graphic file (type png)
 <use ../../../experiments/E2/V3/YOLO/60.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/YOLO/60.png  used on input 
 line 211.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/YOLO/85.png, id=1830, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/YOLO/85.png, id=1830, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/YOLO/85.png Graphic file (type png)
 <use ../../../experiments/E2/V3/YOLO/85.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/YOLO/85.png  used on input 
 line 217.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/YOLO/92.png, id=1831, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/YOLO/92.png, id=1831, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/YOLO/92.png Graphic file (type png)
 <use ../../../experiments/E2/V3/YOLO/92.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/YOLO/92.png  used on input 
 line 223.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
  [94 <../../../experiments/E2/V3/YOLO/yolo_det.png> <../../../experiments/E2/V3
 /YOLO/7.png (PNG copy)> <../../../experiments/E2/V3/YOLO/33.png (PNG copy)> <..
 /../../experiments/E2/V3/YOLO/38.png (PNG copy)> <../../../experiments/E2/V3/YO
@@ -2734,54 +2734,54 @@ File: ../../../experiments/E2/V3/SAM/sam_det.png Graphic file (type png)
 Package pdftex.def Info: ../../../experiments/E2/V3/SAM/sam_det.png  used on in
 put line 268.
 (pdftex.def)             Requested size: 418.25368pt x 166.37486pt.
-<../../../experiments/E2/V3/SAM/7.png, id=1842, 346.29375pt x 616.3025pt>
+<../../../experiments/E2/V3/SAM/7.png, id=1842, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/SAM/7.png Graphic file (type png)
 <use ../../../experiments/E2/V3/SAM/7.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/SAM/7.png  used on input li
 ne 278.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/SAM/33.png, id=1843, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/SAM/33.png, id=1843, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/SAM/33.png Graphic file (type png)
 <use ../../../experiments/E2/V3/SAM/33.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/SAM/33.png  used on input l
 ine 284.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/SAM/38.png, id=1844, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/SAM/38.png, id=1844, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/SAM/38.png Graphic file (type png)
 <use ../../../experiments/E2/V3/SAM/38.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/SAM/38.png  used on input l
 ine 290.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/SAM/43.png, id=1845, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/SAM/43.png, id=1845, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/SAM/43.png Graphic file (type png)
 <use ../../../experiments/E2/V3/SAM/43.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/SAM/43.png  used on input l
 ine 296.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/SAM/57.png, id=1846, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/SAM/57.png, id=1846, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/SAM/57.png Graphic file (type png)
 <use ../../../experiments/E2/V3/SAM/57.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/SAM/57.png  used on input l
 ine 303.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/SAM/60.png, id=1847, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/SAM/60.png, id=1847, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/SAM/60.png Graphic file (type png)
 <use ../../../experiments/E2/V3/SAM/60.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/SAM/60.png  used on input l
 ine 309.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/SAM/85.png, id=1848, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/SAM/85.png, id=1848, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/SAM/85.png Graphic file (type png)
 <use ../../../experiments/E2/V3/SAM/85.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/SAM/85.png  used on input l
 ine 315.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/SAM/92.png, id=1849, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/SAM/92.png, id=1849, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/SAM/92.png Graphic file (type png)
 <use ../../../experiments/E2/V3/SAM/92.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/SAM/92.png  used on input l
 ine 321.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
  [95 <../../../experiments/E2/V3/SAM/sam_det.png>] [96 <../../../experiments/E2
 /V3/SAM/7.png (PNG copy)> <../../../experiments/E2/V3/SAM/33.png (PNG copy)> <.
 ./../../experiments/E2/V3/SAM/38.png (PNG copy)> <../../../experiments/E2/V3/SA
@@ -2795,54 +2795,54 @@ File: ../../../experiments/E2/V3/DINO/dino_det.png Graphic file (type png)
 Package pdftex.def Info: ../../../experiments/E2/V3/DINO/dino_det.png  used on 
 input line 362.
 (pdftex.def)             Requested size: 418.25368pt x 166.37486pt.
-<../../../experiments/E2/V3/DINO/7.png, id=1868, 346.29375pt x 616.3025pt>
+<../../../experiments/E2/V3/DINO/7.png, id=1868, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/DINO/7.png Graphic file (type png)
 <use ../../../experiments/E2/V3/DINO/7.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/DINO/7.png  used on input l
 ine 373.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/DINO/33.png, id=1869, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/DINO/33.png, id=1869, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/DINO/33.png Graphic file (type png)
 <use ../../../experiments/E2/V3/DINO/33.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/DINO/33.png  used on input 
 line 379.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/DINO/39.png, id=1870, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/DINO/39.png, id=1870, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/DINO/39.png Graphic file (type png)
 <use ../../../experiments/E2/V3/DINO/39.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/DINO/39.png  used on input 
 line 385.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/DINO/43.png, id=1871, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/DINO/43.png, id=1871, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/DINO/43.png Graphic file (type png)
 <use ../../../experiments/E2/V3/DINO/43.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/DINO/43.png  used on input 
 line 391.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/DINO/57.png, id=1872, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/DINO/57.png, id=1872, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/DINO/57.png Graphic file (type png)
 <use ../../../experiments/E2/V3/DINO/57.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/DINO/57.png  used on input 
 line 398.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/DINO/60.png, id=1873, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/DINO/60.png, id=1873, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/DINO/60.png Graphic file (type png)
 <use ../../../experiments/E2/V3/DINO/60.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/DINO/60.png  used on input 
 line 404.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/DINO/85.png, id=1874, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/DINO/85.png, id=1874, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/DINO/85.png Graphic file (type png)
 <use ../../../experiments/E2/V3/DINO/85.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/DINO/85.png  used on input 
 line 410.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
-<../../../experiments/E2/V3/DINO/92.png, id=1875, 346.29375pt x 616.3025pt>
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
+<../../../experiments/E2/V3/DINO/92.png, id=1875, 1084.05pt x 1927.2pt>
 File: ../../../experiments/E2/V3/DINO/92.png Graphic file (type png)
 <use ../../../experiments/E2/V3/DINO/92.png>
 Package pdftex.def Info: ../../../experiments/E2/V3/DINO/92.png  used on input 
 line 416.
-(pdftex.def)             Requested size: 96.19655pt x 171.19994pt.
+(pdftex.def)             Requested size: 96.19655pt x 170.99976pt.
 
 [97 <../../../experiments/E2/V3/DINO/dino_det.png>])
 (./text/chapter_05/E2-V2a.tex [98 <../../../experiments/E2/V3/DINO/7.png (PNG c
@@ -2851,54 +2851,54 @@ opy)> <../../../experiments/E2/V3/DINO/33.png (PNG copy)> <../../../experiments
 y)> <../../../experiments/E2/V3/DINO/57.png (PNG copy)> <../../../experiments/E
 2/V3/DINO/60.png (PNG copy)> <../../../experiments/E2/V3/DINO/85.png (PNG copy)
 > <../../../experiments/E2/V3/DINO/92.png (PNG copy)>]
-<../../../experiments/E2/V2a/YOLO/47.png, id=1897, 539.01375pt x 303.1325pt>
+<../../../experiments/E2/V2a/YOLO/47.png, id=1897, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2a/YOLO/47.png Graphic file (type png)
 <use ../../../experiments/E2/V2a/YOLO/47.png>
 Package pdftex.def Info: ../../../experiments/E2/V2a/YOLO/47.png  used on input
  line 54.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2a/YOLO/50.png, id=1898, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2a/YOLO/50.png, id=1898, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2a/YOLO/50.png Graphic file (type png)
 <use ../../../experiments/E2/V2a/YOLO/50.png>
 Package pdftex.def Info: ../../../experiments/E2/V2a/YOLO/50.png  used on input
  line 60.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2a/YOLO/54.png, id=1899, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2a/YOLO/54.png, id=1899, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2a/YOLO/54.png Graphic file (type png)
 <use ../../../experiments/E2/V2a/YOLO/54.png>
 Package pdftex.def Info: ../../../experiments/E2/V2a/YOLO/54.png  used on input
  line 67.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2a/YOLO/56.png, id=1900, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2a/YOLO/56.png, id=1900, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2a/YOLO/56.png Graphic file (type png)
 <use ../../../experiments/E2/V2a/YOLO/56.png>
 Package pdftex.def Info: ../../../experiments/E2/V2a/YOLO/56.png  used on input
  line 73.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2a/YOLO/57.png, id=1901, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2a/YOLO/57.png, id=1901, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2a/YOLO/57.png Graphic file (type png)
 <use ../../../experiments/E2/V2a/YOLO/57.png>
 Package pdftex.def Info: ../../../experiments/E2/V2a/YOLO/57.png  used on input
  line 80.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2a/YOLO/60.png, id=1902, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2a/YOLO/60.png, id=1902, 903.375pt x 508.14844pt>
 File: ../../../experiments/E2/V2a/YOLO/60.png Graphic file (type png)
 <use ../../../experiments/E2/V2a/YOLO/60.png>
 Package pdftex.def Info: ../../../experiments/E2/V2a/YOLO/60.png  used on input
  line 86.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E2/V2a/YOLO/62.png, id=1903, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E2/V2a/YOLO/62.png, id=1903, 903.375pt x 508.14844pt>
 File: ../../../experiments/E2/V2a/YOLO/62.png Graphic file (type png)
 <use ../../../experiments/E2/V2a/YOLO/62.png>
 Package pdftex.def Info: ../../../experiments/E2/V2a/YOLO/62.png  used on input
  line 93.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
-<../../../experiments/E2/V2a/YOLO/63.png, id=1904, 553.06625pt x 311.1625pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
+<../../../experiments/E2/V2a/YOLO/63.png, id=1904, 903.375pt x 508.14844pt>
 File: ../../../experiments/E2/V2a/YOLO/63.png Graphic file (type png)
 <use ../../../experiments/E2/V2a/YOLO/63.png>
 Package pdftex.def Info: ../../../experiments/E2/V2a/YOLO/63.png  used on input
  line 99.
-(pdftex.def)             Requested size: 200.75996pt x 112.949pt.
+(pdftex.def)             Requested size: 200.75996pt x 112.92503pt.
  [99])
 (./text/chapter_05/E2-V2b.tex [100 <../../../experiments/E2/V2a/YOLO/47.png (PN
 G copy)> <../../../experiments/E2/V2a/YOLO/50.png (PNG copy)> <../../../experim
@@ -2906,54 +2906,54 @@ ents/E2/V2a/YOLO/54.png (PNG copy)> <../../../experiments/E2/V2a/YOLO/56.png (P
 NG copy)> <../../../experiments/E2/V2a/YOLO/57.png (PNG copy)> <../../../experi
 ments/E2/V2a/YOLO/60.png (PNG copy)> <../../../experiments/E2/V2a/YOLO/62.png (
 PNG copy)> <../../../experiments/E2/V2a/YOLO/63.png (PNG copy)>]
-<../../../experiments/E2/V2b/YOLO/44.png, id=1926, 539.01375pt x 303.1325pt>
+<../../../experiments/E2/V2b/YOLO/44.png, id=1926, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2b/YOLO/44.png Graphic file (type png)
 <use ../../../experiments/E2/V2b/YOLO/44.png>
 Package pdftex.def Info: ../../../experiments/E2/V2b/YOLO/44.png  used on input
  line 45.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2b/YOLO/47.png, id=1927, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2b/YOLO/47.png, id=1927, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2b/YOLO/47.png Graphic file (type png)
 <use ../../../experiments/E2/V2b/YOLO/47.png>
 Package pdftex.def Info: ../../../experiments/E2/V2b/YOLO/47.png  used on input
  line 51.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2b/YOLO/50.png, id=1928, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2b/YOLO/50.png, id=1928, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2b/YOLO/50.png Graphic file (type png)
 <use ../../../experiments/E2/V2b/YOLO/50.png>
 Package pdftex.def Info: ../../../experiments/E2/V2b/YOLO/50.png  used on input
  line 58.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2b/YOLO/54.png, id=1929, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2b/YOLO/54.png, id=1929, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2b/YOLO/54.png Graphic file (type png)
 <use ../../../experiments/E2/V2b/YOLO/54.png>
 Package pdftex.def Info: ../../../experiments/E2/V2b/YOLO/54.png  used on input
  line 64.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2b/YOLO/56.png, id=1930, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2b/YOLO/56.png, id=1930, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2b/YOLO/56.png Graphic file (type png)
 <use ../../../experiments/E2/V2b/YOLO/56.png>
 Package pdftex.def Info: ../../../experiments/E2/V2b/YOLO/56.png  used on input
  line 71.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2b/YOLO/57.png, id=1931, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2b/YOLO/57.png, id=1931, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2b/YOLO/57.png Graphic file (type png)
 <use ../../../experiments/E2/V2b/YOLO/57.png>
 Package pdftex.def Info: ../../../experiments/E2/V2b/YOLO/57.png  used on input
  line 77.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2b/YOLO/58.png, id=1932, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2b/YOLO/58.png, id=1932, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2b/YOLO/58.png Graphic file (type png)
 <use ../../../experiments/E2/V2b/YOLO/58.png>
 Package pdftex.def Info: ../../../experiments/E2/V2b/YOLO/58.png  used on input
  line 84.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
-<../../../experiments/E2/V2b/YOLO/59.png, id=1933, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
+<../../../experiments/E2/V2b/YOLO/59.png, id=1933, 1284.8pt x 722.7pt>
 File: ../../../experiments/E2/V2b/YOLO/59.png Graphic file (type png)
 <use ../../../experiments/E2/V2b/YOLO/59.png>
 Package pdftex.def Info: ../../../experiments/E2/V2b/YOLO/59.png  used on input
  line 90.
-(pdftex.def)             Requested size: 200.75996pt x 112.90659pt.
+(pdftex.def)             Requested size: 200.75996pt x 112.92159pt.
  [101])
 (./text/chapter_05/E3-V2.tex [102 <../../../experiments/E2/V2b/YOLO/44.png (PNG
  copy)> <../../../experiments/E2/V2b/YOLO/47.png (PNG copy)> <../../../experime
@@ -2961,50 +2961,50 @@ nts/E2/V2b/YOLO/50.png (PNG copy)> <../../../experiments/E2/V2b/YOLO/54.png (PN
 G copy)> <../../../experiments/E2/V2b/YOLO/56.png (PNG copy)> <../../../experim
 ents/E2/V2b/YOLO/57.png (PNG copy)> <../../../experiments/E2/V2b/YOLO/58.png (P
 NG copy)> <../../../experiments/E2/V2b/YOLO/59.png (PNG copy)>] [103]
-<../../../experiments/E3/V2/DINO/44.png, id=1965, 539.01375pt x 303.1325pt>
+<../../../experiments/E3/V2/DINO/44.png, id=1965, 1284.8pt x 722.7pt>
 File: ../../../experiments/E3/V2/DINO/44.png Graphic file (type png)
 <use ../../../experiments/E3/V2/DINO/44.png>
 Package pdftex.def Info: ../../../experiments/E3/V2/DINO/44.png  used on input 
 line 103.
-(pdftex.def)             Requested size: 355.51817pt x 199.93855pt.
-<../../../experiments/E3/V2/DINO/48.png, id=1966, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 355.51817pt x 199.97267pt.
+<../../../experiments/E3/V2/DINO/48.png, id=1966, 1284.8pt x 722.7pt>
 File: ../../../experiments/E3/V2/DINO/48.png Graphic file (type png)
 <use ../../../experiments/E3/V2/DINO/48.png>
 Package pdftex.def Info: ../../../experiments/E3/V2/DINO/48.png  used on input 
 line 109.
-(pdftex.def)             Requested size: 355.51817pt x 199.93855pt.
-<../../../experiments/E3/V2/DINO/50.png, id=1967, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 355.51817pt x 199.97267pt.
+<../../../experiments/E3/V2/DINO/50.png, id=1967, 1284.8pt x 722.7pt>
 File: ../../../experiments/E3/V2/DINO/50.png Graphic file (type png)
 <use ../../../experiments/E3/V2/DINO/50.png>
 Package pdftex.def Info: ../../../experiments/E3/V2/DINO/50.png  used on input 
 line 116.
-(pdftex.def)             Requested size: 355.51817pt x 199.93855pt.
-<../../../experiments/E3/V2/DINO/53.png, id=1968, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 355.51817pt x 199.97267pt.
+<../../../experiments/E3/V2/DINO/53.png, id=1968, 1284.8pt x 722.7pt>
 File: ../../../experiments/E3/V2/DINO/53.png Graphic file (type png)
 <use ../../../experiments/E3/V2/DINO/53.png>
 Package pdftex.def Info: ../../../experiments/E3/V2/DINO/53.png  used on input 
 line 127.
-(pdftex.def)             Requested size: 355.51817pt x 199.93855pt.
-<../../../experiments/E3/V2/DINO/54.png, id=1969, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 355.51817pt x 199.97267pt.
+<../../../experiments/E3/V2/DINO/54.png, id=1969, 1284.8pt x 722.7pt>
 File: ../../../experiments/E3/V2/DINO/54.png Graphic file (type png)
 <use ../../../experiments/E3/V2/DINO/54.png>
 Package pdftex.def Info: ../../../experiments/E3/V2/DINO/54.png  used on input 
 line 134.
-(pdftex.def)             Requested size: 355.51817pt x 199.93855pt.
-<../../../experiments/E3/V2/DINO/58.png, id=1970, 539.01375pt x 303.1325pt>
+(pdftex.def)             Requested size: 355.51817pt x 199.97267pt.
+<../../../experiments/E3/V2/DINO/58.png, id=1970, 1284.8pt x 722.7pt>
 File: ../../../experiments/E3/V2/DINO/58.png Graphic file (type png)
 <use ../../../experiments/E3/V2/DINO/58.png>
 Package pdftex.def Info: ../../../experiments/E3/V2/DINO/58.png  used on input 
 line 140.
-(pdftex.def)             Requested size: 355.51817pt x 199.93855pt.
+(pdftex.def)             Requested size: 355.51817pt x 199.97267pt.
  [104]
-Overfull \vbox (50.48643pt too high) has occurred while \output is active []
+Overfull \vbox (50.58879pt too high) has occurred while \output is active []
 
 
 [105 <../../../experiments/E3/V2/DINO/44.png (PNG copy)> <../../../experiments/
 E3/V2/DINO/48.png (PNG copy)> <../../../experiments/E3/V2/DINO/50.png (PNG copy
 )>]
-Overfull \vbox (50.48643pt too high) has occurred while \output is active []
+Overfull \vbox (50.58879pt too high) has occurred while \output is active []
 
 
 [106 <../../../experiments/E3/V2/DINO/53.png (PNG copy)> <../../../experiments/
@@ -3099,7 +3099,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 335.
 Here is how much of TeX's memory you used:
  39228 strings out of 481239
  719704 string characters out of 5920377
- 1452984 words of memory out of 5000000
+ 1452982 words of memory out of 5000000
  53052 multiletter control sequences out of 15000+600000
  737105 words of font info for 282 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -3122,7 +3122,7 @@ t/fonts/type1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type
 fonts/txsyb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.p
 fb>
 Output written on /home/michal/Documents/FIT/DP/dp/src/text/LateX/FITthesis-LaT
-eX-master/out/ctufit-thesis.pdf (128 pages, 48242645 bytes).
+eX-master/out/ctufit-thesis.pdf (128 pages, 175695758 bytes).
 PDF statistics:
  2290 PDF objects out of 2487 (max. 8388607)
  1930 compressed objects within 20 object streams
