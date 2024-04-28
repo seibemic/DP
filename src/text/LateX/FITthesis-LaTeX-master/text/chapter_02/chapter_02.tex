@@ -166,7 +166,7 @@ The PDA algorithm comes with many assumptions:
         \end{align}
         where $w_{k-1}$ and $v_k$ are zero mean mutually independent, white Gaussian noise variables with covariances $Q_{k-1}$ and $R_k$, respectively.
     \item The track has been initialized.
-    \item The past information through time $k-1$ about the target is summarized approximately by a statistic in the form of the Gaussian posterior
+    \item The past information through time $k-1$ about the target is summarized approximately by a sufficient statistic in the form of the Gaussian posterior
         \begin{align}
             p(x_{k-1}|z_{k-1}) &= \mathcal{N}(x_{k-1}; x_{k-1|k-1}, P_{k-1|k-1}). \label{eq:pda_A3}
         \end{align}
@@ -267,7 +267,7 @@ effective when it comes to computational
 demands. The example of data association, which we mentioned in Section \ref{sec:data_association}, is the PDA filter
 (Section \ref{sec:pda_filter}) or the integrated probabilistic data association filter \cite{brekke}. The joint
 probabilistic
-data association filter \cite{BarShalomPDA} and the joint integrated probabilistic data association filter \cite{brekke} are updated
+data association filter \cite{BarShalomPDA} and the joint integrated probabilistic data association filter \cite{brekke} are advanced
 versions
 of these
 filters. They can handle more targets, especially when two or more targets' validation regions overlap. The other
@@ -282,7 +282,7 @@ frameworks rely on explicit associations between measurements and targets, leadi
 Recent advancements introduce Random Finite Set (RFS) theory as an alternative approach to multi-target tracking. RFS
 theory represents sets with random cardinalities and values, offering a flexible framework for modeling uncertain
 multi-target scenarios. By treating both the multitarget state and sensor measurements as a RFS, tracking algorithms
-can effectively capture uncertainties .
+can effectively capture uncertainties.
 
 In a scenario with more targets, i.e., a multi-target scenario, let $M(k)$ be the number of targets at time $k$. At
 time $k-1$, the target states $x_{k-1,1}, \dots, x_{k-1,M(k-1)} \in \mathcal{X}$ are assumed to follow Markov process
@@ -304,7 +304,7 @@ Given the absence of inherent ordering within the sets of target states and meas
     X_k &= \{x_{k,1},\dots, x_{k,M(k)}\} \in \mathcal{F}(\mathcal{X}) \\
     Z_k &= \{z_{k,1},\dots, z_{k,N(k)}\} \in \mathcal{F}(\mathcal{Z}),
 \end{align}
-where $\mathcal{F}(\mathcal{X})$ and $\mathcal{F}(\mathcal{Z})$ are collections of all finite subsets of $\mathcal{X}$ and $\mathcal{Z}$, respectively. In the random finite set framework, we view target and measurement sets ($X_k$ and $Z_k$) as state and observation. This approach frames multi-target tracking as a filtering task with state-space $\mathcal{F}(\mathcal{X})$ and observation-space $\mathcal{F}(\mathcal{Z})$. For single target scenarios, uncertainty is represented using random vectors for state $x_k$ and measurement $z_k$. Similarly, in multi-target scenarios, uncertainty is modeled using random finite sets for multi-target state $X_k$ and measurement $Z_k$. An RFS $X$ is essentially a random variable that takes on finite sets of values, described by a discrete probability distribution and a set of joint probability densities. The distribution specifies the number of elements in $X$, while the densities describe the distribution of these elements.
+where $\mathcal{F}(\mathcal{X})$ and $\mathcal{F}(\mathcal{Z})$ are collections of all finite subsets of $\mathcal{X}$ and $\mathcal{Z}$, respectively. In the random finite set framework, we consider the sets of targets and measurements, denoted as $X_k$ and $Z_k$, respectively, as the state and the observation. This approach defines multi-target tracking as a filtering task with a state-space $\mathcal{F}(\mathcal{X})$ and an observation-space $\mathcal{F}(\mathcal{Z})$. For single target scenarios, uncertainty is represented using random vectors for state $x_k$ and measurement $z_k$. Similarly, in multi-target scenarios, the uncertainty is modeled using random finite sets for the multi-target state $X_k$ and the measurement $Z_k$. An RFS $X$ is essentially a random variable that takes on finite sets of values, described by a discrete probability distribution and a set of joint probability densities. The distribution specifies the number of elements in $X$, while the densities describe the distribution of these elements.
 
 We now delve into an RFS-based model for the evolution of the multi-target state, taking into account the target motion,
 birth and death. Given a multi-target state $X_{k-1}$ at time $k-1$, each individual target $x_{k-1} \in X_{k-1}$
@@ -315,7 +315,7 @@ either remains present at time $k$ with a probability $p_{S,k}(x_{k-1})$ or disa
 that can represent two scenarios: either the survival of a target, indicated by the set $\{x_k\}$, or the absence of a
 target, denoted by $\emptyset$, implying the target's demise.
 
-The occurrence of a new target at time $k$ can originate from two possibilities: spontaneous births, which are independent of any existing target, or spawning from a target present at time $k-1$.
+The occurrence of a new target at time $k$ can originate from two possibilities: spontaneous births, which are independent of any existing target, or the spawning from a target present at time $k-1$.
 
 Given a multi-target state $X_{k-1}$ at time $k-1$, the state $X_k$ at time $k$ is formulated as a union of
 surviving targets, newly spawned targets, and spontaneously born targets,

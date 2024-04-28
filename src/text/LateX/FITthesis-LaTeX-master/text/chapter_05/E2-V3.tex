@@ -31,7 +31,7 @@ Parameter settings are embodied in Table \ref{tab:\Ex-\Vs-\Set}.
 
 Figure \ref{fig:\Ex-\Vs-\Set} shows some highlights of the GM-PHD filter with the constant detection probability.
 \begin{itemize}
-    \item \textbf{\ref{fig:\Ex-\Vs-\Set:01}:} The sequence starts with the frame no. 7. The first car is initiaized by
+    \item \textbf{\ref{fig:\Ex-\Vs-\Set:01}:} The sequence starts with frame no. 7. The first car is initiaized by
     the spawning point.
     \item \textbf{\ref{fig:\Ex-\Vs-\Set:02}:} The first car arrives to an obstacle. Meanwhile, the second car arrives.
     \item \textbf{\ref{fig:\Ex-\Vs-\Set:03}:} The YOLO object detector is not able to detect the hidden car. The target is removed.
@@ -46,7 +46,7 @@ Figure \ref{fig:\Ex-\Vs-\Set} shows some highlights of the GM-PHD filter with th
     The filter merged these two targets into a single one.
 \end{itemize}
 
-According to Figure \ref{gr:\Ex-\Vs-\Set}, the filter is able to track the targets successfully. However, the graph also
+According to Figure \ref{gr:\Ex-\Vs-\Set}, the filter is able to successfully track the targets. However, the graph also
 shows the weakness of this approach. The peaks displaying the target's loss are clearly present.
 
 With the second spawn point enabling targets to reborn, the GM-PHD filter is able to track all the targets accurately.

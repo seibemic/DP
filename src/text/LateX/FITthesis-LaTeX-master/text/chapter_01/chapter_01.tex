@@ -8,7 +8,7 @@ Multi-target tracking relies heavily on mathematical concepts from the probabili
 %    \subsection{Gaussian (Normal) distribution}
     \section{Bayesian inference}
 Bayesian inference stands as a foundational pillar within the realm of a probabilistic reasoning, offering a
-fundamental methodology for systematically updating beliefs in response to observed evidence. A fundamental theorem in probability theory, the Bayes' rule, is rooted in the Bayesian inference. It formalizes the process of revising prior beliefs in light of new data. The essence of Bayesian inference transcends mere statistical calculations; it embodies a philosophical stance towards uncertainty, emphasizing the incorporation of prior knowledge and the iterative refinement of beliefs through the assimilation of empirical observations. Within the context of multi-target tracking, Bayesian inference plays a paramount role, providing a principled framework for joining information from disparate sources, such as sensor measurements, historical data, and domain expertise. By embracing Bayesian principles, MTT algorithms gain the capacity to model and quantify uncertainty inherent in tracking scenarios, thereby fostering robustness and adaptability in the face of dynamic and complex environments. Moreover, Bayesian inference empowers MTT systems to exploit contextual cues and domain-specific knowledge, enhancing their ability to discern meaningful patterns among noise and uncertainty. Due to the Bayesian inference, MTT researchers and practitioners are equipped with a powerful tool for navigating the intricacies of multi-target tracking, facilitating informed decision-making, and advancing the frontier of robust systems. Thus, Bayesian inference emerges not merely as a mathematical construct, but as a guiding philosophy underpinning the quest for understanding and reasoning in the face of uncertainty.
+fundamental methodology for systematically updating beliefs in response to observed evidence. A fundamental theorem in probability theory, the Bayes' rule, is rooted in the Bayesian inference. It formalizes the process of revising prior beliefs in light of new data. The essence of Bayesian inference transcends mere statistical calculations; it embodies a philosophical stance towards uncertainty, emphasizing the incorporation of prior knowledge and the iterative refinement of beliefs through the assimilation of empirical observations. Within the context of multi-target tracking, Bayesian inference plays a paramount role, providing a principled framework for joining information from disparate sources, such as sensor measurements, historical data, and domain expertise. By embracing Bayesian principles, MTT algorithms gain the capacity to model and quantify uncertainty inherent in tracking scenarios, thereby fostering robustness and adaptability in the face of dynamic and complex environments. Moreover, Bayesian inference empowers MTT systems to exploit contextual cues and domain-specific knowledge, enhancing their ability to discern meaningful patterns among noise and uncertainty. Due to the Bayesian inference, MTT researchers and practitioners are equipped with a powerful tool to help encounter the intricacies of multi-target tracking, facilitating informed decision-making, and advancing the frontier of robust systems. Thus, Bayesian inference emerges not merely as a mathematical construct, but as a guiding philosophy underpinning the quest for understanding and reasoning in the face of uncertainty.
     \section{Bayes' rule}
 Bayes' rule, a cornerstone of Bayesian inference, embodies a fundamental principle in probability theory that underpins the systematic revision of beliefs in the face of new evidence. Mathematically expressed as a simple formula, Bayes' rule encapsulates the process of updating prior probabilities based on observed data, thereby yielding posterior probabilities that reflect the incorporation of new information. At its basis, the Bayes' rule provides a formal mechanism for quantifying the impact of new evidence on the likelihood of various hypotheses or states of nature. The rule states that the posterior probability of a hypothesis given observed data is proportional to the product of the likelihood of the data given the hypothesis and the prior probability of the hypothesis, divided by the marginal likelihood of the data. In essence, Bayes' rule facilitates a principled approach to inference, allowing practitioners to integrate prior knowledge with empirical observations to arrive to more informed and reliable conclusions. In the context of multi-target tracking, Bayes' rule serves as the base upon which the tracking algorithms are built, enabling the continuous refinement of estimates about the state of multiple targets based on sensor measurements and historical data. By adhering to the principles of Bayes' rule, MTT systems can effectively navigate the inherent uncertainty and complexity of tracking scenarios, thereby enhancing their robustness and accuracy.
     \begin{definition}[Conditional distribution]
@@ -16,7 +16,7 @@ Bayes' rule, a cornerstone of Bayesian inference, embodies a fundamental princip
     conditional distribution function of $X$, given condition ${Y=y}$ is defined by
     \end{definition}
     \begin{align}
-        F_{X|Y}(x|y) &:= \lim_{\epsilon\to0} \textbf{P}\{X\leq x | Y \in (y, y + \epsilon)\} = \frac{\partial F(x,y) /
+        F_{X|Y}(x|y) &:= \lim_{\epsilon\to0} {P}\{X\leq x | Y \in (y, y + \epsilon)\} = \frac{\partial F(x,y) /
         \partial y}{f_Y(y)}.\label{eq:conditional_distribution}
     \end{align}
     Differentiating this, the conditional density function of $X$, given the condition ${Y = y}$, is
@@ -66,7 +66,7 @@ Since the denominator is the normalizing constant independent of $x$, often only
     \section{Multivariate Gaussian distribution}
 In the realm of multi-target tracking, various probability distributions are employed to model the uncertainty
 associated with target states and measurements. However, among these distributions, the multivariate Gaussian
-distribution holds a preeminent position due to its versatility, mathematical tractability, and empirical relevance. While other distributions may capture specific aspects of target behavior or measurement noise, the Gaussian distribution emerges as the cornerstone of MTT due to its ability to characterize complex probability distributions in multi-dimensional spaces. As a result, the common assumption among MTT filters is that the targets follow linear Gaussian dynamics and measuremet's models, as in \cite{bar1995}, \cite{VoMaPHD2006}, or \cite{GarciaPMBM2018}. The Gaussian distribution finds ubiquitous application across various components of tracking algorithms, including
+distribution holds a preeminent position due to its versatility, mathematical tractability, and empirical relevance. While other distributions may capture specific aspects of target behavior or measurement noise, the Gaussian distribution emerges as the cornerstone of MTT due to its ability to characterize complex probability distributions in multi-dimensional spaces. As a result, the common assumption among MTT filters is that the targets follow linear Gaussian dynamics and measuremet models, as in \cite{bar1995}, \cite{VoMaPHD2006}, or \cite{GarciaPMBM2018}. The Gaussian distribution finds ubiquitous application across various components of tracking algorithms, including
 \begin{itemize}
     \item \textbf{State representation:} Gaussian distributions are used to model the probability distributions of target states, allowing for efficient representation and propagation of uncertainty over time.
     \item \textbf{Measurement model:} Gaussian distributions are employed to model the likelihood of sensor measurements given the true target state, facilitating the incorporation of sensor data into the tracking process.
@@ -74,64 +74,65 @@ distribution holds a preeminent position due to its versatility, mathematical tr
     \item \textbf{Data association:} Gaussian mixture models (GMMs), which represent mixtures of Gaussian distributions, are utilized for probabilistic data association in MTT, enabling robust handling of measurement uncertainty and target ambiguity.
 \end{itemize}
 \begin{note}
-The multivariate Gaussian distribution is a generalization of the univariate Gaussian distribution, but instead of a scalar mean and variance, there is a mean vector and a covariance matrix, that describe correlations between variables. The distribution of a $k-$dimensional random vector $\mathbf{X} = (X_1,\dots,X_k)^T$ can be written in the notation
-\[\mathbf{X} \thicksim \mathcal{N}(\mathbf{\mu}, \mathbf{\Sigma}),\]
+The multivariate Gaussian distribution is a generalization of the univariate Gaussian distribution, but instead of a
+scalar mean and variance, there is a mean vector and a covariance matrix, that describe correlations between variables. The distribution of a $k-$dimensional random vector $X = (X_1,\dots,X_k)^T$ can be written in the notation
+\[{X} \thicksim \mathcal{N}({\mu}, {\Sigma}),\]
 with
 $k-$dimensional mean vector
-$\mathbf{\mu} = \mathsf{E}[\mathbf{X}] = (\mathsf{E}[X_1], \mathsf{E}[X_2], \dots, \mathsf{E}[X_k])^T$
+${\mu} = \mathsf{E}[{X}] = (\mathsf{E}[X_1], \mathsf{E}[X_2], \dots, \mathsf{E}[X_k])^T$
 and
 $k\times k$ positive semi-definite covariance matrix $\Sigma$ with elements
 \begin{align}
-    \mathbf{\Sigma}_{ij} &= \mathsf{E}[(X_i - \mu_i)(X_j - \mu_j)] = Cov[X_i, X_j].
+    {\Sigma}_{ij} &= \mathsf{E}[(X_i - \mu_i)(X_j - \mu_j)] = Cov[X_i, X_j].
 \end{align}
 
 \end{note}
 The probability density function (PDF) is given by formula
 \begin{align}
-    \mathcal{N}(\mathbf{x};\mathbf{\mu},\mathbf{\Sigma}) &= \frac{1}{\sqrt{(2\pi)^k |\mathbf{\Sigma}|}}\exp \left(-\frac{1}{2}(\mathbf{x}-\mathbf{\mu})^T\mathbf{\Sigma}^{-1}(\mathbf{x}-\mathbf{\mu}) \right),
+    \mathcal{N}({x};{\mu},{\Sigma}) &= \frac{1}{\sqrt{(2\pi)^k |{\Sigma}|}}\exp \left(-\frac{1}{2}({x}-{\mu})^T{\Sigma}^{-1}({x}-{\mu}) \right),
 \end{align}
-where $k$ is the length of the vector $\mathbf{x}$ and $|\cdot|$ denotes the determinant of a matrix. It should be
+where $k$ is the length of the vector ${x}$ and $|\cdot|$ denotes the determinant of a matrix. It should be
 noted that the exponent is known as the Mahalanobis distance.
 \begin{definition}[Mahalanobis distance]
     For vectors $x \in R^n$ and $y \in R^n$ and a positive semi-definite $n\times n$ matrix $S$, their Mahalanobis
     distance is defined as
     \begin{align}
-        d(\mathbf{x},\mathbf{y}) = \sqrt{(\mathbf{x}-\mathbf{y})^T S^{-1} (\mathbf{x}-\mathbf{y})}
+        d({x},{y}) = \sqrt{({x}-{y})^T S^{-1} ({x}-{y})}.
     \end{align}
 \end{definition}
-The Mahalanobis distance (MD) is the distance between two points in a $n$-dimensional space and, unlike the Euclidean
+The Mahalanobis distance (MD) is the distance between two points in an $n$-dimensional space and, unlike the Euclidean
 distance, it measures distances even between the correlated points for multiple variables.
 
 Target tracking filters regularly use conditional probabilities and joint distributions, especially Gaussian. 
 \begin{theorem}[Conditional joint Gaussian distribution]
-Let $\mathbf{x}$ and $\mathbf{y}$ are Gaussian random variables with distributions $ \mathcal{N}(\mathbf{x};
-\mathbf{\mu_x},\mathbf{\Sigma_{xx}})$ and $ \mathcal{N}(\mathbf{y};\mathbf{\mu_y},\mathbf{\Sigma_{y}})$, respectively. Let their joint probability be given by
+Let ${x}$ and ${y}$ are Gaussian random variables with distributions $ \mathcal{N}({x};
+{\mu_x},{\Sigma_{xx}})$ and $ \mathcal{N}({y};{\mu_y},{\Sigma_{y}})$, respectively. Let their joint probability be given by
     \begin{align}
-        p(\mathbf{x}, \mathbf{y}) &= \mathcal{N}\left(
+        p({x}, {y}) &= \mathcal{N}\left(
         \begin{bmatrix}
-           \mathbf{x}\\
-           \mathbf{y}
+           {x}\\
+           {y}
         \end{bmatrix};
         \begin{bmatrix}
-           \mathbf{\mu_x}\\
-           \mathbf{\mu_y}
+           {\mu_x}\\
+           {\mu_y}
         \end{bmatrix},
         \begin{bmatrix}
-           \mathbf{\Sigma_{xx}} & \mathbf{\Sigma_{xy}}\\
-           \mathbf{\Sigma_{xy}} & \mathbf{\Sigma_{yy}}
+           {\Sigma_{xx}} & {\Sigma_{xy}}\\
+           {\Sigma_{xy}} & {\Sigma_{yy}}
         \end{bmatrix}
        \right).
     \end{align}
-Then, the conditional distribution of $\mathbf{x}$ given $\mathbf{y}$ is defined as
+Then, the conditional distribution of ${x}$ given ${y}$ is defined as
     \begin{align}
-         p(\mathbf{x}|\mathbf{y}) &= \mathcal{N}(\mathbf{x};\mathbf{\mu_{x|y}},\mathbf{\Sigma_{x|y}}),
+         p({x}|{y}) &= \mathcal{N}({x};{\mu_{x|y}},{\Sigma_{x|y}}),
     \end{align}
 where 
     \begin{align}
-        \mathbf{\mu_{x|y}} &= \mathbf{\mu_{x}} + \mathbf{\Sigma_{xy}} 
-        \mathbf{\Sigma_{yy}}^{-1}(\mathbf{y} - \mathbf{\mu_{y}}),\\
-        \mathbf{\Sigma_{x|y}} &= \mathbf{\Sigma_{xx}} - \mathbf{\Sigma_{xy}}
-        \mathbf{\Sigma_{yy}^{-1}}\mathbf{\Sigma_{xy}^T}.
+        {\mu_{x|y}} &= {\mu_{x}} + {\Sigma_{xy}}
+        {\Sigma_{yy}}^{-1}({y} - {\mu_{y}}),\\
+        {\Sigma_{x|y}} &= {\Sigma_{xx}} - {\Sigma_{xy}}
+        {\Sigma_{yy}^{-1}}{\Sigma_{xy}^T}.
     \end{align}
 \end{theorem}
 
@@ -168,10 +169,10 @@ multivariate Gaussian distribution can be found in Figure \ref{fig:gaussWithMarg
 Gaussian mixture models offer a flexible and powerful framework for representing complex probability distributions by
 combining multiple Gaussian components. In the Gaussian mixture model, a vector of parameters (e.g., observations of a signal) is modeled using a mixture distribution comprising several Gaussian components.
     \begin{align}
-        p(\Theta) = \sum_{i=1}^k w_i \mathcal{N}(\mathbf{\mu}_i, \mathbf{\Sigma}_i),
+        p(\Theta) = \sum_{i=1}^k w_i \mathcal{N}({\mu}_i, {\Sigma}_i),
     \end{align}
-where the $i^{th}$ component is characterized by Gaussian distribution with weight $w_i$, mean $\mathbf{\mu}
-_i$ and covariance matrix $\mathbf{\Sigma}_i$. These parameters are encapsulated to the parameter $\Theta$ in $p(\cdot)$.
+where the $i^{th}$ component is characterized by Gaussian distribution with weight $w_i$, mean ${\mu}
+_i$ and covariance matrix ${\Sigma}_i$. These parameters are encapsulated to the parameter $\Theta$ in $p(\cdot)$.
 
 %In multi-target tracking, we are often dealing with linear Gaussian models, thus the posterior density is
 %represented as a mixture of one or many Gaussian components. The pdf of Gaussian mixture distribution is simple sum of every Gaussian component, so the formula is as follows:
@@ -180,9 +181,9 @@ In the context of multi-target tracking, Gaussian mixture models find utility in
 The probability density function (pdf) of a Gaussian mixture distribution is a weighted sum of each Gaussian component,
 expressed as
     \begin{align}
-        p(x) &= \sum_{i=1}^k w_i\mathcal{N}(\mathbf{x};\mathbf{\mu_i}, \mathbf{\Sigma_i}),
+        p(x) &= \sum_{i=1}^k w_i\mathcal{N}({x};{\mu_i}, {\Sigma_i}),
     \end{align}
-where $k$ is the number of Gaussian component, $w_i>0$ is the weight of $i^{th}$ component and $\sum_{i=1}^k w_i = 1$. Gaussian mixture models in multi-target algorithms are represented as intensity functions, i.e., components'
+where $k$ is the number of Gaussian components, $w_i>0$ is the weight of $i^{th}$ component and $\sum_{i=1}^k w_i = 1$. Gaussian mixture models in multi-target algorithms are represented as intensity functions, i.e., components'
 weights do not have to sum to 1.
 
 
@@ -228,16 +229,16 @@ State-space model can be represented as a pair of stochastic equations.
 \begin{enumerate}
     \item \textbf{State transition equation:}
         \begin{align}
-                  \mathbf{x_k} &= f(\mathbf{x_{k-1}}, \mathbf{u_k}, \mathbf{w_k}), \label{eq:state_space_model_state}
+                  {x_k} &= f({x_{k-1}}, {u_k}, {w_k}), \label{eq:state_space_model_state}
         \end{align}
-        where $\mathbf{x_k}$ represents the state vector at time $k, f$ denotes the transition function describing the
-        evolution of the state, $\mathbf{u_k}$ represents optional control inputs, and $\mathbf{w_k}$ denotes process
+        where ${x_k}$ represents the state vector at time $k, f$ denotes the transition function describing the
+        evolution of the state, ${u_k}$ represents optional control inputs, and ${w_k}$ denotes process
     noise.
     \item \textbf{Observation equation:}
         \begin{align}
-            \mathbf{z_k} &= h(\mathbf{x_{k}}, \mathbf{v_k}), \label{eq:state_space_model_observation}
+            {z_k} &= h({x_{k}}, {v_k}), \label{eq:state_space_model_observation}
         \end{align}
-        where $\mathbf{z_k}$ represents the observed measurements at time $k, h$ denotes the observation function
+        where ${z_k}$ represents the observed measurements at time $k, h$ denotes the observation function
     mapping the
     state to measurements, and $v_k$ represents the measurement noise.
 \end{enumerate}
@@ -299,36 +300,36 @@ The constant velocity model (CVM) is a fundamental component of multi-target tra
 At its core, the constant velocity model embodies the notion of inertia, where a target maintains a constant velocity unless acted upon by external forces. This conceptual simplicity allows for a straightforward representation of target motion, making the constant velocity model a popular choice for MTT applications where targets exhibit relatively uniform and predictable movement behaviors.
 
 Mathematically, the constant velocity model describes the evolution of a target's state vector over time in terms of
-its position and velocity. At each time step $k$, the state vector $\mathbf{x}_k$ comprised from the position $[x_{1,
+its position and velocity. At each time step $k$, the state vector ${x}_k$ comprised from the position $[x_{1,
 k},x_{
     2,k}]^T$ and the velocity $s$ of the target, is decomposed as follows,
 \begin{align}
-    \mathbf{x}_k &= [x_{1,k}, x_{2,k}, s_{1,k}, s_{2,k}]^T.
+    {x}_k &= [x_{1,k}, x_{2,k}, s_{1,k}, s_{2,k}]^T.
 \end{align}
 
 The dynamics of the constant velocity model can be represented using a state transition matrix $F$  and a process
 noise vector $w_k$, where the state transition matrix captures the relationship between the target's state at
 consecutive time steps
 \begin{align}
-    \mathbf{x}_{k+1} &= \mathbf{F x}_k +w_k.
+    {x}_{k+1} &= {F x}_k +w_k.
 \end{align}
-All together, vector $\mathbf{x}_k$, matrices $\mathbf{F}$ and $\mathbf{Q}$, might, for example, be represented as
+All together, vector ${x}_k$, matrices ${F}$ and ${Q}$, might, for example, be represented as
 \begin{align}
-    \mathbf{x}_k &=
+    {x}_k &=
         \begin{bmatrix}
             x_{1,k} \\
             x_{2,k} \\
             s_{1,k} \\
             s_{2,k} \\
         \end{bmatrix},
-    \quad \mathbf{F} =
+    \quad {F} =
         \begin{bmatrix}
             1 & 0 & \Delta & 0 \\
             0 & 1 & 0 & \Delta \\
             0 & 0 & 1 & 0 \\
             0 & 0 & 0 & 1 \\
         \end{bmatrix},
-    \quad \mathbf{Q} = q^2
+    \quad {Q} = q^2
         \begin{bmatrix}
             \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2} & 0 \\
             0 & \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2} \\
@@ -341,14 +342,14 @@ where $\Delta$ stands for delta time, i.e., elapsed time between the last estima
 motion noise parameter, which represents the uncertainty in the state transition. The measurement model transforms a
 state vector from the state-space into the measurement space. Since the filters derived from the Kalman filter assume only
 linear models, the measurement model for CVM assumes the same space as in the state vectors. As a result, the
-observation matrix $\mathbf{H}$ and the noise matrix $\mathbf{R}$ can be, with respect to \eqref{eq:state_space_model}, formulated
+observation matrix ${H}$ and the noise matrix ${R}$ can be, with respect to \eqref{eq:state_space_model}, formulated
 \begin{align}
-    \mathbf{H} &=
+    {H} &=
     \begin{bmatrix}
         1 & 0 & 0 & 0 \\
         0 & 1 & 0 & 0 \\
     \end{bmatrix},
-    \quad \mathbf{R} = r^2
+    \quad {R} = r^2
     \begin{bmatrix}
         1 & 0  \\
         0 & 1  \\
@@ -381,14 +382,14 @@ In MTT scenarios, targets often exhibit varying degrees of acceleration due to f
 direction, or environmental influences. Ignoring these accelerative effects can lead to biased trajectory estimates and diminished tracking accuracy. The CAM addresses this limitation by incorporating an additional acceleration component into the state-space model, enabling more faithful representation of target motion dynamics. By accounting for changes in acceleration, the CAM provides MTT algorithms with a greater flexibility and adaptability in tracking targets with non-uniform motion profiles.
 
 Mathematically, the constant acceleration model extends the state transition function of the state-space model to
-accommodate changes in acceleration over time. At each time step $k$, the evolution of the target's state vector $\mathbf{x}_k$ is governed by a set of dynamic equations that describe the position, velocity, and acceleration of the target
+accommodate changes in acceleration over time. At each time step $k$, the evolution of the target's state vector ${x}_k$ is governed by a set of dynamic equations that describe the position, velocity, and acceleration of the target
 \begin{align}
-    \mathbf{x}_k &= [x_{1,k}, x_{2,k}, s_{1,k}, s_{2,k}, a_{1,k}, a_{2,k}]^T,
+    {x}_k &= [x_{1,k}, x_{2,k}, s_{1,k}, s_{2,k}, a_{1,k}, a_{2,k}]^T,
 \end{align}
 where, as in CVM, $x_{1,k}$, $x_{2,k}$ is the position of an target in two-dimensional space, $s_{1,k}, s_{2,k}$ is
 the velocity and $a_{1,k}, a_{2,k}$ are the accelerations in both directions. Matrices $F$ and $Q$ can then be expressed
 \begin{align}
-    \mathbf{x}_k &=
+    {x}_k &=
     \begin{bmatrix}
         x_{1,k} \\
         x_{2,k} \\
@@ -397,7 +398,7 @@ the velocity and $a_{1,k}, a_{2,k}$ are the accelerations in both directions. Ma
         a_{1,k} \\
         a_{2,k} \\
     \end{bmatrix},
-    \quad \mathbf{F} =
+    \quad {F} =
     \begin{bmatrix}
         1 & 0 & \Delta & 0 & \frac{1}{2}\Delta^2 & 0\\
         0 & 1 & 0 & \Delta & 0 & \frac{1}{2}\Delta^2\\
@@ -406,7 +407,7 @@ the velocity and $a_{1,k}, a_{2,k}$ are the accelerations in both directions. Ma
         0 & 0 & 0 & 0 & 1 & 0\\
         0 & 0 & 0 & 0 & 0 & 1\\
     \end{bmatrix},
-    \quad \mathbf{Q} = q^2
+    \quad {Q} = q^2
     \begin{bmatrix}
         \frac{\Delta^4}{4} & 0 & \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2} & 0\\
         0 & \frac{\Delta^4}{4} & 0 & \frac{\Delta^3}{3} & 0 & \frac{\Delta^2}{2}\\
@@ -416,14 +417,14 @@ the velocity and $a_{1,k}, a_{2,k}$ are the accelerations in both directions. Ma
         0 & \frac{\Delta^2}{2} & 0 & \frac{\Delta^2}{2} & 0 & \Delta \\
     \end{bmatrix}.
 \end{align}
-The measurement model remains unchanged from the standard state-space model, relating the observed measurements $\mathbf{z}_k$ to the target's true state $\mathbf{x}_k$ through a measurement function $h(\cdot)$ corrupted by measurement noise $v_t$
+The measurement model remains unchanged from the standard state-space model, relating the observed measurements ${z}_k$ to the target's true state ${x}_k$ through a measurement function $h(\cdot)$ corrupted by measurement noise $v_t$
 \begin{align}
-    \mathbf{H} &=
+    {H} &=
     \begin{bmatrix}
         1 & 0 & 0 & 0 & 0 & 0 \\
         0 & 1 & 0 & 0 & 0 & 0 \\
     \end{bmatrix},
-    \quad \mathbf{R} = r^2
+    \quad {R} = r^2
     \begin{bmatrix}
         1 & 0  \\
         0 & 1  \\
@@ -431,7 +432,7 @@ The measurement model remains unchanged from the standard state-space model, rel
 \end{align}
 The constant acceleration model offers several practical advantages in MTT applications:
 \begin{itemize}
-    \item \textbf{Improved trajectory estimation:} By accounting for changes in the acceleration, the CAM enables a more accurate
+    \item \textbf{Improved trajectory estimation:} By accounting for changes in acceleration, the CAM enables a more accurate
     and realistic trajectory estimation, particularly for targets exhibiting non-uniform motion patterns or sudden changes in velocity.
     \item \textbf{Enhanced predictive capability:} The inclusion of acceleration dynamics allows MTT algorithms to make more
     informed predictions about future target states, improving the tracking performance and reducing prediction errors.
@@ -479,10 +480,11 @@ transition probabilistically over time. While these hidden states are unobservab
 
 \section{Bayes' filter}
 %The Bayes filter is a recursive framework that estimates an internal state of the system over time using measurements.
-The Bayes' filter leverages both motion and measurement models, operating under the assumption that these models
-accurately describe the system's behavior. Operating within a recursive framework, the Bayes' filter continually
+The Bayes' filter leverages both the motion and the measurement model, operating under the assumption that these models
+accurately describe the system's behavior. Functioning within a recursive framework, the Bayes' filter continually
 estimates the internal state of the system over time using available measurements. Each iteration of the filter
-entails two fundamental steps: prediction and update. During the prediction step, the filter anticipates the internal
+entails two fundamental steps: a prediction and an update. During the prediction step, the filter anticipates the
+internal
 state $x_k$ based on the preceding state $x_{k-1}$ and the motion model $p(x_k|x_{k-1})$. This prediction step is
 commonly referred to as the Chapman-Kolmogorov equation \cite{DedeciusSeq2017}.
 \begin{theorem}[The Chapman-Kolmogorov equation-prediction step]

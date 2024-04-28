@@ -26,7 +26,7 @@ networks are
 capable of automatically learning hierarchical representations of data, making them well suited for image analysis
 tasks. The rise of CNN-based approaches has led to significant improvements in object detection accuracy and efficiency.
 At its core, a convolutional neural network is comprised of multiple layers, each designed to perform specific
-operations on input data, typically images. The fundamental layers in an architecture include convolutional layers,
+operations on input data, typically images. The fundamental layers in an architecture of these networks include convolutional layers,
 pooling layers, and fully connected layers.
 \begin{enumerate}
   \item \textbf{Convolutional layers:} These layers are responsible for extracting features from the input data. They consist of filters (also called kernels) that slide across the input image, performing a mathematical operation known as convolution. Each filter detects certain patterns or features, such as edges, textures, or shapes. By convolving the filters with the input image, the CNN can capture hierarchical representations of features, starting from simple edges and gradients to more complex structures.
@@ -78,7 +78,7 @@ This loss function is optimized during training using labeled datasets to learn 
 
 The evolution of YOLO over successive versions underscores its adaptability to diverse use cases and computational environments. While early iterations prioritized speed, subsequent iterations like YOLOv4 and YOLOv5 aim to enhance accuracy without compromising real-time performance \cite{YoloVersions2022}. This flexibility in the model selection empowers users to tailor YOLO to their specific requirements, whether it be for surveillance systems demanding rapid detection or autonomous vehicles requiring a precise object localization.
 
-Compared to the traditional object detection methodologies such as region-based convolutional neural networks (R-CNN) \cite{MaskRCNN2017} and single-shot detectors (SSD), YOLO stands out for its simplicity and efficiency. By eliminating the need for complex post-processing steps and leveraging a unified architecture for object detection (see Figure \ref{fig:yoloArchitecture} for YOLO architecture), YOLO achieves a fine balance between speed and accuracy. This versatility extends YOLO's applicability across a myriad of domains, including, but not limited to, autonomous driving, industrial automation, healthcare imaging, and augmented reality.
+Compared to the traditional object detection methodologies such as region-based convolutional neural networks (R-CNN) \cite{MaskRCNN2017} and single-shot detectors (SSD), YOLO stands out for its simplicity and efficiency. By eliminating the need for complex post-processing steps and leveraging a unified architecture for object detection (see Figure \ref{fig:yoloArchitecture} for YOLO architecture), YOLO achieves a fine balance between speed and accuracy. This versatility extends YOLO's applicability across a myriad of domains including, but not limited to, autonomous driving, industrial automation, healthcare imaging, and augmented reality.
 
 \begin{figure}
   \centering

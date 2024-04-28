@@ -9,13 +9,11 @@ from an image.
 
 Note, that in all target tracking algorithms for cluttered environments and targets
 birth and dead possibilities, there is a parameter called the detection probability ($p_D$). As its name
-suggests, this parameter expresses a probability that the target is detected in the particular time. It is also commonly
+suggests, this parameter expresses a probability that the target is detected in a particular time. It is also commonly
 used
 as a
 time- and state-independent scalar. The desired outcome is to enhance the performance of multi-target
-algorithms
-in video data
-in scenarios, where the targets may be hidden by an obstacle, and reduce impacts of a misdetection of a sensor.
+algorithms in scenarios where the targets may be hidden by an obstacle and reduce impacts of a misdetection of a sensor.
 Therefore, it
 is appropriate to have a dynamic time- and state-varying detection probability.
 \section{Problem definition}
@@ -41,7 +39,7 @@ are not adequate when used in video streams. Provided settings are:
 
 \subsection{The modified GM-PHD filter}
 To modify the GM-PHD filter for our use case, a few assumptions have to be introduced. These assumptions are very
-similar to the ones of the PHD filter and the GM-PHD filter in Section \ref{sec:phdfilter} and \ref{sec:gmphdFilter}.
+similar to those of the PHD filter and the GM-PHD filter in Section \ref{sec:phdfilter} and \ref{sec:gmphdFilter}.
 \begin{enumerate}
   \item Each target evolves and generates observations independently of each other. \label{as:mphd_1}
   \item Clutter is Poisson and independent of target-originated measurements. \label{as:mphd_2}
@@ -177,8 +175,7 @@ object segmentation YOLO model is shown in the Figure \ref{fig:yolo_seg}.
   \centering
   \includegraphics[width=0.35\linewidth]{text/chapter_04/imgs/YOLO_screenshot_2}
   \caption{YOLO segmentation example. This picture shows all detected objects the YOLO model is trained for and also
-  the segmented objects' masks. These masks are imperfect, but often sufficient enough. This figure was taken in
-  Kartouzská street, Prague.}
+  the segmented objects' masks. These masks are imperfect, but often sufficient enough. (Kartouzská street, Prague)}
   \label{fig:yolo_seg}
 \end{figure}
 
@@ -230,8 +227,7 @@ The cooperation of these two models is demonstrated in Figure \ref{fig:yolo_sam_
   \centering
   \includegraphics[width=0.35\linewidth]{text/chapter_04/imgs/YOLO_SAM_02}
   \caption{The cooperation of YOLO and SAM models. The YOLO provides bounding boxes of objects, which are inputs to
-  SAM. The SAM model then makes segmented masks of these objects. This figure was taken in
-  Kartouzská street, Prague.}
+  SAM. The SAM model then makes segmented masks of these objects. (Kartouzská street, Prague)}
   \label{fig:yolo_sam_seg}
 \end{figure}
 
@@ -254,8 +250,7 @@ SAM uses these bounding boxes to segment objects and creates segmentation binary
   \centering
   \includegraphics[width=0.35\linewidth]{text/chapter_04/imgs/DINO_example}
   \caption{The result of the Grounded SAM model. Grounding DINO marks objects with bounding boxes and SAM segments
-  objects inside these bboxes. Marked objects are founded by Grounding DINO with text input \textit{person, car}. This figure was taken in
-  Kartouzská street, Prague.}
+  objects inside these bboxes. Marked objects are founded by Grounding DINO with text input \textit{person, car}. (Kartouzská street, Prague)}
   \label{fig:GroundedSAM}
 \end{figure}
 
@@ -437,7 +432,7 @@ misdetection-born target. As the weight is small, the target is likely to be rem
 If the previously detected target is hidden behind an obstacle and the object detector does not provide any
 measurement, only misdetection-born target arises. In such case, the mask from the time when the target was lastly
 detected is compared to the predicted mask that now also contains the obstacle's color properties. Due to using
-camera as
+a camera as
 a sensor, frames at high frame rate are produced. To prevent the loss of significant information, lowering the fps to a minimal rate is not desirable. We lower the fps to 10-30 fps to enhance the dynamics of the scene. However, in a such short time
 period, the target, e.g. a car, does not move enough. The predicted mask then intersects with the lastly
 detected target's mask by a considerably huge amount. That is why we define a probability of the target to be hidden (\textit{hidden probability}, $p_{H,k}$) and modify
